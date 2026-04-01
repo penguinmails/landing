@@ -1,7 +1,21 @@
 ---
-
+import { Image } from "astro:assets";
+import LogoImageSrc from "@/assets/logo.png";
 ---
 
-<div>
-    <img src="/logo.png" alt="Logo" class="w-16 h-16" />
-</div>
+<a
+  href="/"
+  class="inline-flex items-center gap-0.35 leading-none no-underline sm:gap-2"
+  aria-label="PenguinMails home"
+>
+  <Image
+    src={LogoImageSrc}
+    alt="PenguinMails logo"
+    class="h-7.5 w-7.5 object-contain sm:h-9.5 sm:w-9.5"
+  />
+  <span
+    class="inline-flex text-[1.55rem] leading-[0.95] font-extrabold tracking-[-0.04em] sm:text-[2.05rem]"
+  >
+    <span>Penguin</span><span class="text-[#f2b632]">Mails</span>
+  </span>
+</a>

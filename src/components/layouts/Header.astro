@@ -4,8 +4,12 @@ import Logo from "./Logo.astro";
 import NavLinks from "./NavLinks.astro";
 ---
 
-<header class="flex justify-between items-center">
-  <Logo />
-  <NavLinks />
-  <Button> Login </Button>
+<header class="w-full">
+  <div
+    class="mx-auto grid h-20 w-full grid-cols-[auto_1fr_auto] items-center px-5 md:px-8"
+  >
+    <Logo />
+    <NavLinks />
+    <Button className={"min-w-20"}> Login </Button>
+  </div>
 </header>
