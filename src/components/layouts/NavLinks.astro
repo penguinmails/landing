@@ -1,0 +1,46 @@
+---
+import { cn } from "@/lib/utils";
+
+const navLinks = [
+  { name: "Home", href: "/" },
+  {
+    name: "Features",
+    href: "/features",
+  },
+  {
+    name: "Pricing",
+    href: "/pricing",
+  },
+  {
+    name: "Usecases",
+    href: "/usecases",
+  },
+];
+const currentPath = Astro.url.pathname;
+const isActive = (href: string) => {
+  return currentPath === href;
+};
+---
+
+<nav class="flex gap-6">
+  {
+    navLinks.map((link) => (
+      <div>
+        <a
+          href={link.href}
+          class={cn(
+            "text-sm font-medium transition-colors",
+            "text-gray-600 hover:text-gray-900",
+            { "text-gray-900 font-bold": isActive(link.href) },
+          )}
+          data-active={isActive(link.href) ? "true" : "false"}
+        >
+          {link.name}
+        </a>
+        {isActive(link.href) && (
+          <div class="h-2 rounded-full bg-yellow-500 w-2 mx-auto" />
+        )}
+      </div>
+    ))
+  }
+</nav>
