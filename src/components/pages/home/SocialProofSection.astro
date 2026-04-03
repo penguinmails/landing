@@ -1,0 +1,145 @@
+---
+import Badge from "@/components/ui/Badge.astro";
+import ProfileImage from "@/assets/user-image.jpg";
+import { Image } from "astro:assets";
+const stats = [
+  {
+    value: "98%",
+    label: "average inbox placement",
+    sizeClass: "text-4xl sm:text-5xl",
+  },
+  {
+    value: "2,000+",
+    label: "campaigns sent monthly",
+    sizeClass: "text-4xl sm:text-5xl",
+  },
+  {
+    value: "Startup Ready",
+    label: "Used by startups & agencies worldwide",
+    sizeClass: "text-3xl sm:text-4xl",
+  },
+];
+
+const messages = [
+  {
+    initials: "SJ",
+    name: "Sarah Johnson",
+    company: "TechCorp",
+    tag: "interested",
+    body: "Thanks for reaching out! I'd love to schedule a call to di...",
+    bodyClass: "truncate sm:whitespace-normal sm:line-clamp-2",
+  },
+  {
+    initials: "LR",
+    name: "Lisa Rodriguez",
+    company: "Enterprise Inc",
+    tag: "interested",
+    body: "This looks interesting. Can you send me more informat... pricing?",
+    bodyClass: "line-clamp-2",
+  },
+];
+---
+
+<section class="py-24 bg-white relative overflow-hidden">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <h2
+      class="text-3xl font-bold text-center text-slate-900 tracking-tight sm:text-4xl mb-20"
+    >
+      Trusted by modern outbound teams
+    </h2>
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+      <!-- Left Column: Stats -->
+      <div class="space-y-12">
+        {
+          stats.map((stat) => (
+            <div>
+              <div
+                class={`${stat.sizeClass} font-bold text-blue-600 tracking-tight mb-2`}
+              >
+                {stat.value}
+              </div>
+              <div class="text-xl text-slate-600">{stat.label}</div>
+            </div>
+          ))
+        }
+      </div>
+
+      <!-- Right Column: UI Mockup -->
+      <div
+        class="relative w-full max-w-lg md:max-w-xl mx-auto lg:max-w-none pt-8 pl-8 sm:pt-12 sm:pl-12"
+      >
+        <!-- Background Blue Shape -->
+        <div
+          class="absolute top-0 -right-12 -bottom-12 left-0 bg-linear-to-b from-primary to-white rounded-tl-3xl sm:rounded-tl- overflow-hidden"
+        >
+        </div>
+
+        <!-- White Interface Card -->
+        <div
+          class="relative whitespace-nowrap bg-white rounded-tl-3xl rounded-bl-3xl sm:rounded-tl-4xl sm:rounded-bl-4xl shadow-[0_8px_30px_rgb(0,0,0,0.06)] p-6 flex flex-col gap-8 h-full min-h-75 border border-slate-100 border-r-0 transform translate-x-2 translate-y-2 sm:translate-x-4 sm:translate-y-4"
+        >
+          {
+            messages.map((message, index) => (
+              <>
+                <div class="flex gap-4 sm:gap-6 items-start">
+                  <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-[#e8e9ea] flex items-center justify-center text-lg sm:text-[20px] font-medium text-slate-800 shrink-0 mt-0.5">
+                    {message.initials}
+                  </div>
+                  <div class="flex-1 min-w-0 pb-2">
+                    <div class="flex  items-center gap-2 sm:gap-3 mb-2">
+                      <span class="text-[20px] sm:text-[22px] tracking-tight font-medium text-[#1c1f24]">
+                        {message.name}
+                      </span>
+                      <span class="w-1.5 h-1.5 rounded-full bg-[#9ca3af]" />
+                      <span class="text-[16px] sm:text-[17px] text-[#71717a]">
+                        {message.company}
+                      </span>
+                      <Badge variant={"success"}>{message.tag}</Badge>
+                    </div>
+                    <p
+                      class={`text-[#71717a] text-[16px] sm:text-[17px] leading-relaxed ${message.bodyClass}`}
+                    >
+                      {message.body}
+                    </p>
+                  </div>
+                </div>
+
+                {index !== messages.length - 1 && (
+                  <hr class="border-gray-200" />
+                )}
+              </>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom Testimonial -->
+    <div class="relative mt-32 max-w-3xl mx-auto pl-4 border-l-0 sm:border-l-0">
+      <div class="flex items-start sm:items-center justify-center gap-6">
+        <div
+          class="w-12 h-12 rounded-full bg-slate-900 shrink-0 flex items-center justify-center text-white text-xl font-bold overflow-hidden shadow-sm"
+        >
+          <Image
+            src={ProfileImage}
+            alt="User Profile Image"
+            class="w-full h-full object-cover"
+            loading={"eager"}
+          />
+        </div>
+        <div>
+          <p
+            class="text-xl sm:text-2xl text-slate-600 font-medium leading-relaxed mb-3"
+          >
+            We moved from inconsistent delivery to predictable inbox placement
+            in two weeks.
+          </p>
+          <div class="font-bold text-slate-900 text-lg">
+            — Founder, B2B SaaS
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
