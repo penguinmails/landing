@@ -24,7 +24,7 @@ const navLinks = [
     href: "/usecases",
   },
 ];
-const currentPath = Astro.url.pathname;
+const currentPath = Astro.url.pathname.replace(/\/$/, "") || "/";
 const isActive = (href: string) => {
   return currentPath === href;
 };
