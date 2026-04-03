@@ -1,12 +1,13 @@
 ---
-import Logo from "@/components/layouts/Logo.astro";
 import ActiveIcon from "@/assets/icons/active-link-yellow-point.svg";
-import ThreeLinesVerticalIcon from "@/assets/icons/menu-three-lines.svg";
 /**
  * Close icon fallback: we reuse the existing menu icon and rotate it 90°
  * so we don't introduce a new asset dependency.
  */
 import { cn } from "@/lib/utils";
+import { Menu, X } from "@lucide/astro";
+import Button from "../ui/button.astro";
+import Logo from "./Logo.astro";
 const navLinks = [
   { name: "Home", href: "/" },
   {
@@ -56,3 +57,54 @@ const isActive = (href: string) => {
     })
   }
 </nav>
+<Button variant="ghost" className="md:hidden justify-self-end" aria-menu-trigger="Open navigation menu">
+  <Menu class="h-6 w-6 " aria-label="Open navigation menu" />
+</Button>
+<div class="hidden" aria-label="Mobile navigation menu" aria-menu-open="false">
+  <div class="fixed  h-screen w-full  bg-white inset-0 z-50">
+    <div class=" relative  mx-auto py-6.5 px-5 container">
+      <div class="flex justify-between items-center">
+        <Logo/>
+        <Button variant="ghost" className="absolute top-4 right-4" aria-label="Close navigation menu">
+          <X class="h-6 w-6 rotate-90" aria-hidden="true" />
+        </Button>
+      </div>
+      <div class="mt-10 flex flex-col gap-6">
+        {
+          navLinks.map((link) => {
+            const active = isActive(link.href);
+            return (
+              <a
+              href={link.href}
+              class={cn(
+                "text-lg font-medium text-gray-600 transition-colors hover:text-gray-900",
+                { "font-semibold text-gray-900": active },
+              )}
+              data-active={active ? "true" : "false"}
+              >
+                {link.name}
+              </a>
+            );
+          })
+        }
+        </div>
+        
+      </div>
+    </div>
+</div>
+    
+<script>
+  const menuButton = document.querySelector('button[aria-menu-trigger="Open navigation menu"]');
+  const mobileMenu = document.querySelector('div[aria-label="Mobile navigation menu"]');
+  const closeButton = mobileMenu?.querySelector('button[aria-label="Close navigation menu"]');
+  function openMenu() {
+    mobileMenu?.classList.remove('hidden');
+    mobileMenu?.setAttribute('aria-menu-open', 'true');
+  }
+  function closeMenu() {
+    mobileMenu?.classList.add('hidden');
+    mobileMenu?.setAttribute('aria-menu-open', 'false');
+  }
+  menuButton?.addEventListener('click', openMenu);
+  closeButton?.addEventListener('click', closeMenu);
+</script>

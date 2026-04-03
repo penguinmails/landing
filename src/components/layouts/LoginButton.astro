@@ -3,12 +3,11 @@ import { cn } from "@/lib/utils";
 import type { ClassNameValue } from "tailwind-merge";
 import Button from "../ui/button.astro";
 interface Props {
-	className ?: ClassNameValue
+	className ?: ClassNameValue;
+  varient?: 'primary' | 'secondary' | 'outline' | 'ghost' | 'link';
 }
-const { className } = Astro.props;
+const { className, variant } = Astro.props;
 ---
-<Button varient="primary">
-
+<Button variant={variant || "primary"} size="md" className={cn( className)}>
     Login
-
 </Button>
