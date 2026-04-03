@@ -77,28 +77,30 @@ const messages = [
 
         <!-- White Interface Card -->
         <div
-          class="relative whitespace-nowrap bg-white rounded-tl-3xl rounded-bl-3xl sm:rounded-tl-4xl sm:rounded-bl-4xl shadow-[0_8px_30px_rgb(0,0,0,0.06)] p-6 flex flex-col gap-8 h-full min-h-75 border border-slate-100 border-r-0 transform translate-x-2 translate-y-2 sm:translate-x-4 sm:translate-y-4"
+          class="relative whitespace-nowrap overflow-x-hidden sm:overflow-visible bg-white rounded-tl-3xl rounded-bl-3xl sm:rounded-tl-4xl sm:rounded-bl-4xl shadow-[0_8px_30px_rgb(0,0,0,0.06)] p-4 sm:p-6 flex flex-col gap-6 sm:gap-8 h-full min-h-75 border border-slate-100 border-r-0 transform translate-x-2 translate-y-2 sm:translate-x-4 sm:translate-y-4"
         >
           {
             messages.map((message, index) => (
               <>
-                <div class="flex gap-4 sm:gap-6 items-start">
-                  <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-[#e8e9ea] flex items-center justify-center text-lg sm:text-[20px] font-medium text-slate-800 shrink-0 mt-0.5">
+                <div class="flex gap-3 sm:gap-6 items-start">
+                  <div class="w-9 h-9 sm:w-14 sm:h-14 rounded-full bg-[#e8e9ea] flex items-center justify-center text-sm sm:text-[20px] font-medium text-slate-800 shrink-0 sm:mt-0.5">
                     {message.initials}
                   </div>
-                  <div class="flex-1 min-w-0 pb-2">
-                    <div class="flex  items-center gap-2 sm:gap-3 mb-2">
-                      <span class="text-[20px] sm:text-[22px] tracking-tight font-medium text-[#1c1f24]">
+                  <div class="flex-1 min-w-0 pb-1 sm:pb-2">
+                    <div class="flex items-center gap-1.5 sm:gap-3 mb-1 sm:mb-2">
+                      <span class="text-[14px] sm:text-[22px] tracking-tight font-medium text-[#1c1f24]">
                         {message.name}
                       </span>
-                      <span class="w-1.5 h-1.5 rounded-full bg-[#9ca3af]" />
-                      <span class="text-[16px] sm:text-[17px] text-[#71717a]">
+                      <span class="w-1 h-1 sm:w-1.5 sm:h-1.5 rounded-full bg-[#9ca3af]" />
+                      <span class="text-[12px] sm:text-[17px] text-[#71717a]">
                         {message.company}
                       </span>
-                      <Badge variant={"success"}>{message.tag}</Badge>
+                      <div class="scale-[0.8] sm:scale-100 origin-left ml-1 sm:ml-0">
+                        <Badge variant={"success"}>{message.tag}</Badge>
+                      </div>
                     </div>
                     <p
-                      class={`text-[#71717a] text-[16px] sm:text-[17px] leading-relaxed ${message.bodyClass}`}
+                      class={`text-[#71717a] text-[12px] sm:text-[17px] leading-relaxed ${message.bodyClass}`}
                     >
                       {message.body}
                     </p>
