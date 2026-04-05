@@ -1,0 +1,137 @@
+---
+import MessagesList from "@/components/shared/MessagesList.astro";
+import Badge from "@/components/ui/Badge.astro";
+import type { Message } from "@/types/message";
+
+const features = [
+  {
+    title: "Automated Warmup",
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-primary"><circle cx="12" cy="12" r="10"/><path d="m16 10-4 4-4-4"/></svg>`,
+    description:
+      "Protect your sender reputation with smart, human-like activity simulation.",
+  },
+  {
+    title: "Inbox Rotation",
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-primary"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>`,
+    description:
+      "Distribute sending volume safely across multiple inboxes to stay under provider limits.",
+  },
+  {
+    title: "Unified Inbox",
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-primary"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>`,
+    description:
+      "Manage all conversations in one place without switching tools or browser profiles.",
+  },
+];
+
+const messages: Message[] = [
+  {
+    id: 1,
+    initials: "SJ",
+    name: "Sarah Johnson",
+    company: "TechCorp",
+    tag: "interested",
+    badgeVariant: "success",
+    body: "Thanks for reaching out! I'd love to schedule a call to discuss this",
+  },
+  {
+    id: 2,
+    initials: "LR",
+    name: "Lisa Rodriguez",
+    company: "Enterprise Inc",
+    tag: "interested",
+    badgeVariant: "success",
+    body: "This looks interesting. Can you send me more information about pricing?",
+  },
+  {
+    id: 3,
+    initials: "MC",
+    name: "Mike Chen",
+    company: "Startup.io",
+    tag: "not interested",
+    badgeVariant: "secondary",
+    body: "Not interested at this time, but please keep us in mind for the future",
+  },
+  {
+    id: 4,
+    initials: "LR",
+    name: "Lisa Rodriguez",
+    company: "Enterprise Inc",
+    tag: "interested",
+    badgeVariant: "success",
+    body: "This looks interesting. Can you send me more information about pricing?",
+  },
+];
+---
+
+<section class="py-20 lg:py-24 overflow-hidden">
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-center">
+      {/* Left Column: Content */}
+      <div class="max-w-2xl">
+        <h2
+          class="text-4xl sm:text-5xl font-bold text-slate-900 tracking-tight mb-4 leading-[1.1]"
+        >
+          The Cold Email Platform Built for Deliverability
+        </h2>
+        <p class="text-xl sm:text-[22px] text-slate-600 mb-12 leading-relaxed">
+          PenguinMails focuses on one thing first: inbox placement. Everything
+          else supports that.
+        </p>
+
+        <div class="space-y-10 mb-12">
+          {
+            features.map((feature) => (
+              <div class="flex gap-5 items-start">
+                <div
+                  class="shrink-0 w-12 h-12 rounded-xl bg-blue-50 flex items-center justify-center"
+                  set:html={feature.icon}
+                />
+                <div>
+                  <h3 class="text-lg sm:text-xl font-bold text-slate-900 mb-1.5">
+                    {feature.title}
+                  </h3>
+                  <p class="text-slate-600 text-[17px] leading-relaxed">
+                    {feature.description}
+                  </p>
+                </div>
+              </div>
+            ))
+          }
+        </div>
+
+        <div
+          class="bg-slate-50 border-l-4 border-primary p-6 rounded-r-xl inline-block w-full"
+        >
+          <p class="text-slate-700 text-[15px] sm:text-[16px]">
+            "Built using industry-standard authentication (SPF, DKIM, DMARC)
+            best practices."
+          </p>
+        </div>
+      </div>
+
+      {/* Right Column: UI Mockup */}
+      <div
+        class="relative w-full max-w-lg md:max-w-xl mx-auto lg:max-w-none pt-8 pl-4 sm:pt-12 sm:pl-12"
+      >
+        {/* Background Blue Shape */}
+        <div class="gradient-blue-white"></div>
+
+        {/* White Interface Card */}
+        <div
+          class="relative bg-white rounded-tl-xl rounded-bl-xl sm:rounded-tl-3xl sm:rounded-bl-3xl shadow-[0_8px_30px_rgb(0,0,0,0.08)] border border-slate-100 border-r-0 transform translate-y-4 sm:translate-y-8 lg:translate-x-8 overflow-hidden flex flex-col"
+        >
+          <div
+            class="p-6 sm:p-8 border-b border-gray-100 bg-white sticky top-0 z-10"
+          >
+            <h3 class="font-bold text-slate-900 text-lg sm:text-xl">
+              Recent Replies
+            </h3>
+          </div>
+
+          <MessagesList messages={messages} />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

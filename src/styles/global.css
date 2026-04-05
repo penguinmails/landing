@@ -64,3 +64,20 @@ button,
 .section-dark .body-text {
   color: #d1d5db;
 }
+
+.gradient-blue-white {
+  position: absolute;
+  top: 0;
+  right: -3rem;
+  bottom: -3rem;
+  left: 0;
+  overflow: hidden;
+  border-top-left-radius: 1.5rem;
+  background: linear-gradient(to bottom, var(--color-primary), #ffffff);
+}
+
+@media (min-width: 640px) {
+  .gradient-blue-white {
+    border-top-left-radius: 1.5rem;
+  }
+}

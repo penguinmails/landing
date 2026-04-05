@@ -2,6 +2,8 @@
 import Badge from "@/components/ui/Badge.astro";
 import ProfileImage from "@/assets/user-image.jpg";
 import { Image } from "astro:assets";
+import type { Message } from "@/types/message";
+import MessagesList from "@/components/shared/MessagesList.astro";
 const stats = [
   {
     value: "98%",
@@ -20,22 +22,26 @@ const stats = [
   },
 ];
 
-const messages = [
+const messages: Message[] = [
   {
+    id: 1,
     initials: "SJ",
     name: "Sarah Johnson",
     company: "TechCorp",
     tag: "interested",
     body: "Thanks for reaching out! I'd love to schedule a call to di...",
     bodyClass: "truncate sm:whitespace-normal sm:line-clamp-2",
+    badgeVariant: "success",
   },
   {
+    id: 2,
     initials: "LR",
     name: "Lisa Rodriguez",
     company: "Enterprise Inc",
     tag: "interested",
     body: "This looks interesting. Can you send me more informat... pricing?",
     bodyClass: "line-clamp-2",
+    badgeVariant: "success",
   },
 ];
 ---
@@ -70,50 +76,13 @@ const messages = [
         class="relative w-full max-w-lg md:max-w-xl mx-auto lg:max-w-none pt-8 pl-8 sm:pt-12 sm:pl-12"
       >
         <!-- Background Blue Shape -->
-        <div
-          class="absolute top-0 -right-12 -bottom-12 left-0 bg-linear-to-b from-primary to-white rounded-tl-3xl sm:rounded-tl- overflow-hidden"
-        >
-        </div>
+        <div class="gradient-blue-white"></div>
 
         <!-- White Interface Card -->
-        <div
-          class="relative whitespace-nowrap overflow-x-hidden sm:overflow-visible bg-white rounded-tl-3xl rounded-bl-3xl sm:rounded-tl-4xl sm:rounded-bl-4xl shadow-[0_8px_30px_rgb(0,0,0,0.06)] p-4 sm:p-6 flex flex-col gap-6 sm:gap-8 h-full min-h-75 border border-slate-100 border-r-0 transform translate-x-2 translate-y-2 sm:translate-x-4 sm:translate-y-4"
-        >
-          {
-            messages.map((message, index) => (
-              <>
-                <div class="flex gap-3 sm:gap-6 items-start">
-                  <div class="w-9 h-9 sm:w-14 sm:h-14 rounded-full bg-[#e8e9ea] flex items-center justify-center text-sm sm:text-[20px] font-medium text-slate-800 shrink-0 sm:mt-0.5">
-                    {message.initials}
-                  </div>
-                  <div class="flex-1 min-w-0 pb-1 sm:pb-2">
-                    <div class="flex items-center gap-1.5 sm:gap-3 mb-1 sm:mb-2">
-                      <span class="text-[14px] sm:text-[22px] tracking-tight font-medium text-[#1c1f24]">
-                        {message.name}
-                      </span>
-                      <span class="w-1 h-1 sm:w-1.5 sm:h-1.5 rounded-full bg-[#9ca3af]" />
-                      <span class="text-[12px] sm:text-[17px] text-[#71717a]">
-                        {message.company}
-                      </span>
-                      <div class="scale-[0.8] sm:scale-100 origin-left ml-1 sm:ml-0">
-                        <Badge variant={"success"}>{message.tag}</Badge>
-                      </div>
-                    </div>
-                    <p
-                      class={`text-[#71717a] text-[12px] sm:text-[17px] leading-relaxed ${message.bodyClass}`}
-                    >
-                      {message.body}
-                    </p>
-                  </div>
-                </div>
-
-                {index !== messages.length - 1 && (
-                  <hr class="border-gray-200" />
-                )}
-              </>
-            ))
-          }
-        </div>
+        <MessagesList
+          messages={messages}
+          className="relative bg-white rounded-xl shadow-lg overflow-hidden"
+        />
       </div>
     </div>
 

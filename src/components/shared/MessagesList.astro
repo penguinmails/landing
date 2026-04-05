@@ -1,0 +1,15 @@
+---
+import type { Message } from "@/types/message";
+import MessageListItem from "./MessageListItem.astro";
+import type { ClassNameValue } from "tailwind-merge";
+
+interface Props {
+  messages: Message[];
+  className?: ClassNameValue;
+}
+const { messages, className } = Astro.props;
+---
+
+<div class={className?.toString()}>
+  {messages.map((message) => <MessageListItem message={message} />)}
+</div>

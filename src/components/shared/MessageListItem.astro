@@ -1,0 +1,42 @@
+---
+import type { Message } from "@/types/message";
+import Badge from "../ui/Badge.astro";
+interface Props {
+  message: Message;
+}
+const { message } = Astro.props;
+---
+
+<div class="p-6 sm:p-8 border-b border-gray-100 last:border-b-0 bg-white">
+  <div class="flex gap-4 sm:gap-6 items-start">
+    <div
+      class="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-gray-200 flex items-center justify-center text-sm sm:text-lg font-medium text-slate-800 shrink-0"
+    >
+      {message.initials}
+    </div>
+    <div class="flex-1 min-w-0">
+      <div class="flex flex-wrap items-center gap-2 sm:gap-3 mb-2">
+        <span
+          class="text-[16px] sm:text-[18px] tracking-tight font-medium text-slate-900"
+        >
+          {message.name}
+        </span>
+        <span class="w-1 h-1 sm:w-1.5 sm:h-1.5 rounded-full bg-slate-400"
+        ></span>
+        <span class="text-[14px] sm:text-[15px] text-slate-500">
+          {message.company}
+        </span>
+        <div class="scale-[0.85] origin-left ml-auto">
+          <Badge variant={message.badgeVariant}>
+            {message.tag}
+          </Badge>
+        </div>
+      </div>
+      <p
+        class="text-slate-600 text-[14px] sm:text-[16px] leading-relaxed line-clamp-2"
+      >
+        {message.body}
+      </p>
+    </div>
+  </div>
+</div>
