@@ -12,7 +12,6 @@ const {
 
 const url = Astro.url.pathname.slice(1) || "Home";
 const title = `Penguin - ${url.charAt(0).toUpperCase() + url.slice(1)}`;
-
 ---
 
 <!doctype html>
@@ -32,6 +31,5 @@ const title = `Penguin - ${url.charAt(0).toUpperCase() + url.slice(1)}`;
   <body class="min-h-screen">
     <Header />
     <slot />
-
   </body>
 </html>

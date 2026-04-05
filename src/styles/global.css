@@ -19,11 +19,11 @@
   font-display: swap;
 }
 @theme inline {
-  --color-primary: #1D60E5;
-  --color-primary-600: #0086FF;
-  --color-primary-700: #1272F8;
-  --color-secondary: #FBBB25;
-  
+  --color-primary: #1d60e5;
+  --color-primary-600: #0086ff;
+  --color-primary-700: #1272f8;
+  --color-secondary: #fbbb25;
+
   --font-sans: "BDO Grotesk", sans-serif;
 }
 
@@ -33,25 +33,34 @@ body {
   color: #111827;
 }
 
-h1, h2, h3, h4, h5, h6, 
-.display, .heading, .title, .subtitle, 
-button, .cta-button, .btn {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.display,
+.heading,
+.title,
+.subtitle,
+button,
+.cta-button,
+.btn {
   font-family: var(--font-sans);
   font-weight: 600;
 }
 
-
 /* Sections Backgrounds */
 .section-neutral {
-  background-color: #F9FAFB;
+  background-color: #f9fafb;
 }
 
 .section-dark {
   background-color: #111827;
-  color: #FFFFFF;
+  color: #ffffff;
 }
 
-.section-dark p, 
+.section-dark p,
 .section-dark .body-text {
-  color: #D1D5DB;
+  color: #d1d5db;
 }
