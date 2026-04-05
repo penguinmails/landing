@@ -1,0 +1,51 @@
+---
+const results = [
+  {
+    icon: "🔥",
+    text: "Higher open rates",
+  },
+  {
+    icon: "💬",
+    text: "More replies",
+  },
+  {
+    icon: "🛡️",
+    text: "Safer domains",
+  },
+  {
+    icon: "🚀",
+    text: "Sustainable growth",
+  },
+];
+---
+
+<section class="container mx-auto px-4 py-16 md:py-24 max-w-6xl">
+  <div class="text-center mb-12 md:mb-16">
+    <h2
+      class="text-3xl md:text-4xl lg:text-[40px] font-semibold text-gray-900 mx-auto text-center tracking-tight"
+    >
+      What Better Deliverability <br class="md:hidden" /> Looks Like
+    </h2>
+  </div>
+
+  <div
+    class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mx-auto w-full max-w-70 sm:max-w-none"
+  >
+    {
+      results.map((result) => (
+        <div class="border hover:bg-blue-100  transition-colors duration-300 border-blue-200 rounded-2xl p-8 md:p-10 flex flex-col items-center justify-center text-center bg-white">
+          <div class="text-3xl md:text-4xl mb-3">{result.icon}</div>
+          <div class="text-primary font-semibold text-lg">{result.text}</div>
+        </div>
+      ))
+    }
+  </div>
+
+  <div class="mt-20 md:mt-24 text-center max-w-5xl mx-auto px-4">
+    <p
+      class="text-gray-900 text-[22px] md:text-2xl lg:text-[28px] font-semibold tracking-tight leading-relaxed"
+    >
+      "When emails land in inboxes, outreach starts working again."
+    </p>
+  </div>
+</section>
