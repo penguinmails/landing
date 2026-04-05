@@ -5,27 +5,47 @@ import dashboardImg from "../../../assets/Dashboard.png";
 import Button from "../../ui/Button.astro";
 ---
 
-<section class="pt-8 text-center bg-white flex flex-col items-center overflow-hidden">
+<section class="pt-8 text-center flex flex-col items-center overflow-hidden">
   <div class="container mx-auto px-4 w-full flex flex-col items-center">
-    <h1 class="text-[32px] sm:text-[40px] md:text-[64px] font-semibold tracking-tight leading-tight mb-8 text-gray-900">
+    <h1
+      class="text-[32px] sm:text-[40px] md:text-[64px] font-semibold tracking-tight leading-tight mb-8 text-gray-900"
+    >
       Cold Emails That Reach<br class="hidden md:block" />
-      <div class="inline-flex items-center align-middle mt-2 md:mt-4 whitespace-nowrap">
+      <div
+        class="inline-flex items-center align-middle mt-2 md:mt-4 whitespace-nowrap"
+      >
         <div class="flex h-10 sm:h-12 md:h-18">
           <div class="bg-secondary w-2 sm:w-3 md:w-4 h-full"></div>
-          <div class="bg-primary text-white flex items-center px-2 sm:px-3 md:px-5 h-full">
-            <Mail class="w-6 h-6 sm:w-8 sm:h-8 md:w-12 md:h-12 mr-1 sm:mr-2 md:mr-3" />
-            <span class="text-[28px] sm:text-[36px] md:text-[60px] leading-none mb-1 md:mb-2 tracking-tight">the Inbox.</span>
+          <div
+            class="bg-primary text-white flex items-center px-2 sm:px-3 md:px-5 h-full"
+          >
+            <Mail
+              class="w-6 h-6 sm:w-8 sm:h-8 md:w-12 md:h-12 mr-1 sm:mr-2 md:mr-3"
+            />
+            <span
+              class="text-[28px] sm:text-[36px] md:text-[60px] leading-none mb-1 md:mb-2 tracking-tight"
+              >the Inbox.</span
+            >
           </div>
         </div>
-        <span class="ml-2 sm:ml-4 text-[28px] sm:text-[36px] md:text-[60px] tracking-tight">Not Spam.</span>
+        <span
+          class="ml-2 sm:ml-4 text-[28px] sm:text-[36px] md:text-[60px] tracking-tight"
+          >Not Spam.</span
+        >
       </div>
     </h1>
 
-    <p class="text-gray-500 text-[16px] sm:text-[18px] md:text-[22px] font-normal leading-[1.6] max-w-3xl mx-auto mb-8 sm:mb-10 md:mb-12">
-      PenguinMails helps founders, sales teams, and agencies send cold outreach that actually lands. Protect your domain, improve deliverability, and start more real conversations.
+    <p
+      class="text-gray-500 text-[16px] sm:text-[18px] md:text-[22px] font-normal leading-[1.6] max-w-3xl mx-auto mb-8 sm:mb-10 md:mb-12"
+    >
+      PenguinMails helps founders, sales teams, and agencies send cold outreach
+      that actually lands. Protect your domain, improve deliverability, and
+      start more real conversations.
     </p>
 
-    <div class="flex flex-row gap-2 sm:gap-4 justify-center items-center w-full mb-16 px-2">
+    <div
+      class="flex flex-row gap-2 sm:gap-4 justify-center items-center w-full mb-16 px-2"
+    >
       <Button href="/trial" variant="primary" size="lg" className="hero-button">
         Start Free Trial
       </Button>
@@ -36,21 +56,19 @@ import Button from "../../ui/Button.astro";
     </div>
 
     <div class="w-full max-w-5xl mx-auto px-4 sm:px-0">
-      <Image 
-        src={dashboardImg} 
-        alt="PenguinMails Dashboard" 
+      <Image
+        src={dashboardImg}
+        alt="PenguinMails Dashboard"
         class="w-full h-auto drop-shadow-2xl rounded-t-xl md:rounded-t-2xl border-t border-x border-gray-200"
         width={1200}
         quality="max"
-    loading={"eager"}
+        loading={"eager"}
       />
     </div>
   </div>
 </section>
 <style is:inline>
- .hero-button{
-   @apply flex-1 sm:flex-none w-full sm:w-auto px-4 sm:px-8 py-3 sm:py-3.5 rounded-lg font-semibold text-[15px] sm:text-lg whitespace-nowrap;
- }
+  .hero-button {
+    @apply w-full flex-1 rounded-lg px-4 py-3 text-[15px] font-semibold whitespace-nowrap sm:w-auto sm:flex-none sm:px-8 sm:py-3.5 sm:text-lg;
+  }
 </style>
-
-
