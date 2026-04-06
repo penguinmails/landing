@@ -1,6 +1,5 @@
 ---
 import MessagesList from "@/components/shared/MessagesList.astro";
-import Badge from "@/components/ui/Badge.astro";
 import type { Message } from "@/types/message";
 
 const features = [
@@ -51,15 +50,6 @@ const messages: Message[] = [
     tag: "not interested",
     badgeVariant: "secondary",
     body: "Not interested at this time, but please keep us in mind for the future",
-  },
-  {
-    id: 4,
-    initials: "LR",
-    name: "Lisa Rodriguez",
-    company: "Enterprise Inc",
-    tag: "interested",
-    badgeVariant: "success",
-    body: "This looks interesting. Can you send me more information about pricing?",
   },
 ];
 ---

@@ -21,15 +21,17 @@ const { message } = Astro.props;
         >
           {message.name}
         </span>
-        <span class="w-1 h-1 sm:w-1.5 sm:h-1.5 rounded-full bg-slate-400"
-        ></span>
-        <span class="text-[14px] sm:text-[15px] text-slate-500">
+        <div class="flex-1 flex items-center gap-1 sm:gap-2">
+          <span class="w-1 h-1 sm:w-1.5 sm:h-1.5 rounded-full bg-slate-400"
+          ></span>
+          <span class="text-[14px] sm:text-[15px] text-slate-500">
           {message.company}
         </span>
-        <div class="scale-[0.85] origin-left ml-auto">
-          <Badge variant={message.badgeVariant}>
-            {message.tag}
-          </Badge>
+          <div class="scale-[0.85] origin-left ml-auto">
+            <Badge variant={message.badgeVariant}>
+              {message.tag}
+            </Badge>
+          </div>
         </div>
       </div>
       <p
