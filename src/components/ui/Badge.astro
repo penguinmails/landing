@@ -14,8 +14,8 @@ const variantClasses = {
   error: "bg-red-600 text-white",
   warning: "bg-yellow-500 text-white",
 };
-const baseClasses =
-  "inline-flex items-center px-3 py-1 rounded-full text-sm font-medium";
+const baseClasses: ClassNameValue =
+  "inline-flex items-center px-3 py-1 rounded-full text-sm font-medium whitespace-nowrap";
 ---
 
 <span class={cn(baseClasses, variantClasses[variant], className)}>
