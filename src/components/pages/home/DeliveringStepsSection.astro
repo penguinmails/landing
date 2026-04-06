@@ -21,7 +21,7 @@ const steps = [
 ];
 ---
 
-<section class="container mx-auto max-w-6xl space-y-16 md:space-y-24">
+<section class="container mx-auto px-10 space-y-16 md:space-y-24">
   <div class="text-center">
     <h2
       class="text-3xl md:text-4xl lg:text-[40px] font-semibold text-gray-900 mx-auto text-center tracking-tight"
@@ -30,7 +30,9 @@ const steps = [
     </h2>
   </div>
 
-  <div class="grid grid-cols-1 md:grid-cols-3 gap-16 md:gap-10 lg:gap-16 px-10">
+  <div
+    class="grid grid-cols-1 md:grid-cols-3 gap-16 md:gap-10 lg:gap-16 px-10 sm:px-0"
+  >
     {
       steps.map((step) => (
         <div class="relative">
