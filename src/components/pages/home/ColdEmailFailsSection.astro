@@ -1,0 +1,53 @@
+---
+import { TriangleAlert, TrendingDown, Octagon, Megaphone } from "@lucide/astro";
+import FeatureGrid from "@/components/shared/FeatureGrid.astro";
+
+const problems = [
+  {
+    title: "Your emails land in spam.",
+    description:
+      "No matter how good your copy is, if it's in the junk folder, it's invisible.",
+    icon: TriangleAlert,
+    iconClass: "w-8 h-8 text-blue-500",
+  },
+  {
+    title: "You rely on hacks instead of infrastructure.",
+    description: "Temporary fixes don't build sustainable sales channels.",
+    icon: Octagon,
+    iconClass: "w-8 h-8 text-white",
+  },
+  {
+    title: "Your domain reputation declines.",
+    description:
+      "Aggressive sending on a cold domain is a one-way ticket to blacklists.",
+    icon: TrendingDown,
+    iconClass: "w-8 h-8 text-purple-500",
+  },
+  {
+    title: "You send campaigns — but get no replies.",
+    description:
+      'The "silence of the inbox" is usually a technical failure, not a product one.',
+    icon: Megaphone,
+    iconClass: "w-8 h-8 text-green-400",
+  },
+];
+---
+
+<section class="relative overflow-hidden">
+  <div class="w-11/12 mx-auto px-4 sm:px-6 lg:px-8 container">
+    <FeatureGrid
+      title="Why Cold Email Software Fails You"
+      description="Most tools help you send more emails. They don't help you deliver better emails."
+      items={problems}
+      theme="dark"
+    >
+      <div class="mt-16 sm:mt-24 text-center">
+        <p
+          class="text-green-600 text-xl sm:text-2xl font-medium tracking-tight"
+        >
+          Cold email isn't broken. Inbox placement is.
+        </p>
+      </div>
+    </FeatureGrid>
+  </div>
+</section>

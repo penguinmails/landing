@@ -1,0 +1,46 @@
+---
+import FeatureGrid from "@/components/shared/FeatureGrid.astro";
+import { Flame, Download, LineChart, Cpu } from "@lucide/astro";
+
+const features = [
+  {
+    title: "Warmup Automation",
+    description:
+      "Build trust with inbox providers before scaling your campaigns.",
+    icon: Flame,
+    iconClass: "w-8 h-8 text-primary",
+  },
+  {
+    title: "Leads Export",
+    description:
+      "Download and manage your leads effortlessly, ready for outreach or analysis.",
+    icon: Download,
+    iconClass: "w-8 h-8 text-primary",
+  },
+  {
+    title: "Real-Time Analytics",
+    description:
+      "See exactly how campaigns perform with detailed deliverability metrics.",
+    icon: LineChart,
+    iconClass: "w-8 h-8 text-primary",
+  },
+  {
+    title: "Automated Sequences",
+    description:
+      "Follow up consistently without manual work using smart rules.",
+    icon: Cpu,
+    iconClass: "w-8 h-8 text-primary",
+  },
+];
+---
+
+<section class="relative overflow-hidden py-20 lg:py-24">
+  <div class="w-11/12 mx-auto px-4 sm:px-6 lg:px-8 container">
+    <FeatureGrid
+      title="Everything You Need to Reach the Inbox"
+      description="We've built the complete toolkit for modern, safe, and effective outbound."
+      items={features}
+      theme="light"
+    />
+  </div>
+</section>
