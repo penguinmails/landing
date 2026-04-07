@@ -1,0 +1,472 @@
+---
+import { CheckCircle2, XCircle } from "@lucide/astro";
+import Tabs from "@/components/ui/Tabs.astro";
+import TabsList from "@/components/ui/TabsList.astro";
+import TabsTrigger from "@/components/ui/TabsTrigger.astro";
+import TabsContent from "@/components/ui/TabsContent.astro";
+
+type Status = "yes" | "no";
+type StatusCell = { status: Status; text?: string };
+type Cell = string | StatusCell;
+type ComparisonRow = { feature: string; penguin: Cell; competitor: Cell };
+type ComparisonTable = { title: string; value: string; rows: ComparisonRow[] };
+
+const yes: StatusCell = { status: "yes" };
+const no: StatusCell = { status: "no" };
+const yesText = (text: string): StatusCell => ({ status: "yes", text });
+const noText = (text: string): StatusCell => ({ status: "no", text });
+
+const penguinCopy = {
+  freeMailboxes:
+    'You can create "unlimited" free mailboxes inside PenguinMails. No need to pay external providers.',
+  privateInfrastructure:
+    "Each user gets a separate VPS with dedicated IPs (no shared pools). Completely private infrastructure.",
+};
+
+const mailboxNo = noText(
+  "No, you need to buy mailboxes separately (~$5-10 per inbox/month)"
+);
+
+const comparisonTables: ComparisonTable[] = [
+  {
+    title: "SmartReach",
+    value: "smartreach",
+    rows: [
+      { feature: "Starting Price", penguin: "$35/month", competitor: "$29/month" },
+      {
+        feature: "Sending Emails Monthly (Plan 1)",
+        penguin: "Unlimited",
+        competitor: "Unlimited",
+      },
+      {
+        feature: "Active Contacts (Prospects In Plan 1)",
+        penguin: "3000",
+        competitor: "1000",
+      },
+      {
+        feature: "Number of Email Warmups",
+        penguin: "Unlimited Email Warmups",
+        competitor: "10 Email Warmups",
+      },
+      {
+        feature: "Free Mailboxes Creation",
+        penguin: yesText(penguinCopy.freeMailboxes),
+        competitor: mailboxNo,
+      },
+      {
+        feature: "Private Cold-Email Infrastructure",
+        penguin: yesText(penguinCopy.privateInfrastructure),
+        competitor: noText("No private infrastructure or dedicated IPs."),
+      },
+      { feature: "Unified Inbox", penguin: yes, competitor: yes },
+      { feature: "Real-time Analytics", penguin: yes, competitor: yes },
+      { feature: "Inbox Rotation", penguin: yes, competitor: yes },
+      {
+        feature: "Support",
+        penguin: "Priority Support",
+        competitor: "General Support Within 24 hours",
+      },
+      { feature: "Private Slack Community", penguin: yes, competitor: no },
+    ],
+  },
+  {
+    title: "Salesforge",
+    value: "salesforge",
+    rows: [
+      { feature: "Starting Price", penguin: "$35/month", competitor: "$48/month" },
+      {
+        feature: "Sending Emails Monthly (Plan 1)",
+        penguin: "Unlimited",
+        competitor: "5000",
+      },
+      {
+        feature: "Active Contacts (Prospects In Plan 1)",
+        penguin: "3000",
+        competitor: "1000",
+      },
+      {
+        feature: "Number of Email Warmups",
+        penguin: "Unlimited Email Warmups",
+        competitor: "Unlimited Email Warmups",
+      },
+      {
+        feature: "Free Mailboxes Creation",
+        penguin: yesText(penguinCopy.freeMailboxes),
+        competitor: mailboxNo,
+      },
+      {
+        feature: "Private Cold-Email Infrastructure",
+        penguin: yesText(penguinCopy.privateInfrastructure),
+        competitor: noText(
+          "Uses Mailforge (shared IPs) by default. Dedicated IPs available only if you add Infraforge."
+        ),
+      },
+      { feature: "Unified Inbox", penguin: yes, competitor: yes },
+      { feature: "Real-time Analytics", penguin: yes, competitor: yes },
+      { feature: "Inbox Rotation", penguin: yes, competitor: yes },
+      {
+        feature: "Support",
+        penguin: "Priority Support",
+        competitor: "Live Chat Support",
+      },
+      { feature: "Private Slack Community", penguin: yes, competitor: yes },
+    ],
+  },
+  {
+    title: "SmartLead",
+    value: "smartlead",
+    rows: [
+      { feature: "Starting Price", penguin: "$35/month", competitor: "$39/month" },
+      {
+        feature: "Sending Emails Monthly (Plan 1)",
+        penguin: "Unlimited",
+        competitor: "6000",
+      },
+      {
+        feature: "Active Contacts (Prospects In Plan 1)",
+        penguin: "3000",
+        competitor: "2000",
+      },
+      {
+        feature: "Number of Email Warmups",
+        penguin: "Unlimited Email Warmups",
+        competitor: "Unlimited Email Warmups",
+      },
+      {
+        feature: "Free Mailboxes Creation",
+        penguin: yesText(penguinCopy.freeMailboxes),
+        competitor: mailboxNo,
+      },
+      {
+        feature: "Private Cold-Email Infrastructure",
+        penguin: yesText(penguinCopy.privateInfrastructure),
+        competitor: noText(
+          "Uses shared IPs and servers by default. You can add SmartServers ($39/mo) to get dedicated IPs and private infrastructure."
+        ),
+      },
+      { feature: "Unified Inbox", penguin: yes, competitor: yes },
+      { feature: "Real-time Analytics", penguin: yes, competitor: yes },
+      { feature: "Inbox Rotation", penguin: yes, competitor: yes },
+      {
+        feature: "Support",
+        penguin: "Priority Support",
+        competitor: "General Support Within 24 hours",
+      },
+      { feature: "Private Slack Community", penguin: yes, competitor: no },
+    ],
+  },
+  {
+    title: "Instantly",
+    value: "instantly",
+    rows: [
+      { feature: "Starting Price", penguin: "$35/month", competitor: "$37/month" },
+      {
+        feature: "Sending Emails Monthly (Plan 1)",
+        penguin: "Unlimited",
+        competitor: "5000",
+      },
+      {
+        feature: "Active Contacts (Prospects In Plan 1)",
+        penguin: "3000",
+        competitor: "1000",
+      },
+      {
+        feature: "Number of Email Warmups",
+        penguin: "Unlimited Email Warmups",
+        competitor: "Unlimited Email Warmups",
+      },
+      {
+        feature: "Free Mailboxes Creation",
+        penguin: yesText(penguinCopy.freeMailboxes),
+        competitor: mailboxNo,
+      },
+      {
+        feature: "Private Cold-Email Infrastructure",
+        penguin: yesText(penguinCopy.privateInfrastructure),
+        competitor: noText(
+          "Uses a shared IP pool by default. Dedicated/private servers only on higher-tier/Lightspeed plans."
+        ),
+      },
+      { feature: "Unified Inbox", penguin: yes, competitor: yes },
+      { feature: "Real-time Analytics", penguin: yes, competitor: yes },
+      { feature: "Inbox Rotation", penguin: yes, competitor: yes },
+      {
+        feature: "Support",
+        penguin: "Priority Support",
+        competitor: "General support tickets",
+      },
+      { feature: "Private Slack Community", penguin: yes, competitor: yes },
+    ],
+  },
+  {
+    title: "ReachInbox",
+    value: "reachinbox",
+    rows: [
+      { feature: "Starting Price", penguin: "$35/month", competitor: "$39/month" },
+      {
+        feature: "Sending Emails Monthly (Plan 1)",
+        penguin: "Unlimited",
+        competitor: "25000",
+      },
+      {
+        feature: "Active Contacts (Prospects In Plan 1)",
+        penguin: "3000",
+        competitor: "5000",
+      },
+      {
+        feature: "Number of Email Warmups",
+        penguin: "Unlimited Email Warmups",
+        competitor: "Unlimited Email Warmups",
+      },
+      {
+        feature: "Free Mailboxes Creation",
+        penguin: yesText(penguinCopy.freeMailboxes),
+        competitor: mailboxNo,
+      },
+      {
+        feature: "Private Cold-Email Infrastructure",
+        penguin: yesText(penguinCopy.privateInfrastructure),
+        competitor: noText("No private infrastructure or dedicated IPs."),
+      },
+      { feature: "Unified Inbox", penguin: yes, competitor: yes },
+      { feature: "Real-time Analytics", penguin: yes, competitor: yes },
+      { feature: "Inbox Rotation", penguin: yes, competitor: yes },
+      { feature: "Support", penguin: "Priority Support", competitor: "General Support" },
+      { feature: "Private Slack Community", penguin: yes, competitor: no },
+    ],
+  },
+  {
+    title: "Emailchaser",
+    value: "emailchaser",
+    rows: [
+      { feature: "Starting Price", penguin: "$35/month", competitor: "$37/month" },
+      {
+        feature: "Sending Emails Monthly (Plan 1)",
+        penguin: "Unlimited",
+        competitor: "Unlimited",
+      },
+      {
+        feature: "Active Contacts (Prospects In Plan 1)",
+        penguin: "3000",
+        competitor: "Unlimited",
+      },
+      {
+        feature: "Number of Email Accounts Allowed",
+        penguin: "Unlimited Email Accounts",
+        competitor: "Just 3 Email Accounts",
+      },
+      {
+        feature: "Number of Email Warmups",
+        penguin: "Unlimited Email Warmups",
+        competitor: noText("No Email Warmups"),
+      },
+      {
+        feature: "Free Mailboxes Creation",
+        penguin: yesText(penguinCopy.freeMailboxes),
+        competitor: mailboxNo,
+      },
+      {
+        feature: "Private Cold-Email Infrastructure",
+        penguin: yesText(penguinCopy.privateInfrastructure),
+        competitor: noText("No private infrastructure or dedicated IPs."),
+      },
+      { feature: "Unified Inbox", penguin: yes, competitor: yes },
+      { feature: "Real-time Analytics", penguin: yes, competitor: yes },
+      { feature: "Inbox Rotation", penguin: yes, competitor: yes },
+      { feature: "Support", penguin: "Priority Support", competitor: "General Support" },
+      { feature: "Private Slack Community", penguin: yes, competitor: yes },
+    ],
+  },
+  {
+    title: "Woodpecker",
+    value: "woodpecker",
+    rows: [
+      { feature: "Starting Price", penguin: "$35/month", competitor: "$29/month" },
+      {
+        feature: "Sending Emails Monthly (Plan 1)",
+        penguin: "Unlimited",
+        competitor: "6000",
+      },
+      {
+        feature: "Active Contacts (Prospects In Plan 1)",
+        penguin: "3000",
+        competitor: "500",
+      },
+      {
+        feature: "Number of Email Warmups",
+        penguin: "Unlimited Email Warmups",
+        competitor: "2 Email Warmups",
+      },
+      {
+        feature: "Free Mailboxes Creation",
+        penguin: yesText(penguinCopy.freeMailboxes),
+        competitor: mailboxNo,
+      },
+      {
+        feature: "Private Cold-Email Infrastructure",
+        penguin: yesText(penguinCopy.privateInfrastructure),
+        competitor: noText(
+          "No private infra or dedicated IPs by default, but you can get private infra powered by Infraforge for an additional $59/month"
+        ),
+      },
+      { feature: "Unified Inbox", penguin: yes, competitor: yes },
+      { feature: "Real-time Analytics", penguin: yes, competitor: yes },
+      { feature: "Inbox Rotation", penguin: yes, competitor: yes },
+      { feature: "Support", penguin: "Priority Support", competitor: "General Support" },
+      { feature: "Private Slack Community", penguin: yes, competitor: yes },
+    ],
+  },
+  {
+    title: "Saleshandy",
+    value: "saleshandy",
+    rows: [
+      { feature: "Starting Price", penguin: "$35/month", competitor: "$36/month" },
+      {
+        feature: "Sending Emails Monthly (Plan 1)",
+        penguin: "Unlimited",
+        competitor: "6000",
+      },
+      {
+        feature: "Active Contacts (Prospects In Plan 1)",
+        penguin: "3000",
+        competitor: "2000",
+      },
+      {
+        feature: "Number of Email Warmups",
+        penguin: "Unlimited Email Warmups",
+        competitor: "Unlimited Email Warmups",
+      },
+      {
+        feature: "Free Mailboxes Creation",
+        penguin: yesText(penguinCopy.freeMailboxes),
+        competitor: mailboxNo,
+      },
+      {
+        feature: "Private Cold-Email Infrastructure",
+        penguin: yesText(penguinCopy.privateInfrastructure),
+        competitor: noText(
+          "No private infrastructure or dedicated IPs by default, but you can get private infra powered by InfraMail for an additional $100-$300/month."
+        ),
+      },
+      { feature: "Unified Inbox", penguin: yes, competitor: yes },
+      { feature: "Real-time Analytics", penguin: yes, competitor: yes },
+      { feature: "Inbox Rotation", penguin: yes, competitor: yes },
+      {
+        feature: "Support",
+        penguin: "Priority Support",
+        competitor: "General Support Within 24 hours",
+      },
+      { feature: "Private Slack Community", penguin: yes, competitor: no },
+    ],
+  },
+];
+
+const dotClass = (status: Status) =>
+  status === "yes" ? "bg-emerald-500" : "bg-rose-500";
+const iconClass = (status: Status) =>
+  status === "yes"
+    ? "text-emerald-500 fill-emerald-500 stroke-white"
+    : "text-rose-500 fill-rose-500 stroke-white";
+---
+
+<section class="py-24 bg-white/50" id="comparison">
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-10/12">
+    <div class="text-center mb-10">
+      <h2
+        class="text-4xl md:text-5xl font-bold mb-4 tracking-tight text-slate-900"
+      >
+        Built for Deliverability. Not Volume.
+      </h2>
+      <p class="text-gray-500 max-w-2xl mx-auto text-lg">
+        Most tools optimize sending. We optimize delivery.
+      </p>
+    </div>
+
+    <Tabs defaultValue="smartreach">
+      <div class="w-full overflow-x-auto pb-4 mb-4 scrollbar-hide ">
+        <TabsList className="flex h-12 w-fit items-center justify-center rounded-full bg-slate-100/80 p-1 text-slate-500  mx-auto shadow-inner border border-slate-200/50">
+          {comparisonTables.map((tab) => (
+            <TabsTrigger 
+              value={tab.value}
+              className="rounded-full px-5 py-2 text-sm font-semibold transition-all data-[state=active]:bg-white data-[state=active]:text-primary data-[state=active]:shadow-md hover:text-slate-800"
+            >
+              {tab.title}
+            </TabsTrigger>
+          ))}
+        </TabsList>
+      </div>
+
+      <div class="w-full mt-6">
+        {comparisonTables.map((table) => (
+          <TabsContent value={table.value} className="m-0 focus-visible:ring-0">
+            <div
+              class="bg-white rounded-2xl shadow-xl shadow-slate-200/40 border border-gray-100 overflow-hidden"
+            >
+              <!-- Table Header -->
+              <div class="grid grid-cols-3 p-6 border-b border-gray-100 bg-slate-50/50">
+                <div class="font-bold text-slate-800 text-lg">Features</div>
+                <div class="font-bold text-primary text-lg">PenguinMails</div>
+                <div class="font-bold text-slate-800 text-lg">{table.title}</div>
+              </div>
+
+              <!-- Table Body -->
+              <div class="divide-y divide-gray-100">
+                {
+                  table.rows.map((row) => (
+                    <div class="grid grid-cols-3 p-6 items-center hover:bg-slate-50 transition-colors">
+                      {/* Feature */}
+                      <div class="text-slate-600 font-medium text-lg">
+                        {row.feature}
+                      </div>
+
+                      {/* PenguinMails */}
+                      <div class="flex items-center gap-2 text-primary font-semibold text-lg justify-center">
+                        {typeof row.penguin === "string" ? (
+                          row.penguin
+                        ) : "text" in row.penguin && row.penguin.text ? (
+                          <>
+                            {row.penguin.status === "yes" ? (
+                              <CheckCircle2 class={`w-4 h-4 ${iconClass(row.penguin.status)}`} />
+                            ) : (
+                              <XCircle class={`w-4 h-4 ${iconClass(row.penguin.status)}`} />
+                            )}
+                            <span>{row.penguin.text}</span>
+                          </>
+                        ) : (
+                          <span class={`h-2.5 w-2.5 rounded-full ${dotClass(row.penguin.status)}`} />
+                        )}
+                      </div>
+
+                      {/* Competitor */}
+                      <div class="flex items-center gap-2 text-gray-400 font-medium text-lg justify-center ">
+                        {typeof row.competitor === "string" ? (
+                          row.competitor
+                        ) : "text" in row.competitor && row.competitor.text ? (
+                          <>
+                            {row.competitor.status === "yes" ? (
+                              <CheckCircle2
+                                class={`w-4 h-4 ${iconClass(row.competitor.status)}`}
+                              />
+                            ) : (
+                              <XCircle class={`w-4 h-4 ${iconClass(row.competitor.status)}`} />
+                            )}
+                            <span>{row.competitor.text}</span>
+                          </>
+                        ) : (
+                          <span
+                            class={`h-2.5 w-2.5 rounded-full ${dotClass(row.competitor.status)}`}
+                          />
+                        )}
+                      </div>
+                    </div>
+                  ))
+                }
+              </div>
+            </div>
+          </TabsContent>
+        ))}
+      </div>
+    </Tabs>
+  </div>
+</section>
+

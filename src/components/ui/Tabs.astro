@@ -1,0 +1,100 @@
+---
+import { cn } from "@/lib/utils";
+
+interface Props {
+  defaultValue: string;
+  className?: string;
+}
+
+const { defaultValue, className } = Astro.props;
+---
+
+<astro-tabs data-default={defaultValue} class={cn("w-full block", className)}>
+  <slot />
+</astro-tabs>
+
+<script>
+  class AstroTabs extends HTMLElement {
+    triggers: HTMLElement[];
+    panels: HTMLElement[];
+    defaultValue: string | undefined;
+
+    constructor() {
+      super();
+      this.triggers = Array.from(this.querySelectorAll('[role="tab"]'));
+      this.panels = Array.from(this.querySelectorAll('[role="tabpanel"]'));
+      this.defaultValue = this.dataset.default;
+
+      this.init();
+    }
+
+    init() {
+      this.triggers.forEach((trigger) => {
+        trigger.addEventListener("click", (e) => this.selectTab(e));
+        trigger.addEventListener("keydown", (e) => this.handleKeydown(e));
+      });
+
+      if (this.defaultValue) {
+        const defaultTrigger = this.querySelector(
+          `[role="tab"][data-value="${this.defaultValue}"]`,
+        ) as HTMLElement;
+        if (defaultTrigger) {
+          this.activateTab(defaultTrigger);
+        }
+      } else if (this.triggers.length > 0) {
+        this.activateTab(this.triggers[0]);
+      }
+    }
+
+    selectTab(e: Event) {
+      const trigger = e.currentTarget as HTMLElement;
+      this.activateTab(trigger);
+    }
+
+    activateTab(trigger: HTMLElement) {
+      const value = trigger.dataset.value;
+
+      this.triggers.forEach((t) => {
+        const isSelected = t === trigger;
+        t.setAttribute("aria-selected", isSelected.toString());
+        t.setAttribute("tabindex", isSelected ? "0" : "-1");
+
+        if (isSelected) {
+          t.classList.add("bg-white", "text-slate-950", "shadow-sm");
+        } else {
+          t.classList.remove("bg-white", "text-slate-950", "shadow-sm");
+        }
+      });
+
+      this.panels.forEach((p) => {
+        if (p.dataset.value === value) {
+          p.removeAttribute("hidden");
+          p.classList.remove("hidden");
+        } else {
+          p.setAttribute("hidden", "");
+          p.classList.add("hidden");
+        }
+      });
+    }
+
+    handleKeydown(e: KeyboardEvent) {
+      const trigger = e.currentTarget as HTMLElement;
+      const currentIndex = this.triggers.indexOf(trigger);
+      let nextIndex = currentIndex;
+
+      if (e.key === "ArrowRight") {
+        nextIndex = (currentIndex + 1) % this.triggers.length;
+      } else if (e.key === "ArrowLeft") {
+        nextIndex =
+          (currentIndex - 1 + this.triggers.length) % this.triggers.length;
+      }
+
+      if (nextIndex !== currentIndex) {
+        this.triggers[nextIndex].focus();
+        this.activateTab(this.triggers[nextIndex]);
+      }
+    }
+  }
+
+  customElements.define("astro-tabs", AstroTabs);
+</script>
