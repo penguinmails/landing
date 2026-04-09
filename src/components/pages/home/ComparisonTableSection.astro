@@ -10,6 +10,18 @@ type StatusCell = { status: Status; text?: string };
 type Cell = string | StatusCell;
 type ComparisonRow = { feature: string; penguin: Cell; competitor: Cell };
 type ComparisonTable = { title: string; value: string; rows: ComparisonRow[] };
+type CompetitorConfig = {
+  title: string;
+  value: string;
+  startingPrice: string;
+  sendingMonthlyPlan1: Cell;
+  activeContactsPlan1: Cell;
+  warmups: Cell;
+  privateInfra: string;
+  support: Cell;
+  hasPrivateSlackCommunity: boolean;
+  emailAccountsAllowed?: Cell;
+};
 
 const yes: StatusCell = { status: "yes" };
 const no: StatusCell = { status: "no" };
@@ -17,349 +29,162 @@ const yesText = (text: string): StatusCell => ({ status: "yes", text });
 const noText = (text: string): StatusCell => ({ status: "no", text });
 
 const penguinCopy = {
-  freeMailboxes:
-    'You can create "unlimited" free mailboxes inside PenguinMails. No need to pay external providers.',
   privateInfrastructure:
     "Each user gets a separate VPS with dedicated IPs (no shared pools). Completely private infrastructure.",
 };
 
-const mailboxNo = noText(
-  "No, you need to buy mailboxes separately (~$5-10 per inbox/month)"
-);
+const buildComparisonRows = (config: CompetitorConfig): ComparisonRow[] => {
+  const rows: ComparisonRow[] = [
+    { feature: "Starting Price", penguin: "$35/month", competitor: config.startingPrice },
+    {
+      feature: "Sending Emails Monthly (Plan 1)",
+      penguin: "Unlimited",
+      competitor: config.sendingMonthlyPlan1,
+    },
+    {
+      feature: "Active Contacts (Prospects In Plan 1)",
+      penguin: "3000",
+      competitor: config.activeContactsPlan1,
+    },
+  ];
 
-const comparisonTables: ComparisonTable[] = [
+  if (config.emailAccountsAllowed) {
+    rows.push({
+      feature: "Number of Email Accounts Allowed",
+      penguin: "Unlimited Email Accounts",
+      competitor: config.emailAccountsAllowed,
+    });
+  }
+
+  rows.push(
+    {
+      feature: "Number of Email Warmups",
+      penguin: "Unlimited Email Warmups",
+      competitor: config.warmups,
+    },
+    {
+      feature: "Private Cold-Email Infrastructure",
+      penguin: yesText(penguinCopy.privateInfrastructure),
+      competitor: noText(config.privateInfra),
+    },
+    { feature: "Real-time Analytics", penguin: yes, competitor: yes },
+    {
+      feature: "Support",
+      penguin: "Priority Support",
+      competitor: config.support,
+    },
+    {
+      feature: "Private Slack Community",
+      penguin: yes,
+      competitor: config.hasPrivateSlackCommunity ? yes : no,
+    }
+  );
+
+  return rows;
+};
+
+const competitorConfigs: CompetitorConfig[] = [
   {
     title: "SmartReach",
     value: "smartreach",
-    rows: [
-      { feature: "Starting Price", penguin: "$35/month", competitor: "$29/month" },
-      {
-        feature: "Sending Emails Monthly (Plan 1)",
-        penguin: "Unlimited",
-        competitor: "Unlimited",
-      },
-      {
-        feature: "Active Contacts (Prospects In Plan 1)",
-        penguin: "3000",
-        competitor: "1000",
-      },
-      {
-        feature: "Number of Email Warmups",
-        penguin: "Unlimited Email Warmups",
-        competitor: "10 Email Warmups",
-      },
-      {
-        feature: "Free Mailboxes Creation",
-        penguin: yesText(penguinCopy.freeMailboxes),
-        competitor: mailboxNo,
-      },
-      {
-        feature: "Private Cold-Email Infrastructure",
-        penguin: yesText(penguinCopy.privateInfrastructure),
-        competitor: noText("No private infrastructure or dedicated IPs."),
-      },
-      { feature: "Unified Inbox", penguin: yes, competitor: yes },
-      { feature: "Real-time Analytics", penguin: yes, competitor: yes },
-      { feature: "Inbox Rotation", penguin: yes, competitor: yes },
-      {
-        feature: "Support",
-        penguin: "Priority Support",
-        competitor: "General Support Within 24 hours",
-      },
-      { feature: "Private Slack Community", penguin: yes, competitor: no },
-    ],
+    startingPrice: "$29/month",
+    sendingMonthlyPlan1: "Unlimited",
+    activeContactsPlan1: "1000",
+    warmups: "10 Email Warmups",
+    privateInfra: "No private infrastructure or dedicated IPs.",
+    support: "General Support Within 24 hours",
+    hasPrivateSlackCommunity: false,
   },
   {
     title: "Salesforge",
     value: "salesforge",
-    rows: [
-      { feature: "Starting Price", penguin: "$35/month", competitor: "$48/month" },
-      {
-        feature: "Sending Emails Monthly (Plan 1)",
-        penguin: "Unlimited",
-        competitor: "5000",
-      },
-      {
-        feature: "Active Contacts (Prospects In Plan 1)",
-        penguin: "3000",
-        competitor: "1000",
-      },
-      {
-        feature: "Number of Email Warmups",
-        penguin: "Unlimited Email Warmups",
-        competitor: "Unlimited Email Warmups",
-      },
-      {
-        feature: "Free Mailboxes Creation",
-        penguin: yesText(penguinCopy.freeMailboxes),
-        competitor: mailboxNo,
-      },
-      {
-        feature: "Private Cold-Email Infrastructure",
-        penguin: yesText(penguinCopy.privateInfrastructure),
-        competitor: noText(
-          "Uses Mailforge (shared IPs) by default. Dedicated IPs available only if you add Infraforge."
-        ),
-      },
-      { feature: "Unified Inbox", penguin: yes, competitor: yes },
-      { feature: "Real-time Analytics", penguin: yes, competitor: yes },
-      { feature: "Inbox Rotation", penguin: yes, competitor: yes },
-      {
-        feature: "Support",
-        penguin: "Priority Support",
-        competitor: "Live Chat Support",
-      },
-      { feature: "Private Slack Community", penguin: yes, competitor: yes },
-    ],
+    startingPrice: "$48/month",
+    sendingMonthlyPlan1: "5000",
+    activeContactsPlan1: "1000",
+    warmups: "Unlimited Email Warmups",
+    privateInfra:
+      "Uses Mailforge (shared IPs) by default. Dedicated IPs available only if you add Infraforge.",
+    support: "Live Chat Support",
+    hasPrivateSlackCommunity: true,
   },
   {
     title: "SmartLead",
     value: "smartlead",
-    rows: [
-      { feature: "Starting Price", penguin: "$35/month", competitor: "$39/month" },
-      {
-        feature: "Sending Emails Monthly (Plan 1)",
-        penguin: "Unlimited",
-        competitor: "6000",
-      },
-      {
-        feature: "Active Contacts (Prospects In Plan 1)",
-        penguin: "3000",
-        competitor: "2000",
-      },
-      {
-        feature: "Number of Email Warmups",
-        penguin: "Unlimited Email Warmups",
-        competitor: "Unlimited Email Warmups",
-      },
-      {
-        feature: "Free Mailboxes Creation",
-        penguin: yesText(penguinCopy.freeMailboxes),
-        competitor: mailboxNo,
-      },
-      {
-        feature: "Private Cold-Email Infrastructure",
-        penguin: yesText(penguinCopy.privateInfrastructure),
-        competitor: noText(
-          "Uses shared IPs and servers by default. You can add SmartServers ($39/mo) to get dedicated IPs and private infrastructure."
-        ),
-      },
-      { feature: "Unified Inbox", penguin: yes, competitor: yes },
-      { feature: "Real-time Analytics", penguin: yes, competitor: yes },
-      { feature: "Inbox Rotation", penguin: yes, competitor: yes },
-      {
-        feature: "Support",
-        penguin: "Priority Support",
-        competitor: "General Support Within 24 hours",
-      },
-      { feature: "Private Slack Community", penguin: yes, competitor: no },
-    ],
+    startingPrice: "$39/month",
+    sendingMonthlyPlan1: "6000",
+    activeContactsPlan1: "2000",
+    warmups: "Unlimited Email Warmups",
+    privateInfra:
+      "Uses shared IPs and servers by default. You can add SmartServers ($39/mo) to get dedicated IPs and private infrastructure.",
+    support: "General Support Within 24 hours",
+    hasPrivateSlackCommunity: false,
   },
   {
     title: "Instantly",
     value: "instantly",
-    rows: [
-      { feature: "Starting Price", penguin: "$35/month", competitor: "$37/month" },
-      {
-        feature: "Sending Emails Monthly (Plan 1)",
-        penguin: "Unlimited",
-        competitor: "5000",
-      },
-      {
-        feature: "Active Contacts (Prospects In Plan 1)",
-        penguin: "3000",
-        competitor: "1000",
-      },
-      {
-        feature: "Number of Email Warmups",
-        penguin: "Unlimited Email Warmups",
-        competitor: "Unlimited Email Warmups",
-      },
-      {
-        feature: "Free Mailboxes Creation",
-        penguin: yesText(penguinCopy.freeMailboxes),
-        competitor: mailboxNo,
-      },
-      {
-        feature: "Private Cold-Email Infrastructure",
-        penguin: yesText(penguinCopy.privateInfrastructure),
-        competitor: noText(
-          "Uses a shared IP pool by default. Dedicated/private servers only on higher-tier/Lightspeed plans."
-        ),
-      },
-      { feature: "Unified Inbox", penguin: yes, competitor: yes },
-      { feature: "Real-time Analytics", penguin: yes, competitor: yes },
-      { feature: "Inbox Rotation", penguin: yes, competitor: yes },
-      {
-        feature: "Support",
-        penguin: "Priority Support",
-        competitor: "General support tickets",
-      },
-      { feature: "Private Slack Community", penguin: yes, competitor: yes },
-    ],
+    startingPrice: "$37/month",
+    sendingMonthlyPlan1: "5000",
+    activeContactsPlan1: "1000",
+    warmups: "Unlimited Email Warmups",
+    privateInfra:
+      "Uses a shared IP pool by default. Dedicated/private servers only on higher-tier/Lightspeed plans.",
+    support: "General support tickets",
+    hasPrivateSlackCommunity: true,
   },
   {
     title: "ReachInbox",
     value: "reachinbox",
-    rows: [
-      { feature: "Starting Price", penguin: "$35/month", competitor: "$39/month" },
-      {
-        feature: "Sending Emails Monthly (Plan 1)",
-        penguin: "Unlimited",
-        competitor: "25000",
-      },
-      {
-        feature: "Active Contacts (Prospects In Plan 1)",
-        penguin: "3000",
-        competitor: "5000",
-      },
-      {
-        feature: "Number of Email Warmups",
-        penguin: "Unlimited Email Warmups",
-        competitor: "Unlimited Email Warmups",
-      },
-      {
-        feature: "Free Mailboxes Creation",
-        penguin: yesText(penguinCopy.freeMailboxes),
-        competitor: mailboxNo,
-      },
-      {
-        feature: "Private Cold-Email Infrastructure",
-        penguin: yesText(penguinCopy.privateInfrastructure),
-        competitor: noText("No private infrastructure or dedicated IPs."),
-      },
-      { feature: "Unified Inbox", penguin: yes, competitor: yes },
-      { feature: "Real-time Analytics", penguin: yes, competitor: yes },
-      { feature: "Inbox Rotation", penguin: yes, competitor: yes },
-      { feature: "Support", penguin: "Priority Support", competitor: "General Support" },
-      { feature: "Private Slack Community", penguin: yes, competitor: no },
-    ],
+    startingPrice: "$39/month",
+    sendingMonthlyPlan1: "25000",
+    activeContactsPlan1: "5000",
+    warmups: "Unlimited Email Warmups",
+    privateInfra: "No private infrastructure or dedicated IPs.",
+    support: "General Support",
+    hasPrivateSlackCommunity: false,
   },
   {
     title: "Emailchaser",
     value: "emailchaser",
-    rows: [
-      { feature: "Starting Price", penguin: "$35/month", competitor: "$37/month" },
-      {
-        feature: "Sending Emails Monthly (Plan 1)",
-        penguin: "Unlimited",
-        competitor: "Unlimited",
-      },
-      {
-        feature: "Active Contacts (Prospects In Plan 1)",
-        penguin: "3000",
-        competitor: "Unlimited",
-      },
-      {
-        feature: "Number of Email Accounts Allowed",
-        penguin: "Unlimited Email Accounts",
-        competitor: "Just 3 Email Accounts",
-      },
-      {
-        feature: "Number of Email Warmups",
-        penguin: "Unlimited Email Warmups",
-        competitor: noText("No Email Warmups"),
-      },
-      {
-        feature: "Free Mailboxes Creation",
-        penguin: yesText(penguinCopy.freeMailboxes),
-        competitor: mailboxNo,
-      },
-      {
-        feature: "Private Cold-Email Infrastructure",
-        penguin: yesText(penguinCopy.privateInfrastructure),
-        competitor: noText("No private infrastructure or dedicated IPs."),
-      },
-      { feature: "Unified Inbox", penguin: yes, competitor: yes },
-      { feature: "Real-time Analytics", penguin: yes, competitor: yes },
-      { feature: "Inbox Rotation", penguin: yes, competitor: yes },
-      { feature: "Support", penguin: "Priority Support", competitor: "General Support" },
-      { feature: "Private Slack Community", penguin: yes, competitor: yes },
-    ],
+    startingPrice: "$37/month",
+    sendingMonthlyPlan1: "Unlimited",
+    activeContactsPlan1: "Unlimited",
+    emailAccountsAllowed: "Just 3 Email Accounts",
+    warmups: noText("No Email Warmups"),
+    privateInfra: "No private infrastructure or dedicated IPs.",
+    support: "General Support",
+    hasPrivateSlackCommunity: true,
   },
   {
     title: "Woodpecker",
     value: "woodpecker",
-    rows: [
-      { feature: "Starting Price", penguin: "$35/month", competitor: "$29/month" },
-      {
-        feature: "Sending Emails Monthly (Plan 1)",
-        penguin: "Unlimited",
-        competitor: "6000",
-      },
-      {
-        feature: "Active Contacts (Prospects In Plan 1)",
-        penguin: "3000",
-        competitor: "500",
-      },
-      {
-        feature: "Number of Email Warmups",
-        penguin: "Unlimited Email Warmups",
-        competitor: "2 Email Warmups",
-      },
-      {
-        feature: "Free Mailboxes Creation",
-        penguin: yesText(penguinCopy.freeMailboxes),
-        competitor: mailboxNo,
-      },
-      {
-        feature: "Private Cold-Email Infrastructure",
-        penguin: yesText(penguinCopy.privateInfrastructure),
-        competitor: noText(
-          "No private infra or dedicated IPs by default, but you can get private infra powered by Infraforge for an additional $59/month"
-        ),
-      },
-      { feature: "Unified Inbox", penguin: yes, competitor: yes },
-      { feature: "Real-time Analytics", penguin: yes, competitor: yes },
-      { feature: "Inbox Rotation", penguin: yes, competitor: yes },
-      { feature: "Support", penguin: "Priority Support", competitor: "General Support" },
-      { feature: "Private Slack Community", penguin: yes, competitor: yes },
-    ],
+    startingPrice: "$29/month",
+    sendingMonthlyPlan1: "6000",
+    activeContactsPlan1: "500",
+    warmups: "2 Email Warmups",
+    privateInfra:
+      "No private infra or dedicated IPs by default, but you can get private infra powered by Infraforge for an additional $59/month",
+    support: "General Support",
+    hasPrivateSlackCommunity: true,
   },
   {
     title: "Saleshandy",
     value: "saleshandy",
-    rows: [
-      { feature: "Starting Price", penguin: "$35/month", competitor: "$36/month" },
-      {
-        feature: "Sending Emails Monthly (Plan 1)",
-        penguin: "Unlimited",
-        competitor: "6000",
-      },
-      {
-        feature: "Active Contacts (Prospects In Plan 1)",
-        penguin: "3000",
-        competitor: "2000",
-      },
-      {
-        feature: "Number of Email Warmups",
-        penguin: "Unlimited Email Warmups",
-        competitor: "Unlimited Email Warmups",
-      },
-      {
-        feature: "Free Mailboxes Creation",
-        penguin: yesText(penguinCopy.freeMailboxes),
-        competitor: mailboxNo,
-      },
-      {
-        feature: "Private Cold-Email Infrastructure",
-        penguin: yesText(penguinCopy.privateInfrastructure),
-        competitor: noText(
-          "No private infrastructure or dedicated IPs by default, but you can get private infra powered by InfraMail for an additional $100-$300/month."
-        ),
-      },
-      { feature: "Unified Inbox", penguin: yes, competitor: yes },
-      { feature: "Real-time Analytics", penguin: yes, competitor: yes },
-      { feature: "Inbox Rotation", penguin: yes, competitor: yes },
-      {
-        feature: "Support",
-        penguin: "Priority Support",
-        competitor: "General Support Within 24 hours",
-      },
-      { feature: "Private Slack Community", penguin: yes, competitor: no },
-    ],
+    startingPrice: "$36/month",
+    sendingMonthlyPlan1: "6000",
+    activeContactsPlan1: "2000",
+    warmups: "Unlimited Email Warmups",
+    privateInfra:
+      "No private infrastructure or dedicated IPs by default, but you can get private infra powered by InfraMail for an additional $100-$300/month.",
+    support: "General Support Within 24 hours",
+    hasPrivateSlackCommunity: false,
   },
 ];
+
+const comparisonTables: ComparisonTable[] = competitorConfigs.map((config) => ({
+  title: config.title,
+  value: config.value,
+  rows: buildComparisonRows(config),
+}));
 
 const dotClass = (status: Status) =>
   status === "yes" ? "bg-emerald-500" : "bg-rose-500";
