@@ -3,6 +3,7 @@ import { cn } from "@/lib/utils";
 import type { ClassNameValue } from "tailwind-merge";
 
 interface Props {
+  class?: ClassNameValue;
   className?: ClassNameValue;
   variant?: "primary" | "secondary" | "outline" | "ghost" | "link";
   size?: "sm" | "md" | "lg";
@@ -10,15 +11,16 @@ interface Props {
   [x: string]: any;
 }
 const {
+  class: classProp,
   className,
   variant = "primary",
   size = "md",
   href,
   ...props
 } = Astro.props;
+const classes = cn(className, classProp);
 const baseStyles = cn(
-  "inline-flex items-center justify-center rounded-md font-medium transition-colors focus:oultine-none disabled:opacity-50 disabled:pointer-events-none",
-  className,
+  "inline-flex items-center justify-center rounded-md font-medium transition-colors focus:outline-none disabled:opacity-50 disabled:pointer-events-none",
 );
 const variantStyles = {
   primary: "bg-primary text-white hover:bg-primary-700 focus:ring-primary-500",
@@ -39,7 +41,7 @@ const Tag = href ? "a" : "button";
 
 <Tag
   href={href}
-  class={cn(baseStyles, variantStyles[variant], sizeStyles[size])}
+  class={cn(baseStyles, variantStyles[variant], sizeStyles[size], classes)}
   {...props}
 >
   <slot />
