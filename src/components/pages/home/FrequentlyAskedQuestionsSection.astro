@@ -1,0 +1,44 @@
+---
+import ArticleCard from "@/components/shared/ArticleCard.astro";
+
+const faqs = [
+  {
+    question: "Will this get my emails out of spam?",
+    answer:
+      "Yes. By using our warmup protocol and rotation techniques, we help rebuild and maintain your sender reputation to ensure your emails land where they belong.",
+  },
+  {
+    question: "Is this safe for my domain?",
+    answer:
+      "Our entire system is built around safety. We use conservative sending limits and rotate accounts to ensure no single domain is ever flagged.",
+  },
+  {
+    question: "Do I need technical knowledge?",
+    answer:
+      "No. We provide step-by-step guides for DNS settings (SPF, DKIM, DMARC) and our dashboard handles the heavy lifting of automation.",
+  },
+  {
+    question: "Does it replace my current outreach tool?",
+    answer:
+      "PenguinMails can replace your current tool entirely, or be used specifically for your most important outbound campaigns where deliverability is critical.",
+  },
+];
+---
+
+<section class="py-20 md:py-24" id="faq">
+  <div class="mx-auto w-full max-w-4xl px-4 sm:px-6 lg:px-8">
+    <h2
+      class="text-center text-4xl font-semibold tracking-tight text-zinc-900 md:text-5xl"
+    >
+      Frequently Asked Questions
+    </h2>
+
+    <div class="mt-10 space-y-5 md:mt-12">
+      {
+        faqs.map((item) => (
+          <ArticleCard title={item.question} description={item.answer} />
+        ))
+      }
+    </div>
+  </div>
+</section>
