@@ -8,7 +8,7 @@ import NavLinks from "./NavLinks.astro";
   <div
     class="container mx-auto grid h-20 w-full grid-cols-[auto_1fr_auto] items-center px-5 md:px-8"
   >
-    <Logo />
+    <Logo imageProps={{ loading: "eager" }} />
     <NavLinks />
     <LoginButton className="hidden md:block" />
   </div>
