@@ -18,9 +18,12 @@ const textClass = isDark ? "text-white" : "text-slate-900";
 const descClass = isDark ? "text-gray-400" : "text-slate-600";
 const cardBgClass = isDark
   ? "bg-stone-800 border-stone-700 hover:bg-stone-700"
-  : "bg-white border-slate-200 shadow-sm hover:shadow-md";
+  : "bg-white border-slate-200 shadow-[0_10px_30px_rgba(15,23,42,0.06)] hover:shadow-[0_14px_36px_rgba(15,23,42,0.08)]";
 const cardTitleClass = isDark ? "text-white" : "text-slate-900";
 const cardDescClass = isDark ? "text-gray-400" : "text-slate-600";
+const iconWrapClass = isDark
+  ? "flex h-14 w-14 items-center justify-center rounded-2xl bg-stone-700/80 text-white"
+  : "flex h-20 w-20 items-center justify-center rounded-3xl bg-[#dbe8ff] text-primary";
 ---
 
 <div
@@ -48,22 +51,27 @@ const cardDescClass = isDark ? "text-gray-400" : "text-slate-600";
       items.map((item) => (
         <div
           class={cn(
-            "rounded-2xl p-6 sm:p-8 border flex flex-col gap-6 sm:gap-8 transition-all",
+            "rounded-3xl p-8 sm:p-10 border flex flex-col gap-8 sm:gap-10 transition-all",
             cardBgClass,
           )}
         >
-          <div>{item.icon && <item.icon class={item.iconClass} />}</div>
+          <div class={iconWrapClass}>
+            {item.icon && <item.icon class={item.iconClass} />}
+          </div>
           <div>
             <h3
               class={cn(
-                "font-medium text-xl sm:text-2xl leading-snug mb-3 sm:mb-4 tracking-tight",
+                "font-semibold text-xl sm:text-[2rem] leading-snug mb-3 sm:mb-4 tracking-tight",
                 cardTitleClass,
               )}
             >
               {item.title}
             </h3>
             <p
-              class={cn("text-sm sm:text-base leading-relaxed", cardDescClass)}
+              class={cn(
+                "text-base sm:text-[1.1rem] leading-relaxed",
+                cardDescClass,
+              )}
             >
               {item.description}
             </p>

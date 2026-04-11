@@ -1,8 +1,28 @@
 ---
 import FeatureGrid from "@/components/shared/FeatureGrid.astro";
-import { Flame, Download, LineChart, Cpu } from "@lucide/astro";
+import {
+  MessageSquare,
+  Mail,
+  Flame,
+  Download,
+  LineChart,
+  Cpu,
+} from "@lucide/astro";
 
 const features = [
+  {
+    title: "Unified Inbox",
+    description:
+      "Manage all replies in one clean workspace across all your senders.",
+    icon: MessageSquare,
+    iconClass: "w-8 h-8 text-primary",
+  },
+  {
+    title: "Free Mailbox Creation",
+    description: "Scale safely without additional infrastructure costs.",
+    icon: Mail,
+    iconClass: "w-8 h-8 text-primary",
+  },
   {
     title: "Warmup Automation",
     description:
