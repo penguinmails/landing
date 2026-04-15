@@ -8,11 +8,11 @@ This repository is the public marketing site. The dashboard is a separate extern
 
 ## CTA and Link Behavior
 
-Login links use `PUBLIC_APP_ROOT_URL` from `astro:env/client` directly. Signup CTAs go through `buildSignupUrl` (`src/lib/cta.ts`), which attaches `plan`, `billing`, and UTM parameters to preserve handoff intent and attribution. `src/lib/cta.ts` is scoped to signup URL construction only — other URL constants are consumed directly from `astro:env/client` in the components that need them. The `PUBLIC_WATCH_DEMO_URL` placeholder should be replaced with a real URL before production launch.
+Login links use `PUBLIC_APP_ROOT_URL` from `astro:env/client` directly. Signup CTAs go through `buildSignupUrl` (`src/lib/cta.ts`), which builds a signup URL from `PUBLIC_APP_ROOT_URL` plus `PUBLIC_SIGNUP_PATH`, then attaches `plan`, `billing`, and UTM parameters to preserve handoff intent and attribution. `src/lib/cta.ts` is scoped to signup URL construction only — other URL constants are consumed directly from `astro:env/client` in the components that need them. The `PUBLIC_WATCH_DEMO_URL` placeholder should be replaced with a real URL before production launch.
 
 ## Environment Variables
 
-External URLs and contact endpoints are configured via environment variables, not hardcoded in source. The schema is defined in `astro.config.mjs` using Astro's `astro:env` API, which provides type safety and build-time validation. All values are `PUBLIC_` prefixed since they are used client-side. Copy `.env.example` to `.env` and fill in values for local development; set the same variables in the Vercel project settings for deployed environments.
+External URLs and contact endpoints are configured via environment variables, not hardcoded in source. The schema is defined in `astro.config.mjs` using Astro's `astro:env` API, which provides type safety and build-time validation. All values are `PUBLIC_` prefixed since they are used client-side. Public variables now have defaults to keep builds resilient across environments, while production values should still be set explicitly in Vercel project settings.
 
 ## Pricing Page
 
