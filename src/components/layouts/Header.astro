@@ -2,7 +2,6 @@
 import LoginButton from "./LoginButton.astro";
 import Logo from "./Logo.astro";
 import NavLinks from "./NavLinks.astro";
-import LanguagePicker from "../shared/LanguagePicker.astro";
 ---
 
 <header class="w-full">
@@ -11,10 +10,7 @@ import LanguagePicker from "../shared/LanguagePicker.astro";
   >
     <Logo imageProps={{ loading: "eager" }} />
     <NavLinks />
-    <div class="flex items-center gap-4">
-      <LanguagePicker />
-      <LoginButton className="hidden md:block" />
-    </div>
+    <LoginButton className="hidden md:block" />
   </div>
 </header>
 

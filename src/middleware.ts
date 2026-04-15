@@ -1,16 +1,13 @@
 import { defineMiddleware } from "astro:middleware";
 
 export const onRequest = defineMiddleware(async (context, next) => {
-  const { url, preferredLocale, cookies } = context;
+  const { url, preferredLocale } = context;
 
-  // Only run detection on the root path
+  // Auto-detect browser language on the root path
   if (url.pathname === "/") {
-    // Check if user has explicitly chosen a language via the UI
-    const localeCookie = cookies.get("locale");
-    const hasExplicitLocale = localeCookie?.value === "en" || localeCookie?.value === "es";
-
-    // If the browser prefers Spanish and user hasn't explicitly chosen a language
-    if (preferredLocale === "es" && !hasExplicitLocale) {
+    // Astro reads the browser's Accept-Language header and matches it
+    // against the locales configured in astro.config.mjs
+    if (preferredLocale === "es") {
       return context.redirect("/es/");
     }
   }
