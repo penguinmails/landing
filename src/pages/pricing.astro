@@ -1,8 +1,278 @@
 ---
+import { Check, CirclePlay } from "@lucide/astro";
+import ArticleCard from "@/components/shared/ArticleCard.astro";
+import Button from "@/components/ui/Button.astro";
 import Layout from "@/layouts/Layout.astro";
+
+const plans = [
+  {
+    id: "starter",
+    name: "Starter",
+    monthlyPrice: 35,
+    annualPrice: 29,
+    description: "For individuals getting started",
+    features: [
+      "3,000 Contacts",
+      "Unlimited Monthly Sending Emails",
+      "Unlimited Email Accounts",
+      "Unlimited Email Warmups",
+    ],
+    cta: "Start Free",
+    href: "/signup",
+  },
+  {
+    id: "growth",
+    name: "Growth",
+    monthlyPrice: 55,
+    annualPrice: 46,
+    description: "For small outbound teams",
+    features: [
+      "10,000 Contacts",
+      "Unlimited Monthly Sending Emails",
+      "Unlimited Email Accounts",
+      "Unlimited Email Warmups",
+    ],
+    cta: "Get Started",
+    href: "/signup",
+    popular: true,
+  },
+  {
+    id: "scale",
+    name: "Scale",
+    monthlyPrice: 89,
+    annualPrice: 74,
+    description: "For high volume campaigns",
+    features: [
+      "50,000 Contacts",
+      "Unlimited Monthly Sending Emails",
+      "Unlimited Email Accounts",
+      "Unlimited Email Warmups",
+      "Real-Time Analytics",
+      "Priority Support",
+      "Private Slack Community",
+    ],
+    cta: "Get Started",
+    href: "/signup",
+  },
+  {
+    id: "pro",
+    name: "Pro",
+    monthlyPrice: 189,
+    annualPrice: 158,
+    description: "For advanced team and infrastructure",
+    features: [
+      "Unlimited Contacts",
+      "Unlimited Monthly Sending Emails",
+      "Unlimited Email Accounts",
+      "Unlimited Email Warmups",
+      "Real-Time Analytics",
+      "Priority Support",
+      "Private Slack Community",
+    ],
+    cta: "Get Started",
+    href: "/signup",
+  },
+];
+
+const faqs = [
+  {
+    question: "Will this get my emails out of spam?",
+    answer:
+      "Yes. By using our warmup protocol and rotation techniques, we help rebuild and maintain your sender reputation to ensure your emails land where they belong.",
+  },
+  {
+    question: "Is this safe for my domain?",
+    answer:
+      "Our entire system is built around safety. We use conservative sending limits and rotate accounts to ensure no single domain is ever flagged.",
+  },
+  {
+    question: "Do I need technical knowledge?",
+    answer:
+      "No. We provide step-by-step guides for DNS settings (SPF, DKIM, DMARC) and our dashboard handles the heavy lifting of automation.",
+  },
+  {
+    question: "Does it replace my current outreach tool?",
+    answer:
+      "PenguinMails can replace your current tool entirely, or be used specifically for your most important outbound campaigns where deliverability is critical.",
+  },
+];
 ---
 
 <Layout
-  title="Penguin Mails - Pricing Plans"
-  description="Choose the perfect plan for your email outreach needs. Flexible pricing for startups and agencies."
-/>
+  title="Penguin Mails - Pricing"
+  description="Cold email automation that doesn’t burn your wallet. Start sending cold emails without contact limits, complex dashboards, or crazy pricing."
+>
+  <main class="bg-white">
+    <section class="mx-auto w-full max-w-6xl px-4 pb-12 pt-12 sm:px-6 md:pt-16 lg:px-8">
+      <div class="mx-auto max-w-3xl text-center">
+        <h1 class="text-5xl font-semibold tracking-tight text-zinc-900 sm:text-6xl">
+          Pricing
+        </h1>
+        <p class="mt-5 text-lg leading-relaxed text-zinc-600 sm:text-xl">
+          Cold email automation that doesn’t burn your wallet. Start sending cold
+          emails without contact limits, complex dashboards, or crazy pricing.
+        </p>
+
+        <div class="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
+          <Button
+            href="/signup"
+            className="min-h-12 w-full rounded-full px-7 text-base font-semibold sm:w-auto"
+          >
+            Start Free Trial
+          </Button>
+          <Button
+            href="/demo"
+            variant="outline"
+            className="min-h-12 w-full rounded-full px-7 text-base font-semibold sm:w-auto"
+          >
+            <CirclePlay class="mr-2 h-5 w-5" aria-hidden="true" />
+            Watch Demo
+          </Button>
+        </div>
+      </div>
+    </section>
+
+    <section class="mx-auto w-full max-w-6xl px-4 pb-10 sm:px-6 lg:px-8">
+      <div class="mx-auto flex w-full max-w-xs items-center rounded-full bg-zinc-100 p-1">
+        <button
+          type="button"
+          class="billing-toggle w-1/2 rounded-full px-4 py-2 text-sm font-semibold transition-colors"
+          data-period="monthly"
+          data-active="true"
+          aria-pressed="true"
+        >
+          Monthly
+        </button>
+        <button
+          type="button"
+          class="billing-toggle w-1/2 rounded-full px-4 py-2 text-sm font-semibold transition-colors"
+          data-period="annually"
+          data-active="false"
+          aria-pressed="false"
+        >
+          Annually
+        </button>
+      </div>
+    </section>
+
+    <section class="mx-auto w-full max-w-7xl px-4 pb-20 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-4">
+        {
+          plans.map((plan) => (
+            <article
+              class:list={[
+                "relative flex h-full flex-col rounded-3xl border bg-white p-7",
+                plan.popular
+                  ? "scale-100 border-violet-300 shadow-xl shadow-violet-200/60 md:scale-[1.03]"
+                  : "border-zinc-200 shadow-sm",
+              ]}
+            >
+              {plan.popular && (
+                <div class="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-violet-600 px-4 py-1 text-xs font-semibold text-white">
+                  ⭐ Most Popular Plan
+                </div>
+              )}
+
+              <div class="pt-2">
+                <h2 class="text-2xl font-semibold text-zinc-900">{plan.name}</h2>
+                <p class="mt-2 text-sm text-zinc-600">{plan.description}</p>
+              </div>
+
+              <div class="mt-6">
+                <p class="text-4xl font-semibold text-zinc-900">
+                  $
+                  <span
+                    data-price-value
+                    data-monthly={plan.monthlyPrice}
+                    data-annually={plan.annualPrice}
+                  >
+                    {plan.monthlyPrice}
+                  </span>
+                  <span class="text-base font-medium text-zinc-500">/month</span>
+                </p>
+                <p class="mt-1 text-sm text-zinc-500" data-billing-copy>
+                  Billed monthly
+                </p>
+              </div>
+
+              <ul class="mt-7 space-y-3">
+                {plan.features.map((feature) => (
+                  <li class="flex items-start gap-2.5 text-sm text-zinc-700">
+                    <Check class="mt-0.5 h-4 w-4 text-primary" aria-hidden="true" />
+                    <span>{feature}</span>
+                  </li>
+                ))}
+              </ul>
+
+              <div class="mt-8 pt-2">
+                <Button
+                  href={plan.href}
+                  className={`w-full rounded-full py-3 text-base font-semibold ${plan.popular ? "bg-violet-600 hover:bg-violet-700" : ""}`}
+                >
+                  {plan.cta}
+                </Button>
+              </div>
+            </article>
+          ))
+        }
+      </div>
+    </section>
+
+    <section class="bg-zinc-50 py-20 md:py-24" id="faq">
+      <div class="mx-auto w-full max-w-4xl px-4 sm:px-6 lg:px-8">
+        <h2 class="text-center text-4xl font-semibold tracking-tight text-zinc-900 md:text-5xl">
+          Frequently Asked Questions
+        </h2>
+
+        <div class="mt-10 space-y-5 md:mt-12">
+          {
+            faqs.map((item) => (
+              <ArticleCard title={item.question} description={item.answer} />
+            ))
+          }
+        </div>
+      </div>
+    </section>
+  </main>
+</Layout>
+
+<script>
+  const buttons = Array.from(document.querySelectorAll(".billing-toggle"));
+  const prices = Array.from(document.querySelectorAll("[data-price-value]"));
+  const billingCopyNodes = Array.from(document.querySelectorAll("[data-billing-copy]"));
+
+  const setBillingPeriod = (period) => {
+    buttons.forEach((button) => {
+      const selected = button.dataset.period === period;
+      button.dataset.active = selected ? "true" : "false";
+      button.setAttribute("aria-pressed", selected ? "true" : "false");
+      button.classList.toggle("bg-white", selected);
+      button.classList.toggle("text-zinc-900", selected);
+      button.classList.toggle("text-zinc-500", !selected);
+      button.classList.toggle("shadow-sm", selected);
+    });
+
+    prices.forEach((price) => {
+      const value = price.dataset[period];
+      if (value) {
+        price.textContent = value;
+      }
+    });
+
+    billingCopyNodes.forEach((copy) => {
+      copy.textContent =
+        period === "annually" ? "Billed annually (save 20%)" : "Billed monthly";
+    });
+  };
+
+  buttons.forEach((button) => {
+    button.addEventListener("click", () => {
+      const period = button.dataset.period;
+      if (period) {
+        setBillingPeriod(period);
+      }
+    });
+  });
+
+  setBillingPeriod("monthly");
+</script>
