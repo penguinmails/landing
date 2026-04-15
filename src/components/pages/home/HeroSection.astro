@@ -2,7 +2,8 @@
 import { CirclePlay, Mail } from "@lucide/astro";
 import { Image } from "astro:assets";
 import dashboardImg from "../../../assets/Dashboard.png";
-import { buildSignupUrl, WATCH_DEMO_URL } from "@/lib/cta";
+import { buildSignupUrl } from "@/lib/cta";
+import { PUBLIC_WATCH_DEMO_URL } from "astro:env/client";
 import Button from "../../ui/Button.astro";
 
 interface Props {
@@ -76,7 +77,7 @@ const {
         {trialText}
       </Button>
       <Button
-        href={WATCH_DEMO_URL}
+        href={PUBLIC_WATCH_DEMO_URL}
         target="_blank"
         rel="noopener noreferrer"
         variant="outline"
