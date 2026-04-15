@@ -14,6 +14,7 @@ export function buildSignupUrl(options: SignupUrlOptions) {
   const normalizedPath = PUBLIC_SIGNUP_PATH.startsWith("/")
     ? PUBLIC_SIGNUP_PATH
     : `/${PUBLIC_SIGNUP_PATH}`;
+
   const url = new URL(normalizedPath, PUBLIC_APP_ROOT_URL);
 
   url.searchParams.set("utm_source", options.context);

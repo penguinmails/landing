@@ -38,3 +38,4 @@ All user-facing copy goes through i18n keys, not hardcoded strings. Keep `src/pa
 - `DECISIONS.md` — stable architectural and product decisions.
 - `CONTRIBUTORS.md` — this file; dev workflow and contribution guidance.
 - `docs/` — deeper documentation on specific topics.
+- `docs/testing-with-curl-and-terminal.md` — terminal-first checks for routes, CTA markup, and deployment-parity smoke tests.

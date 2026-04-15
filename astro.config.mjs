@@ -15,6 +15,7 @@ export default defineConfig({
       PUBLIC_APP_ROOT_URL: envField.string({
         context: "client",
         access: "public",
+        url: true,
         default: "https://penguinmails.vercel.app/",
       }),
       PUBLIC_SIGNUP_PATH: envField.string({
@@ -25,6 +26,7 @@ export default defineConfig({
       PUBLIC_WATCH_DEMO_URL: envField.string({
         context: "client",
         access: "public",
+        url: true,
         default: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
       }),
       PUBLIC_BOOK_DEMO_EMAIL: envField.string({
