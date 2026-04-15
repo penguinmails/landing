@@ -1,0 +1,39 @@
+---
+import { CirclePlay } from "@lucide/astro";
+import Button from "@/components/ui/Button.astro";
+import { buildSignupUrl, WATCH_DEMO_URL } from "@/lib/cta";
+import { getLangFromUrl, useTranslations } from "@/i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<section class="mx-auto w-full max-w-6xl px-4 pb-12 pt-12 sm:px-6 md:pt-16 lg:px-8">
+  <div class="mx-auto max-w-3xl text-center">
+    <h1 class="text-5xl font-semibold tracking-tight text-zinc-900 sm:text-6xl">
+      {t("pricing.hero.headline")}
+    </h1>
+    <p class="mt-5 text-lg leading-relaxed text-zinc-600 sm:text-xl">
+      {t("pricing.hero.subCopy")}
+    </p>
+
+    <div class="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
+      <Button
+        href={buildSignupUrl({ context: "pricing_page", plan: "growth" })}
+        className="cta-pulse cta-accent min-h-12 w-full rounded-full px-7 text-base font-semibold shadow-[0_10px_28px_rgba(29,96,229,0.16)] hover:border-primary-700 sm:w-auto"
+      >
+        {t("pricing.hero.cta.trial")}
+      </Button>
+      <Button
+        href={WATCH_DEMO_URL}
+        target="_blank"
+        rel="noopener noreferrer"
+        variant="outline"
+        className="min-h-12 w-full rounded-full border-primary/30 px-7 text-base font-semibold hover:border-primary hover:bg-primary/5 sm:w-auto"
+      >
+        <CirclePlay class="mr-2 h-5 w-5" aria-hidden="true" />
+        {t("pricing.hero.cta.demo")}
+      </Button>
+    </div>
+  </div>
+</section>

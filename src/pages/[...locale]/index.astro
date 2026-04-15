@@ -10,6 +10,14 @@ import ComparisonTableSection from "@/components/pages/home/ComparisonTableSecti
 import FrequentlyAskedQuestionsSection from "@/components/pages/home/FrequentlyAskedQuestionsSection.astro";
 import Layout from "@/layouts/Layout.astro";
 import { getLangFromUrl, useTranslations } from "@/i18n/utils";
+import { ui } from "@/i18n/ui";
+
+const { locale } = Astro.params;
+
+// Validate locale if present
+if (locale && !(locale in ui)) {
+  return Astro.redirect("/404");
+}
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);

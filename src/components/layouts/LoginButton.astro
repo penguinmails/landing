@@ -1,8 +1,9 @@
 ---
-import Button from "@/components/ui/Button.astro";
-import { getLangFromUrl, useTranslations } from "@/i18n/utils";
 import { cn } from "@/lib/utils";
 import type { ClassNameValue } from "tailwind-merge";
+import Button from "@/components/ui/Button.astro";
+import { APP_ROOT_URL } from "@/lib/cta";
+import { getLangFromUrl, useTranslations } from "@/i18n/utils";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -17,7 +18,7 @@ const { className, variant } = Astro.props;
 <Button
   variant={variant || "primary"}
   size="md"
-  href="/login"
+  href={APP_ROOT_URL}
   className={cn(className)}
 >
   {t("nav.login")}
