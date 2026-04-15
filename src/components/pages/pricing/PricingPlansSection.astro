@@ -1,0 +1,152 @@
+---
+import { Check } from "@lucide/astro";
+import Button from "@/components/ui/Button.astro";
+import { buildSignupUrl } from "@/lib/cta";
+import { pricingPlans } from "./data";
+---
+
+<section class="mx-auto w-full max-w-6xl px-4 pb-10 sm:px-6 lg:px-8">
+  <div class="mx-auto flex w-full max-w-xs items-center rounded-full bg-zinc-100 p-1">
+    <button
+      type="button"
+      class="billing-toggle w-1/2 rounded-full bg-white px-4 py-2 text-sm font-semibold text-zinc-900 shadow-sm transition-colors"
+      data-period="monthly"
+      data-active="true"
+      aria-pressed="true"
+    >
+      Monthly
+    </button>
+    <button
+      type="button"
+      class="billing-toggle w-1/2 rounded-full px-4 py-2 text-sm font-semibold text-zinc-500 transition-colors"
+      data-period="annually"
+      data-active="false"
+      aria-pressed="false"
+    >
+      Annually
+    </button>
+  </div>
+</section>
+
+<section class="mx-auto w-full max-w-7xl px-4 pb-20 sm:px-6 lg:px-8">
+  <div class="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-4">
+    {
+      pricingPlans.map((plan) => (
+        <article
+          class:list={[
+            "group relative flex h-full flex-col rounded-3xl border bg-white p-7 transition-[border-color,box-shadow,transform] duration-300 ease-out motion-safe:hover:-translate-y-1",
+            plan.popular
+              ? "scale-100 border-violet-300 shadow-xl shadow-violet-200/60 ring-1 ring-violet-300/60 md:scale-[1.03] hover:border-violet-400 hover:shadow-[0_24px_60px_rgba(124,58,237,0.18)]"
+              : "border-zinc-200 shadow-sm hover:border-primary/45 hover:shadow-[0_18px_40px_rgba(29,96,229,0.12)]",
+          ]}
+        >
+          {plan.popular && (
+            <div class="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-violet-600 px-4 py-1 text-xs font-semibold text-white">
+              ⭐ Most Popular Plan
+            </div>
+          )}
+
+          <div class="flex flex-1 flex-col">
+            <div class="pt-2">
+              <h2 class="text-2xl font-semibold text-zinc-900">{plan.name}</h2>
+              <p class="mt-2 text-sm text-zinc-600">{plan.description}</p>
+            </div>
+
+            <div class="mt-6">
+              <p class="text-4xl font-semibold text-zinc-900">
+                $
+                <span
+                  data-price-value
+                  data-monthly={plan.monthlyPrice}
+                  data-annually={plan.annualPrice}
+                >
+                  {plan.monthlyPrice}
+                </span>
+                <span class="text-base font-medium text-zinc-500">/month</span>
+              </p>
+              <p class="mt-1 text-sm text-zinc-500" data-billing-copy>
+                Billed monthly
+              </p>
+            </div>
+
+            <div class="mt-7 flex-1">
+              <ul class="space-y-3">
+                {plan.features.map((feature) => (
+                  <li class="flex items-start gap-2.5 text-sm text-zinc-700">
+                    <Check class="mt-0.5 h-4 w-4 text-primary" aria-hidden="true" />
+                    <span>{feature}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+
+          <div class="mt-8 pt-2">
+            <Button
+              href={buildSignupUrl({
+                context: "pricing_page",
+                plan: plan.id,
+                billing: "monthly",
+              })}
+              className={`plan-cta cta-pulse w-full rounded-full border py-3 text-base font-semibold ${plan.popular ? "cta-accent-violet border-violet-600 bg-violet-600 shadow-[0_14px_34px_rgba(124,58,237,0.2)] hover:border-violet-700 hover:bg-violet-700" : "cta-accent border-transparent hover:border-primary-700"}`}
+              data-plan-cta
+              data-plan-id={plan.id}
+            >
+              {plan.cta}
+            </Button>
+          </div>
+        </article>
+      ))
+    }
+  </div>
+</section>
+
+<script>
+  const buttons = Array.from(document.querySelectorAll(".billing-toggle"));
+  const prices = Array.from(document.querySelectorAll("[data-price-value]"));
+  const billingCopyNodes = Array.from(document.querySelectorAll("[data-billing-copy]"));
+  const planLinks = Array.from(document.querySelectorAll("[data-plan-cta]"));
+
+  const setBillingPeriod = (period) => {
+    buttons.forEach((button) => {
+      const selected = button.dataset.period === period;
+      button.dataset.active = selected ? "true" : "false";
+      button.setAttribute("aria-pressed", selected ? "true" : "false");
+      button.classList.toggle("bg-white", selected);
+      button.classList.toggle("text-zinc-900", selected);
+      button.classList.toggle("text-zinc-500", !selected);
+      button.classList.toggle("shadow-sm", selected);
+    });
+
+    prices.forEach((price) => {
+      const value = price.dataset[period];
+      if (value) {
+        price.textContent = value;
+      }
+    });
+
+    billingCopyNodes.forEach((copy) => {
+      copy.textContent =
+        period === "annually" ? "Billed annually (save 20%)" : "Billed monthly";
+    });
+
+    // Preserve the existing query structure and only switch billing.
+    planLinks.forEach((link) => {
+      if (!(link instanceof HTMLAnchorElement)) return;
+      const url = new URL(link.href);
+      url.searchParams.set("billing", period);
+      link.href = url.toString();
+    });
+  };
+
+  buttons.forEach((button) => {
+    button.addEventListener("click", () => {
+      const period = button.dataset.period;
+      if (period) {
+        setBillingPeriod(period);
+      }
+    });
+  });
+
+  setBillingPeriod("monthly");
+</script>

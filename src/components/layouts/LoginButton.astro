@@ -2,6 +2,7 @@
 import { cn } from "@/lib/utils";
 import type { ClassNameValue } from "tailwind-merge";
 import Button from "@/components/ui/Button.astro";
+import { APP_ROOT_URL } from "@/lib/cta";
 interface Props {
   className?: ClassNameValue;
   variant?: "primary" | "secondary" | "outline" | "ghost" | "link";
@@ -12,7 +13,7 @@ const { className, variant } = Astro.props;
 <Button
   variant={variant || "primary"}
   size="md"
-  href="/login"
+  href={APP_ROOT_URL}
   className={cn(className)}
 >
   Login
