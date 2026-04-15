@@ -3,8 +3,6 @@ import Tabs from "@/components/ui/Tabs.astro";
 import TabsContent from "@/components/ui/TabsContent.astro";
 import TabsList from "@/components/ui/TabsList.astro";
 import TabsTrigger from "@/components/ui/TabsTrigger.astro";
-import { CheckCircle2, XCircle } from "@lucide/astro";
-
 type Status = "yes" | "no";
 type StatusCell = { status: Status; text?: string };
 type Cell = string | StatusCell;
@@ -188,10 +186,6 @@ const comparisonTables: ComparisonTable[] = competitorConfigs.map((config) => ({
 
 const dotClass = (status: Status) =>
   status === "yes" ? "bg-emerald-500" : "bg-rose-500";
-const iconClass = (status: Status) =>
-  status === "yes"
-    ? "text-emerald-500 fill-emerald-500 stroke-white"
-    : "text-rose-500 fill-rose-500 stroke-white";
 ---
 
 <section class="py-24 bg-white/50" id="comparison">

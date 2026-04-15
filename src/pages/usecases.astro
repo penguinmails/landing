@@ -1,8 +1,10 @@
 ---
 import Layout from "@/layouts/Layout.astro";
+import { getLangFromUrl, useTranslations } from "@/i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
-<Layout
-  title="Penguin Mails - Use Cases"
-  description="See how Penguin Mails helps startups, agencies, and businesses improve their email outreach."
-/>
+<Layout title={t("usecases.title")} description={t("usecases.description")} />
+

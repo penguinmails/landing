@@ -24,6 +24,6 @@ pnpm-debug.log*
 .idea/
 .kilo/
 
-
+tsconfig.tsbuildinfo
 .vercel
 .env*.local
