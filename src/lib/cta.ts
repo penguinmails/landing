@@ -1,7 +1,4 @@
-const SIGNUP_BASE_URL = "https://penguinmails.vercel.app/signup";
-export const APP_ROOT_URL = "https://penguinmails.vercel.app/";
-export const WATCH_DEMO_URL = "https://www.youtube.com/watch?v=dQw4w9WgXcQ";
-export const BOOK_DEMO_EMAIL = "mailto:support@penguinmails.com";
+import { PUBLIC_SIGNUP_URL } from "astro:env/client";
 
 type BillingPeriod = "monthly" | "annually";
 type PlanId = "starter" | "growth" | "scale" | "pro";
@@ -14,7 +11,7 @@ interface SignupUrlOptions {
 }
 
 export function buildSignupUrl(options: SignupUrlOptions) {
-  const url = new URL(SIGNUP_BASE_URL);
+  const url = new URL(PUBLIC_SIGNUP_URL);
 
   url.searchParams.set("utm_source", options.context);
   url.searchParams.set("utm_medium", "website");

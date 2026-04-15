@@ -1,5 +1,6 @@
 ---
-import { BOOK_DEMO_EMAIL, buildSignupUrl } from "@/lib/cta";
+import { buildSignupUrl } from "@/lib/cta";
+import { PUBLIC_BOOK_DEMO_EMAIL } from "astro:env/client";
 import Button from "../ui/Button.astro";
 ---
 
@@ -29,7 +30,7 @@ import Button from "../ui/Button.astro";
           Start Free Trial
         </Button>
         <Button
-          href={BOOK_DEMO_EMAIL}
+          href={PUBLIC_BOOK_DEMO_EMAIL}
           className="min-h-14 w-full rounded-full border border-white/70 bg-transparent px-8 text-xl font-semibold text-white hover:border-white hover:bg-white/10 sm:w-auto sm:min-w-56"
         >
           Book a Demo

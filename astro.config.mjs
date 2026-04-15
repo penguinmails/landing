@@ -1,5 +1,5 @@
 // @ts-check
-import { defineConfig } from "astro/config";
+import { defineConfig, envField } from "astro/config";
 
 import tailwindcss from "@tailwindcss/vite";
 
@@ -10,6 +10,26 @@ export default defineConfig({
   site: "https://penguinmails.com",
   output: "server",
   adapter: vercel(),
+  env: {
+    schema: {
+      PUBLIC_APP_ROOT_URL: envField.string({
+        context: "client",
+        access: "public",
+      }),
+      PUBLIC_SIGNUP_URL: envField.string({
+        context: "client",
+        access: "public",
+      }),
+      PUBLIC_WATCH_DEMO_URL: envField.string({
+        context: "client",
+        access: "public",
+      }),
+      PUBLIC_BOOK_DEMO_EMAIL: envField.string({
+        context: "client",
+        access: "public",
+      }),
+    },
+  },
   i18n: {
     defaultLocale: "en",
     locales: ["en", "es"],
@@ -19,4 +39,3 @@ export default defineConfig({
     plugins: [tailwindcss()],
   },
 });
-

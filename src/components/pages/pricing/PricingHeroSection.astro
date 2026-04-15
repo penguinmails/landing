@@ -1,7 +1,8 @@
 ---
 import { CirclePlay } from "@lucide/astro";
 import Button from "@/components/ui/Button.astro";
-import { buildSignupUrl, WATCH_DEMO_URL } from "@/lib/cta";
+import { buildSignupUrl } from "@/lib/cta";
+import { PUBLIC_WATCH_DEMO_URL } from "astro:env/client";
 import { getLangFromUrl, useTranslations } from "@/i18n/utils";
 
 const lang = getLangFromUrl(Astro.url);
@@ -25,7 +26,7 @@ const t = useTranslations(lang);
         {t("pricing.hero.cta.trial")}
       </Button>
       <Button
-        href={WATCH_DEMO_URL}
+        href={PUBLIC_WATCH_DEMO_URL}
         target="_blank"
         rel="noopener noreferrer"
         variant="outline"
