@@ -173,36 +173,40 @@ const faqs = [
                 </div>
               )}
 
-              <div class="pt-2">
-                <h2 class="text-2xl font-semibold text-zinc-900">{plan.name}</h2>
-                <p class="mt-2 text-sm text-zinc-600">{plan.description}</p>
-              </div>
+              <div class="flex flex-1 flex-col">
+                <div class="pt-2">
+                  <h2 class="text-2xl font-semibold text-zinc-900">{plan.name}</h2>
+                  <p class="mt-2 text-sm text-zinc-600">{plan.description}</p>
+                </div>
 
-              <div class="mt-6">
-                <p class="text-4xl font-semibold text-zinc-900">
-                  $
-                  <span
-                    data-price-value
-                    data-monthly={plan.monthlyPrice}
-                    data-annually={plan.annualPrice}
-                  >
-                    {plan.monthlyPrice}
-                  </span>
-                  <span class="text-base font-medium text-zinc-500">/month</span>
-                </p>
-                <p class="mt-1 text-sm text-zinc-500" data-billing-copy>
-                  Billed monthly
-                </p>
-              </div>
+                <div class="mt-6">
+                  <p class="text-4xl font-semibold text-zinc-900">
+                    $
+                    <span
+                      data-price-value
+                      data-monthly={plan.monthlyPrice}
+                      data-annually={plan.annualPrice}
+                    >
+                      {plan.monthlyPrice}
+                    </span>
+                    <span class="text-base font-medium text-zinc-500">/month</span>
+                  </p>
+                  <p class="mt-1 text-sm text-zinc-500" data-billing-copy>
+                    Billed monthly
+                  </p>
+                </div>
 
-              <ul class="mt-7 space-y-3">
-                {plan.features.map((feature) => (
-                  <li class="flex items-start gap-2.5 text-sm text-zinc-700">
-                    <Check class="mt-0.5 h-4 w-4 text-primary" aria-hidden="true" />
-                    <span>{feature}</span>
-                  </li>
-                ))}
-              </ul>
+                <div class="mt-7 flex-1">
+                  <ul class="space-y-3">
+                    {plan.features.map((feature) => (
+                      <li class="flex items-start gap-2.5 text-sm text-zinc-700">
+                        <Check class="mt-0.5 h-4 w-4 text-primary" aria-hidden="true" />
+                        <span>{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
 
               <div class="mt-8 pt-2">
                 <Button
