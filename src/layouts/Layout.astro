@@ -4,30 +4,84 @@ import Header from "@/components/layouts/Header.astro";
 import Footer from "@/components/layouts/Footer.astro";
 import "@/styles/global.css";
 interface Props {
+  title?: string;
   description?: string;
   image?: string;
+  url?: string;
+  type?: string;
+  canonical?: string;
+  noindex?: boolean;
 }
 const {
+  title = "Penguin Mails - Email Outreach & Domain Warm-up",
+  description = "Enter the world of Penguin Mails, where every message is a delightful surprise!",
   image = "/images/og-image.png",
-  description = "A powerful cold email tool built for startups and agencies who care about deliverability. Smarter campaign automation, real email warm-ups, and zero sending",
+  type = "website",
+  canonical,
+  noindex = false,
 } = Astro.props;
 
-const url = Astro.url.pathname.slice(1) || "Home";
-const title = `Penguin - ${url.charAt(0).toUpperCase() + url.slice(1)}`;
+const siteUrl = import.meta.env.SITE || Astro.url.origin;
+const pageUrl = canonical || new URL(Astro.url.pathname, siteUrl).href;
+
+// Precompute structured data
+const structuredData = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Penguin Mails",
+  "url": siteUrl,
+  "logo": new URL("/img/pengo_32X32.png", siteUrl).href,
+  "description": description,
+});
 ---
 
 <!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description} />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href={pageUrl} />
+    
+    <!-- Robots -->
+    {noindex && <meta name="robots" content="noindex, nofollow" />}
+    {!noindex && <meta name="robots" content="index, follow" />}
+    
+    <!-- Theme Color -->
+    <meta name="theme-color" content="#1e1b4b" />
+    
+    <!-- Favicon & Icons -->
+    <link rel="icon" href="/favicon.ico" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" href="/img/pengo_32X32.png" />
+    <link rel="icon" href="/img/pengo_16X16.png" sizes="16x16" />
+    <link rel="icon" href="/img/pengo_32X32.png" sizes="32x32" />
+    <link rel="icon" href="/img/pengo_48X48.png" sizes="48x48" />
+    
+    <!-- Open Graph -->
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:image" content={image} />
-    <link rel="icon" href="/favicon.ico" />
-    <meta name="generator" content={Astro.generator} />
+    <meta property="og:image" content={new URL(image, siteUrl).href} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:type" content={type} />
+    <meta property="og:url" content={pageUrl} />
+    <meta property="og:site_name" content="Penguin Mails" />
+    <meta property="og:locale" content="en_US" />
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={new URL(image, siteUrl).href} />
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json" set:html={structuredData} />
+    
     <title>{title}</title>
   </head>
   <body class="min-h-screen">
