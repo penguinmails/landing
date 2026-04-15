@@ -88,7 +88,7 @@ const structuredData = JSON.stringify({
     <meta name="twitter:image" content={new URL(image, siteUrl).href} />
     
     <!-- Structured Data -->
-    <script type="application/ld+json" set:html={structuredData} />
+    <script type="application/ld+json" set:html={structuredData} is:inline />
     
     <title>{title}</title>
   </head>

@@ -1,7 +1,7 @@
 import { defineMiddleware } from "astro:middleware";
 
 export const onRequest = defineMiddleware(async (context, next) => {
-  const { url, request, preferredLocale, locals } = context;
+  const { url, preferredLocale } = context;
 
   // Only run detection on the root path
   if (url.pathname === "/") {

@@ -1,5 +1,8 @@
+---
 import Button from "@/components/ui/Button.astro";
 import { getLangFromUrl, useTranslations } from "@/i18n/utils";
+import { cn } from "@/lib/utils";
+import type { ClassNameValue } from "tailwind-merge";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);

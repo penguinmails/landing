@@ -4,8 +4,6 @@ import { getLangFromUrl, useTranslatedPath } from "@/i18n/utils";
 import { Languages } from "@lucide/astro";
 
 const lang = getLangFromUrl(Astro.url);
-const translatePath = useTranslatedPath(lang);
-
 // Get the current path without the language prefix for the switcher
 const pathname = Astro.url.pathname;
 const segments = pathname.split("/").filter(Boolean);
