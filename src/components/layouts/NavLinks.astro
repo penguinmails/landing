@@ -9,21 +9,28 @@ import { Menu, X } from "@lucide/astro";
 import Button from "../ui/Button.astro";
 import Logo from "./Logo.astro";
 import LoginButton from "./LoginButton.astro";
+import { getLangFromUrl, useTranslations, useTranslatedPath } from "@/i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const translatePath = useTranslatedPath(lang);
+
 const navLinks = [
-  { name: "Home", href: "/" },
+  { name: t("nav.home"), href: translatePath("/") },
   {
-    name: "Features",
-    href: "/features",
+    name: t("nav.features"),
+    href: translatePath("/features"),
   },
   {
-    name: "Pricing",
-    href: "/pricing",
+    name: t("nav.pricing"),
+    href: translatePath("/pricing"),
   },
   {
-    name: "Usecases",
-    href: "/usecases",
+    name: t("nav.usecases"),
+    href: translatePath("/usecases"),
   },
 ];
+
 const currentPath = Astro.url.pathname.replace(/\/$/, "") || "/";
 const isActive = (href: string) => {
   return currentPath === href;

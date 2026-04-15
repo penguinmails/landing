@@ -3,6 +3,11 @@ import CTASection from "@/components/layouts/CTASection.astro";
 import Header from "@/components/layouts/Header.astro";
 import Footer from "@/components/layouts/Footer.astro";
 import "@/styles/global.css";
+import { getLangFromUrl, useTranslations } from "@/i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
 interface Props {
   title?: string;
   description?: string;
@@ -13,13 +18,14 @@ interface Props {
   noindex?: boolean;
 }
 const {
-  title = "Penguin Mails - Email Outreach & Domain Warm-up",
-  description = "Enter the world of Penguin Mails, where every message is a delightful surprise!",
+  title = t("site.title"),
+  description = t("site.description"),
   image = "/images/og-image.png",
   type = "website",
   canonical,
   noindex = false,
 } = Astro.props;
+
 
 const siteUrl = import.meta.env.SITE || Astro.url.origin;
 const pageUrl = canonical || new URL(Astro.url.pathname, siteUrl).href;
@@ -36,8 +42,9 @@ const structuredData = JSON.stringify({
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang={lang}>
   <head>
+
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description} />
@@ -71,7 +78,8 @@ const structuredData = JSON.stringify({
     <meta property="og:type" content={type} />
     <meta property="og:url" content={pageUrl} />
     <meta property="og:site_name" content="Penguin Mails" />
-    <meta property="og:locale" content="en_US" />
+    <meta property="og:locale" content={lang === "es" ? "es_ES" : "en_US"} />
+
     
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
