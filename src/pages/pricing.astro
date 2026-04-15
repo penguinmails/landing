@@ -1,8 +1,17 @@
 ---
+import PricingFaqSection from "@/components/pages/pricing/PricingFaqSection.astro";
+import PricingHeroSection from "@/components/pages/pricing/PricingHeroSection.astro";
+import PricingPlansSection from "@/components/pages/pricing/PricingPlansSection.astro";
 import Layout from "@/layouts/Layout.astro";
 ---
 
 <Layout
-  title="Penguin Mails - Pricing Plans"
-  description="Choose the perfect plan for your email outreach needs. Flexible pricing for startups and agencies."
-/>
+  title="Penguin Mails - Pricing"
+  description="Cold email automation that doesn’t burn your wallet. Start sending cold emails without contact limits, complex dashboards, or crazy pricing."
+>
+  <main class="bg-white">
+    <PricingHeroSection />
+    <PricingPlansSection />
+    <PricingFaqSection />
+  </main>
+</Layout>
