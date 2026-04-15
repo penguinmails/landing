@@ -55,6 +55,7 @@ const structuredData = JSON.stringify({
     
     <!-- Favicon & Icons -->
     <link rel="icon" href="/favicon.ico" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="shortcut icon" href="/favicon.ico" />
     <link rel="apple-touch-icon" href="/img/pengo_32X32.png" />
     <link rel="icon" href="/img/pengo_16X16.png" sizes="16x16" />
@@ -79,9 +80,7 @@ const structuredData = JSON.stringify({
     <meta name="twitter:image" content={new URL(image, siteUrl).href} />
     
     <!-- Structured Data -->
-    <script type="application/ld+json">
-    {structuredData}
-    </script>
+    <script type="application/ld+json" set:html={structuredData} />
     
     <title>{title}</title>
   </head>
