@@ -1,5 +1,6 @@
 /// <reference types="vitest/config" />
 import { getViteConfig } from "astro/config";
+import { fileURLToPath } from "node:url";
 
 export default getViteConfig({
   test: {
@@ -8,10 +9,9 @@ export default getViteConfig({
   },
   resolve: {
     alias: {
-      "astro:env/client": new URL(
-        "./src/test/mocks/astro-env.ts",
-        import.meta.url,
-      ).pathname,
+      "astro:env/client": fileURLToPath(
+        new URL("./src/test/mocks/astro-env.ts", import.meta.url),
+      ),
     },
   },
 });

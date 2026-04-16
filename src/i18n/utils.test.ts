@@ -47,7 +47,7 @@ describe("Property 2: getLangFromUrl falls back to defaultLang for unknown segme
     // Validates: Requirements 3.2, 3.3
     fc.assert(
       fc.property(
-        fc.string().filter((s) => !(s in ui)),
+        fc.webSegment().filter((s) => !(s in ui)),
         (segment) => {
           const url = new URL(`https://example.com/${segment}/some-path`);
           expect(getLangFromUrl(url)).toBe(defaultLang);
