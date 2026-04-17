@@ -4,4 +4,227 @@ export const features: FeaturesTranslations = {
   "features.title": "Penguin Mails - Features",
   "features.description":
     "Explore the powerful features of Penguin Mails. Domain warm-up, deliverability tracking, and more.",
+
+  // Mailbox Creation Feature
+  "features.mailbox.tabTitle": "Free Mailbox Creation - PenguinMails",
+  "features.mailbox.heading":
+    "Create Cold Email Mailboxes Right Inside PenguinMails",
+  "features.mailbox.subheading": "No Gmail. No SMTP.",
+  "features.mailbox.tagline":
+    'Just click "Create Mailbox" and start sending, because cold email needs control, and it starts with your inbox. Don\'t rent one. Own it.',
+  "features.mailbox.core.valueProp":
+    "You're Not Connecting Mailboxes. You're Creating Them.",
+  "features.mailbox.core.explanation":
+    "Most tools ask you to bring your inbox. We let you create one inside PenguinMails. No more SMTP errors, Gmail limits, tracking issues or setup headaches. Just connect your domain and start fresh.",
+  "features.mailbox.core.benefit":
+    "You don't need a third-party inbox. You create real email accounts (mailboxes/inboxes) from scratch, on your own domain. And they work like any regular inbox. You can send, receive, reply, and check everything from one place. It's not a mailbox connection. It's mailbox creation.",
+
+  "features.mailbox.versus.title":
+    "Why It's Better Than Connecting Gmail/SMTPs",
+  "features.mailbox.versus.subtitle":
+    "Built-In Mailboxes Beat Connected Accounts",
+  "features.mailbox.versus.problems": [
+    "API errors",
+    "Gmail sending limits",
+    "Broken email tracking",
+    "Poor deliverability",
+  ],
+  "features.mailbox.versus.solution":
+    "With PenguinMails, you skip all that. You're not connecting, you're creating. Our inboxes are made to send cold emails, not handle newsletters or personal mail.",
+  "features.mailbox.versus.benefits": [
+    "No Gmail logins or SMTP errors",
+    "Email accounts that send and receive cold emails, without breaking or disconnecting",
+    "Better control, cleaner tracking, and better results",
+  ],
+
+  "features.mailbox.steps.title": "Create and Use Mailboxes in 3 Simple Steps",
+  "features.mailbox.steps.step1.title": "Connect Your Domain",
+  "features.mailbox.steps.step1.description":
+    "Connect your domain with PenguinMails and set up the necessary DNS records. Just like you would when setting up email hosting. We provide proper guides and tutorials for each and every step.",
+  "features.mailbox.steps.step2.title": "Create Mailboxes",
+  "features.mailbox.steps.step2.description":
+    'Click "Create Mailbox" to set up inboxes like you@yourdomain.com. These are full domain-based email accounts. You don\'t need Gmail or SMTP.',
+  "features.mailbox.steps.step3.title": "Start Sending Cold Emails",
+  "features.mailbox.steps.step3.description":
+    "Use these inboxes to send, receive, and track your campaigns. These are real cold email inboxes, ready to go.",
+  "features.mailbox.steps.conclusion":
+    "You don't bring inboxes from outside; you create them here. Real email accounts for cold outreach, made inside PenguinMails.",
+
+  "features.mailbox.real.title": "Does It Work Like Gmail or Outlook?",
+  "features.mailbox.real.subtitle": "Yes, These Are Real Email Accounts",
+  "features.mailbox.real.description":
+    "These are not fake inboxes or aliases. You're creating real mailboxes on your own domain, not just connecting someone else's.",
+  "features.mailbox.real.capabilities": [
+    "Send and receive cold emails",
+    "Check your inbox",
+    "Track replies",
+    "Manage it all from one place",
+  ],
+  "features.mailbox.real.benefits": [
+    "No massive sending limits",
+    "No API errors",
+    "No account bans",
+  ],
+
+  "features.mailbox.unlimited.title":
+    "Create Unlimited Mailboxes on Your Domain (Free With Any Plan)",
+  "features.mailbox.unlimited.description":
+    "Most cold email tools limit how many inboxes you can use, or charge extra for each one. But PenguinMails gives you unlimited mailboxes at no extra cost.",
+  "features.mailbox.unlimited.explanation":
+    "You can create mailboxes directly inside your dashboard. Each one is a full cold email inbox that works just like Gmail or Outlook. All inboxes are domain-based email accounts. Just connect your domain once, and start adding new addresses like outreach@yourdomain.com or sales@yourdomain.com. And yes, they're free mailboxes. You don't pay extra, no matter how many you create. That means zero email hosting cost, even if you're running large campaigns with multiple senders.",
+
+  "features.mailbox.cost.title":
+    "Save $2,000+/Year by Creating Mailboxes Instead of Buying Them",
+  "features.mailbox.cost.description":
+    "Running cold email campaigns at scale? You'll probably need 20–50 inboxes. With other tools, that means buying accounts from Google or Outlook and using SMTP integration to connect them. But that adds up fast, in cost and in tech issues.",
+  "features.mailbox.cost.intro": "Let's break down the email hosting cost.",
+  "features.mailbox.cost.table.title": "30 Inboxes Cost Comparison",
+  "features.mailbox.cost.conclusion":
+    "You're getting unlimited mailboxes. These are real, domain-based email accounts, not temporary or shared inboxes. Instead of buying inboxes, you create mailboxes inside PenguinMails. They're free mailboxes, fully included with your plan. So you save money, skip hassle, and run more outreach, without limits.",
+
+  "features.mailbox.management.title": "Manage Mailboxes Like a Pro",
+  "features.mailbox.management.description":
+    "Every cold email mailbox you create comes with built-in controls. You don't need to open cPanel or contact support.",
+  "features.mailbox.management.controls": [
+    "Delete any inbox",
+    "Reset passwords anytime",
+    "See mailbox activity at a glance",
+    "Manage all accounts from one clean dashboard",
+  ],
+
+  "features.mailbox.faq.title": "Frequently Asked Questions",
+  "features.mailbox.faq.items": [
+    {
+      question: "Do I need to warm up these mailboxes?",
+      answer:
+        "Yes. These are new email accounts, so you must warm them up before sending cold emails. Just like Gmail or Outlook, warming up helps your inbox build trust and land in inboxes, not spam.",
+    },
+    {
+      question: "Do I need to connect my domain?",
+      answer:
+        "Yes. You'll need to connect your domain first before creating mailboxes. This includes setting up DNS records (we guide you), and it's a one-time step per domain.",
+    },
+    {
+      question: "What happens if I delete a mailbox?",
+      answer:
+        "If you pause a mailbox, it stops working, but your data stays safe. Even if you delete a mailbox, we don't instantly erase the data. Emails always stay in our system for a short time, giving you the option to restore them. However, if we delete your private VPS (if you stop working with us) then recovery isn't possible, but we'll notify you and give you options to export data.",
+    },
+    {
+      question: "How does storage work?",
+      answer:
+        "Yes. Storage is shared across all mailboxes under your plan. Here's how it works: Plan 1 → 1 GB, Plan 2 → 2 GB, Plan 3 → 4 GB, Plan 4 → 7 GB. 1 GB = about 100,000 emails (sent + received). If you hit the limit, you can either delete old emails or buy +1 GB storage for just $2.",
+    },
+    {
+      question: "Are my emails secure?",
+      answer:
+        "Yes. All mailboxes are fully encrypted with SSL/TLS, and hosted on secure servers. Your inbox is private, no one (not even us) can read your emails. Passwords are hashed, and accounts are protected with strong access rules.",
+    },
+    {
+      question: "What if my domain expires?",
+      answer:
+        "If your domain expires, all connected mailboxes will stop working, you won't be able to send or receive emails. Your data stays safe for a short time, until your private VPS stays. We assign separate VPS and IPs to every user. Just reconnect or renew your domain to start using mailboxes again.",
+    },
+    {
+      question: "Can I use these mailboxes in Gmail/Outlook?",
+      answer:
+        "No. Right now, these mailboxes only work inside PenguinMails. But soon, we'll offer a separate service that lets you create mailboxes and use them anywhere, like a Gmail/Outlook alternative.",
+    },
+    {
+      question: "Does 2FA work for individual mailboxes?",
+      answer:
+        "Two-factor authentication (2FA) applies to your main account, not individual mailboxes.",
+    },
+  ],
+
+  "features.mailbox.cta.title": "Create Your First Mailbox in Under 2 Minutes",
+  "features.mailbox.cta.description":
+    'No hosting. No SMTP. No cPanel. Just connect your domain and click "Create Mailbox." You\'ll have a working cold email inbox, ready to warm up and send.',
+
+  // Real-Time Analytics Feature
+  "features.analytics.tabTitle": "Real-Time Analytics - PenguinMails",
+  "features.analytics.heading": "Real-Time Campaign Analytics",
+  "features.analytics.subheading": "Monitor performance beyond just sending",
+  "features.analytics.tagline":
+    "Most cold email tools stop after sending, but you need more than that. You need to monitor cold email campaign stats for every campaign and mailbox.",
+  "features.analytics.core.valueProp":
+    "A Centralized Dashboard For All Your Campaign Performance",
+  "features.analytics.core.explanation":
+    "The PenguinMails analytics feature provides a centralized dashboard to monitor performance across all cold email campaigns and mailboxes, moving beyond basic sending capabilities to offer actionable insights.",
+  "features.analytics.core.benefit":
+    "You can see your overall email campaign performance in one place. That's what this feature is for.",
+
+  "features.analytics.versus.title":
+    "Why You Need More Than Just Sending Capabilities",
+  "features.analytics.versus.subtitle": "Analytics That Matter For Cold Email",
+  "features.analytics.versus.problems": [
+    "Tools stop tracking after hitting send",
+    "No visibility into which campaigns perform",
+    "Can't compare mailbox performance",
+    "No way to filter or sort results",
+  ],
+  "features.analytics.versus.solution":
+    "Our campaign analytics platform shows how many emails you sent, how many people opened, clicked, or replied, and which campaign or mailbox is doing better or doing bad.",
+  "features.analytics.versus.benefits": [
+    "Track opens, clicks, and replies in real-time",
+    "Compare performance across campaigns and mailboxes",
+    "Filter and sort everything by campaign, mailbox, or date",
+    "Fast, simple, and easy to understand",
+  ],
+
+  "features.analytics.steps.title": "Get Insights In 3 Simple Steps",
+  "features.analytics.steps.step1.title": "Send Your Campaign",
+  "features.analytics.steps.step1.description":
+    "Launch your cold email campaign from any mailbox. Analytics starts tracking immediately.",
+  "features.analytics.steps.step2.title": "Filter Your Results",
+  "features.analytics.steps.step2.description":
+    "Sort everything by campaign, mailbox, or date to focus on what matters.",
+  "features.analytics.steps.step3.title": "Optimize Performance",
+  "features.analytics.steps.step3.description":
+    "See which campaigns and mailboxes are performing best and optimize accordingly.",
+  "features.analytics.steps.conclusion":
+    "You don't need to be technical. This tool is made for cold email senders, not for marketers or newsletter tools. It's for people who just want clear results.",
+
+  "features.analytics.capabilities.title": "Core Monitoring Capabilities",
+  "features.analytics.capabilities.subtitle": "Everything You Need To Track",
+  "features.analytics.capabilities.description":
+    "Tracks total emails sent alongside engagement rates, including opens, clicks, and replies. Evaluates the success or failure of specific individual campaigns and mailboxes.",
+  "features.analytics.capabilities.items": [
+    "Track total emails sent",
+    "Monitor open rates, click rates, and reply rates",
+    "Evaluate individual campaign performance",
+    "Compare mailbox performance side-by-side",
+    "Filter results by date range",
+  ],
+
+  "features.analytics.benefits.title": "Key User Benefits",
+  "features.analytics.benefits.description":
+    "Built specifically for cold email practitioners who want clear, actionable results without the complexity.",
+
+  "features.analytics.faq.title": "Frequently Asked Questions",
+  "features.analytics.faq.items": [
+    {
+      question: "How often is analytics data updated?",
+      answer:
+        "Analytics data is updated in real-time. As soon as an email is opened, clicked, or replied to, you'll see the stats update in your dashboard.",
+    },
+    {
+      question: "Can I filter data by specific date ranges?",
+      answer:
+        "Yes. You can filter analytics data by any date range - last 7 days, 30 days, 90 days, or custom ranges to focus on specific campaign periods.",
+    },
+    {
+      question: "Can I compare multiple mailboxes side by side?",
+      answer:
+        "Absolutely. The analytics dashboard lets you view and compare performance across all your mailboxes to identify which ones are performing best.",
+    },
+    {
+      question: "Do I need technical knowledge to use the analytics?",
+      answer:
+        "No. The interface is designed for speed and ease of use. You don't need to be technical to understand the results and make data-driven decisions.",
+    },
+  ],
+
+  "features.analytics.cta.title": "Start Tracking Your Campaign Performance",
+  "features.analytics.cta.description":
+    "Get real-time insights into your cold email campaigns. See exactly what's working and optimize for better results.",
 };

@@ -2,7 +2,16 @@ import { PUBLIC_APP_ROOT_URL, PUBLIC_SIGNUP_PATH } from "astro:env/client";
 
 type BillingPeriod = "monthly" | "annually";
 type PlanId = "starter" | "growth" | "scale" | "pro";
-type UtmSource = "landing_page" | "pricing_page" | "cta_bottom";
+export type UtmSource =
+  | "landing_page"
+  | "pricing_page"
+  | "cta_bottom"
+  | "features_mailbox"
+  | "features_mailbox_bottom"
+  | "features_free_mailbox"
+  | "features_free_mailbox_bottom"
+  | "features_analytics"
+  | "features_analytics_bottom";
 
 interface SignupUrlOptions {
   context: UtmSource;

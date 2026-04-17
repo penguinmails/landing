@@ -1,4 +1,20 @@
-import { MessageSquare, Mail, Flame, Download, Cpu } from "@lucide/astro";
+import {
+  MessageSquare,
+  Mail,
+  Flame,
+  Download,
+  Cpu,
+  ChartNoAxesColumnIncreasing,
+} from "@lucide/astro";
+import FreeMailboxCreationFeature from "../components/pages/features/FreeMailboxCreationFeature.astro";
+import RealTimeAnalyticsFeature from "../components/pages/features/RealTimeAnalyticsFeature.astro";
+import type { UtmSource } from "./cta";
+
+export interface CtaInfo {
+  context: UtmSource;
+  title: string;
+  subtitle: string;
+}
 
 export interface Feature {
   slug: string;
@@ -6,6 +22,8 @@ export interface Feature {
   description: string;
   icon: typeof MessageSquare;
   iconClass: string;
+  component?: any;
+  cta?: CtaInfo;
 }
 
 export const features: Feature[] = [
@@ -23,6 +41,13 @@ export const features: Feature[] = [
     description: "Scale safely without additional infrastructure costs.",
     icon: Mail,
     iconClass: "w-8 h-8 text-primary",
+    component: FreeMailboxCreationFeature,
+    cta: {
+      context: "features_free_mailbox_bottom",
+      title: "Create Your First Mailbox in Under 2 Minutes",
+      subtitle:
+        'No hosting. No SMTP. No cPanel. Just connect your domain and click "Create Mailbox." You\'ll have a working cold email inbox, ready to warm up and send.',
+    },
   },
   {
     slug: "warmup-automation",
@@ -45,8 +70,15 @@ export const features: Feature[] = [
     title: "Real-Time Analytics",
     description:
       "See exactly how campaigns perform with detailed deliverability metrics.",
-    icon: Cpu,
+    icon: ChartNoAxesColumnIncreasing,
     iconClass: "w-8 h-8 text-primary",
+    component: RealTimeAnalyticsFeature,
+    cta: {
+      context: "features_analytics_bottom",
+      title: "Start Tracking Your Campaign Performance",
+      subtitle:
+        "Get real-time insights into your email deliverability. Monitor opens, clicks, and responses across all your campaigns.",
+    },
   },
   {
     slug: "automated-sequences",

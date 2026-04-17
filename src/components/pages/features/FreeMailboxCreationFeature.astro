@@ -1,0 +1,318 @@
+---
+import ArticleCard from "@/components/shared/ArticleCard.astro";
+import Button from "@/components/ui/Button.astro";
+import { buildSignupUrl } from "@/lib/cta";
+import { Check, Globe, Mail, Settings, Shield, Users, X, Zap } from "@lucide/astro";
+type FAQItem = { question: string; answer: string };
+
+const { t } = Astro.props;
+
+const costComparison = [
+  { provider: "Google Workspace", monthly: "$180+", yearly: "$2,160+" },
+  { provider: "Microsoft 365", monthly: "$180+", yearly: "$2,160+" },
+  { provider: "Zoho Mail", monthly: "$120+", yearly: "$1,440+" },
+  { provider: "PenguinMails", monthly: "$0", yearly: "$0", isPenguin: true },
+];
+
+const steps = [
+  {
+    number: "1",
+    title: t("features.mailbox.steps.step1.title"),
+    description: t("features.mailbox.steps.step1.description"),
+    icon: Globe,
+  },
+  {
+    number: "2",
+    title: t("features.mailbox.steps.step2.title"),
+    description: t("features.mailbox.steps.step2.description"),
+    icon: Mail,
+  },
+  {
+    number: "3",
+    title: t("features.mailbox.steps.step3.title"),
+    description: t("features.mailbox.steps.step3.description"),
+    icon: Zap,
+  },
+];
+
+const controlTexts = t("features.mailbox.management.controls") as string[];
+const controls = [
+  { icon: X, text: controlTexts[0] },
+  { icon: Settings, text: controlTexts[1] },
+  { icon: Users, text: controlTexts[2] },
+  { icon: Shield, text: controlTexts[3] },
+];
+
+const faqItems = t("features.mailbox.faq.items") as FAQItem[];
+---
+
+<div class="space-y-24 py-12">
+  <!-- Hero Section -->
+  <section class="text-center">
+    <div class="mx-auto max-w-4xl px-4">
+      <div class="inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-2 text-sm font-medium text-primary mb-6">
+        <Mail class="w-4 h-4" />
+        {t("features.mailbox.tabTitle")}
+      </div>
+      
+      <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-slate-900 mb-6">
+        {t("features.mailbox.heading")}
+      </h1>
+      
+      <p class="text-2xl md:text-3xl font-semibold text-primary mb-4">
+        {t("features.mailbox.subheading")}
+      </p>
+      
+      <p class="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto mb-8">
+        {t("features.mailbox.tagline")}
+      </p>
+      
+      <Button
+        variant="primary"
+        size="lg"
+        href={buildSignupUrl({ context: "features_free_mailbox" })}
+      >
+        {t("features.mailbox.cta.title")}
+      </Button>
+    </div>
+  </section>
+
+  <!-- Core Value Proposition -->
+  <section class="py-12">
+    <div class="mx-auto max-w-6xl px-4">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
+          {t("features.mailbox.core.valueProp")}
+        </h2>
+        <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+          {t("features.mailbox.core.explanation")}
+        </p>
+        <p class="text-lg text-gray-600 max-w-3xl mx-auto mt-4">
+          {t("features.mailbox.core.benefit")}
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Versus Comparison -->
+  <section class="bg-slate-50 py-20 rounded-3xl">
+    <div class="mx-auto max-w-6xl px-4">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
+          {t("features.mailbox.versus.title")}
+        </h2>
+        <p class="text-xl text-gray-600">
+          {t("features.mailbox.versus.subtitle")}
+        </p>
+      </div>
+      
+      <div class="grid md:grid-cols-2 gap-8">
+        <div class="bg-white p-8 rounded-2xl shadow-sm">
+          <h3 class="text-xl font-semibold text-rose-600 mb-6">The Problem</h3>
+      <ul class="space-y-4">
+        {(t("features.mailbox.versus.problems") as string[]).map((problem: string) => (
+  <li class="flex items-start gap-3">
+    <X class="w-5 h-5 text-rose-500 mt-0.5 shrink-0" />
+    <span class="text-gray-700">{problem}</span>
+  </li>
+))}
+</ul>
+</div>
+
+<div class="bg-white p-8 rounded-2xl shadow-sm border-2 border-primary/20">
+  <h3 class="text-xl font-semibold text-primary mb-6">The Solution</h3>
+  <p class="text-gray-700 mb-6">{t("features.mailbox.versus.solution")}</p>
+  <ul class="space-y-4">
+    {(t("features.mailbox.versus.benefits") as string[]).map((benefit: string) => (
+  <li class="flex items-start gap-3">
+    <Check class="w-5 h-5 text-emerald-500 mt-0.5 shrink-0" />
+    <span class="text-gray-700">{benefit}</span>
+  </li>
+))}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3 Steps -->
+  <section class="py-12">
+    <div class="mx-auto max-w-6xl px-4">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
+          {t("features.mailbox.steps.title")}
+        </h2>
+      </div>
+      
+      <div class="grid md:grid-cols-3 gap-8">
+        {steps.map((step) => (
+          <div class="relative bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
+            <div class="absolute -top-4 left-8">
+              <span class="flex items-center justify-center w-10 h-10 rounded-full bg-primary text-white font-bold text-lg">
+                {step.number}
+              </span>
+            </div>
+            <div class="pt-4">
+              <step.icon class="w-10 h-10 text-primary mb-4" />
+              <h3 class="text-xl font-semibold text-slate-900 mb-3">{step.title}</h3>
+              <p class="text-gray-600">{step.description}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+      
+      <p class="text-center text-lg text-gray-600 mt-12 max-w-2xl mx-auto">
+        {t("features.mailbox.steps.conclusion")}
+      </p>
+    </div>
+  </section>
+
+  <!-- Real Email Accounts -->
+  <section class="py-12">
+    <div class="mx-auto max-w-6xl px-4">
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <div>
+          <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
+            {t("features.mailbox.real.title")}
+          </h2>
+          <p class="text-xl text-primary font-semibold mb-4">
+            {t("features.mailbox.real.subtitle")}
+          </p>
+          <p class="text-gray-600 mb-6">
+            {t("features.mailbox.real.description")}
+          </p>
+          
+          <div class="space-y-3">
+            {(t("features.mailbox.real.capabilities") as string[]).map((cap: string) => (
+              <div class="flex items-center gap-3">
+                <Check class="w-5 h-5 text-emerald-500 shrink-0" />
+                <span class="text-gray-700">{cap}</span>
+              </div>
+            ))}
+          </div>
+          
+          <div class="mt-6 p-4 bg-primary/5 rounded-xl">
+            <p class="text-sm text-gray-600">
+            {(t("features.mailbox.real.benefits") as string[]).map((b: string, i: number) => (
+              <span><strong>{b}</strong>{i < 2 ? ", " : ""}</span>
+            ))}
+            </p>
+          </div>
+        </div>
+        
+        <div class="bg-linear-to-br from-primary/10 to-primary/5 rounded-3xl p-8">
+          <Mail class="w-16 h-16 text-primary mx-auto mb-6" />
+          <p class="text-center text-lg font-medium text-slate-900">
+            Your email account lives inside PenguinMails, and works like a real inbox, because it is one.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Unlimited Mailboxes -->
+  <section class="bg-slate-900 py-20 rounded-3xl text-white">
+    <div class="mx-auto max-w-6xl px-4">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">
+          {t("features.mailbox.unlimited.title")}
+        </h2>
+        <p class="text-lg text-gray-300 max-w-3xl mx-auto">
+          {t("features.mailbox.unlimited.description")}
+        </p>
+      </div>
+      
+      <div class="bg-white/5 p-8 rounded-2xl backdrop-blur">
+        <p class="text-gray-300 text-lg">
+          {t("features.mailbox.unlimited.explanation")}
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Cost Comparison Table -->
+  <section class="py-12">
+    <div class="mx-auto max-w-4xl px-4">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
+          {t("features.mailbox.cost.title")}
+        </h2>
+        <p class="text-lg text-gray-600 max-w-2xl mx-auto mb-6">
+          {t("features.mailbox.cost.description")}
+        </p>
+        <p class="text-lg text-gray-600">
+          {t("features.mailbox.cost.intro")}
+        </p>
+      </div>
+      
+      <div class="bg-white rounded-2xl shadow-xl overflow-hidden">
+        <div class="grid grid-cols-3 bg-slate-50 p-6 border-b border-gray-100 font-semibold text-lg">
+          <div>Provider</div>
+          <div class="text-center">Monthly Cost</div>
+          <div class="text-center">Yearly Cost</div>
+        </div>
+        
+        {costComparison.map((row) => (
+          <div 
+            class="grid grid-cols-3 p-6 border-b border-gray-100 hover:bg-slate-50 transition-colors"
+            class:bg-primary/5={row.isPenguin}
+          >
+            <div class="font-medium" class:text-primary={row.isPenguin}>
+              {row.provider}
+            </div>
+            <div class="text-center font-medium" class:text-primary={row.isPenguin}>
+              {row.monthly}
+            </div>
+            <div class="text-center font-medium" class:text-primary={row.isPenguin}>
+              {row.yearly}
+            </div>
+          </div>
+        ))}
+      </div>
+      
+      <p class="text-center text-lg text-gray-600 mt-12 max-w-3xl mx-auto">
+        {t("features.mailbox.cost.conclusion")}
+      </p>
+    </div>
+  </section>
+
+  <!-- Management Controls -->
+  <section class="py-12">
+    <div class="mx-auto max-w-6xl px-4">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
+          {t("features.mailbox.management.title")}
+        </h2>
+        <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+          {t("features.mailbox.management.description")}
+        </p>
+      </div>
+      
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {controls.map((control) => (
+          <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
+            <div class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
+              <control.icon class="w-6 h-6 text-primary" />
+            </div>
+            <p class="font-medium text-slate-900">{control.text}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="py-12">
+    <div class="mx-auto max-w-4xl px-4">
+      <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-10 text-center">
+        {t("features.mailbox.faq.title")}
+      </h2>
+      
+      <div class="space-y-5">
+        {faqItems.map((item) => (
+          <ArticleCard title={item.question} description={item.answer} />
+        ))}
+      </div>
+    </div>
+  </section>
+</div>
