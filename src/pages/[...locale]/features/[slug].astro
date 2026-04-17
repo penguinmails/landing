@@ -1,0 +1,57 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import { getLangFromUrl, useTranslations, useTranslatedPath } from "@/i18n/utils";
+import { getFeatureBySlug } from "@/lib/features-data";
+import { featuresLinks } from "@/lib/navigation";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const translatePath = useTranslatedPath(lang);
+
+const { slug } = Astro.params;
+
+if (!slug) {
+  return Astro.redirect(translatePath("/features"), 302);
+}
+
+const feature = getFeatureBySlug(slug);
+
+if (!feature) {
+  return Astro.redirect(translatePath("/404"), 404);
+}
+
+const Icon = feature.icon;
+---
+
+<Layout title={`${feature.title} | ${t("site.title")}`}>
+  <div class="container mx-auto px-5 py-20 md:px-8">
+    <div class="max-w-3xl mx-auto">
+      <div class="flex items-center gap-4 mb-8">
+        <div class="p-4 rounded-xl bg-blue-50">
+          <Icon class={feature.iconClass} />
+        </div>
+        <h1 class="text-4xl font-bold text-gray-900">
+          {feature.title}
+        </h1>
+      </div>
+      
+      <p class="text-xl text-gray-600 mb-12">
+        {feature.description}
+      </p>
+
+      <div class="border-t border-gray-200 pt-12">
+        <h2 class="text-xl font-semibold text-gray-900 mb-6">Other Features</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          {featuresLinks.map(link => (
+            <a
+              href={translatePath(link.href)}
+              class="p-4 rounded-lg border border-gray-200 hover:border-primary hover:bg-blue-50 transition-all"
+            >
+              {link.label}
+            </a>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+</Layout>

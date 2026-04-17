@@ -1,0 +1,48 @@
+---
+import { ChevronDown } from "@lucide/astro";
+import { cn } from "@/lib/utils";
+import type { NavItem } from "@/lib/navigation";
+
+export interface Props {
+  label: string;
+  items: NavItem[];
+  active?: boolean;
+}
+
+const { label, items, active = false } = Astro.props;
+---
+
+<div class="relative group">
+  <button
+    class={cn(
+      "flex items-center gap-1 text-sm font-medium text-gray-600 transition-colors hover:text-gray-900",
+      { "font-semibold text-gray-900": active }
+    )}
+    aria-haspopup="true"
+    aria-expanded="false"
+  >
+    {label}
+    <ChevronDown class="h-4 w-4 transition-transform group-hover:rotate-180" />
+  </button>
+  
+  <div class="absolute left-0 top-full mt-2 min-w-48 rounded-lg bg-white py-2 shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+    {items.map((item) => (
+      <a
+        href={item.href}
+        class="block px-4 py-2 text-sm text-gray-600 hover:bg-gray-50 hover:text-gray-900 transition-colors"
+      >
+        {item.label}
+      </a>
+    ))}
+  </div>
+</div>
+
+<style is:global>
+  /* Fix for Safari hover state persistence */
+  @media not (hover: hover) {
+    .group:hover .group-hover\:opacity-100 {
+      opacity: 0;
+      visibility: hidden;
+    }
+  }
+</style>

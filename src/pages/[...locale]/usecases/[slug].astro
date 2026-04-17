@@ -1,0 +1,50 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import { getLangFromUrl, useTranslations, useTranslatedPath } from "@/i18n/utils";
+import { getUsecaseBySlug } from "@/lib/usecases-data";
+import { usecasesLinks } from "@/lib/navigation";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const translatePath = useTranslatedPath(lang);
+
+const { slug } = Astro.params;
+
+if (!slug) {
+  return Astro.redirect(translatePath("/usecases"), 302);
+}
+
+const usecase = getUsecaseBySlug(slug);
+
+if (!usecase) {
+  return Astro.redirect(translatePath("/404"), 404);
+}
+---
+
+<Layout title={`${usecase.title} | ${t("site.title")}`}>
+  <div class="container mx-auto px-5 py-20 md:px-8">
+    <div class="max-w-3xl mx-auto">
+      <h1 class="text-4xl font-bold text-gray-900 mb-6">
+        {usecase.title}
+      </h1>
+      
+      <p class="text-xl text-gray-600 mb-12">
+        {usecase.description}
+      </p>
+
+      <div class="border-t border-gray-200 pt-12">
+        <h2 class="text-xl font-semibold text-gray-900 mb-6">Other Use Cases</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          {usecasesLinks.map(link => (
+            <a
+              href={translatePath(link.href)}
+              class="p-4 rounded-lg border border-gray-200 hover:border-primary hover:bg-blue-50 transition-all"
+            >
+              {link.label}
+            </a>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+</Layout>

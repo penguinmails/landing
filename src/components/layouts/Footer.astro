@@ -3,29 +3,7 @@ import FacebookIcon from "@/assets/icons/facebook.svg";
 import InstagramIcon from "@/assets/icons/instagram.svg";
 import Logo from "@/components/layouts/Logo.astro";
 import { Image } from "astro:assets";
-const usecasesLinks = [
-  { label: "Agencies", href: "/usecases#agencies" },
-  { label: "Freelancers", href: "/usecases#freelancers" },
-  { label: "Outbound Teams", href: "/usecases#outbound-teams" },
-  { label: "Startups", href: "/usecases#startups" },
-];
-
-const resourcesLinks = [
-  { label: "Blog", href: "/features#blog" },
-  { label: "Tools", href: "/features#tools" },
-];
-
-const companyLinks = [
-  { label: "About", href: "/features#about" },
-  { label: "Contact", href: "/features#contact" },
-];
-
-const legalLinks = [
-  { label: "Anti-Spam Policy", href: "/pricing#anti-spam-policy" },
-  { label: "Privacy", href: "/pricing#privacy" },
-  { label: "Refund Policy", href: "/pricing#refund-policy" },
-  { label: "Terms", href: "/pricing#terms" },
-];
+import { usecasesLinks, resourcesLinks, companyLinks, legalLinks } from "@/lib/navigation";
 ---
 
 <footer>

@@ -7,19 +7,33 @@ import ActiveIcon from "@/assets/icons/active-link-yellow-point.svg";
 import { cn } from "@/lib/utils";
 import { Menu, X } from "@lucide/astro";
 import Button from "../ui/Button.astro";
+import Dropdown from "../ui/Dropdown.astro";
 import Logo from "./Logo.astro";
 import LoginButton from "./LoginButton.astro";
 import { getLangFromUrl, useTranslations, useTranslatedPath } from "@/i18n/utils";
+import { featuresLinks, usecasesLinks } from "@/lib/navigation";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 const translatePath = useTranslatedPath(lang);
+
+// Translate navigation links
+const translatedFeaturesLinks = featuresLinks.map(link => ({
+  ...link,
+  href: translatePath(link.href)
+}));
+
+const translatedUsecasesLinks = usecasesLinks.map(link => ({
+  ...link,
+  href: translatePath(link.href)
+}));
 
 const navLinks = [
   { name: t("nav.home"), href: translatePath("/") },
   {
     name: t("nav.features"),
     href: translatePath("/features"),
+    dropdown: translatedFeaturesLinks,
   },
   {
     name: t("nav.pricing"),
@@ -28,6 +42,7 @@ const navLinks = [
   {
     name: t("nav.usecases"),
     href: translatePath("/usecases"),
+    dropdown: translatedUsecasesLinks,
   },
 ];
 
@@ -41,6 +56,24 @@ const isActive = (href: string) => {
   {
     navLinks.map((link) => {
       const active = isActive(link.href);
+
+      if (link.dropdown) {
+        return (
+          <div class="flex flex-col items-center leading-none">
+            <Dropdown
+              label={link.name}
+              items={link.dropdown}
+              active={active}
+            />
+            {active && (
+              <ActiveIcon
+                class="mt-1 h-2 w-2 text-[#f2b632]"
+                aria-hidden="true"
+              />
+            )}
+          </div>
+        );
+      }
 
       return (
         <div class="flex flex-col items-center leading-none">
@@ -89,6 +122,36 @@ const isActive = (href: string) => {
         {
           navLinks.map((link) => {
             const active = isActive(link.href);
+            
+            if (link.dropdown) {
+              return (
+                <div class="flex flex-col gap-3">
+                  <div class="flex items-center justify-between">
+                    <a
+                      href={link.href}
+                      class={cn(
+                        "text-lg font-medium text-gray-600 transition-colors hover:text-gray-900",
+                        { "font-semibold text-gray-900": active },
+                      )}
+                      data-active={active ? "true" : "false"}
+                    >
+                      {link.name}
+                    </a>
+                  </div>
+                  <div class="ml-4 flex flex-col gap-3">
+                    {link.dropdown.map((item) => (
+                      <a
+                        href={item.href}
+                        class="text-sm font-medium text-gray-500 transition-colors hover:text-gray-900"
+                      >
+                        {item.label}
+                      </a>
+                    ))}
+                  </div>
+                </div>
+              );
+            }
+
             return (
               <a
                 href={link.href}
