@@ -20,7 +20,7 @@ const id = Math.random().toString(36).substring(2, 9);
       { "font-semibold text-gray-900": active }
     )}
     aria-haspopup="true"
-    aria-expanded="false"
+    aria-expanded={active ? "true" : "false"}
     aria-controls={`menu-${id}`}
   >
     {label}

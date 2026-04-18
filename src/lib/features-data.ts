@@ -9,6 +9,7 @@ import {
 import FreeMailboxCreationFeature from "@/components/pages/features/FreeMailboxCreationFeature.astro";
 import RealTimeAnalyticsFeature from "@/components/pages/features/RealTimeAnalyticsFeature.astro";
 import type { UtmSource } from "./cta";
+import type { AstroComponentFactory } from "astro/runtime/server/index.js";
 
 import type { TranslationKey } from "../i18n/types";
 
@@ -24,7 +25,7 @@ export interface Feature {
   descriptionKey: TranslationKey;
   icon: typeof MessageSquare;
   iconClass: string;
-  component?: any;
+  component?: AstroComponentFactory;
   cta?: CtaInfo;
 }
 

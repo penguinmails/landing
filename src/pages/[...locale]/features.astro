@@ -49,11 +49,14 @@ const implementedFeatures = features.filter(f => !!f.component);
           </TabsList>
         </div>
         
-        {implementedFeatures.map((feature) => (
-          <TabsContent value={feature.slug} className="m-0 focus-visible:ring-0">
-            <feature.component t={t} />
-          </TabsContent>
-        ))}
+        {implementedFeatures.map((feature) => {
+          const Component = feature.component;
+          return (
+            <TabsContent value={feature.slug} className="m-0 focus-visible:ring-0">
+              {Component && <Component t={t} />}
+            </TabsContent>
+          );
+        })}
       </Tabs>
     ) : (
       <!-- Single feature - show directly without tabs -->
