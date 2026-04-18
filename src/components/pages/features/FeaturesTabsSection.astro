@@ -1,5 +1,6 @@
 ---
 import type { Feature } from "@/lib/features-data";
+import type { TranslationKey } from "@/i18n/types";
 import Tabs from "@/components/ui/Tabs.astro";
 import TabsContent from "@/components/ui/TabsContent.astro";
 import TabsList from "@/components/ui/TabsList.astro";
@@ -7,10 +8,12 @@ import TabsTrigger from "@/components/ui/TabsTrigger.astro";
 
 interface Props {
   implementedFeatures: Feature[];
-  t: any;
+  t: (key: TranslationKey) => any;
 }
 
 const { implementedFeatures, t } = Astro.props;
+
+const FirstComponent = implementedFeatures[0]?.component;
 ---
 
 <div class="container mx-auto px-4 py-12">
@@ -48,11 +51,6 @@ const { implementedFeatures, t } = Astro.props;
       })}
     </Tabs>
   ) : (
-    implementedFeatures[0]?.component && (
-      (() => {
-        const Component = implementedFeatures[0].component;
-        return <Component t={t} />;
-      })()
-    )
+    FirstComponent && <FirstComponent t={t} />
   )}
 </div>
