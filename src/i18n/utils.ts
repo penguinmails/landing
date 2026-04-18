@@ -8,11 +8,10 @@ export function getLangFromUrl(url: URL) {
 }
 
 export function useTranslations(lang: keyof typeof ui) {
-  return function t(key: TranslationKey) {
-    return ui[lang][key] || ui[defaultLang][key];
+  return function t<K extends TranslationKey>(key: K) {
+    return (ui[lang][key] || ui[defaultLang][key]) as typeof ui[typeof defaultLang][K];
   };
 }
-
 
 export function useTranslatedPath(lang: keyof typeof ui) {
   return function translatePath(path: string, l: string = lang) {

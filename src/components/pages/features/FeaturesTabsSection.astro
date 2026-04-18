@@ -1,0 +1,56 @@
+---
+import type { Feature } from "@/lib/features-data";
+import type { TranslationKey } from "@/i18n/types";
+import Tabs from "@/components/ui/Tabs.astro";
+import TabsContent from "@/components/ui/TabsContent.astro";
+import TabsList from "@/components/ui/TabsList.astro";
+import TabsTrigger from "@/components/ui/TabsTrigger.astro";
+
+interface Props {
+  implementedFeatures: Feature[];
+  t: (key: TranslationKey) => any;
+}
+
+const { implementedFeatures, t } = Astro.props;
+
+const FirstComponent = implementedFeatures[0]?.component;
+---
+
+<div class="container mx-auto px-4 py-12">
+  <div class="text-center mb-12">
+    <h1 class="text-4xl md:text-5xl font-bold tracking-tight text-slate-900 mb-4">
+      {t("features.title")}
+    </h1>
+    <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+      {t("features.description")}
+    </p>
+  </div>
+  
+  {implementedFeatures.length > 1 ? (
+    <Tabs defaultValue={implementedFeatures[0].slug}>
+      <div class="w-full overflow-x-auto pb-4 mb-8">
+        <TabsList className="flex h-12 w-fit items-center justify-center rounded-full bg-slate-100/80 p-1 mx-auto">
+          {implementedFeatures.map((feature) => (
+            <TabsTrigger
+              value={feature.slug}
+              className="rounded-full px-5 py-2 text-sm font-semibold transition-all data-[state=active]:bg-white data-[state=active]:text-primary data-[state=active]:shadow-md"
+            >
+              {t(feature.titleKey)}
+            </TabsTrigger>
+          ))}
+        </TabsList>
+      </div>
+      
+      {implementedFeatures.map((feature) => {
+        const Component = feature.component;
+        return (
+          <TabsContent value={feature.slug} className="m-0 focus-visible:ring-0">
+            {Component && <Component t={t} />}
+          </TabsContent>
+        );
+      })}
+    </Tabs>
+  ) : (
+    FirstComponent && <FirstComponent t={t} />
+  )}
+</div>

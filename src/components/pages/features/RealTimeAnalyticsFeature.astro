@@ -1,0 +1,290 @@
+---
+import ArticleCard from "@/components/shared/ArticleCard.astro";
+import Button from "@/components/ui/Button.astro";
+import { buildSignupUrl } from "@/lib/cta";
+import {
+  ChartNoAxesCombined,
+  Check,
+  Clock,
+  Globe,
+  Target,
+  TrendingUp,
+  X,
+} from "@lucide/astro";
+
+
+const { t } = Astro.props;
+
+const steps = [
+  {
+    number: "1",
+    title: t("features.analytics.steps.step1.title"),
+    description: t("features.analytics.steps.step1.description"),
+    icon: Clock,
+  },
+  {
+    number: "2",
+    title: t("features.analytics.steps.step2.title"),
+    description: t("features.analytics.steps.step2.description"),
+    icon: ChartNoAxesCombined,
+  },
+  {
+    number: "3",
+    title: t("features.analytics.steps.step3.title"),
+    description: t("features.analytics.steps.step3.description"),
+    icon: TrendingUp,
+  },
+];
+
+const capabilities = t("features.analytics.capabilities.items");
+---
+
+<div class="space-y-24 py-12">
+  <!-- Hero Section -->
+  <section class="text-center">
+    <div class="mx-auto max-w-4xl px-4">
+      <div
+        class="inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-2 text-sm font-medium text-primary mb-6"
+      >
+        <ChartNoAxesCombined class="w-4 h-4" />
+        {t("features.analytics.tabTitle")}
+      </div>
+
+      <h1
+        class="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-slate-900 mb-6"
+      >
+        {t("features.analytics.heading")}
+      </h1>
+
+      <p class="text-2xl md:text-3xl font-semibold text-primary mb-4">
+        {t("features.analytics.subheading")}
+      </p>
+
+      <p class="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto mb-8">
+        {t("features.analytics.tagline")}
+      </p>
+
+      <Button
+        variant="primary"
+        size="lg"
+        href={buildSignupUrl({ context: "features_analytics" })}
+      >
+        {t("features.analytics.cta.title")}
+      </Button>
+    </div>
+  </section>
+
+  <!-- Core Value Proposition -->
+  <section class="py-12">
+    <div class="mx-auto max-w-6xl px-4">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
+          {t("features.analytics.core.valueProp")}
+        </h2>
+        <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+          {t("features.analytics.core.explanation")}
+        </p>
+        <p class="text-lg text-gray-600 max-w-3xl mx-auto mt-4">
+          {t("features.analytics.core.benefit")}
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Versus Comparison -->
+  <section class="bg-slate-50 py-20 rounded-3xl">
+    <div class="mx-auto max-w-6xl px-4">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
+          {t("features.analytics.versus.title")}
+        </h2>
+        <p class="text-xl text-gray-600">
+          {t("features.analytics.versus.subtitle")}
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-8">
+        <div class="bg-white p-8 rounded-2xl shadow-sm">
+          <h3 class="text-xl font-semibold text-rose-600 mb-6">{t("features.analytics.versus.problemTitle")}</h3>
+          <ul class="space-y-4">
+            {
+              t("features.analytics.versus.problems").map(
+                (problem: string) => (
+                  <li class="flex items-start gap-3">
+                    <X class="w-5 h-5 text-rose-500 mt-0.5 shrink-0" />
+                    <span class="text-gray-700">{problem}</span>
+                  </li>
+                ),
+              )
+            }
+          </ul>
+        </div>
+
+        <div
+          class="bg-white p-8 rounded-2xl shadow-sm border-2 border-primary/20"
+        >
+          <h3 class="text-xl font-semibold text-primary mb-6">{t("features.analytics.versus.solutionTitle")}</h3>
+          <p class="text-gray-700 mb-6">
+            {t("features.analytics.versus.solution")}
+          </p>
+          <ul class="space-y-4">
+            {
+              t("features.analytics.versus.benefits").map(
+                (benefit: string) => (
+                  <li class="flex items-start gap-3">
+                    <Check class="w-5 h-5 text-emerald-500 mt-0.5 shrink-0" />
+                    <span class="text-gray-700">{benefit}</span>
+                  </li>
+                ),
+              )
+            }
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3 Steps -->
+  <section class="py-12">
+    <div class="mx-auto max-w-6xl px-4">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
+          {t("features.analytics.steps.title")}
+        </h2>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        {
+          steps.map((step) => (
+            <div class="relative bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
+              <div class="absolute -top-4 left-8">
+                <span class="flex items-center justify-center w-10 h-10 rounded-full bg-primary text-white font-bold text-lg">
+                  {step.number}
+                </span>
+              </div>
+              <div class="pt-4">
+                <step.icon class="w-10 h-10 text-primary mb-4" />
+                <h3 class="text-xl font-semibold text-slate-900 mb-3">
+                  {step.title}
+                </h3>
+                <p class="text-gray-600">{step.description}</p>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+
+      <p class="text-center text-lg text-gray-600 mt-12 max-w-2xl mx-auto">
+        {t("features.analytics.steps.conclusion")}
+      </p>
+    </div>
+  </section>
+
+  <!-- Capabilities -->
+  <section class="py-12">
+    <div class="mx-auto max-w-6xl px-4">
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <div>
+          <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
+            {t("features.analytics.capabilities.title")}
+          </h2>
+          <p class="text-xl text-primary font-semibold mb-4">
+            {t("features.analytics.capabilities.subtitle")}
+          </p>
+          <p class="text-gray-600 mb-6">
+            {t("features.analytics.capabilities.description")}
+          </p>
+
+          <div class="space-y-3">
+            {
+              capabilities.map((cap: string) => (
+                <div class="flex items-center gap-3">
+                  <Check class="w-5 h-5 text-emerald-500 shrink-0" />
+                  <span class="text-gray-700">{cap}</span>
+                </div>
+              ))
+            }
+          </div>
+        </div>
+
+        <div
+          class="bg-linear-to-br from-primary/10 to-primary/5 rounded-3xl p-8"
+        >
+          <ChartNoAxesCombined class="w-16 h-16 text-primary mx-auto mb-6" />
+          <p class="text-center text-lg font-medium text-slate-900">
+            {t("features.analytics.capabilities.callout")}
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Key Benefits -->
+  <section class="bg-slate-900 py-20 rounded-3xl text-white">
+    <div class="mx-auto max-w-6xl px-4">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">
+          {t("features.analytics.benefits.title")}
+        </h2>
+        <p class="text-lg text-gray-300 max-w-3xl mx-auto">
+          {t("features.analytics.benefits.description")}
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="bg-white/5 p-6 rounded-2xl backdrop-blur">
+          <div
+            class="w-12 h-12 rounded-xl bg-primary/20 flex items-center justify-center mb-4"
+          >
+            <TrendingUp class="w-6 h-6 text-primary" />
+          </div>
+          <h3 class="text-lg font-semibold mb-2">{t("features.analytics.benefits.card1.title")}</h3>
+          <p class="text-gray-300">
+            {t("features.analytics.benefits.card1.description")}
+          </p>
+        </div>
+        <div class="bg-white/5 p-6 rounded-2xl backdrop-blur">
+          <div
+            class="w-12 h-12 rounded-xl bg-primary/20 flex items-center justify-center mb-4"
+          >
+            <Target class="w-6 h-6 text-primary" />
+          </div>
+          <h3 class="text-lg font-semibold mb-2">{t("features.analytics.benefits.card2.title")}</h3>
+          <p class="text-gray-300">
+            {t("features.analytics.benefits.card2.description")}
+          </p>
+        </div>
+        <div class="bg-white/5 p-6 rounded-2xl backdrop-blur">
+          <div
+            class="w-12 h-12 rounded-xl bg-primary/20 flex items-center justify-center mb-4"
+          >
+            <Globe class="w-6 h-6 text-primary" />
+          </div>
+          <h3 class="text-lg font-semibold mb-2">{t("features.analytics.benefits.card3.title")}</h3>
+          <p class="text-gray-300">
+            {t("features.analytics.benefits.card3.description")}
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="py-12">
+    <div class="mx-auto max-w-4xl px-4">
+      <h2
+        class="text-3xl md:text-4xl font-bold text-slate-900 mb-10 text-center"
+      >
+        {t("features.analytics.faq.title")}
+      </h2>
+
+      <div class="space-y-5">
+        {
+          t("features.analytics.faq.items").map((item: { question: string; answer: string }) => (
+            <ArticleCard title={item.question} description={item.answer} />
+          ))
+        }
+      </div>
+    </div>
+  </section>
+</div>

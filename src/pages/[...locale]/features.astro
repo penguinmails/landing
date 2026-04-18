@@ -2,16 +2,21 @@
 import Layout from "@/layouts/Layout.astro";
 import { getLangFromUrl, useTranslations } from "@/i18n/utils";
 import { ui } from "@/i18n/ui";
+import { features } from "@/lib/features-data";
+import FeaturesTabsSection from "@/components/pages/features/FeaturesTabsSection.astro";
 
 const { locale } = Astro.params;
 
-// Validate locale if present
 if (locale && !(locale in ui)) {
   return Astro.redirect("/404");
 }
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
+
+const implementedFeatures = features.filter(f => !!f.component);
 ---
 
-<Layout title={t("features.title")} description={t("features.description")} />
+<Layout title={t("features.title")} description={t("features.description")}>
+  <FeaturesTabsSection implementedFeatures={implementedFeatures} t={t} />
+</Layout>

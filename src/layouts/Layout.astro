@@ -4,9 +4,17 @@ import Header from "@/components/layouts/Header.astro";
 import Footer from "@/components/layouts/Footer.astro";
 import "@/styles/global.css";
 import { getLangFromUrl, useTranslations } from "@/i18n/utils";
+import type { UtmSource } from "@/lib/cta";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
+
+interface CtaOverride {
+  context: UtmSource;
+  title?: string;
+  subtitle?: string;
+  ctaText?: string;
+}
 
 interface Props {
   title?: string;
@@ -16,6 +24,7 @@ interface Props {
   type?: string;
   canonical?: string;
   noindex?: boolean;
+  ctaOverride?: CtaOverride;
 }
 const {
   title = t("site.title"),
@@ -24,6 +33,7 @@ const {
   type = "website",
   canonical,
   noindex = false,
+  ctaOverride,
 } = Astro.props;
 
 
@@ -95,7 +105,14 @@ const structuredData = JSON.stringify({
   <body class="min-h-screen">
     <Header />
     <slot />
-    <CTASection />
+    <CTASection
+      {...(ctaOverride && {
+        ctaContext: ctaOverride.context,
+        title: ctaOverride.title,
+        subtitle: ctaOverride.subtitle,
+        ctaText: ctaOverride.ctaText,
+      })}
+    />
     <Footer />
   </body>
 </html>

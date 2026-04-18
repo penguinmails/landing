@@ -58,6 +58,7 @@ const { defaultValue, className } = Astro.props;
         const isSelected = t === trigger;
         t.setAttribute("aria-selected", isSelected.toString());
         t.setAttribute("tabindex", isSelected ? "0" : "-1");
+        t.setAttribute("data-state", isSelected ? "active" : "inactive");
 
         if (isSelected) {
           t.classList.add("bg-white", "text-slate-950", "shadow-sm");

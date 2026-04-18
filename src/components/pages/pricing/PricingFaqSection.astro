@@ -18,8 +18,8 @@ const t = useTranslations(lang);
       {
         pricingFaqs.map((item) => (
           <ArticleCard
-            title={t(item.questionKey as TranslationKey)}
-            description={t(item.answerKey as TranslationKey)}
+            title={t(item.questionKey as TranslationKey) as string}
+            description={t(item.answerKey as TranslationKey) as string}
           />
         ))
       }

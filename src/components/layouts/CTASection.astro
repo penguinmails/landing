@@ -1,9 +1,40 @@
 ---
-import { buildSignupUrl } from "@/lib/cta";
+import { buildSignupUrl, type UtmSource } from "@/lib/cta";
 import { PUBLIC_BOOK_DEMO_EMAIL } from "astro:env/client";
+import { getLangFromUrl, useTranslations } from "@/i18n/utils";
 import Button from "../ui/Button.astro";
 
+interface Props {
+  ctaContext?: UtmSource;
+  bottomContext?: UtmSource;
+  title?: string;
+  subtitle?: string;
+  ctaText?: string;
+  demoText?: string;
+}
+
+const {
+  ctaContext = "cta_bottom",
+  bottomContext,
+  title,
+  subtitle,
+  ctaText,
+  demoText,
+} = Astro.props;
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const displayTitle = title || t("cta.title");
+const displaySubtitle = subtitle || t("cta.subtitle");
+const displayCtaText = ctaText || t("cta.buttonTrial");
+const displayDemoText = demoText || t("cta.buttonDemo");
+
 const bookDemoEmailHref = `mailto:${PUBLIC_BOOK_DEMO_EMAIL}`;
+
+const signupUrl = bottomContext
+  ? buildSignupUrl({ context: bottomContext, plan: "growth" })
+  : buildSignupUrl({ context: ctaContext, plan: "growth" });
 ---
 
 <section
@@ -15,27 +46,27 @@ const bookDemoEmailHref = `mailto:${PUBLIC_BOOK_DEMO_EMAIL}`;
       <h2
         class="text-balance text-4xl font-semibold leading-tight text-white sm:text-5xl md:text-6xl"
       >
-        Ready to Send Emails That Actually Land?
+        {displayTitle}
       </h2>
 
       <p class="mt-4 text-xl text-white/95 sm:text-2xl">
-        Stop guessing. Start delivering.
+        {displaySubtitle}
       </p>
 
       <div
         class="mt-9 flex w-full max-w-xl flex-col items-center justify-center gap-4 sm:flex-row"
       >
         <Button
-          href={buildSignupUrl({ context: "cta_bottom", plan: "growth" })}
+          href={signupUrl}
           className="cta-pulse cta-accent-light min-h-14 w-full rounded-full px-8 text-xl font-semibold text-primary sm:w-auto sm:min-w-56"
         >
-          Start Free Trial
+          {displayCtaText}
         </Button>
         <Button
           href={bookDemoEmailHref}
           className="min-h-14 w-full rounded-full border border-white/70 bg-transparent px-8 text-xl font-semibold text-white hover:border-white hover:bg-white/10 sm:w-auto sm:min-w-56"
         >
-          Book a Demo
+          {displayDemoText}
         </Button>
       </div>
 

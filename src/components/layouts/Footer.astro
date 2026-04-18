@@ -3,29 +3,11 @@ import FacebookIcon from "@/assets/icons/facebook.svg";
 import InstagramIcon from "@/assets/icons/instagram.svg";
 import Logo from "@/components/layouts/Logo.astro";
 import { Image } from "astro:assets";
-const usecasesLinks = [
-  { label: "Agencies", href: "/usecases#agencies" },
-  { label: "Freelancers", href: "/usecases#freelancers" },
-  { label: "Outbound Teams", href: "/usecases#outbound-teams" },
-  { label: "Startups", href: "/usecases#startups" },
-];
+import { usecasesLinks, resourcesLinks, companyLinks, legalLinks } from "@/lib/navigation";
+import { getLangFromUrl, useTranslations } from "@/i18n/utils";
 
-const resourcesLinks = [
-  { label: "Blog", href: "/features#blog" },
-  { label: "Tools", href: "/features#tools" },
-];
-
-const companyLinks = [
-  { label: "About", href: "/features#about" },
-  { label: "Contact", href: "/features#contact" },
-];
-
-const legalLinks = [
-  { label: "Anti-Spam Policy", href: "/pricing#anti-spam-policy" },
-  { label: "Privacy", href: "/pricing#privacy" },
-  { label: "Refund Policy", href: "/pricing#refund-policy" },
-  { label: "Terms", href: "/pricing#terms" },
-];
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
 <footer>
@@ -72,7 +54,7 @@ const legalLinks = [
                     class=" text-zinc-600 transition-colors hover:text-zinc-900 whitespace-nowrap"
                     href={link.href}
                   >
-                    {link.label}
+                    {t(link.labelKey) as string}
                   </a>
                 </li>
               ))
@@ -90,7 +72,7 @@ const legalLinks = [
                     class=" text-zinc-600 transition-colors hover:text-zinc-900 whitespace-nowrap"
                     href={link.href}
                   >
-                    {link.label}
+                    {t(link.labelKey) as string}
                   </a>
                 </li>
               ))
@@ -107,7 +89,7 @@ const legalLinks = [
                     class=" text-zinc-600 transition-colors hover:text-zinc-900 whitespace-nowrap"
                     href={link.href}
                   >
-                    {link.label}
+                    {t(link.labelKey) as string}
                   </a>
                 </li>
               ))
@@ -124,7 +106,7 @@ const legalLinks = [
                     class=" text-zinc-600 transition-colors hover:text-zinc-900 whitespace-nowrap"
                     href={link.href}
                   >
-                    {link.label}
+                    {t(link.labelKey) as string}
                   </a>
                 </li>
               ))
