@@ -107,10 +107,29 @@ const id = Math.random().toString(36).substring(2, 9);
     const dropdowns = document.querySelectorAll('.dropdown-container');
     
     dropdowns.forEach(dropdown => {
+      if (!(dropdown instanceof HTMLElement)) return;
+      if (dropdown.dataset.initialized) return;
+      
       const trigger = dropdown.querySelector('.dropdown-trigger');
       const menu = dropdown.querySelector('.dropdown-menu');
       
       if (!trigger || !menu) return;
+      
+      let hoverTimeout: ReturnType<typeof setTimeout>;
+      
+      dropdown.addEventListener('mouseenter', () => {
+        clearTimeout(hoverTimeout);
+        closeAllDropdowns();
+        dropdown.classList.add('open');
+        trigger.setAttribute('aria-expanded', 'true');
+      });
+      
+      dropdown.addEventListener('mouseleave', () => {
+        hoverTimeout = setTimeout(() => {
+          dropdown.classList.remove('open');
+          trigger.setAttribute('aria-expanded', 'false');
+        }, 150);
+      });
       
       trigger.addEventListener('click', (e) => {
         e.preventDefault();
@@ -123,6 +142,8 @@ const id = Math.random().toString(36).substring(2, 9);
           trigger.setAttribute('aria-expanded', 'true');
         }
       });
+      
+      dropdown.dataset.initialized = "true";
     });
   }
 

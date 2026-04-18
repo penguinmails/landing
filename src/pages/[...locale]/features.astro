@@ -3,14 +3,10 @@ import Layout from "@/layouts/Layout.astro";
 import { getLangFromUrl, useTranslations } from "@/i18n/utils";
 import { ui } from "@/i18n/ui";
 import { features } from "@/lib/features-data";
-import Tabs from "@/components/ui/Tabs.astro";
-import TabsContent from "@/components/ui/TabsContent.astro";
-import TabsList from "@/components/ui/TabsList.astro";
-import TabsTrigger from "@/components/ui/TabsTrigger.astro";
+import FeaturesTabsSection from "@/components/pages/features/FeaturesTabsSection.astro";
 
 const { locale } = Astro.params;
 
-// Validate locale if present
 if (locale && !(locale in ui)) {
   return Astro.redirect("/404");
 }
@@ -18,56 +14,9 @@ if (locale && !(locale in ui)) {
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
-// Filter features that have full components implemented
 const implementedFeatures = features.filter(f => !!f.component);
 ---
 
 <Layout title={t("features.title")} description={t("features.description")}>
-  <div class="container mx-auto px-4 py-12">
-    <div class="text-center mb-12">
-      <h1 class="text-4xl md:text-5xl font-bold tracking-tight text-slate-900 mb-4">
-        {t("features.title")}
-      </h1>
-      <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-        {t("features.description")}
-      </p>
-    </div>
-    
-    {implementedFeatures.length > 1 ? (
-      <!-- Tabs system for multiple features -->
-      <Tabs defaultValue={implementedFeatures[0].slug}>
-        <div class="w-full overflow-x-auto pb-4 mb-8">
-          <TabsList className="flex h-12 w-fit items-center justify-center rounded-full bg-slate-100/80 p-1 mx-auto">
-            {implementedFeatures.map((feature) => (
-              <TabsTrigger
-                value={feature.slug}
-                className="rounded-full px-5 py-2 text-sm font-semibold transition-all data-[state=active]:bg-white data-[state=active]:text-primary data-[state=active]:shadow-md"
-              >
-                {t(feature.titleKey)}
-              </TabsTrigger>
-            ))}
-          </TabsList>
-        </div>
-        
-        {implementedFeatures.map((feature) => {
-          const Component = feature.component;
-          return (
-            <TabsContent value={feature.slug} className="m-0 focus-visible:ring-0">
-              {Component && <Component t={t} />}
-            </TabsContent>
-          );
-        })}
-      </Tabs>
-    ) : (
-      <!-- Single feature - show directly without tabs -->
-      {(() => {
-        const feature = implementedFeatures[0];
-        if (feature?.component) {
-          const Component = feature.component;
-          return <Component t={t} />;
-        }
-        return null;
-      })()}
-    )}
-  </div>
+  <FeaturesTabsSection implementedFeatures={implementedFeatures} t={t} />
 </Layout>
