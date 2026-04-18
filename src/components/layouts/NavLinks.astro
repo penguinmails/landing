@@ -67,6 +67,7 @@ const isActive = (href: string) => {
               label={link.name}
               items={link.dropdown}
               active={active}
+              href={link.href}
             />
             {active && (
               <ActiveIcon

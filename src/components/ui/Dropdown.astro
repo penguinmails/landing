@@ -6,24 +6,48 @@ export interface Props {
   label: string;
   items: { label: string; href: string }[];
   active?: boolean;
+  href?: string;
 }
 
-const { label, items, active = false } = Astro.props;
+const { label, items, active = false, href } = Astro.props;
 // Generate a unique ID for the dropdown
 const id = Math.random().toString(36).substring(2, 9);
 ---
 
-<div class="relative dropdown-container" id={`dropdown-${id}`}>
+<div class="relative dropdown-container flex items-center gap-1" id={`dropdown-${id}`}>
+  {href ? (
+    <a
+      href={href}
+      class={cn(
+        "text-sm font-medium text-gray-600 transition-colors hover:text-gray-900 dropdown-label",
+        { "font-semibold text-gray-900": active }
+      )}
+      data-active={active ? "true" : "false"}
+    >
+      {label}
+    </a>
+  ) : (
+    <button
+      class={cn(
+        "flex items-center gap-1 text-sm font-medium text-gray-600 transition-colors hover:text-gray-900 dropdown-trigger",
+        { "font-semibold text-gray-900": active }
+      )}
+      aria-haspopup="true"
+      aria-expanded={active ? "true" : "false"}
+      aria-controls={`menu-${id}`}
+    >
+      {label}
+    </button>
+  )}
   <button
     class={cn(
-      "flex items-center gap-1 text-sm font-medium text-gray-600 transition-colors hover:text-gray-900 dropdown-trigger",
-      { "font-semibold text-gray-900": active }
+      "flex items-center text-gray-600 transition-colors hover:text-gray-900 dropdown-trigger",
+      { "text-gray-900": active }
     )}
     aria-haspopup="true"
     aria-expanded={active ? "true" : "false"}
     aria-controls={`menu-${id}`}
   >
-    {label}
     <ChevronDown class="h-4 w-4 transition-transform dropdown-icon" />
   </button>
   
@@ -54,6 +78,31 @@ const id = Math.random().toString(36).substring(2, 9);
 </style>
 
 <script>
+  function closeAllDropdowns() {
+    document.querySelectorAll('.dropdown-container.open').forEach(d => {
+      d.classList.remove('open');
+      d.querySelector('.dropdown-trigger')?.setAttribute('aria-expanded', 'false');
+    });
+  }
+
+  function onDocumentClick(e: MouseEvent) {
+    if (!e.target || !(e.target instanceof Element)) return;
+    if (!e.target.closest('.dropdown-container')) {
+      closeAllDropdowns();
+    }
+  }
+
+  function onDocumentKeydown(e: KeyboardEvent) {
+    if (e.key === 'Escape') {
+      const openDropdown = document.querySelector('.dropdown-container.open');
+      if (openDropdown) {
+        closeAllDropdowns();
+        const trigger = openDropdown.querySelector('.dropdown-trigger');
+        if (trigger instanceof HTMLElement) trigger.focus();
+      }
+    }
+  }
+
   function setupDropdowns() {
     const dropdowns = document.querySelectorAll('.dropdown-container');
     
@@ -67,11 +116,7 @@ const id = Math.random().toString(36).substring(2, 9);
         e.preventDefault();
         const isOpen = dropdown.classList.contains('open');
         
-        // Close all other dropdowns
-        document.querySelectorAll('.dropdown-container').forEach(d => {
-          d.classList.remove('open');
-          d.querySelector('.dropdown-trigger')?.setAttribute('aria-expanded', 'false');
-        });
+        closeAllDropdowns();
         
         if (!isOpen) {
           dropdown.classList.add('open');
@@ -79,34 +124,12 @@ const id = Math.random().toString(36).substring(2, 9);
         }
       });
     });
-
-    // Close when clicking outside
-    document.addEventListener('click', (e) => {
-      if (!e.target || !(e.target instanceof Element)) return;
-      if (!e.target.closest('.dropdown-container')) {
-        document.querySelectorAll('.dropdown-container.open').forEach(d => {
-          d.classList.remove('open');
-          d.querySelector('.dropdown-trigger')?.setAttribute('aria-expanded', 'false');
-        });
-      }
-    });
-
-    // Handle escape key
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') {
-        document.querySelectorAll('.dropdown-container.open').forEach(d => {
-          d.classList.remove('open');
-          const trigger = d.querySelector('.dropdown-trigger');
-          trigger?.setAttribute('aria-expanded', 'false');
-          if (trigger instanceof HTMLElement) trigger.focus();
-        });
-      }
-    });
   }
 
-  // Setup on initial load
+  document.addEventListener('click', onDocumentClick);
+  document.addEventListener('keydown', onDocumentKeydown);
+
   setupDropdowns();
   
-  // Re-setup if using View Transitions
   document.addEventListener('astro:page-load', setupDropdowns);
 </script>
