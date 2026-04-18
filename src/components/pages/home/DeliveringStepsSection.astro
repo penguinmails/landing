@@ -1,24 +1,10 @@
 ---
-const steps = [
-  {
-    id: 1,
-    title: "Connect Your Inbox Securely",
-    description:
-      "We guide you through authentication and warmup setup to ensure your foundation is rock solid.",
-  },
-  {
-    id: 2,
-    title: "Import & Personalize Leads",
-    description:
-      "Upload your list and create tailored sequences that resonate with your prospects at scale.",
-  },
-  {
-    id: 3,
-    title: "Send Safely & Track Performance",
-    description:
-      "Launch campaigns with deliverability protection and watch your real-time tracking dashboard.",
-  },
-];
+import { getLangFromUrl, useTranslations } from "@/i18n/utils";
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const stepTexts = t("home.steps.items");
+const steps = stepTexts.map((s, i) => ({ ...s, id: i + 1 }));
 ---
 
 <section class="container mx-auto px-10 space-y-16 md:space-y-24">
@@ -26,7 +12,7 @@ const steps = [
     <h2
       class="text-3xl md:text-4xl lg:text-[40px] font-semibold text-gray-900 mx-auto text-center tracking-tight"
     >
-      Start Delivering in 3 Simple Steps
+      {t("home.steps.title")}
     </h2>
   </div>
 
@@ -54,7 +40,7 @@ const steps = [
 
   <div class="text-center">
     <p class="text-gray-500 text-lg md:text-[20px] font-medium text-center">
-      No technical expertise required. 🛠️
+      {t("home.steps.footer")}
     </p>
   </div>
 </section>

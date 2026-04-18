@@ -1,28 +1,11 @@
 ---
 import ArticleCard from "@/components/shared/ArticleCard.astro";
+import { getLangFromUrl, useTranslations } from "@/i18n/utils";
 
-const faqs = [
-  {
-    question: "Will this get my emails out of spam?",
-    answer:
-      "Yes. By using our warmup protocol and rotation techniques, we help rebuild and maintain your sender reputation to ensure your emails land where they belong.",
-  },
-  {
-    question: "Is this safe for my domain?",
-    answer:
-      "Our entire system is built around safety. We use conservative sending limits and rotate accounts to ensure no single domain is ever flagged.",
-  },
-  {
-    question: "Do I need technical knowledge?",
-    answer:
-      "No. We provide step-by-step guides for DNS settings (SPF, DKIM, DMARC) and our dashboard handles the heavy lifting of automation.",
-  },
-  {
-    question: "Does it replace my current outreach tool?",
-    answer:
-      "PenguinMails can replace your current tool entirely, or be used specifically for your most important outbound campaigns where deliverability is critical.",
-  },
-];
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const faqs = t("home.faq.items");
 ---
 
 <section class="py-20 md:py-24" id="faq">
@@ -30,7 +13,7 @@ const faqs = [
     <h2
       class="text-center text-4xl font-semibold tracking-tight text-zinc-900 md:text-5xl"
     >
-      Frequently Asked Questions
+      {t("home.faq.title")}
     </h2>
 
     <div class="mt-10 space-y-5 md:mt-12">

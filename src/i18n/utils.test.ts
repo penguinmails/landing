@@ -61,16 +61,20 @@ describe("Property 2: getLangFromUrl falls back to defaultLang for unknown segme
 describe("Property 3: useTranslations returns non-empty string for every key in every language", () => {
   it("returns a non-empty string for every translation key in every language", () => {
     // Validates: Requirements 3.4, 3.5
-    const translationKeys = Object.keys(ui[defaultLang]) as TranslationKey[];
+    // Only test keys whose value is a string — some keys hold arrays (e.g. faq.items)
+    const allKeys = Object.keys(ui[defaultLang]) as TranslationKey[];
+    const stringKeys = allKeys.filter(
+      (k) => typeof ui[defaultLang][k] === "string",
+    );
     fc.assert(
       fc.property(
         fc.constantFrom(...Object.keys(ui)),
-        fc.constantFrom(...translationKeys),
+        fc.constantFrom(...stringKeys),
         (lang, key) => {
           const t = useTranslations(lang as keyof typeof ui);
           const result = t(key);
           expect(typeof result).toBe("string");
-          expect(result.length).toBeGreaterThan(0);
+          expect((result as string).length).toBeGreaterThan(0);
         },
       ),
     );

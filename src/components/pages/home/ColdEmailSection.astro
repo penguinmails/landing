@@ -2,27 +2,14 @@
 import MessagesList from "@/components/shared/MessagesList.astro";
 import type { Message } from "@/types/message";
 import { Flame, RefreshCcw, Inbox } from "@lucide/astro";
+import { getLangFromUrl, useTranslations } from "@/i18n/utils";
 
-const features = [
-  {
-    title: "Automated Warmup",
-    icon: Flame,
-    description:
-      "Protect your sender reputation with smart, human-like activity simulation.",
-  },
-  {
-    title: "Inbox Rotation",
-    icon: RefreshCcw,
-    description:
-      "Distribute sending volume safely across multiple inboxes to stay under provider limits.",
-  },
-  {
-    title: "Unified Inbox",
-    icon: Inbox,
-    description:
-      "Manage all conversations in one place without switching tools or browser profiles.",
-  },
-];
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const featureTexts = t("home.platform.features");
+const featureIcons = [Flame, RefreshCcw, Inbox];
+const features = featureTexts.map((f, i) => ({ ...f, icon: featureIcons[i] }));
 
 const messages: Message[] = [
   {
@@ -63,11 +50,10 @@ const messages: Message[] = [
         <h2
           class="text-4xl sm:text-5xl font-bold text-slate-900 tracking-tight mb-4 leading-[1.1]"
         >
-          The Cold Email Platform Built for Deliverability
+          {t("home.platform.title")}
         </h2>
         <p class="text-xl sm:text-[22px] text-slate-600 mb-12 leading-relaxed">
-          PenguinMails focuses on one thing first: inbox placement. Everything
-          else supports that.
+          {t("home.platform.description")}
         </p>
 
         <div class="space-y-10 mb-12">
@@ -94,8 +80,7 @@ const messages: Message[] = [
           class="bg-slate-50 border-l-4 border-primary p-6 rounded-r-xl inline-block w-full"
         >
           <p class="text-slate-700 text-[15px] sm:text-[16px]">
-            "Built using industry-standard authentication (SPF, DKIM, DMARC)
-            best practices."
+            {t("home.platform.footer")}
           </p>
         </div>
       </div>
@@ -115,7 +100,7 @@ const messages: Message[] = [
             class="p-6 sm:p-8 border-b border-gray-100 bg-white sticky top-0 z-10"
           >
             <h3 class="font-bold text-slate-900 text-lg sm:text-xl">
-              Recent Replies
+              {t("home.platform.repliesTitle")}
             </h3>
           </div>
 
