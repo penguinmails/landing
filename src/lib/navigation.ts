@@ -1,37 +1,39 @@
+import type { TranslationKey } from "../i18n/types";
+
 export interface NavItem {
-  label: string;
+  labelKey: TranslationKey;
   href: string;
 }
 
 export const usecasesLinks: NavItem[] = [
-  { label: "Agencies", href: "/usecases/agencies" },
-  { label: "Freelancers", href: "/usecases/freelancers" },
-  { label: "Outbound Teams", href: "/usecases/outbound-teams" },
-  { label: "Startups", href: "/usecases/startups" },
+  { labelKey: "nav.agencies", href: "/usecases/agencies" },
+  { labelKey: "nav.freelancers", href: "/usecases/freelancers" },
+  { labelKey: "nav.outbound-teams", href: "/usecases/outbound-teams" },
+  { labelKey: "nav.startups", href: "/usecases/startups" },
 ];
 
 export const featuresLinks: NavItem[] = [
-  { label: "Unified Inbox", href: "/features/unified-inbox" },
-  { label: "Free Mailbox Creation", href: "/features/free-mailbox-creation" },
-  { label: "Warmup Automation", href: "/features/warmup-automation" },
-  { label: "Leads Export", href: "/features/leads-export" },
-  { label: "Real-Time Analytics", href: "/features/real-time-analytics" },
-  { label: "Automated Sequences", href: "/features/automated-sequences" },
+  { labelKey: "nav.unified-inbox", href: "/features/unified-inbox" },
+  { labelKey: "nav.free-mailbox-creation", href: "/features/free-mailbox-creation" },
+  { labelKey: "nav.warmup-automation", href: "/features/warmup-automation" },
+  { labelKey: "nav.leads-export", href: "/features/leads-export" },
+  { labelKey: "nav.real-time-analytics", href: "/features/real-time-analytics" },
+  { labelKey: "nav.automated-sequences", href: "/features/automated-sequences" },
 ];
 
 export const legalLinks: NavItem[] = [
-  { label: "Anti-Spam Policy", href: "/pricing#anti-spam-policy" },
-  { label: "Privacy", href: "/pricing#privacy" },
-  { label: "Refund Policy", href: "/pricing#refund-policy" },
-  { label: "Terms", href: "/pricing#terms" },
+  { labelKey: "nav.anti-spam-policy", href: "/pricing#anti-spam-policy" },
+  { labelKey: "nav.privacy", href: "/pricing#privacy" },
+  { labelKey: "nav.refund-policy", href: "/pricing#refund-policy" },
+  { labelKey: "nav.terms", href: "/pricing#terms" },
 ];
 
 export const companyLinks: NavItem[] = [
-  { label: "About", href: "/features#about" },
-  { label: "Contact", href: "/features#contact" },
+  { labelKey: "nav.about", href: "/features#about" },
+  { labelKey: "nav.contact", href: "/features#contact" },
 ];
 
 export const resourcesLinks: NavItem[] = [
-  { label: "Blog", href: "/features#blog" },
-  { label: "Tools", href: "/features#tools" },
+  { labelKey: "nav.blog", href: "/features#blog" },
+  { labelKey: "nav.tools", href: "/features#tools" },
 ];

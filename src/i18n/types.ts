@@ -8,6 +8,30 @@ export type CommonTranslations = {
   "nav.pricing": string;
   "nav.usecases": string;
   "nav.login": string;
+  "nav.agencies": string;
+  "nav.freelancers": string;
+  "nav.outbound-teams": string;
+  "nav.startups": string;
+  "nav.unified-inbox": string;
+  "nav.free-mailbox-creation": string;
+  "nav.warmup-automation": string;
+  "nav.leads-export": string;
+  "nav.real-time-analytics": string;
+  "nav.automated-sequences": string;
+  "nav.anti-spam-policy": string;
+  "nav.privacy": string;
+  "nav.refund-policy": string;
+  "nav.terms": string;
+  "nav.about": string;
+  "nav.contact": string;
+  "nav.blog": string;
+  "nav.tools": string;
+  "features.otherFeatures": string;
+  "usecases.otherUsecases": string;
+  "cta.title": string;
+  "cta.subtitle": string;
+  "cta.buttonTrial": string;
+  "cta.buttonDemo": string;
 };
 
 export type HomeTranslations = {
@@ -69,6 +93,22 @@ export type PricingTranslations = {
 export type FeaturesTranslations = {
   "features.title": string;
   "features.description": string;
+  "features.unified-inbox.title": string;
+  "features.unified-inbox.description": string;
+  "features.free-mailbox-creation.title": string;
+  "features.free-mailbox-creation.description": string;
+  "features.free-mailbox-creation.cta.title": string;
+  "features.free-mailbox-creation.cta.subtitle": string;
+  "features.warmup-automation.title": string;
+  "features.warmup-automation.description": string;
+  "features.leads-export.title": string;
+  "features.leads-export.description": string;
+  "features.real-time-analytics.title": string;
+  "features.real-time-analytics.description": string;
+  "features.real-time-analytics.cta.title": string;
+  "features.real-time-analytics.cta.subtitle": string;
+  "features.automated-sequences.title": string;
+  "features.automated-sequences.description": string;
   // Mailbox Creation Feature
   "features.mailbox.tabTitle": string;
   "features.mailbox.heading": string;
@@ -79,7 +119,9 @@ export type FeaturesTranslations = {
   "features.mailbox.core.benefit": string;
   "features.mailbox.versus.title": string;
   "features.mailbox.versus.subtitle": string;
+  "features.mailbox.versus.titleProblem": string;
   "features.mailbox.versus.problems": string[];
+  "features.mailbox.versus.titleSolution": string;
   "features.mailbox.versus.solution": string;
   "features.mailbox.versus.benefits": string[];
   "features.mailbox.steps.title": string;
@@ -93,6 +135,7 @@ export type FeaturesTranslations = {
   "features.mailbox.real.title": string;
   "features.mailbox.real.subtitle": string;
   "features.mailbox.real.description": string;
+  "features.mailbox.real.inboxStatement": string;
   "features.mailbox.real.capabilities": string[];
   "features.mailbox.real.benefits": string[];
   "features.mailbox.unlimited.title": string;
@@ -101,6 +144,9 @@ export type FeaturesTranslations = {
   "features.mailbox.cost.title": string;
   "features.mailbox.cost.description": string;
   "features.mailbox.cost.intro": string;
+  "features.mailbox.cost.table.provider": string;
+  "features.mailbox.cost.table.monthly": string;
+  "features.mailbox.cost.table.yearly": string;
   "features.mailbox.cost.table.title": string;
   "features.mailbox.cost.conclusion": string;
   "features.mailbox.management.title": string;
@@ -124,7 +170,9 @@ export type FeaturesTranslations = {
   "features.analytics.core.benefit": string;
   "features.analytics.versus.title": string;
   "features.analytics.versus.subtitle": string;
+  "features.analytics.versus.problemTitle": string;
   "features.analytics.versus.problems": string[];
+  "features.analytics.versus.solutionTitle": string;
   "features.analytics.versus.solution": string;
   "features.analytics.versus.benefits": string[];
   "features.analytics.steps.title": string;
@@ -138,9 +186,16 @@ export type FeaturesTranslations = {
   "features.analytics.capabilities.title": string;
   "features.analytics.capabilities.subtitle": string;
   "features.analytics.capabilities.description": string;
+  "features.analytics.capabilities.callout": string;
   "features.analytics.capabilities.items": string[];
   "features.analytics.benefits.title": string;
   "features.analytics.benefits.description": string;
+  "features.analytics.benefits.card1.title": string;
+  "features.analytics.benefits.card1.description": string;
+  "features.analytics.benefits.card2.title": string;
+  "features.analytics.benefits.card2.description": string;
+  "features.analytics.benefits.card3.title": string;
+  "features.analytics.benefits.card3.description": string;
   "features.analytics.faq.title": string;
   "features.analytics.faq.items": Array<{
     question: string;
@@ -153,6 +208,14 @@ export type FeaturesTranslations = {
 export type UsecasesTranslations = {
   "usecases.title": string;
   "usecases.description": string;
+  "usecases.agencies.title": string;
+  "usecases.agencies.description": string;
+  "usecases.freelancers.title": string;
+  "usecases.freelancers.description": string;
+  "usecases.outbound-teams.title": string;
+  "usecases.outbound-teams.description": string;
+  "usecases.startups.title": string;
+  "usecases.startups.description": string;
 };
 
 export type Translations = typeof en;

@@ -3,7 +3,7 @@ import ArticleCard from "@/components/shared/ArticleCard.astro";
 import Button from "@/components/ui/Button.astro";
 import { buildSignupUrl } from "@/lib/cta";
 import { Check, Globe, Mail, Settings, Shield, Users, X, Zap } from "@lucide/astro";
-type FAQItem = { question: string; answer: string };
+
 
 const { t } = Astro.props;
 
@@ -35,15 +35,15 @@ const steps = [
   },
 ];
 
-const controlTexts = t("features.mailbox.management.controls") as string[];
+const controlTexts = t("features.mailbox.management.controls");
 const controls = [
-  { icon: X, text: controlTexts[0] },
-  { icon: Settings, text: controlTexts[1] },
-  { icon: Users, text: controlTexts[2] },
-  { icon: Shield, text: controlTexts[3] },
+  { icon: X, text: controlTexts?.[0] || "" },
+  { icon: Settings, text: controlTexts?.[1] || "" },
+  { icon: Users, text: controlTexts?.[2] || "" },
+  { icon: Shield, text: controlTexts?.[3] || "" },
 ];
 
-const faqItems = t("features.mailbox.faq.items") as FAQItem[];
+const faqItems = t("features.mailbox.faq.items");
 ---
 
 <div class="space-y-24 py-12">
@@ -108,9 +108,9 @@ const faqItems = t("features.mailbox.faq.items") as FAQItem[];
       
       <div class="grid md:grid-cols-2 gap-8">
         <div class="bg-white p-8 rounded-2xl shadow-sm">
-          <h3 class="text-xl font-semibold text-rose-600 mb-6">The Problem</h3>
+          <h3 class="text-xl font-semibold text-rose-600 mb-6">{t("features.mailbox.versus.titleProblem")}</h3>
       <ul class="space-y-4">
-        {(t("features.mailbox.versus.problems") as string[]).map((problem: string) => (
+        {t("features.mailbox.versus.problems").map((problem: string) => (
   <li class="flex items-start gap-3">
     <X class="w-5 h-5 text-rose-500 mt-0.5 shrink-0" />
     <span class="text-gray-700">{problem}</span>
@@ -120,10 +120,10 @@ const faqItems = t("features.mailbox.faq.items") as FAQItem[];
 </div>
 
 <div class="bg-white p-8 rounded-2xl shadow-sm border-2 border-primary/20">
-  <h3 class="text-xl font-semibold text-primary mb-6">The Solution</h3>
+  <h3 class="text-xl font-semibold text-primary mb-6">{t("features.mailbox.versus.titleSolution")}</h3>
   <p class="text-gray-700 mb-6">{t("features.mailbox.versus.solution")}</p>
   <ul class="space-y-4">
-    {(t("features.mailbox.versus.benefits") as string[]).map((benefit: string) => (
+    {t("features.mailbox.versus.benefits").map((benefit: string) => (
   <li class="flex items-start gap-3">
     <Check class="w-5 h-5 text-emerald-500 mt-0.5 shrink-0" />
     <span class="text-gray-700">{benefit}</span>
@@ -183,7 +183,7 @@ const faqItems = t("features.mailbox.faq.items") as FAQItem[];
           </p>
           
           <div class="space-y-3">
-            {(t("features.mailbox.real.capabilities") as string[]).map((cap: string) => (
+            {t("features.mailbox.real.capabilities").map((cap: string) => (
               <div class="flex items-center gap-3">
                 <Check class="w-5 h-5 text-emerald-500 shrink-0" />
                 <span class="text-gray-700">{cap}</span>
@@ -193,8 +193,8 @@ const faqItems = t("features.mailbox.faq.items") as FAQItem[];
           
           <div class="mt-6 p-4 bg-primary/5 rounded-xl">
             <p class="text-sm text-gray-600">
-            {(t("features.mailbox.real.benefits") as string[]).map((b: string, i: number) => (
-              <span><strong>{b}</strong>{i < 2 ? ", " : ""}</span>
+            {t("features.mailbox.real.benefits").map((b: string, i: number, arr: string[]) => (
+              <span><strong>{b}</strong>{i < arr.length - 1 ? ", " : ""}</span>
             ))}
             </p>
           </div>
@@ -203,7 +203,7 @@ const faqItems = t("features.mailbox.faq.items") as FAQItem[];
         <div class="bg-linear-to-br from-primary/10 to-primary/5 rounded-3xl p-8">
           <Mail class="w-16 h-16 text-primary mx-auto mb-6" />
           <p class="text-center text-lg font-medium text-slate-900">
-            Your email account lives inside PenguinMails, and works like a real inbox, because it is one.
+            {t("features.mailbox.real.inboxStatement")}
           </p>
         </div>
       </div>
@@ -247,9 +247,9 @@ const faqItems = t("features.mailbox.faq.items") as FAQItem[];
       
       <div class="bg-white rounded-2xl shadow-xl overflow-hidden">
         <div class="grid grid-cols-3 bg-slate-50 p-6 border-b border-gray-100 font-semibold text-lg">
-          <div>Provider</div>
-          <div class="text-center">Monthly Cost</div>
-          <div class="text-center">Yearly Cost</div>
+          <div>{t("features.mailbox.cost.table.provider")}</div>
+          <div class="text-center">{t("features.mailbox.cost.table.monthly")}</div>
+          <div class="text-center">{t("features.mailbox.cost.table.yearly")}</div>
         </div>
         
         {costComparison.map((row) => (
@@ -309,7 +309,7 @@ const faqItems = t("features.mailbox.faq.items") as FAQItem[];
       </h2>
       
       <div class="space-y-5">
-        {faqItems.map((item) => (
+        {faqItems.map((item: { question: string; answer: string }) => (
           <ArticleCard title={item.question} description={item.answer} />
         ))}
       </div>

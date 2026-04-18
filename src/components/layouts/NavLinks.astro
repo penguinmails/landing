@@ -18,13 +18,16 @@ const t = useTranslations(lang);
 const translatePath = useTranslatedPath(lang);
 
 // Translate navigation links
+// Translate navigation links
 const translatedFeaturesLinks = featuresLinks.map(link => ({
   ...link,
+  label: t(link.labelKey) as string,
   href: translatePath(link.href)
 }));
 
 const translatedUsecasesLinks = usecasesLinks.map(link => ({
   ...link,
+  label: t(link.labelKey) as string,
   href: translatePath(link.href)
 }));
 

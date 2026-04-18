@@ -1,33 +1,31 @@
+import type { TranslationKey } from "../i18n/types";
+
 export interface Usecase {
   slug: string;
-  title: string;
-  description: string;
+  titleKey: TranslationKey;
+  descriptionKey: TranslationKey;
 }
 
 export const usecases: Usecase[] = [
   {
     slug: "agencies",
-    title: "Agencies",
-    description:
-      "Scale your client outreach without the overhead of managing multiple email tools.",
+    titleKey: "usecases.agencies.title",
+    descriptionKey: "usecases.agencies.description",
   },
   {
     slug: "freelancers",
-    title: "Freelancers",
-    description:
-      "Build client pipelines and grow your freelance business with automated outreach.",
+    titleKey: "usecases.freelancers.title",
+    descriptionKey: "usecases.freelancers.description",
   },
   {
     slug: "outbound-teams",
-    title: "Outbound Teams",
-    description:
-      "Coordinate your sales team's outreach with shared mailboxes and team analytics.",
+    titleKey: "usecases.outbound-teams.title",
+    descriptionKey: "usecases.outbound-teams.description",
   },
   {
     slug: "startups",
-    title: "Startups",
-    description:
-      "Launch your go-to-market strategy with affordable, scalable email automation.",
+    titleKey: "usecases.startups.title",
+    descriptionKey: "usecases.startups.description",
   },
 ];
 

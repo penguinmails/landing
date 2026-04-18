@@ -4,6 +4,10 @@ import InstagramIcon from "@/assets/icons/instagram.svg";
 import Logo from "@/components/layouts/Logo.astro";
 import { Image } from "astro:assets";
 import { usecasesLinks, resourcesLinks, companyLinks, legalLinks } from "@/lib/navigation";
+import { getLangFromUrl, useTranslations } from "@/i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
 <footer>
@@ -50,7 +54,7 @@ import { usecasesLinks, resourcesLinks, companyLinks, legalLinks } from "@/lib/n
                     class=" text-zinc-600 transition-colors hover:text-zinc-900 whitespace-nowrap"
                     href={link.href}
                   >
-                    {link.label}
+                    {t(link.labelKey) as string}
                   </a>
                 </li>
               ))
@@ -68,7 +72,7 @@ import { usecasesLinks, resourcesLinks, companyLinks, legalLinks } from "@/lib/n
                     class=" text-zinc-600 transition-colors hover:text-zinc-900 whitespace-nowrap"
                     href={link.href}
                   >
-                    {link.label}
+                    {t(link.labelKey) as string}
                   </a>
                 </li>
               ))
@@ -85,7 +89,7 @@ import { usecasesLinks, resourcesLinks, companyLinks, legalLinks } from "@/lib/n
                     class=" text-zinc-600 transition-colors hover:text-zinc-900 whitespace-nowrap"
                     href={link.href}
                   >
-                    {link.label}
+                    {t(link.labelKey) as string}
                   </a>
                 </li>
               ))
@@ -102,7 +106,7 @@ import { usecasesLinks, resourcesLinks, companyLinks, legalLinks } from "@/lib/n
                     class=" text-zinc-600 transition-colors hover:text-zinc-900 whitespace-nowrap"
                     href={link.href}
                   >
-                    {link.label}
+                    {t(link.labelKey) as string}
                   </a>
                 </li>
               ))

@@ -4,6 +4,29 @@ export const features: FeaturesTranslations = {
   "features.title": "Penguin Mails - Features",
   "features.description":
     "Explore the powerful features of Penguin Mails. Domain warm-up, deliverability tracking, and more.",
+  "features.unified-inbox.title": "Unified Inbox",
+  "features.unified-inbox.description":
+    "Manage all replies in one clean workspace across all your senders.",
+  "features.free-mailbox-creation.title": "Free Mailbox Creation",
+  "features.free-mailbox-creation.description": "Scale safely without additional infrastructure costs.",
+  "features.free-mailbox-creation.cta.title": "Create Your First Mailbox in Under 2 Minutes",
+  "features.free-mailbox-creation.cta.subtitle":
+    'No hosting. No SMTP. No cPanel. Just connect your domain and click "Create Mailbox." You\'ll have a working cold email inbox, ready to warm up and send.',
+  "features.warmup-automation.title": "Warmup Automation",
+  "features.warmup-automation.description":
+    "Build trust with inbox providers before scaling your campaigns.",
+  "features.leads-export.title": "Leads Export",
+  "features.leads-export.description":
+    "Download and manage your leads effortlessly, ready for outreach or analysis.",
+  "features.real-time-analytics.title": "Real-Time Analytics",
+  "features.real-time-analytics.description":
+    "See exactly how campaigns perform with detailed deliverability metrics.",
+  "features.real-time-analytics.cta.title": "Start Tracking Your Campaign Performance",
+  "features.real-time-analytics.cta.subtitle":
+    "Get real-time insights into your email deliverability. Monitor opens, clicks, and responses across all your campaigns.",
+  "features.automated-sequences.title": "Automated Sequences",
+  "features.automated-sequences.description":
+    "Follow up consistently without manual work using smart rules.",
 
   // Mailbox Creation Feature
   "features.mailbox.tabTitle": "Free Mailbox Creation - PenguinMails",
@@ -23,12 +46,14 @@ export const features: FeaturesTranslations = {
     "Why It's Better Than Connecting Gmail/SMTPs",
   "features.mailbox.versus.subtitle":
     "Built-In Mailboxes Beat Connected Accounts",
+  "features.mailbox.versus.titleProblem": "The Problem",
   "features.mailbox.versus.problems": [
     "API errors",
     "Gmail sending limits",
     "Broken email tracking",
     "Poor deliverability",
   ],
+  "features.mailbox.versus.titleSolution": "The Solution",
   "features.mailbox.versus.solution":
     "With PenguinMails, you skip all that. You're not connecting, you're creating. Our inboxes are made to send cold emails, not handle newsletters or personal mail.",
   "features.mailbox.versus.benefits": [
@@ -54,6 +79,8 @@ export const features: FeaturesTranslations = {
   "features.mailbox.real.subtitle": "Yes, These Are Real Email Accounts",
   "features.mailbox.real.description":
     "These are not fake inboxes or aliases. You're creating real mailboxes on your own domain, not just connecting someone else's.",
+  "features.mailbox.real.inboxStatement":
+    "Your email account lives inside PenguinMails, and works like a real inbox, because it is one.",
   "features.mailbox.real.capabilities": [
     "Send and receive cold emails",
     "Check your inbox",
@@ -78,6 +105,9 @@ export const features: FeaturesTranslations = {
   "features.mailbox.cost.description":
     "Running cold email campaigns at scale? You'll probably need 20–50 inboxes. With other tools, that means buying accounts from Google or Outlook and using SMTP integration to connect them. But that adds up fast, in cost and in tech issues.",
   "features.mailbox.cost.intro": "Let's break down the email hosting cost.",
+  "features.mailbox.cost.table.provider": "Provider",
+  "features.mailbox.cost.table.monthly": "Monthly Cost",
+  "features.mailbox.cost.table.yearly": "Yearly Cost",
   "features.mailbox.cost.table.title": "30 Inboxes Cost Comparison",
   "features.mailbox.cost.conclusion":
     "You're getting unlimited mailboxes. These are real, domain-based email accounts, not temporary or shared inboxes. Instead of buying inboxes, you create mailboxes inside PenguinMails. They're free mailboxes, fully included with your plan. So you save money, skip hassle, and run more outreach, without limits.",
@@ -156,12 +186,14 @@ export const features: FeaturesTranslations = {
   "features.analytics.versus.title":
     "Why You Need More Than Just Sending Capabilities",
   "features.analytics.versus.subtitle": "Analytics That Matter For Cold Email",
+  "features.analytics.versus.problemTitle": "The Problem",
   "features.analytics.versus.problems": [
     "Tools stop tracking after hitting send",
     "No visibility into which campaigns perform",
     "Can't compare mailbox performance",
     "No way to filter or sort results",
   ],
+  "features.analytics.versus.solutionTitle": "The Solution",
   "features.analytics.versus.solution":
     "Our campaign analytics platform shows how many emails you sent, how many people opened, clicked, or replied, and which campaign or mailbox is doing better or doing bad.",
   "features.analytics.versus.benefits": [
@@ -188,6 +220,8 @@ export const features: FeaturesTranslations = {
   "features.analytics.capabilities.subtitle": "Everything You Need To Track",
   "features.analytics.capabilities.description":
     "Tracks total emails sent alongside engagement rates, including opens, clicks, and replies. Evaluates the success or failure of specific individual campaigns and mailboxes.",
+  "features.analytics.capabilities.callout":
+    "Real-time performance data for every campaign, every mailbox, all in one place.",
   "features.analytics.capabilities.items": [
     "Track total emails sent",
     "Monitor open rates, click rates, and reply rates",
@@ -199,6 +233,15 @@ export const features: FeaturesTranslations = {
   "features.analytics.benefits.title": "Key User Benefits",
   "features.analytics.benefits.description":
     "Built specifically for cold email practitioners who want clear, actionable results without the complexity.",
+  "features.analytics.benefits.card1.title": "Simplified Interface",
+  "features.analytics.benefits.card1.description":
+    "Designed for speed and ease of use, requiring no technical expertise to interpret results.",
+  "features.analytics.benefits.card2.title": "Targeted Functionality",
+  "features.analytics.benefits.card2.description":
+    "Built specifically for cold email practitioners rather than newsletter or general marketing users.",
+  "features.analytics.benefits.card3.title": "Centralized Management",
+  "features.analytics.benefits.card3.description":
+    "Aggregates all email activity into a single view for high-level performance assessment.",
 
   "features.analytics.faq.title": "Frequently Asked Questions",
   "features.analytics.faq.items": [

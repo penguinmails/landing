@@ -43,7 +43,7 @@ const implementedFeatures = features.filter(f => !!f.component);
                 value={feature.slug}
                 className="rounded-full px-5 py-2 text-sm font-semibold transition-all data-[state=active]:bg-white data-[state=active]:text-primary data-[state=active]:shadow-md"
               >
-                {feature.title}
+                {t(feature.titleKey)}
               </TabsTrigger>
             ))}
           </TabsList>

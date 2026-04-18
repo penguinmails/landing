@@ -11,7 +11,7 @@ import {
   TrendingUp,
   X,
 } from "@lucide/astro";
-type FAQItem = { question: string; answer: string };
+
 
 const { t } = Astro.props;
 
@@ -36,7 +36,7 @@ const steps = [
   },
 ];
 
-const capabilities = t("features.analytics.capabilities.items") as string[];
+const capabilities = t("features.analytics.capabilities.items");
 ---
 
 <div class="space-y-24 py-12">
@@ -105,10 +105,10 @@ const capabilities = t("features.analytics.capabilities.items") as string[];
 
       <div class="grid md:grid-cols-2 gap-8">
         <div class="bg-white p-8 rounded-2xl shadow-sm">
-          <h3 class="text-xl font-semibold text-rose-600 mb-6">The Problem</h3>
+          <h3 class="text-xl font-semibold text-rose-600 mb-6">{t("features.analytics.versus.problemTitle")}</h3>
           <ul class="space-y-4">
             {
-              (t("features.analytics.versus.problems") as string[]).map(
+              t("features.analytics.versus.problems").map(
                 (problem: string) => (
                   <li class="flex items-start gap-3">
                     <X class="w-5 h-5 text-rose-500 mt-0.5 shrink-0" />
@@ -123,13 +123,13 @@ const capabilities = t("features.analytics.capabilities.items") as string[];
         <div
           class="bg-white p-8 rounded-2xl shadow-sm border-2 border-primary/20"
         >
-          <h3 class="text-xl font-semibold text-primary mb-6">The Solution</h3>
+          <h3 class="text-xl font-semibold text-primary mb-6">{t("features.analytics.versus.solutionTitle")}</h3>
           <p class="text-gray-700 mb-6">
             {t("features.analytics.versus.solution")}
           </p>
           <ul class="space-y-4">
             {
-              (t("features.analytics.versus.benefits") as string[]).map(
+              t("features.analytics.versus.benefits").map(
                 (benefit: string) => (
                   <li class="flex items-start gap-3">
                     <Check class="w-5 h-5 text-emerald-500 mt-0.5 shrink-0" />
@@ -212,8 +212,7 @@ const capabilities = t("features.analytics.capabilities.items") as string[];
         >
           <ChartNoAxesCombined class="w-16 h-16 text-primary mx-auto mb-6" />
           <p class="text-center text-lg font-medium text-slate-900">
-            Real-time performance data for every campaign, every mailbox, all in
-            one place.
+            {t("features.analytics.capabilities.callout")}
           </p>
         </div>
       </div>
@@ -239,10 +238,9 @@ const capabilities = t("features.analytics.capabilities.items") as string[];
           >
             <TrendingUp class="w-6 h-6 text-primary" />
           </div>
-          <h3 class="text-lg font-semibold mb-2">Simplified Interface</h3>
+          <h3 class="text-lg font-semibold mb-2">{t("features.analytics.benefits.card1.title")}</h3>
           <p class="text-gray-300">
-            Designed for speed and ease of use, requiring no technical expertise
-            to interpret results.
+            {t("features.analytics.benefits.card1.description")}
           </p>
         </div>
         <div class="bg-white/5 p-6 rounded-2xl backdrop-blur">
@@ -251,10 +249,9 @@ const capabilities = t("features.analytics.capabilities.items") as string[];
           >
             <Target class="w-6 h-6 text-primary" />
           </div>
-          <h3 class="text-lg font-semibold mb-2">Targeted Functionality</h3>
+          <h3 class="text-lg font-semibold mb-2">{t("features.analytics.benefits.card2.title")}</h3>
           <p class="text-gray-300">
-            Built specifically for cold email practitioners rather than
-            newsletter or general marketing users.
+            {t("features.analytics.benefits.card2.description")}
           </p>
         </div>
         <div class="bg-white/5 p-6 rounded-2xl backdrop-blur">
@@ -263,10 +260,9 @@ const capabilities = t("features.analytics.capabilities.items") as string[];
           >
             <Globe class="w-6 h-6 text-primary" />
           </div>
-          <h3 class="text-lg font-semibold mb-2">Centralized Management</h3>
+          <h3 class="text-lg font-semibold mb-2">{t("features.analytics.benefits.card3.title")}</h3>
           <p class="text-gray-300">
-            Aggregates all email activity into a single view for high-level
-            performance assessment.
+            {t("features.analytics.benefits.card3.description")}
           </p>
         </div>
       </div>
@@ -284,7 +280,7 @@ const capabilities = t("features.analytics.capabilities.items") as string[];
 
       <div class="space-y-5">
         {
-          (t("features.analytics.faq.items") as FAQItem[]).map((item) => (
+          t("features.analytics.faq.items").map((item: { question: string; answer: string }) => (
             <ArticleCard title={item.question} description={item.answer} />
           ))
         }

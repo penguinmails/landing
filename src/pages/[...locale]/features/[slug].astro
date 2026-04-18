@@ -17,7 +17,7 @@ if (!slug) {
 const feature = getFeatureBySlug(slug);
 
 if (!feature) {
-  return Astro.redirect(translatePath("/404"), 404);
+  return Astro.rewrite(translatePath("/404"));
 }
 
 const FeatureComponent = feature.component;
@@ -26,13 +26,13 @@ const Icon = feature.icon;
 const ctaOverride = feature.cta
   ? {
       context: feature.cta.context,
-      title: feature.cta.title,
-      subtitle: feature.cta.subtitle,
+      title: t(feature.cta.titleKey) as string,
+      subtitle: t(feature.cta.subtitleKey) as string,
     }
   : undefined;
 ---
 
-<Layout title={`${feature.title} | ${t("site.title")}`} ctaOverride={ctaOverride}>
+<Layout title={`${t(feature.titleKey)} | ${t("site.title")}`} ctaOverride={ctaOverride}>
   {FeatureComponent ? (
     <!-- Render full detailed feature component if available -->
     <FeatureComponent t={t} />
@@ -45,23 +45,23 @@ const ctaOverride = feature.cta
             <Icon class={feature.iconClass} />
           </div>
           <h1 class="text-4xl font-bold text-gray-900">
-            {feature.title}
+            {t(feature.titleKey)}
           </h1>
         </div>
         
         <p class="text-xl text-gray-600 mb-12">
-          {feature.description}
+          {t(feature.descriptionKey)}
         </p>
 
         <div class="border-t border-gray-200 pt-12">
-          <h2 class="text-xl font-semibold text-gray-900 mb-6">Other Features</h2>
+          <h2 class="text-xl font-semibold text-gray-900 mb-6">{t("features.otherFeatures")}</h2>
           <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
             {featuresLinks.map(link => (
               <a
                 href={translatePath(link.href)}
                 class="p-4 rounded-lg border border-gray-200 hover:border-primary hover:bg-blue-50 transition-all"
               >
-                {link.label}
+                {t(link.labelKey)}
               </a>
             ))}
           </div>

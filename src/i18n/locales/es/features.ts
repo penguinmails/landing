@@ -4,6 +4,29 @@ export const features: FeaturesTranslations = {
   "features.title": "Penguin Mails - Características",
   "features.description":
     "Explora las potentes funciones de Penguin Mails. Calentamiento de dominio, seguimiento de entregabilidad y más.",
+  "features.unified-inbox.title": "Buzón Unificado",
+  "features.unified-inbox.description":
+    "Gestiona todas las respuestas en un espacio de trabajo limpio en todos tus remitentes.",
+  "features.free-mailbox-creation.title": "Creación Gratuita de Buzones",
+  "features.free-mailbox-creation.description": "Escala de forma segura sin costes adicionales de infraestructura.",
+  "features.free-mailbox-creation.cta.title": "Crea Tu Primer Buzón en Menos de 2 Minutos",
+  "features.free-mailbox-creation.cta.subtitle":
+    'Sin alojamiento. Sin SMTP. Sin cPanel. Solo conecta tu dominio y haz clic en "Crear Buzón." Tendrás un buzón de correo frío funcional, listo para calentar y enviar.',
+  "features.warmup-automation.title": "Automatización de Calentamiento",
+  "features.warmup-automation.description":
+    "Construye confianza con los proveedores de correo electrónico antes de escalar tus campañas.",
+  "features.leads-export.title": "Exportación de Clientes Potenciales",
+  "features.leads-export.description":
+    "Descarga y gestiona tus prospectos sin esfuerzo, listos para alcance o análisis.",
+  "features.real-time-analytics.title": "Análisis en Tiempo Real",
+  "features.real-time-analytics.description":
+    "Mira exactamente cómo funcionan las campañas con métricas detalladas de entregabilidad.",
+  "features.real-time-analytics.cta.title": "Empieza a Rastrear el Rendimiento de Tu Campaña",
+  "features.real-time-analytics.cta.subtitle":
+    "Obtén información en tiempo real sobre tu entregabilidad de correos. Monitorea aperturas, clics y respuestas en todas tus campañas.",
+  "features.automated-sequences.title": "Secuencias Automatizadas",
+  "features.automated-sequences.description":
+    "Haz un seguimiento de forma constante sin trabajo manual utilizando reglas inteligentes.",
 
   // Mailbox Creation Feature
   "features.mailbox.tabTitle": "Creación Gratuita de Buzones - PenguinMails",
@@ -22,12 +45,14 @@ export const features: FeaturesTranslations = {
   "features.mailbox.versus.title": "Por Qué Es Mejor Que Conectar Gmail/SMTP",
   "features.mailbox.versus.subtitle":
     "Los Buzones Integrados Superan a las Cuentas Conectadas",
+  "features.mailbox.versus.titleProblem": "El Problema",
   "features.mailbox.versus.problems": [
     "Errores de API",
     "Límites de envío de Gmail",
     "Seguimiento de correo roto",
     "Baja entregabilidad",
   ],
+  "features.mailbox.versus.titleSolution": "La Solución",
   "features.mailbox.versus.solution":
     "Con PenguinMails, te saltas todo eso. No estás conectando, estás creando. Nuestros buzones están hechos para enviar correos fríos, no para manejar boletines o correo personal.",
   "features.mailbox.versus.benefits": [
@@ -53,6 +78,8 @@ export const features: FeaturesTranslations = {
   "features.mailbox.real.subtitle": "Sí, Son Cuentas de Correo Reales",
   "features.mailbox.real.description":
     "Estos no son buzones falsos ni alias. Estás creando buzones reales en tu propio dominio, no solo conectando los de alguien más.",
+  "features.mailbox.real.inboxStatement":
+    "Tu cuenta de correo vive dentro de PenguinMails, y funciona como una bandeja de entrada real, porque lo es.",
   "features.mailbox.real.capabilities": [
     "Enviar y recibir correos fríos",
     "Revisar tu bandeja de entrada",
@@ -78,6 +105,9 @@ export const features: FeaturesTranslations = {
     "¿Ejecutas campañas de correo frío a escala? Probablemente necesites 20–50 buzones. Con otras herramientas, eso significa comprar cuentas de Google u Outlook y usar integración SMTP para conectarlas. Pero eso se acumula rápido, en coste y en problemas técnicos.",
   "features.mailbox.cost.intro":
     "Vamos a desglosar el coste de alojamiento de correo.",
+  "features.mailbox.cost.table.provider": "Proveedor",
+  "features.mailbox.cost.table.monthly": "Coste Mensual",
+  "features.mailbox.cost.table.yearly": "Coste Anual",
   "features.mailbox.cost.table.title": "Comparación de Costes para 30 Buzones",
   "features.mailbox.cost.conclusion":
     "Obtienes buzones ilimitados. Estas son cuentas de correo reales basadas en dominio, no buzones temporales o compartidos. En lugar de comprar buzones, los creas dentro de PenguinMails. Son buzones gratuitos, totalmente incluidos en tu plan. Así que ahorras dinero, evitas complicaciones y ejecutas más alcance, sin límites.",
@@ -159,12 +189,14 @@ export const features: FeaturesTranslations = {
     "Por Qué Necesitas Más Que Solo Capacidades de Envío",
   "features.analytics.versus.subtitle":
     "Análisis Que Importan Para el Correo Frío",
+  "features.analytics.versus.problemTitle": "El Problema",
   "features.analytics.versus.problems": [
     "Las herramientas dejan de rastrear después de enviar",
     "Sin visibilidad de qué campañas funcionan",
     "No puedes comparar el rendimiento de los buzones",
     "Sin forma de filtrar u ordenar resultados",
   ],
+  "features.analytics.versus.solutionTitle": "La Solución",
   "features.analytics.versus.solution":
     "Nuestra plataforma de análisis de campañas muestra cuántos correos enviaste, cuántas personas abrieron, hicieron clic o respondieron, y qué campaña o buzón está funcionando mejor o peor.",
   "features.analytics.versus.benefits": [
@@ -192,6 +224,8 @@ export const features: FeaturesTranslations = {
   "features.analytics.capabilities.subtitle": "Todo Lo Que Necesitas Rastrear",
   "features.analytics.capabilities.description":
     "Rastrea el total de correos enviados junto con las tasas de participación, incluyendo aperturas, clics y respuestas. Evalúa el éxito o fracaso de campañas y buzones individuales específicos.",
+  "features.analytics.capabilities.callout":
+    "Datos de rendimiento en tiempo real de cada campaña, cada buzón, todo en un solo lugar.",
   "features.analytics.capabilities.items": [
     "Rastrea el total de correos enviados",
     "Monitorea tasas de apertura, clic y respuesta",
@@ -203,6 +237,15 @@ export const features: FeaturesTranslations = {
   "features.analytics.benefits.title": "Beneficios Clave del Usuario",
   "features.analytics.benefits.description":
     "Construido específicamente para profesionales de correo frío que quieren resultados claros y procesables sin complejidad.",
+  "features.analytics.benefits.card1.title": "Interfaz Simplificada",
+  "features.analytics.benefits.card1.description":
+    "Diseñada para velocidad y facilidad de uso, no requiere experiencia técnica para interpretar los resultados.",
+  "features.analytics.benefits.card2.title": "Funcionalidad Específica",
+  "features.analytics.benefits.card2.description":
+    "Construida específicamente para profesionales de correo frío en lugar de usuarios de marketing general o boletines.",
+  "features.analytics.benefits.card3.title": "Gestión Centralizada",
+  "features.analytics.benefits.card3.description":
+    "Agrega toda la actividad de correo electrónico en una sola vista para evaluar el rendimiento a alto nivel.",
 
   "features.analytics.faq.title": "Preguntas Frecuentes",
   "features.analytics.faq.items": [

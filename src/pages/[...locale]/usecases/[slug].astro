@@ -17,30 +17,30 @@ if (!slug) {
 const usecase = getUsecaseBySlug(slug);
 
 if (!usecase) {
-  return Astro.redirect(translatePath("/404"), 404);
+  return Astro.rewrite(translatePath("/404"));
 }
 ---
 
-<Layout title={`${usecase.title} | ${t("site.title")}`}>
+<Layout title={`${t(usecase.titleKey)} | ${t("site.title")}`}>
   <div class="container mx-auto px-5 py-20 md:px-8">
     <div class="max-w-3xl mx-auto">
       <h1 class="text-4xl font-bold text-gray-900 mb-6">
-        {usecase.title}
+        {t(usecase.titleKey)}
       </h1>
       
       <p class="text-xl text-gray-600 mb-12">
-        {usecase.description}
+        {t(usecase.descriptionKey)}
       </p>
 
       <div class="border-t border-gray-200 pt-12">
-        <h2 class="text-xl font-semibold text-gray-900 mb-6">Other Use Cases</h2>
+        <h2 class="text-xl font-semibold text-gray-900 mb-6">{t("usecases.otherUsecases")}</h2>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
           {usecasesLinks.map(link => (
             <a
               href={translatePath(link.href)}
               class="p-4 rounded-lg border border-gray-200 hover:border-primary hover:bg-blue-50 transition-all"
             >
-              {link.label}
+              {t(link.labelKey)}
             </a>
           ))}
         </div>

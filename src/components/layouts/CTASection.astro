@@ -1,6 +1,7 @@
 ---
 import { buildSignupUrl, type UtmSource } from "@/lib/cta";
 import { PUBLIC_BOOK_DEMO_EMAIL } from "astro:env/client";
+import { getLangFromUrl, useTranslations } from "@/i18n/utils";
 import Button from "../ui/Button.astro";
 
 interface Props {
@@ -15,11 +16,19 @@ interface Props {
 const {
   ctaContext = "cta_bottom",
   bottomContext,
-  title = "Ready to Send Emails That Actually Land?",
-  subtitle = "Stop guessing. Start delivering.",
-  ctaText = "Start Free Trial",
-  demoText = "Book a Demo",
+  title,
+  subtitle,
+  ctaText,
+  demoText,
 } = Astro.props;
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const displayTitle = title || t("cta.title");
+const displaySubtitle = subtitle || t("cta.subtitle");
+const displayCtaText = ctaText || t("cta.buttonTrial");
+const displayDemoText = demoText || t("cta.buttonDemo");
 
 const bookDemoEmailHref = `mailto:${PUBLIC_BOOK_DEMO_EMAIL}`;
 
@@ -37,11 +46,11 @@ const signupUrl = bottomContext
       <h2
         class="text-balance text-4xl font-semibold leading-tight text-white sm:text-5xl md:text-6xl"
       >
-        {title}
+        {displayTitle}
       </h2>
 
       <p class="mt-4 text-xl text-white/95 sm:text-2xl">
-        {subtitle}
+        {displaySubtitle}
       </p>
 
       <div
@@ -51,13 +60,13 @@ const signupUrl = bottomContext
           href={signupUrl}
           className="cta-pulse cta-accent-light min-h-14 w-full rounded-full px-8 text-xl font-semibold text-primary sm:w-auto sm:min-w-56"
         >
-          {ctaText}
+          {displayCtaText}
         </Button>
         <Button
           href={bookDemoEmailHref}
           className="min-h-14 w-full rounded-full border border-white/70 bg-transparent px-8 text-xl font-semibold text-white hover:border-white hover:bg-white/10 sm:w-auto sm:min-w-56"
         >
-          {demoText}
+          {displayDemoText}
         </Button>
       </div>
 
