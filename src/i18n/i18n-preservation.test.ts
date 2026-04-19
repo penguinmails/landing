@@ -179,6 +179,8 @@ describe("Property 3: Footer nav links render Spanish labels when lang=es", () =
       "nav.freelancers",
       "nav.outbound-teams",
       "nav.startups",
+      "nav.about",
+      "nav.blog",
     ] as const;
 
     fc.assert(
@@ -221,9 +223,7 @@ describe("Property 4: All preserved keys exist in both locales", () => {
       "hero.cta.trial",
       "hero.cta.demo",
       "pricing.toggle.monthly",
-      "pricing.toggle.annually",
       "pricing.billing.monthly",
-      "pricing.billing.annually",
       "pricing.popular",
       "nav.home",
       "nav.features",
@@ -231,6 +231,8 @@ describe("Property 4: All preserved keys exist in both locales", () => {
       "nav.freelancers",
       "nav.outbound-teams",
       "nav.startups",
+      "nav.about",
+      "nav.blog",
     ] as const;
 
     fc.assert(

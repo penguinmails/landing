@@ -47,6 +47,14 @@ describe("Bug Condition: hardcoded English strings rendered regardless of locale
     );
   });
 
+  it("Footer: must contain Spanish description when lang=es", async () => {
+    // Positive assertion to prevent false-pass
+    const html = await container.renderToString(Footer, {
+      request: esRequest,
+    });
+    expect(html).toContain("PenguinMails es una herramienta asequible");
+  });
+
   // ── 1.2 Logo ─────────────────────────────────────────────────────────────────
   it("Logo: must NOT contain hardcoded aria-label when lang=es", async () => {
     // Validates: Requirements 1.2
@@ -62,6 +70,15 @@ describe("Bug Condition: hardcoded English strings rendered regardless of locale
       request: esRequest,
     });
     expect(html).not.toContain('alt="PenguinMails logo"');
+  });
+
+  it("Logo: must contain Spanish aria-label and alt text when lang=es", async () => {
+    // Positive assertion to prevent false-pass
+    const html = await container.renderToString(Logo, {
+      request: esRequest,
+    });
+    expect(html).toContain('aria-label="Inicio de PenguinMails"');
+    expect(html).toContain('alt="Logo de PenguinMails"');
   });
 
   // ── 1.3 ResultsSection ───────────────────────────────────────────────────────
@@ -81,6 +98,14 @@ describe("Bug Condition: hardcoded English strings rendered regardless of locale
     expect(html).not.toContain("Higher open rates");
   });
 
+  it("ResultsSection: must contain Spanish title when lang=es", async () => {
+    // Positive assertion to prevent false-pass
+    const html = await container.renderToString(ResultsSection, {
+      request: esRequest,
+    });
+    expect(html).toContain("Cómo Se Ve Una Mejor Entregabilidad");
+  });
+
   // ── 1.4 SocialProofSection ───────────────────────────────────────────────────
   it("SocialProofSection: must NOT contain hardcoded heading when lang=es", async () => {
     // Validates: Requirements 1.4
@@ -98,6 +123,14 @@ describe("Bug Condition: hardcoded English strings rendered regardless of locale
     expect(html).not.toContain("average inbox placement");
   });
 
+  it("SocialProofSection: must contain Spanish heading when lang=es", async () => {
+    // Positive assertion to prevent false-pass
+    const html = await container.renderToString(SocialProofSection, {
+      request: esRequest,
+    });
+    expect(html).toContain("De confianza para equipos de ventas modernos");
+  });
+
   // ── 1.5 ColdEmailFailsSection ────────────────────────────────────────────────
   it("ColdEmailFailsSection: must NOT contain hardcoded title when lang=es", async () => {
     // Validates: Requirements 1.5
@@ -113,6 +146,14 @@ describe("Bug Condition: hardcoded English strings rendered regardless of locale
       request: esRequest,
     });
     expect(html).not.toContain("Cold email isn't broken. Inbox placement is.");
+  });
+
+  it("ColdEmailFailsSection: must contain Spanish title when lang=es", async () => {
+    // Positive assertion to prevent false-pass
+    const html = await container.renderToString(ColdEmailFailsSection, {
+      request: esRequest,
+    });
+    expect(html).toContain("Por Qué el Software de Email en Frío Te Falla");
   });
 
   // ── 1.6 ColdEmailSection ─────────────────────────────────────────────────────
@@ -134,6 +175,16 @@ describe("Bug Condition: hardcoded English strings rendered regardless of locale
     expect(html).not.toContain("Recent Replies");
   });
 
+  it("ColdEmailSection: must contain Spanish heading when lang=es", async () => {
+    // Positive assertion to prevent false-pass
+    const html = await container.renderToString(ColdEmailSection, {
+      request: esRequest,
+    });
+    expect(html).toContain(
+      "La Plataforma de Email en Frío Construida para la Entregabilidad",
+    );
+  });
+
   // ── 1.7 DeliveringStepsSection ───────────────────────────────────────────────
   it("DeliveringStepsSection: must NOT contain hardcoded title when lang=es", async () => {
     // Validates: Requirements 1.7
@@ -149,6 +200,14 @@ describe("Bug Condition: hardcoded English strings rendered regardless of locale
       request: esRequest,
     });
     expect(html).not.toContain("No technical expertise required");
+  });
+
+  it("DeliveringStepsSection: must contain Spanish title when lang=es", async () => {
+    // Positive assertion to prevent false-pass
+    const html = await container.renderToString(DeliveringStepsSection, {
+      request: esRequest,
+    });
+    expect(html).toContain("Empieza a Entregar en 3 Simples Pasos");
   });
 
   // ── 1.8 FrequentlyAskedQuestionsSection ──────────────────────────────────────
@@ -170,6 +229,15 @@ describe("Bug Condition: hardcoded English strings rendered regardless of locale
     expect(html).not.toContain("Will this get my emails out of spam?");
   });
 
+  it("FrequentlyAskedQuestionsSection: must contain Spanish heading when lang=es", async () => {
+    // Positive assertion to prevent false-pass
+    const html = await container.renderToString(
+      FrequentlyAskedQuestionsSection,
+      { request: esRequest },
+    );
+    expect(html).toContain("Preguntas Frecuentes");
+  });
+
   // ── 1.9 ReachTheInboxSection ─────────────────────────────────────────────────
   it("ReachTheInboxSection: must NOT contain hardcoded title when lang=es", async () => {
     // Validates: Requirements 1.9
@@ -177,6 +245,16 @@ describe("Bug Condition: hardcoded English strings rendered regardless of locale
       request: esRequest,
     });
     expect(html).not.toContain("Everything You Need to Reach the Inbox");
+  });
+
+  it("ReachTheInboxSection: must contain Spanish title when lang=es", async () => {
+    // Positive assertion to prevent false-pass
+    const html = await container.renderToString(ReachTheInboxSection, {
+      request: esRequest,
+    });
+    expect(html).toContain(
+      "Todo Lo Que Necesitas para Llegar a la Bandeja de Entrada",
+    );
   });
 
   // ── 1.10 ComparisonTableSection ──────────────────────────────────────────────
@@ -193,7 +271,15 @@ describe("Bug Condition: hardcoded English strings rendered regardless of locale
     const html = await container.renderToString(ComparisonTableSection, {
       request: esRequest,
     });
-    // The "Features" column header is a hardcoded string in the table header row
-    expect(html).not.toContain(">Features<");
+    // Use whitespace-tolerant regex to avoid brittleness from HTML formatting
+    expect(html).not.toMatch(/>\s*Features\s*</);
+  });
+
+  it("ComparisonTableSection: must contain Spanish section heading when lang=es", async () => {
+    // Positive assertion to prevent false-pass
+    const html = await container.renderToString(ComparisonTableSection, {
+      request: esRequest,
+    });
+    expect(html).toContain("Construido para la Entregabilidad. No el Volumen.");
   });
 });
