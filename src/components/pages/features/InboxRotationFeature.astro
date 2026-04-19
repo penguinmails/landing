@@ -29,6 +29,9 @@ const faqItems = t("features.rotation.faq.items");
 const stepIcons = [Globe, Mail, Shield, Zap];
 
 const whatYouGetIcons = [Rocket, Mail, ChartColumn, Shield];
+
+const pickIcon = <T,>(icons: T[], index: number, fallback: T): T =>
+  icons[index] || fallback;
 ---
 
 <div class="space-y-24 py-12">
@@ -157,7 +160,7 @@ const whatYouGetIcons = [Rocket, Mail, ChartColumn, Shield];
       <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
         {
           steps.map((step: { title: string; description: string }, index: number) => {
-            const Icon = stepIcons[index] || Zap;
+            const Icon = pickIcon(stepIcons, index, Zap);
             return (
               <div class="relative bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
                 <div class="absolute -top-4 left-8">
@@ -308,7 +311,7 @@ const whatYouGetIcons = [Rocket, Mail, ChartColumn, Shield];
           whatYouGetItems
             .slice(0, 4)
             .map((item: string, index: number) => {
-              const Icon = whatYouGetIcons[index] || Check;
+              const Icon = pickIcon(whatYouGetIcons, index, Check);
               return (
                 <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow text-center">
                   <div class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4 mx-auto">
