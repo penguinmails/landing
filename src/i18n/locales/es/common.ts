@@ -15,7 +15,7 @@ export const common: CommonTranslations = {
   "nav.startups": "Startups",
   "nav.unified-inbox": "Buzón Unificado",
   "nav.free-mailbox-creation": "Creación Gratuita de Buzones",
-  "nav.warmup-automation": "Automatización de Calentamiento",
+  "nav.warmup-automation": "Calentamiento de Correos",
   "nav.leads-export": "Exportación de Clientes Potenciales",
   "nav.real-time-analytics": "Análisis en Tiempo Real",
   "nav.automated-sequences": "Secuencias Automatizadas",

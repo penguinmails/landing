@@ -10,6 +10,8 @@ export type UtmSource =
   | "features_mailbox_bottom"
   | "features_free_mailbox"
   | "features_free_mailbox_bottom"
+  | "features_warmups"
+  | "features_warmups_bottom"
   | "features_analytics"
   | "features_analytics_bottom"
   | "features_unified_inbox"

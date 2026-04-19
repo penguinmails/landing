@@ -168,6 +168,51 @@ export type FeaturesTranslations = {
   "features.free-mailbox-creation.cta.subtitle": string;
   "features.warmup-automation.title": string;
   "features.warmup-automation.description": string;
+  "features.warmup.tabTitle": string;
+  "features.warmup.heading": string;
+  "features.warmup.subheading": string;
+  "features.warmup.tagline": string;
+  "features.warmup.highlights": string[];
+  "features.warmup.explainer.title": string;
+  "features.warmup.explainer.description": string;
+  "features.warmup.explainer.description2": string;
+  "features.warmup.explainer.calloutTitle": string;
+  "features.warmup.explainer.calloutDescription": string;
+  "features.warmup.explainer.signals": string[];
+  "features.warmup.steps.title": string;
+  "features.warmup.steps.intro": string;
+  "features.warmup.steps.items": Array<{
+    title: string;
+    description: string;
+  }>;
+  "features.warmup.steps.conclusion": string;
+  "features.warmup.why.title": string;
+  "features.warmup.why.subtitle": string;
+  "features.warmup.why.items": Array<{
+    title: string;
+    description: string;
+  }>;
+  "features.warmup.why.footerTitle": string;
+  "features.warmup.why.footerDescription": string;
+  "features.warmup.comparison.title": string;
+  "features.warmup.comparison.subtitle": string;
+  "features.warmup.comparison.headers": string[];
+  "features.warmup.comparison.rows": Array<{
+    feature: string;
+    penguin: string;
+    others: string;
+  }>;
+  "features.warmup.comparison.calloutTitle": string;
+  "features.warmup.comparison.calloutDescription": string;
+  "features.warmup.myths.title": string;
+  "features.warmup.myths.subtitle": string;
+  "features.warmup.myths.items": Array<{
+    title: string;
+    description: string;
+  }>;
+  "features.warmup.bottomCta.title": string;
+  "features.warmup.bottomCta.description": string;
+  "features.warmup.bottomCta.highlights": string[];
   "features.leads-export.title": string;
   "features.leads-export.description": string;
   "features.real-time-analytics.title": string;

@@ -14,9 +14,9 @@ export const features: FeaturesTranslations = {
     "Create Your First Mailbox in Under 2 Minutes",
   "features.free-mailbox-creation.cta.subtitle":
     'No hosting. No SMTP. No cPanel. Just connect your domain and click "Create Mailbox." You\'ll have a working cold email inbox, ready to warm up and send.',
-  "features.warmup-automation.title": "Warmup Automation",
+  "features.warmup-automation.title": "Email Warm-Ups",
   "features.warmup-automation.description":
-    "Build trust with inbox providers before scaling your campaigns.",
+    "Warm new mailboxes automatically so your cold campaigns start with stronger inbox placement.",
   "features.leads-export.title": "Leads Export",
   "features.leads-export.description":
     "Download and manage your leads effortlessly, ready for outreach or analysis.",
@@ -30,6 +30,161 @@ export const features: FeaturesTranslations = {
   "features.automated-sequences.title": "Automated Sequences",
   "features.automated-sequences.description":
     "Follow up consistently without manual work using smart rules.",
+
+  // Warm-Up Feature
+  "features.warmup.tabTitle": "Email Warm-Ups",
+  "features.warmup.heading":
+    "Warm Up Your Emails Before You Send Cold Campaigns",
+  "features.warmup.subheading": "Protect your domain reputation from day one",
+  "features.warmup.tagline":
+    "PenguinMails includes a built-in email warm-up engine that improves deliverability in the background, so your cold emails reach inboxes instead of spam.",
+  "features.warmup.highlights": [
+    "100% built-in warm-ups with no extra fee",
+    "Runs automatically in the background",
+    "Smart patterns that imitate real human replies",
+    "Helps new domains build trust with Gmail and Outlook",
+  ],
+  "features.warmup.explainer.title": "What Is Email Warm-Up?",
+  "features.warmup.explainer.description":
+    "If you send cold emails from a brand-new domain or mailbox without warming it up first, inbox providers are much more likely to flag you as risky. Sudden sending volume from a cold domain looks unnatural, even when your copy is strong.",
+  "features.warmup.explainer.description2":
+    "Email warm-up gradually builds sender reputation by creating small, positive engagement signals over time. That steady activity tells Gmail, Outlook, and other providers that your inbox is active, trustworthy, and safe to deliver.",
+  "features.warmup.explainer.calloutTitle":
+    "Warm-up is how new inboxes earn trust",
+  "features.warmup.explainer.calloutDescription":
+    "Deliverability is driven by reputation, not just copy. Strong warm-up signals help inbox providers see your domain as legitimate before you scale volume.",
+  "features.warmup.explainer.signals": [
+    "Small sending volumes look safer than a sudden cold blast",
+    "Opens, replies, and safelist actions reinforce healthy engagement",
+    "Consistent activity builds trust before real campaigns begin",
+  ],
+  "features.warmup.steps.title": "How PenguinMails Warm-Up Works",
+  "features.warmup.steps.intro":
+    "PenguinMails handles warm-up automatically in three simple steps.",
+  "features.warmup.steps.items": [
+    {
+      title: "Connect Your Domain and Create Mailboxes",
+      description:
+        "Once your domain is connected and your mailboxes exist, PenguinMails can begin warming them up without any external tool or manual process.",
+    },
+    {
+      title: "We Send Realistic Conversations",
+      description:
+        "Every day, the platform sends a controlled number of natural-looking emails to trusted inboxes. The patterns avoid spammy behavior and mirror normal business conversations.",
+    },
+    {
+      title: "Positive Inbox Actions Build Reputation",
+      description:
+        "Warm-up emails get opened, replied to, marked as important, and rescued from spam when needed. Volume ramps gradually so your reputation grows in a way inbox providers expect.",
+    },
+  ],
+  "features.warmup.steps.conclusion":
+    "You do not need to manage the sequence yourself. PenguinMails keeps the warm-up running quietly behind the scenes while your domain builds trust.",
+  "features.warmup.why.title":
+    "Why Email Warm-Up Is Essential for Deliverability",
+  "features.warmup.why.subtitle":
+    "Skipping warm-up is one of the fastest ways to hurt cold email performance.",
+  "features.warmup.why.items": [
+    {
+      title: "No Warm-Up Means Low Deliverability",
+      description:
+        "New or inactive domains that jump straight into outreach often land in spam, get ignored, or burn reputation before campaigns have a chance to work.",
+    },
+    {
+      title: "Spam Filters Are Smarter Now",
+      description:
+        "Providers use behavioral signals to detect suspicious outreach. If a mailbox has no history of healthy engagement, filters become much more aggressive.",
+    },
+    {
+      title: "Warm-Up Builds Trust",
+      description:
+        "Steady sending, opens, replies, and safe-folder actions tell providers your email is legitimate, which improves inbox placement over time.",
+    },
+    {
+      title: "A Few Weeks Can Change Everything",
+      description:
+        "Even 14 to 21 days of proper warm-up can make a major difference in how many prospects actually see your messages.",
+    },
+  ],
+  "features.warmup.why.footerTitle":
+    "Warm-up is not optional when reputation matters",
+  "features.warmup.why.footerDescription":
+    "The best cold email sequence in the world does not matter if your messages never reach the inbox. Warm-up gives your campaigns a stronger starting point.",
+  "features.warmup.comparison.title":
+    "How PenguinMails Compares to Other Warm-Up Tools",
+  "features.warmup.comparison.subtitle":
+    "Most warm-up products treat deliverability like a side feature. We built it into the product from the start.",
+  "features.warmup.comparison.headers": [
+    "Feature",
+    "PenguinMails",
+    "Other tools",
+  ],
+  "features.warmup.comparison.rows": [
+    {
+      feature: "Warm-up engine",
+      penguin: "Built in-house",
+      others: "Often outsourced or shared",
+    },
+    {
+      feature: "Engagement quality",
+      penguin: "Replies, opens, safelist actions",
+      others: "Basic send and open activity",
+    },
+    {
+      feature: "Cost",
+      penguin: "Included in every plan",
+      others: "Usually a paid add-on",
+    },
+    {
+      feature: "Setup",
+      penguin: "Built into your mailbox flow",
+      others: "Often manual or fragmented",
+    },
+    {
+      feature: "Deliverability focus",
+      penguin: "Core product feature",
+      others: "Secondary upsell",
+    },
+  ],
+  "features.warmup.comparison.calloutTitle":
+    "Built-in warm-up removes extra moving parts",
+  "features.warmup.comparison.calloutDescription":
+    "You do not need a third-party warm-up subscription or another setup layer. The same platform that creates and manages mailboxes can also prepare them for outreach.",
+  "features.warmup.myths.title":
+    "Do Not Fall for These Cold Email Warm-Up Myths",
+  "features.warmup.myths.subtitle":
+    "Bad advice around warm-up is everywhere. These are the myths that usually damage deliverability.",
+  "features.warmup.myths.items": [
+    {
+      title: "An old domain does not need warm-up",
+      description:
+        "Even established domains need warm-up when you start sending from new inboxes or launch new cold outreach activity.",
+    },
+    {
+      title: "Sending slowly is enough",
+      description:
+        "Lower volume alone does not solve the problem. Inbox providers also look for positive engagement signals and consistent behavior.",
+    },
+    {
+      title: "Manual warm-up is fine",
+      description:
+        "Manual warm-up is difficult to sustain and rarely produces enough realistic activity. Automated warm-up is more reliable at scale.",
+    },
+    {
+      title: "Any warm-up tool will do",
+      description:
+        "Many tools rely on weak or overused inbox pools. PenguinMails uses its own warm-up flow so the behavior stays controlled and deliverability-focused.",
+    },
+  ],
+  "features.warmup.bottomCta.title":
+    "Start Warming Up Your Emails the Right Way",
+  "features.warmup.bottomCta.description":
+    "Connect your domain, create your mailboxes, and let PenguinMails build sender trust before your first cold campaign goes out.",
+  "features.warmup.bottomCta.highlights": [
+    "Built into every plan",
+    "Runs automatically",
+    "Designed for safer cold launches",
+  ],
 
   // Mailbox Creation Feature
   "features.mailbox.tabTitle": "Free Mailbox Creation - PenguinMails",
