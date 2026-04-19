@@ -17,13 +17,14 @@ import {
 
 const { t } = Astro.props;
 
-const riskItems = t("features.rotation.risk.items");
-const benefits = t("features.rotation.benefits.items");
-const steps = t("features.rotation.steps.items");
-const comparisonRows = t("features.rotation.comparison.rows");
-const balancedItems = t("features.rotation.balanced.items");
-const whatYouGetItems = t("features.rotation.whatYouGet.items");
-const faqItems = t("features.rotation.faq.items");
+const riskItems = t("features.inbox-rotation.risk.items");
+const benefits = t("features.inbox-rotation.benefits.items");
+const steps = t("features.inbox-rotation.steps.items");
+const comparisonHeaders = t("features.inbox-rotation.comparison.headers");
+const comparisonRows = t("features.inbox-rotation.comparison.rows");
+const balancedItems = t("features.inbox-rotation.balanced.items");
+const whatYouGetItems = t("features.inbox-rotation.whatYouGet.items");
+const faqItems = t("features.inbox-rotation.faq.items");
 
 const stepIcons = [Globe, Mail, Shield, Zap];
 
@@ -38,21 +39,21 @@ const whatYouGetIcons = [Rocket, Mail, ChartColumn, Shield];
         class="inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-2 text-sm font-medium text-primary mb-6"
       >
         <RefreshCw class="w-4 h-4" />
-        {t("features.rotation.tabTitle")}
+        {t("features.inbox-rotation.tabTitle")}
       </div>
 
       <h1
         class="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-slate-900 mb-6"
       >
-        {t("features.rotation.heading")}
+        {t("features.inbox-rotation.heading")}
       </h1>
 
       <p class="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto mb-4">
-        {t("features.rotation.tagline")}
+        {t("features.inbox-rotation.tagline")}
       </p>
 
       <p class="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto mb-8">
-        {t("features.rotation.tagline2")}
+        {t("features.inbox-rotation.tagline2")}
       </p>
 
       <Button
@@ -71,13 +72,13 @@ const whatYouGetIcons = [Rocket, Mail, ChartColumn, Shield];
       <div class="grid md:grid-cols-2 gap-12 items-center">
         <div>
           <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
-            {t("features.rotation.risk.title")}
+            {t("features.inbox-rotation.risk.title")}
           </h2>
           <p class="text-xl font-semibold text-rose-600 mb-6">
-            {t("features.rotation.risk.subtitle")}
+            {t("features.inbox-rotation.risk.subtitle")}
           </p>
           <p class="text-gray-600 mb-6">
-            {t("features.rotation.risk.description")}
+            {t("features.inbox-rotation.risk.description")}
           </p>
 
           <ul class="space-y-3 mb-6">
@@ -92,11 +93,11 @@ const whatYouGetIcons = [Rocket, Mail, ChartColumn, Shield];
           </ul>
 
           <p class="text-gray-600 mb-4">
-            {t("features.rotation.risk.explanation")}
+            {t("features.inbox-rotation.risk.explanation")}
           </p>
 
           <p class="text-primary font-semibold">
-            {t("features.rotation.risk.solution")}
+            {t("features.inbox-rotation.risk.solution")}
           </p>
         </div>
 
@@ -114,13 +115,13 @@ const whatYouGetIcons = [Rocket, Mail, ChartColumn, Shield];
     <div class="mx-auto max-w-6xl px-4">
       <div class="text-center mb-12">
         <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
-          {t("features.rotation.benefits.title")}
+          {t("features.inbox-rotation.benefits.title")}
         </h2>
         <p class="text-xl text-primary font-semibold mb-4">
-          {t("features.rotation.benefits.subtitle")}
+          {t("features.inbox-rotation.benefits.subtitle")}
         </p>
         <p class="text-lg text-gray-600 max-w-3xl mx-auto">
-          {t("features.rotation.benefits.description")}
+          {t("features.inbox-rotation.benefits.description")}
         </p>
       </div>
 
@@ -142,15 +143,15 @@ const whatYouGetIcons = [Rocket, Mail, ChartColumn, Shield];
     <div class="mx-auto max-w-6xl px-4">
       <div class="text-center mb-6">
         <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
-          {t("features.rotation.steps.title")}
+          {t("features.inbox-rotation.steps.title")}
         </h2>
         <p class="text-lg text-gray-600 max-w-3xl mx-auto">
-          {t("features.rotation.steps.intro")}
+          {t("features.inbox-rotation.steps.intro")}
         </p>
       </div>
 
       <p class="text-center text-lg text-gray-600 max-w-3xl mx-auto mb-12">
-        {t("features.rotation.steps.description")}
+        {t("features.inbox-rotation.steps.description")}
       </p>
 
       <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -179,10 +180,10 @@ const whatYouGetIcons = [Rocket, Mail, ChartColumn, Shield];
 
       <div class="mt-12 bg-primary/5 rounded-2xl p-8 max-w-3xl mx-auto">
         <p class="text-center text-gray-700">
-          {t("features.rotation.steps.warmupNote")}
+          {t("features.inbox-rotation.steps.warmupNote")}
         </p>
         <p class="text-center text-gray-600 mt-4">
-          {t("features.rotation.steps.aiNote")}
+          {t("features.inbox-rotation.steps.aiNote")}
         </p>
       </div>
     </div>
@@ -193,49 +194,56 @@ const whatYouGetIcons = [Rocket, Mail, ChartColumn, Shield];
     <div class="mx-auto max-w-4xl px-4">
       <div class="text-center mb-12">
         <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
-          {t("features.rotation.comparison.title")}
+          {t("features.inbox-rotation.comparison.title")}
         </h2>
         <p class="text-lg text-gray-600">
-          {t("features.rotation.comparison.subtitle")}
+          {t("features.inbox-rotation.comparison.subtitle")}
         </p>
       </div>
 
       <div
         class="bg-white rounded-2xl shadow-xl overflow-hidden border border-gray-100"
       >
-        <div
-          class="grid grid-cols-3 bg-slate-50 p-6 border-b border-gray-100 font-bold text-lg"
-        >
-          {
-            t("features.rotation.comparison.headers").map(
-              (header: string) => (
-                <div class="text-center last:text-right first:text-left">
-                  {header}
-                </div>
-              ),
-            )
-          }
-        </div>
-
-        {
-          comparisonRows.map(
-            (row: { feature: string; penguin: string; others: string }) => (
-              <div class="grid grid-cols-3 p-6 border-b border-gray-100 hover:bg-slate-50 transition-colors">
-                <div class="font-semibold text-slate-900">{row.feature}</div>
-                <div class="text-center text-primary font-bold">
-                  {row.penguin}
-                </div>
-                <div class="text-center md:text-right text-gray-500">
-                  {row.others}
-                </div>
-              </div>
-            ),
-          )
-        }
+        <table class="w-full border-collapse">
+          <thead class="bg-slate-50">
+            <tr class="border-b border-gray-100">
+              {
+                comparisonHeaders.map((header: string, index: number) => (
+                  <th
+                    scope="col"
+                    class:list={[
+                      "p-6 font-bold text-lg",
+                      index === 0 && "text-left",
+                      index === 1 && "text-center",
+                      index === 2 && "text-right",
+                    ]}
+                  >
+                    {header}
+                  </th>
+                ))
+              }
+            </tr>
+          </thead>
+          <tbody>
+            {
+              comparisonRows.map(
+                (row: { feature: string; penguin: string; others: string }) => (
+                  <tr class="border-b border-gray-100 hover:bg-slate-50 transition-colors">
+                    <td class="p-6 font-semibold text-slate-900">{row.feature}</td>
+                    <td class="p-6 text-center text-primary font-bold">
+                      {row.penguin}
+                    </td>
+                    <td class="p-6 text-right text-gray-500">{row.others}</td>
+                  </tr>
+                ),
+              )
+            }
+          </tbody>
+        </table>
       </div>
 
       <p class="text-center text-lg font-semibold text-primary mt-8">
-        {t("features.rotation.comparison.footer")}
+        {t("features.inbox-rotation.comparison.footer")}
       </p>
     </div>
   </section>
@@ -245,13 +253,13 @@ const whatYouGetIcons = [Rocket, Mail, ChartColumn, Shield];
     <div class="mx-auto max-w-6xl px-4">
       <div class="text-center mb-12">
         <h2 class="text-3xl md:text-4xl font-bold mb-4">
-          {t("features.rotation.balanced.title")}
+          {t("features.inbox-rotation.balanced.title")}
         </h2>
         <p class="text-xl font-semibold text-primary mb-4">
-          {t("features.rotation.balanced.subtitle")}
+          {t("features.inbox-rotation.balanced.subtitle")}
         </p>
         <p class="text-lg text-gray-300 max-w-3xl mx-auto">
-          {t("features.rotation.balanced.description")}
+          {t("features.inbox-rotation.balanced.description")}
         </p>
       </div>
 
@@ -268,13 +276,13 @@ const whatYouGetIcons = [Rocket, Mail, ChartColumn, Shield];
 
       <div class="text-center">
         <p class="text-gray-300 mb-2">
-          {t("features.rotation.balanced.benefit1")}
+          {t("features.inbox-rotation.balanced.benefit1")}
         </p>
         <p class="text-gray-300 mb-2">
-          {t("features.rotation.balanced.benefit2")}
+          {t("features.inbox-rotation.balanced.benefit2")}
         </p>
         <p class="text-xl font-semibold text-primary mt-4">
-          {t("features.rotation.balanced.footer")}
+          {t("features.inbox-rotation.balanced.footer")}
         </p>
       </div>
     </div>
@@ -285,13 +293,13 @@ const whatYouGetIcons = [Rocket, Mail, ChartColumn, Shield];
     <div class="mx-auto max-w-6xl px-4">
       <div class="text-center mb-12">
         <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
-          {t("features.rotation.whatYouGet.title")}
+          {t("features.inbox-rotation.whatYouGet.title")}
         </h2>
         <p class="text-xl text-primary font-semibold mb-4">
-          {t("features.rotation.whatYouGet.subtitle")}
+          {t("features.inbox-rotation.whatYouGet.subtitle")}
         </p>
         <p class="text-lg text-gray-600 max-w-3xl mx-auto">
-          {t("features.rotation.whatYouGet.description")}
+          {t("features.inbox-rotation.whatYouGet.description")}
         </p>
       </div>
 
@@ -327,7 +335,7 @@ const whatYouGetIcons = [Rocket, Mail, ChartColumn, Shield];
       </div>
 
       <p class="text-center text-gray-600 mt-8">
-        {t("features.rotation.whatYouGet.footer")}
+        {t("features.inbox-rotation.whatYouGet.footer")}
       </p>
     </div>
   </section>
@@ -338,7 +346,7 @@ const whatYouGetIcons = [Rocket, Mail, ChartColumn, Shield];
       <h2
         class="text-3xl md:text-4xl font-bold text-slate-900 mb-10 text-center"
       >
-        {t("features.rotation.faq.title")}
+        {t("features.inbox-rotation.faq.title")}
       </h2>
 
       <div class="space-y-5">

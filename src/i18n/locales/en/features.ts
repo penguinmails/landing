@@ -496,44 +496,46 @@ export const features: FeaturesTranslations = {
     "Ready to rotate and send cold emails safely?",
   "features.inbox-rotation.cta.subtitle":
     "PenguinMails does it all for you. No limits. No stress. Create mailboxes inside PenguinMails and launch faster.",
-  "features.rotation.tabTitle": "Inbox Rotation - PenguinMails",
-  "features.rotation.heading": "Stop Sending Cold Emails From Just One Inbox",
-  "features.rotation.tagline":
+  "features.inbox-rotation.tabTitle": "Inbox Rotation - PenguinMails",
+  "features.inbox-rotation.heading":
+    "Stop Sending Cold Emails From Just One Inbox",
+  "features.inbox-rotation.tagline":
     "One inbox is risky. It gets flagged faster, burns out faster, and kills your deliverability.",
-  "features.rotation.tagline2":
+  "features.inbox-rotation.tagline2":
     "With Inbox Rotation, you send from multiple inboxes. All created inside PenguinMails for free. No need to connect your Gmail or Outlook. More reach. Less risk.",
-  "features.rotation.risk.title": "Why Sending From One Inbox is Risky",
-  "features.rotation.risk.subtitle": "One Inbox = More Problems",
-  "features.rotation.risk.description":
+  "features.inbox-rotation.risk.title":
+    "Why Sending From One Inbox is Risky",
+  "features.inbox-rotation.risk.subtitle": "One Inbox = More Problems",
+  "features.inbox-rotation.risk.description":
     "Sending cold emails from one inbox seems fine at first. But it doesn't take long before it hurts your results. Here's why:",
-  "features.rotation.risk.items": [
+  "features.inbox-rotation.risk.items": [
     "That one inbox will get flagged faster",
     "Your domain warms up slowly",
     "Open rates drop",
     "You hit limits sooner",
     "You can't scale campaigns",
   ],
-  "features.rotation.risk.explanation":
+  "features.inbox-rotation.risk.explanation":
     "Big email tools watch sender behavior. If they see too many emails coming from one place, they slow you down or send your messages to spam.",
-  "features.rotation.risk.solution":
+  "features.inbox-rotation.risk.solution":
     "But when you rotate inboxes, you look real. You spread the load. And you stay out of trouble.",
-  "features.rotation.benefits.title": "PenguinMails Inbox Rotation",
-  "features.rotation.benefits.subtitle":
+  "features.inbox-rotation.benefits.title": "PenguinMails Inbox Rotation",
+  "features.inbox-rotation.benefits.subtitle":
     "Send From Multiple Inboxes Without Stress",
-  "features.rotation.benefits.description":
+  "features.inbox-rotation.benefits.description":
     "With PenguinMails, you can create inboxes for free. No need to buy Gmail or Outlook accounts. Our inbox rotation spreads your cold emails across all inboxes. This keeps sending natural and safe. Each inbox sends just a small number of emails per day. You stay under the radar. No red flags. You don't need to set anything up. Just add inboxes inside PenguinMails. We handle the rotation for you.",
-  "features.rotation.benefits.items": [
+  "features.inbox-rotation.benefits.items": [
     "Safe sending",
     "Better deliverability",
     "Built-in warm-up for each inbox",
     "Works without extra tools",
   ],
-  "features.rotation.steps.title": "How Inbox Rotation Works",
-  "features.rotation.steps.intro":
+  "features.inbox-rotation.steps.title": "How Inbox Rotation Works",
+  "features.inbox-rotation.steps.intro":
     "Let's say you add 4 inboxes. You create one cold email sequence.",
-  "features.rotation.steps.description":
+  "features.inbox-rotation.steps.description":
     "PenguinMails splits your emails across those 4 inboxes. Each inbox sends a small part of the campaign every day. Here's how PenguinMails keeps your domain safe using inbox rotation.",
-  "features.rotation.steps.items": [
+  "features.inbox-rotation.steps.items": [
     {
       title: "Connect Your Domain & Create Mailboxes",
       description:
@@ -555,19 +557,20 @@ export const features: FeaturesTranslations = {
         "Your domain reputation stays clean. Deliverability improves. More emails land in the inbox.",
     },
   ],
-  "features.rotation.steps.warmupNote":
+  "features.inbox-rotation.steps.warmupNote":
     "The warm-up frequency increases gradually, mimicking natural human behavior, so you can start cold outreach with confidence.",
-  "features.rotation.steps.aiNote":
+  "features.inbox-rotation.steps.aiNote":
     "You don't need to manage anything manually. Our AI handles the entire warm-up sequence behind the scenes.",
-  "features.rotation.comparison.title": "PenguinMails vs Other Tools",
-  "features.rotation.comparison.subtitle":
+  "features.inbox-rotation.comparison.title":
+    "PenguinMails vs Other Tools",
+  "features.inbox-rotation.comparison.subtitle":
     "Most tools charge extra or don't rotate inboxes well. PenguinMails handles it all for you: Simple, Safe, AND Smart.",
-  "features.rotation.comparison.headers": [
+  "features.inbox-rotation.comparison.headers": [
     "Features",
     "PenguinMails",
     "Other Tools",
   ],
-  "features.rotation.comparison.rows": [
+  "features.inbox-rotation.comparison.rows": [
     {
       feature: "Mailboxes",
       penguin: "Unlimited (create for free)",
@@ -599,31 +602,33 @@ export const features: FeaturesTranslations = {
       others: "High (volume from 1 inbox)",
     },
   ],
-  "features.rotation.comparison.footer":
+  "features.inbox-rotation.comparison.footer":
     "🔥 No extra cost. No setup stress. Just better cold email sending.",
-  "features.rotation.balanced.title": "What Balanced Sending Looks Like",
-  "features.rotation.balanced.subtitle":
+  "features.inbox-rotation.balanced.title":
+    "What Balanced Sending Looks Like",
+  "features.inbox-rotation.balanced.subtitle":
     "Spread Emails. Lower Risk. Better Results.",
-  "features.rotation.balanced.description":
+  "features.inbox-rotation.balanced.description":
     "You don't want one inbox doing all the work. That's where problems begin. Spam, limits, and bad sender scores.",
-  "features.rotation.balanced.items": [
+  "features.inbox-rotation.balanced.items": [
     "3 to 5 inboxes",
     "Each inbox sends 20 to 40 emails a day",
     "No single inbox gets flagged",
     "All inboxes stay warm and safe",
   ],
-  "features.rotation.balanced.benefit1":
+  "features.inbox-rotation.balanced.benefit1":
     "It's the smart way to scale cold email. You get better reach. You land in inboxes.",
-  "features.rotation.balanced.benefit2":
+  "features.inbox-rotation.balanced.benefit2":
     "You avoid bans or limits.",
-  "features.rotation.balanced.footer":
+  "features.inbox-rotation.balanced.footer":
     "This is what PenguinMails does for you.",
-  "features.rotation.whatYouGet.title": "What You Get with Inbox Rotation",
-  "features.rotation.whatYouGet.subtitle":
+  "features.inbox-rotation.whatYouGet.title":
+    "What You Get with Inbox Rotation",
+  "features.inbox-rotation.whatYouGet.subtitle":
     "Send From Multiple Inboxes Without Stress",
-  "features.rotation.whatYouGet.description":
+  "features.inbox-rotation.whatYouGet.description":
     "Inbox rotation keeps your cold emails safe and working. Here's what you get:",
-  "features.rotation.whatYouGet.items": [
+  "features.inbox-rotation.whatYouGet.items": [
     "Higher deliverability",
     "Lower spam risk",
     "More inboxes warmed and ready",
@@ -632,10 +637,10 @@ export const features: FeaturesTranslations = {
     "No limits on campaigns",
     "Works quietly in the background",
   ],
-  "features.rotation.whatYouGet.footer":
+  "features.inbox-rotation.whatYouGet.footer":
     "It saves your domain. It keeps your emails running.",
-  "features.rotation.faq.title": "Frequently Asked Questions (FAQs)",
-  "features.rotation.faq.items": [
+  "features.inbox-rotation.faq.title": "Frequently Asked Questions (FAQs)",
+  "features.inbox-rotation.faq.items": [
     {
       question: "How does inbox rotation help deliverability?",
       answer:
