@@ -660,7 +660,7 @@ export const features: FeaturesTranslations = {
     {
       question: "How does inbox rotation help deliverability?",
       answer:
-        "When you send cold emails from one inbox, it can get flagged fast. Inbox rotation spreads your emails across multiple inboxes, so no single one gets overloaded. That keeps your domain safe and helps more emails land in inbox, not spam.",
+        "When you send cold emails from one inbox, it can get flagged quickly. Inbox rotation distributes your emails across multiple inboxes so no single account carries too much volume. This protects your domain reputation and ensures more emails land in the primary inbox instead of spam folders.",
     },
     {
       question: "Can I use my own Gmail or Outlook inboxes?",
