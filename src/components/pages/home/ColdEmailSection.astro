@@ -11,35 +11,7 @@ const featureTexts = t("home.platform.features");
 const featureIcons = [Flame, RefreshCcw, Inbox];
 const features = featureTexts.map((f, i) => ({ ...f, icon: featureIcons[i] }));
 
-const messages: Message[] = [
-  {
-    id: 1,
-    initials: "SJ",
-    name: "Sarah Johnson",
-    company: "TechCorp",
-    tag: "interested",
-    badgeVariant: "success",
-    body: "Thanks for reaching out! I'd love to schedule a call to discuss this",
-  },
-  {
-    id: 2,
-    initials: "LR",
-    name: "Lisa Rodriguez",
-    company: "Enterprise Inc",
-    tag: "interested",
-    badgeVariant: "success",
-    body: "This looks interesting. Can you send me more information about pricing?",
-  },
-  {
-    id: 3,
-    initials: "MC",
-    name: "Mike Chen",
-    company: "Startup.io",
-    tag: "not interested",
-    badgeVariant: "secondary",
-    body: "Not interested at this time, but please keep us in mind for the future",
-  },
-];
+const messages = t("home.platform.messages") as unknown as Message[];
 ---
 
 <section class="py-20 lg:py-24 overflow-hidden">
@@ -61,7 +33,7 @@ const messages: Message[] = [
             features.map((feature) => (
               <div class="flex gap-5 items-start">
                 <div class="shrink-0 w-12 h-12 rounded-xl bg-blue-50 flex items-center justify-center">
-                  <feature.icon class="w-6 h-6 text-primary" />
+                  {feature.icon && <feature.icon class="w-6 h-6 text-primary" />}
                 </div>
                 <div>
                   <h3 class="text-lg sm:text-xl font-bold text-slate-900 mb-1.5">

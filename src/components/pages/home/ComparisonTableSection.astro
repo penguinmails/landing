@@ -35,19 +35,25 @@ const penguinCopy = {
     "Each user gets a separate VPS with dedicated IPs (no shared pools). Completely private infrastructure.",
 };
 
-const translatedRows = t("home.comparison.rows");
+const translatedRows = t("home.comparison.rows") as Array<{ feature: string; penguinValue?: string }>;
 
 const buildComparisonRows = (config: CompetitorConfig): ComparisonRow[] => {
+  const penguinValue = (row: { penguinValue?: string }): Cell => {
+    if (row.penguinValue === "yes") return yes;
+    if (row.penguinValue === "no") return no;
+    return row.penguinValue ?? "";
+  };
+
   const rows: ComparisonRow[] = [
-    { feature: translatedRows[0].feature, penguin: "$35/month", competitor: config.startingPrice },
+    { feature: translatedRows[0].feature, penguin: penguinValue(translatedRows[0]), competitor: config.startingPrice },
     {
       feature: translatedRows[1].feature,
-      penguin: "Unlimited",
+      penguin: penguinValue(translatedRows[1]),
       competitor: config.sendingMonthlyPlan1,
     },
     {
       feature: translatedRows[2].feature,
-      penguin: "3000",
+      penguin: penguinValue(translatedRows[2]),
       competitor: config.activeContactsPlan1,
     },
   ];
@@ -63,23 +69,23 @@ const buildComparisonRows = (config: CompetitorConfig): ComparisonRow[] => {
   rows.push(
     {
       feature: translatedRows[3].feature,
-      penguin: "Unlimited Email Warmups",
+      penguin: penguinValue(translatedRows[3]),
       competitor: config.warmups,
     },
     {
       feature: translatedRows[4].feature,
-      penguin: yesText(penguinCopy.privateInfrastructure),
+      penguin: translatedRows[4].penguinValue === "yes" ? yesText(penguinCopy.privateInfrastructure) : no,
       competitor: noText(config.privateInfra),
     },
-    { feature: translatedRows[5].feature, penguin: yes, competitor: yes },
+    { feature: translatedRows[5].feature, penguin: penguinValue(translatedRows[5]), competitor: yes },
     {
       feature: translatedRows[6].feature,
-      penguin: "Priority Support",
+      penguin: penguinValue(translatedRows[6]),
       competitor: config.support,
     },
     {
       feature: translatedRows[7].feature,
-      penguin: yes,
+      penguin: penguinValue(translatedRows[7]),
       competitor: config.hasPrivateSlackCommunity ? yes : no,
     }
   );

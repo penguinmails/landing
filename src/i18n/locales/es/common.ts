@@ -42,4 +42,6 @@ export const common: CommonTranslations = {
   "footer.sections.company": "Empresa",
   "footer.sections.legal": "Legal",
   "footer.copyright": "— PenguinMails Todos los derechos reservados",
+  "footer.social.facebook": "Facebook",
+  "footer.social.instagram": "Instagram",
 };

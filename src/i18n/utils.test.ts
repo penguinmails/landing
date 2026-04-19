@@ -102,3 +102,27 @@ describe("Property 4: useTranslatedPath produces correct prefixes for all langua
     );
   });
 });
+
+// Feature: Array keys validation
+describe("Array translation keys have unique identifiers", () => {
+  it("home.platform.messages have unique ids", () => {
+    const messages = ui.en["home.platform.messages"];
+    const ids = messages.map((m: { id: number }) => m.id);
+    const uniqueIds = new Set(ids);
+    expect(uniqueIds.size).toBe(ids.length);
+  });
+
+  it("home.social.messages have unique ids", () => {
+    const messages = ui.en["home.social.messages"];
+    const ids = messages.map((m: { id: number }) => m.id);
+    const uniqueIds = new Set(ids);
+    expect(uniqueIds.size).toBe(ids.length);
+  });
+
+  it("home.fails.problems have unique ids", () => {
+    const problems = ui.en["home.fails.problems"];
+    const ids = problems.map((p: { id: string }) => p.id);
+    const uniqueIds = new Set(ids);
+    expect(uniqueIds.size).toBe(ids.length);
+  });
+});

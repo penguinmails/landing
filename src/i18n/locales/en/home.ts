@@ -43,6 +43,28 @@ export const home: HomeTranslations = {
     "We moved from inconsistent delivery to predictable inbox placement in two weeks.",
   "home.social.testimonial.author": "— Founder, B2B SaaS",
   "home.social.testimonial.avatarAlt": "User Profile",
+  "home.social.messages": [
+    {
+      id: 1,
+      initials: "SJ",
+      name: "Sarah Johnson",
+      company: "TechCorp",
+      tag: "interested",
+      body: "Thanks for reaching out! I'd love to schedule a call to di...",
+      bodyClass: "truncate sm:whitespace-normal sm:line-clamp-2",
+      badgeVariant: "success",
+    },
+    {
+      id: 2,
+      initials: "LR",
+      name: "Lisa Rodriguez",
+      company: "Enterprise Inc",
+      tag: "interested",
+      body: "This looks interesting. Can you send me more informat... pricing?",
+      bodyClass: "line-clamp-2",
+      badgeVariant: "success",
+    },
+  ],
 
   // ColdEmailFailsSection
   "home.fails.title": "Why Cold Email Software Fails You",
@@ -50,20 +72,24 @@ export const home: HomeTranslations = {
     "Most tools help you send more emails. They don't help you deliver better emails.",
   "home.fails.problems": [
     {
+      id: "spam",
       title: "Your emails land in spam.",
       description:
         "No matter how good your copy is, if it's in the junk folder, it's invisible.",
     },
     {
+      id: "hacks",
       title: "You rely on hacks instead of infrastructure.",
       description: "Temporary fixes don't build sustainable sales channels.",
     },
     {
+      id: "reputation",
       title: "Your domain reputation declines.",
       description:
         "Aggressive sending on a cold domain is a one-way ticket to blacklists.",
     },
     {
+      id: "replies",
       title: "You send campaigns — but get no replies.",
       description:
         'The "silence of the inbox" is usually a technical failure, not a product one.',
@@ -95,6 +121,35 @@ export const home: HomeTranslations = {
   "home.platform.footer":
     "Built using industry-standard authentication (SPF, DKIM, DMARC) best practices.",
   "home.platform.repliesTitle": "Recent Replies",
+  "home.platform.messages": [
+    {
+      id: 1,
+      initials: "SJ",
+      name: "Sarah Johnson",
+      company: "TechCorp",
+      tag: "interested",
+      badgeVariant: "success",
+      body: "Thanks for reaching out! I'd love to schedule a call to discuss this",
+    },
+    {
+      id: 2,
+      initials: "LR",
+      name: "Lisa Rodriguez",
+      company: "Enterprise Inc",
+      tag: "interested",
+      badgeVariant: "success",
+      body: "This looks interesting. Can you send me more information about pricing?",
+    },
+    {
+      id: 3,
+      initials: "MC",
+      name: "Mike Chen",
+      company: "Startup.io",
+      tag: "not interested",
+      badgeVariant: "secondary",
+      body: "Not interested at this time, but please keep us in mind for the future",
+    },
+  ],
 
   // DeliveringStepsSection
   "home.steps.title": "Start Delivering in 3 Simple Steps",
@@ -184,13 +239,13 @@ export const home: HomeTranslations = {
     "Most tools optimize sending. We optimize delivery.",
   "home.comparison.features": "Features",
   "home.comparison.rows": [
-    { feature: "Starting Price" },
-    { feature: "Sending Emails Monthly (Plan 1)" },
-    { feature: "Active Contacts (Prospects In Plan 1)" },
-    { feature: "Number of Email Warmups" },
-    { feature: "Private Cold-Email Infrastructure" },
-    { feature: "Real-time Analytics" },
-    { feature: "Support" },
-    { feature: "Private Slack Community" },
+    { feature: "Starting Price", penguinValue: "$35/month" },
+    { feature: "Sending Emails Monthly (Plan 1)", penguinValue: "Unlimited" },
+    { feature: "Active Contacts (Prospects In Plan 1)", penguinValue: "3000" },
+    { feature: "Number of Email Warmups", penguinValue: "Unlimited" },
+    { feature: "Private Cold-Email Infrastructure", penguinValue: "yes" },
+    { feature: "Real-time Analytics", penguinValue: "yes" },
+    { feature: "Support", penguinValue: "Priority Support" },
+    { feature: "Private Slack Community", penguinValue: "yes" },
   ],
 };

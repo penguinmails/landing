@@ -6,14 +6,19 @@ import { getLangFromUrl, useTranslations } from "@/i18n/utils";
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
-const problemTexts = t("home.fails.problems");
-const icons = [
-  { icon: TriangleAlert, iconClass: "w-8 h-8 text-blue-500" },
-  { icon: Octagon, iconClass: "w-8 h-8 text-white" },
-  { icon: TrendingDown, iconClass: "w-8 h-8 text-purple-500" },
-  { icon: Megaphone, iconClass: "w-8 h-8 text-green-400" },
-];
-const problems = problemTexts.map((p, i) => ({ ...p, ...icons[i] }));
+const problemTexts = t("home.fails.problems") as Array<{ id: string; title: string; description: string }>;
+
+const iconMap: Record<string, { icon: typeof TriangleAlert; iconClass: string }> = {
+  spam: { icon: TriangleAlert, iconClass: "w-8 h-8 text-blue-500" },
+  hacks: { icon: Octagon, iconClass: "w-8 h-8 text-white" },
+  reputation: { icon: TrendingDown, iconClass: "w-8 h-8 text-purple-500" },
+  replies: { icon: Megaphone, iconClass: "w-8 h-8 text-green-400" },
+};
+
+const problems = problemTexts.map((p) => {
+  const iconData = iconMap[p.id];
+  return iconData ? { ...p, ...iconData } : { ...p, icon: TriangleAlert, iconClass: "w-8 h-8 text-blue-500" };
+});
 ---
 
 <section class="relative overflow-hidden">

@@ -8,28 +8,7 @@ const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 const stats = t("home.social.stats");
 
-const messages: Message[] = [
-  {
-    id: 1,
-    initials: "SJ",
-    name: "Sarah Johnson",
-    company: "TechCorp",
-    tag: "interested",
-    body: "Thanks for reaching out! I'd love to schedule a call to di...",
-    bodyClass: "truncate sm:whitespace-normal sm:line-clamp-2",
-    badgeVariant: "success",
-  },
-  {
-    id: 2,
-    initials: "LR",
-    name: "Lisa Rodriguez",
-    company: "Enterprise Inc",
-    tag: "interested",
-    body: "This looks interesting. Can you send me more informat... pricing?",
-    bodyClass: "line-clamp-2",
-    badgeVariant: "success",
-  },
-];
+const messages = t("home.social.messages") as unknown as Message[];
 ---
 
 <section class="relative overflow-hidden container mx-auto">

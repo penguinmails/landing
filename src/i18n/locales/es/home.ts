@@ -43,6 +43,28 @@ export const home: HomeTranslations = {
     "Pasamos de una entrega inconsistente a una colocación predecible en la bandeja de entrada en dos semanas.",
   "home.social.testimonial.author": "— Fundador, SaaS B2B",
   "home.social.testimonial.avatarAlt": "Perfil de Usuario",
+  "home.social.messages": [
+    {
+      id: 1,
+      initials: "SJ",
+      name: "Sarah Johnson",
+      company: "TechCorp",
+      tag: "interested",
+      body: "¡Gracias por contactarme! Me encantaría programar una llamada para...",
+      bodyClass: "truncate sm:whitespace-normal sm:line-clamp-2",
+      badgeVariant: "success",
+    },
+    {
+      id: 2,
+      initials: "LR",
+      name: "Lisa Rodriguez",
+      company: "Enterprise Inc",
+      tag: "interested",
+      body: "Esto se ve interesante. ¿Puedes enviarme más informa... sobre precios?",
+      bodyClass: "line-clamp-2",
+      badgeVariant: "success",
+    },
+  ],
 
   // ColdEmailFailsSection
   "home.fails.title": "Por Qué el Software de Email en Frío Te Falla",
@@ -50,21 +72,25 @@ export const home: HomeTranslations = {
     "La mayoría de las herramientas te ayudan a enviar más correos. No te ayudan a entregar mejores correos.",
   "home.fails.problems": [
     {
+      id: "spam",
       title: "Tus correos llegan al spam.",
       description:
         "No importa qué tan bueno sea tu texto, si está en la carpeta de correo no deseado, es invisible.",
     },
     {
+      id: "hacks",
       title: "Dependes de trucos en lugar de infraestructura.",
       description:
         "Las soluciones temporales no construyen canales de ventas sostenibles.",
     },
     {
+      id: "reputation",
       title: "La reputación de tu dominio disminuye.",
       description:
         "Enviar agresivamente desde un dominio frío es un boleto de ida a las listas negras.",
     },
     {
+      id: "replies",
       title: "Envías campañas — pero no obtienes respuestas.",
       description:
         'El "silencio de la bandeja de entrada" suele ser un fallo técnico, no del producto.',
@@ -98,6 +124,35 @@ export const home: HomeTranslations = {
   "home.platform.footer":
     "Construido usando las mejores prácticas de autenticación estándar de la industria (SPF, DKIM, DMARC).",
   "home.platform.repliesTitle": "Respuestas Recientes",
+  "home.platform.messages": [
+    {
+      id: 1,
+      initials: "SJ",
+      name: "Sarah Johnson",
+      company: "TechCorp",
+      tag: "interested",
+      badgeVariant: "success",
+      body: "¡Gracias por contactarme! Me encantaría programar una llamada para discutir esto",
+    },
+    {
+      id: 2,
+      initials: "LR",
+      name: "Lisa Rodriguez",
+      company: "Enterprise Inc",
+      tag: "interested",
+      badgeVariant: "success",
+      body: "Esto se ve interesante. ¿Puedes enviarme más información sobre precios?",
+    },
+    {
+      id: 3,
+      initials: "MC",
+      name: "Mike Chen",
+      company: "Startup.io",
+      tag: "not interested",
+      badgeVariant: "secondary",
+      body: "No estoy interesado en este momento, pero por favor tennos en cuenta para el futuro",
+    },
+  ],
 
   // DeliveringStepsSection
   "home.steps.title": "Empieza a Entregar en 3 Simples Pasos",
@@ -189,13 +244,19 @@ export const home: HomeTranslations = {
     "La mayoría de las herramientas optimizan el envío. Nosotros optimizamos la entrega.",
   "home.comparison.features": "Características",
   "home.comparison.rows": [
-    { feature: "Precio Inicial" },
-    { feature: "Envío de Correos Mensual (Plan 1)" },
-    { feature: "Contactos Activos (Prospectos en Plan 1)" },
-    { feature: "Número de Calentamientos de Email" },
-    { feature: "Infraestructura Privada de Email en Frío" },
-    { feature: "Análisis en Tiempo Real" },
-    { feature: "Soporte" },
-    { feature: "Comunidad Privada de Slack" },
+    { feature: "Precio Inicial", penguinValue: "$35/mes" },
+    { feature: "Envío de Correos Mensual (Plan 1)", penguinValue: "Ilimitado" },
+    {
+      feature: "Contactos Activos (Prospectos en Plan 1)",
+      penguinValue: "3000",
+    },
+    { feature: "Número de Calentamientos de Email", penguinValue: "Ilimitado" },
+    {
+      feature: "Infraestructura Privada de Email en Frío",
+      penguinValue: "yes",
+    },
+    { feature: "Análisis en Tiempo Real", penguinValue: "yes" },
+    { feature: "Soporte", penguinValue: "Soporte Prioritario" },
+    { feature: "Comunidad Privada de Slack", penguinValue: "yes" },
   ],
 };

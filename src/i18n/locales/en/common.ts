@@ -41,5 +41,7 @@ export const common: CommonTranslations = {
   "footer.sections.resources": "Resources",
   "footer.sections.company": "Company",
   "footer.sections.legal": "Legal",
-  "footer.copyright": "— PenguinMails All Rights reserved",
+  "footer.copyright": "— PenguinMails All rights reserved",
+  "footer.social.facebook": "Facebook",
+  "footer.social.instagram": "Instagram",
 };

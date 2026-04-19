@@ -24,19 +24,19 @@ const t = useTranslations(lang);
             href="https://www.facebook.com"
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="Facebook"
+            aria-label={t("footer.social.facebook")}
             class="inline-flex h-12 w-12 items-center justify-center rounded-full bg-[#d8e5f8] text-primary transition-colors hover:bg-[#c8dcf7]"
           >
-            <Image src={FacebookIcon} alt="Facebook" class="h-6 w-6" />
+            <Image src={FacebookIcon} alt={t("footer.social.facebook")} class="h-6 w-6" />
           </a>
           <a
             href="https://www.instagram.com"
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="Instagram"
+            aria-label={t("footer.social.instagram")}
             class="inline-flex h-12 w-12 items-center justify-center rounded-full bg-[#d8e5f8] text-primary transition-colors hover:bg-[#c8dcf7]"
           >
-            <Image src={InstagramIcon} alt="Instagram" class="h-6 w-6" />
+            <Image src={InstagramIcon} alt={t("footer.social.instagram")} class="h-6 w-6" />
           </a>
         </div>
       </div>

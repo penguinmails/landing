@@ -40,6 +40,8 @@ export type CommonTranslations = {
   "footer.sections.company": string;
   "footer.sections.legal": string;
   "footer.copyright": string;
+  "footer.social.facebook": string;
+  "footer.social.instagram": string;
 };
 
 export type HomeTranslations = {
@@ -61,15 +63,38 @@ export type HomeTranslations = {
   "home.social.testimonial.quote": string;
   "home.social.testimonial.author": string;
   "home.social.testimonial.avatarAlt": string;
+  "home.social.messages": Array<{
+    id: number;
+    initials: string;
+    name: string;
+    company: string;
+    tag: string;
+    body: string;
+    bodyClass: string;
+    badgeVariant: string;
+  }>;
   "home.fails.title": string;
   "home.fails.description": string;
-  "home.fails.problems": Array<{ title: string; description: string }>;
+  "home.fails.problems": Array<{
+    id: string;
+    title: string;
+    description: string;
+  }>;
   "home.fails.footer": string;
   "home.platform.title": string;
   "home.platform.description": string;
   "home.platform.features": Array<{ title: string; description: string }>;
   "home.platform.footer": string;
   "home.platform.repliesTitle": string;
+  "home.platform.messages": Array<{
+    id: number;
+    initials: string;
+    name: string;
+    company: string;
+    tag: string;
+    badgeVariant: string;
+    body: string;
+  }>;
   "home.steps.title": string;
   "home.steps.items": Array<{ title: string; description: string }>;
   "home.steps.footer": string;
@@ -81,7 +106,7 @@ export type HomeTranslations = {
   "home.comparison.title": string;
   "home.comparison.subtitle": string;
   "home.comparison.features": string;
-  "home.comparison.rows": Array<{ feature: string }>;
+  "home.comparison.rows": Array<{ feature: string; penguinValue?: string }>;
 };
 
 export type PricingTranslations = {
