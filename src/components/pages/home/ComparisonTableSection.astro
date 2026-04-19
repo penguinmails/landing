@@ -3,6 +3,10 @@ import Tabs from "@/components/ui/Tabs.astro";
 import TabsContent from "@/components/ui/TabsContent.astro";
 import TabsList from "@/components/ui/TabsList.astro";
 import TabsTrigger from "@/components/ui/TabsTrigger.astro";
+import { getLangFromUrl, useTranslations } from "@/i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 type Status = "yes" | "no";
 type StatusCell = { status: Status; text?: string };
 type Cell = string | StatusCell;
@@ -31,17 +35,25 @@ const penguinCopy = {
     "Each user gets a separate VPS with dedicated IPs (no shared pools). Completely private infrastructure.",
 };
 
+const translatedRows = t("home.comparison.rows") as Array<{ feature: string; penguinValue?: string }>;
+
 const buildComparisonRows = (config: CompetitorConfig): ComparisonRow[] => {
+  const penguinValue = (row: { penguinValue?: string }): Cell => {
+    if (row.penguinValue === "yes") return yes;
+    if (row.penguinValue === "no") return no;
+    return row.penguinValue ?? "";
+  };
+
   const rows: ComparisonRow[] = [
-    { feature: "Starting Price", penguin: "$35/month", competitor: config.startingPrice },
+    { feature: translatedRows[0].feature, penguin: penguinValue(translatedRows[0]), competitor: config.startingPrice },
     {
-      feature: "Sending Emails Monthly (Plan 1)",
-      penguin: "Unlimited",
+      feature: translatedRows[1].feature,
+      penguin: penguinValue(translatedRows[1]),
       competitor: config.sendingMonthlyPlan1,
     },
     {
-      feature: "Active Contacts (Prospects In Plan 1)",
-      penguin: "3000",
+      feature: translatedRows[2].feature,
+      penguin: penguinValue(translatedRows[2]),
       competitor: config.activeContactsPlan1,
     },
   ];
@@ -56,24 +68,24 @@ const buildComparisonRows = (config: CompetitorConfig): ComparisonRow[] => {
 
   rows.push(
     {
-      feature: "Number of Email Warmups",
-      penguin: "Unlimited Email Warmups",
+      feature: translatedRows[3].feature,
+      penguin: penguinValue(translatedRows[3]),
       competitor: config.warmups,
     },
     {
-      feature: "Private Cold-Email Infrastructure",
-      penguin: yesText(penguinCopy.privateInfrastructure),
+      feature: translatedRows[4].feature,
+      penguin: translatedRows[4].penguinValue === "yes" ? yesText(penguinCopy.privateInfrastructure) : no,
       competitor: noText(config.privateInfra),
     },
-    { feature: "Real-time Analytics", penguin: yes, competitor: yes },
+    { feature: translatedRows[5].feature, penguin: penguinValue(translatedRows[5]), competitor: yes },
     {
-      feature: "Support",
-      penguin: "Priority Support",
+      feature: translatedRows[6].feature,
+      penguin: penguinValue(translatedRows[6]),
       competitor: config.support,
     },
     {
-      feature: "Private Slack Community",
-      penguin: yes,
+      feature: translatedRows[7].feature,
+      penguin: penguinValue(translatedRows[7]),
       competitor: config.hasPrivateSlackCommunity ? yes : no,
     }
   );
@@ -194,10 +206,10 @@ const dotClass = (status: Status) =>
       <h2
         class="text-4xl md:text-5xl font-bold mb-4 tracking-tight text-slate-900"
       >
-        Built for Deliverability. Not Volume.
+        {t("home.comparison.title")}
       </h2>
       <p class="text-gray-500 max-w-2xl mx-auto text-lg">
-        Most tools optimize sending. We optimize delivery.
+        {t("home.comparison.subtitle")}
       </p>
     </div>
 
@@ -223,7 +235,7 @@ const dotClass = (status: Status) =>
             >
               <!-- Table Header -->
               <div class="grid grid-cols-3 p-6 border-b border-gray-100 bg-slate-50/50 text-center">
-                <div class="font-bold text-slate-800 text-lg text-left">Features</div>
+                <div class="font-bold text-slate-800 text-lg text-left">{t("home.comparison.features")}</div>
                 <div class="font-bold text-primary text-lg">PenguinMails</div>
                 <div class="font-bold text-slate-800 text-lg">{table.title}</div>
               </div>

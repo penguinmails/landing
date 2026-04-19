@@ -3,46 +3,12 @@ import ProfileImage from "@/assets/user-image.jpg";
 import MessagesList from "@/components/shared/MessagesList.astro";
 import type { Message } from "@/types/message";
 import { Image } from "astro:assets";
-const stats = [
-  {
-    value: "98%",
-    label: "average inbox placement",
-    sizeClass: "text-4xl sm:text-5xl",
-  },
-  {
-    value: "2,000+",
-    label: "campaigns sent monthly",
-    sizeClass: "text-4xl sm:text-5xl",
-  },
-  {
-    value: "Startup Ready",
-    label: "Used by startups & agencies worldwide",
-    sizeClass: "text-3xl sm:text-4xl",
-  },
-];
+import { getLangFromUrl, useTranslations } from "@/i18n/utils";
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const stats = t("home.social.stats");
 
-const messages: Message[] = [
-  {
-    id: 1,
-    initials: "SJ",
-    name: "Sarah Johnson",
-    company: "TechCorp",
-    tag: "interested",
-    body: "Thanks for reaching out! I'd love to schedule a call to di...",
-    bodyClass: "truncate sm:whitespace-normal sm:line-clamp-2",
-    badgeVariant: "success",
-  },
-  {
-    id: 2,
-    initials: "LR",
-    name: "Lisa Rodriguez",
-    company: "Enterprise Inc",
-    tag: "interested",
-    body: "This looks interesting. Can you send me more informat... pricing?",
-    bodyClass: "line-clamp-2",
-    badgeVariant: "success",
-  },
-];
+const messages = t("home.social.messages") as unknown as Message[];
 ---
 
 <section class="relative overflow-hidden container mx-auto">
@@ -50,7 +16,7 @@ const messages: Message[] = [
     <h2
       class="text-3xl font-bold text-center text-slate-900 tracking-tight sm:text-4xl mb-20"
     >
-      Trusted by modern outbound teams
+      {t("home.social.title")}
     </h2>
 
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
@@ -93,7 +59,7 @@ const messages: Message[] = [
         >
           <Image
             src={ProfileImage}
-            alt="User Profile"
+            alt={t("home.social.testimonial.avatarAlt")}
             class="w-full h-full object-cover"
           />
         </div>
@@ -101,11 +67,10 @@ const messages: Message[] = [
           <p
             class="text-xl sm:text-2xl text-slate-600 font-medium leading-relaxed mb-3"
           >
-            We moved from inconsistent delivery to predictable inbox placement
-            in two weeks.
+            {t("home.social.testimonial.quote")}
           </p>
           <div class="font-bold text-slate-900 text-lg">
-            — Founder, B2B SaaS
+            {t("home.social.testimonial.author")}
           </div>
         </div>
       </div>

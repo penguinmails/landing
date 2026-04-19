@@ -1,22 +1,8 @@
 ---
-const results = [
-  {
-    icon: "🔥",
-    text: "Higher open rates",
-  },
-  {
-    icon: "💬",
-    text: "More replies",
-  },
-  {
-    icon: "🛡️",
-    text: "Safer domains",
-  },
-  {
-    icon: "🚀",
-    text: "Sustainable growth",
-  },
-];
+import { getLangFromUrl, useTranslations } from "@/i18n/utils";
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const results = t("home.results.items");
 ---
 
 <section class="container mx-auto px-4 max-w-6xl">
@@ -24,7 +10,7 @@ const results = [
     <h2
       class="text-3xl md:text-4xl lg:text-[40px] font-semibold text-gray-900 mx-auto text-center tracking-tight"
     >
-      What Better Deliverability <br class="md:hidden" /> Looks Like
+      {t("home.results.title")}
     </h2>
   </div>
 
@@ -45,7 +31,7 @@ const results = [
     <p
       class="text-gray-900 text-[22px] md:text-2xl lg:text-[28px] font-semibold tracking-tight leading-relaxed"
     >
-      "When emails land in inboxes, outreach starts working again."
+      {t("home.results.quote")}
     </p>
   </div>
 </section>

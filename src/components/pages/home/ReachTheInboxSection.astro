@@ -7,57 +7,28 @@ import {
   Download,
   Cpu,
 } from "@lucide/astro";
+import { getLangFromUrl, useTranslations } from "@/i18n/utils";
 
-const features = [
-  {
-    title: "Unified Inbox",
-    description:
-      "Manage all replies in one clean workspace across all your senders.",
-    icon: MessageSquare,
-    iconClass: "w-8 h-8 text-primary",
-  },
-  {
-    title: "Free Mailbox Creation",
-    description: "Scale safely without additional infrastructure costs.",
-    icon: Mail,
-    iconClass: "w-8 h-8 text-primary",
-  },
-  {
-    title: "Warmup Automation",
-    description:
-      "Build trust with inbox providers before scaling your campaigns.",
-    icon: Flame,
-    iconClass: "w-8 h-8 text-primary",
-  },
-  {
-    title: "Leads Export",
-    description:
-      "Download and manage your leads effortlessly, ready for outreach or analysis.",
-    icon: Download,
-    iconClass: "w-8 h-8 text-primary",
-  },
-  {
-    title: "Real-Time Analytics",
-    description:
-      "See exactly how campaigns perform with detailed deliverability metrics.",
-    icon: Cpu,
-    iconClass: "w-8 h-8 text-primary",
-  },
-  {
-    title: "Automated Sequences",
-    description:
-      "Follow up consistently without manual work using smart rules.",
-    icon: Cpu,
-    iconClass: "w-8 h-8 text-primary",
-  },
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const featureTexts = t("home.reach.features");
+const featureIcons = [
+  { icon: MessageSquare, iconClass: "w-8 h-8 text-primary" },
+  { icon: Mail, iconClass: "w-8 h-8 text-primary" },
+  { icon: Flame, iconClass: "w-8 h-8 text-primary" },
+  { icon: Download, iconClass: "w-8 h-8 text-primary" },
+  { icon: Cpu, iconClass: "w-8 h-8 text-primary" },
+  { icon: Cpu, iconClass: "w-8 h-8 text-primary" },
 ];
+const features = featureTexts.map((f, i) => ({ ...f, ...featureIcons[i] }));
 ---
 
 <section class="relative overflow-hidden py-20 lg:py-24">
   <div class="w-11/12 mx-auto px-4 sm:px-6 lg:px-8 container">
     <FeatureGrid
-      title="Everything You Need to Reach the Inbox"
-      description="We've built the complete toolkit for modern, safe, and effective outbound."
+      title={t("home.reach.title")}
+      description={t("home.reach.description")}
       items={features}
       theme="light"
     />

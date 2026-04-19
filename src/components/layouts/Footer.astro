@@ -16,8 +16,7 @@ const t = useTranslations(lang);
       <div class="max-w-sm">
         <Logo />
         <p class="mt-6 leading-[1.35] text-zinc-600">
-          PenguinMails is an affordable cold email automation tool made for
-          startups and agencies.
+          {t("footer.description")}
         </p>
 
         <div class="mt-8 flex items-center gap-4">
@@ -25,19 +24,19 @@ const t = useTranslations(lang);
             href="https://www.facebook.com"
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="Facebook"
+            aria-label={t("footer.social.facebook")}
             class="inline-flex h-12 w-12 items-center justify-center rounded-full bg-[#d8e5f8] text-primary transition-colors hover:bg-[#c8dcf7]"
           >
-            <Image src={FacebookIcon} alt="Facebook" class="h-6 w-6" />
+            <Image src={FacebookIcon} alt={t("footer.social.facebook")} class="h-6 w-6" />
           </a>
           <a
             href="https://www.instagram.com"
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="Instagram"
+            aria-label={t("footer.social.instagram")}
             class="inline-flex h-12 w-12 items-center justify-center rounded-full bg-[#d8e5f8] text-primary transition-colors hover:bg-[#c8dcf7]"
           >
-            <Image src={InstagramIcon} alt="Instagram" class="h-6 w-6" />
+            <Image src={InstagramIcon} alt={t("footer.social.instagram")} class="h-6 w-6" />
           </a>
         </div>
       </div>
@@ -45,7 +44,7 @@ const t = useTranslations(lang);
         class="grid grid-cols-1 md:grid-cols-4 justify-between md:w-full sm:grid-cols-3 lg:grid-rows-2 flex-1 lg:max-w-3xl gap-10"
       >
         <div>
-          <h3 class="font-bold text-zinc-900">Usecases</h3>
+          <h3 class="font-bold text-zinc-900">{t("footer.sections.usecases")}</h3>
           <ul class="mt-5 space-y-3">
             {
               usecasesLinks.map((link) => (
@@ -63,7 +62,7 @@ const t = useTranslations(lang);
         </div>
 
         <div>
-          <h3 class="font-bold text-zinc-900">Resources</h3>
+          <h3 class="font-bold text-zinc-900">{t("footer.sections.resources")}</h3>
           <ul class="mt-5 space-y-3">
             {
               resourcesLinks.map((link) => (
@@ -80,7 +79,7 @@ const t = useTranslations(lang);
           </ul>
         </div>
         <div>
-          <h3 class="font-bold text-zinc-900">Company</h3>
+          <h3 class="font-bold text-zinc-900">{t("footer.sections.company")}</h3>
           <ul class="mt-5 space-y-3">
             {
               companyLinks.map((link) => (
@@ -97,7 +96,7 @@ const t = useTranslations(lang);
           </ul>
         </div>
         <div class="lg:col-start-3">
-          <h3 class="font-bold text-zinc-900">Legal</h3>
+          <h3 class="font-bold text-zinc-900">{t("footer.sections.legal")}</h3>
           <ul class="mt-5 space-y-3">
             {
               legalLinks.map((link) => (
@@ -119,7 +118,7 @@ const t = useTranslations(lang);
 
   <div class="bg-primary px-6 py-3 text-center sm:px-8">
     <p class="text-sm font-bold text-[#f2b632] sm:text-base">
-      &copy; {new Date().getFullYear()} — PenguinMails All Rights reserved
+      &copy; {new Date().getFullYear()} {t("footer.copyright")}
     </p>
   </div>
 </footer>

@@ -57,20 +57,62 @@ describe("Property 2: getLangFromUrl falls back to defaultLang for unknown segme
   });
 });
 
-// Feature: vitest-setup, Property 3: useTranslations returns non-empty string for every key in every language
+// Feature: vitest-setup, Property 3a: useTranslations returns non-empty strings for string keys
 describe("Property 3: useTranslations returns non-empty string for every key in every language", () => {
-  it("returns a non-empty string for every translation key in every language", () => {
+  it("returns a non-empty string for every string translation key in every language", () => {
     // Validates: Requirements 3.4, 3.5
-    const translationKeys = Object.keys(ui[defaultLang]) as TranslationKey[];
+    const allKeys = Object.keys(ui[defaultLang]) as TranslationKey[];
+    const stringKeys = allKeys.filter(
+      (k) => typeof ui[defaultLang][k] === "string",
+    );
     fc.assert(
       fc.property(
         fc.constantFrom(...Object.keys(ui)),
-        fc.constantFrom(...translationKeys),
+        fc.constantFrom(...stringKeys),
         (lang, key) => {
           const t = useTranslations(lang as keyof typeof ui);
           const result = t(key);
           expect(typeof result).toBe("string");
-          expect(result.length).toBeGreaterThan(0);
+          expect((result as string).length).toBeGreaterThan(0);
+        },
+      ),
+    );
+  });
+
+  it("returns structured values with matching shape for every non-string key in every language", () => {
+    // Validates: Requirements 3.4, 3.5
+    // Covers array/object keys (e.g. home.faq.items) that Property 3a skips
+    const allKeys = Object.keys(ui[defaultLang]) as TranslationKey[];
+    const structuredKeys = allKeys.filter(
+      (k) => typeof ui[defaultLang][k] !== "string",
+    );
+
+    fc.assert(
+      fc.property(
+        fc.constantFrom(...Object.keys(ui)),
+        fc.constantFrom(...structuredKeys),
+        (lang, key) => {
+          const t = useTranslations(lang as keyof typeof ui);
+          const result = t(key);
+          const defaultValue = ui[defaultLang][key];
+
+          if (Array.isArray(defaultValue)) {
+            expect(Array.isArray(result)).toBe(true);
+            expect((result as unknown[]).length).toBe(defaultValue.length);
+          } else if (
+            typeof defaultValue === "object" &&
+            defaultValue !== null
+          ) {
+            expect(typeof result).toBe("object");
+            expect(result).not.toBeNull();
+            const resultKeys = Object.keys(result as object);
+            const defaultKeys = Object.keys(defaultValue);
+            expect(resultKeys.sort()).toEqual(defaultKeys.sort());
+          } else {
+            // Fallback: ensure value exists and is not null/undefined
+            expect(result).not.toBeNull();
+            expect(result).not.toBeUndefined();
+          }
         },
       ),
     );
@@ -96,5 +138,29 @@ describe("Property 4: useTranslatedPath produces correct prefixes for all langua
         },
       ),
     );
+  });
+});
+
+// Feature: Array keys validation
+describe("Array translation keys have unique identifiers", () => {
+  it("home.platform.messages have unique ids", () => {
+    const messages = ui.en["home.platform.messages"];
+    const ids = messages.map((m: { id: number }) => m.id);
+    const uniqueIds = new Set(ids);
+    expect(uniqueIds.size).toBe(ids.length);
+  });
+
+  it("home.social.messages have unique ids", () => {
+    const messages = ui.en["home.social.messages"];
+    const ids = messages.map((m: { id: number }) => m.id);
+    const uniqueIds = new Set(ids);
+    expect(uniqueIds.size).toBe(ids.length);
+  });
+
+  it("home.fails.problems have unique ids", () => {
+    const problems = ui.en["home.fails.problems"];
+    const ids = problems.map((p: { id: string }) => p.id);
+    const uniqueIds = new Set(ids);
+    expect(uniqueIds.size).toBe(ids.length);
   });
 });

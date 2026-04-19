@@ -33,4 +33,15 @@ export const common: CommonTranslations = {
   "cta.subtitle": "Stop guessing. Start delivering.",
   "cta.buttonTrial": "Start Free Trial",
   "cta.buttonDemo": "Book a Demo",
+  "nav.logo.ariaLabel": "PenguinMails home",
+  "nav.logo.alt": "PenguinMails logo",
+  "footer.description":
+    "PenguinMails is an affordable cold email automation tool made for startups and agencies.",
+  "footer.sections.usecases": "Usecases",
+  "footer.sections.resources": "Resources",
+  "footer.sections.company": "Company",
+  "footer.sections.legal": "Legal",
+  "footer.copyright": "— PenguinMails All rights reserved",
+  "footer.social.facebook": "Facebook",
+  "footer.social.instagram": "Instagram",
 };
