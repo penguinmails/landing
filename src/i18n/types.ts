@@ -374,6 +374,8 @@ export type FeaturesTranslations = {
   "features.rotation.whatYouGet.subtitle": string;
   "features.rotation.whatYouGet.description": string;
   "features.rotation.whatYouGet.items": string[];
+  "features.rotation.whatYouGet.featuredItems": string[];
+  "features.rotation.whatYouGet.extraItems": string[];
   "features.rotation.whatYouGet.footer": string;
   "features.rotation.faq.title": string;
   "features.rotation.faq.items": Array<{

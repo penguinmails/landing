@@ -653,6 +653,17 @@ export const features: FeaturesTranslations = {
     "Sin límites en campañas",
     "Funciona silenciosamente en segundo plano",
   ],
+  "features.rotation.whatYouGet.featuredItems": [
+    "Mayor entregabilidad",
+    "Menor riesgo de spam",
+    "Más buzones calentados y listos",
+    "Envío estable cada día",
+  ],
+  "features.rotation.whatYouGet.extraItems": [
+    "Mayor probabilidad de respuestas",
+    "Sin límites en campañas",
+    "Funciona silenciosamente en segundo plano",
+  ],
   "features.rotation.whatYouGet.footer":
     "Protege tu dominio. Mantiene tus correos funcionando.",
   "features.rotation.faq.title": "Preguntas Frecuentes (FAQs)",

@@ -23,7 +23,8 @@ const steps = t("features.rotation.steps.items");
 const comparisonHeaders = t("features.rotation.comparison.headers");
 const comparisonRows = t("features.rotation.comparison.rows");
 const balancedItems = t("features.rotation.balanced.items");
-const whatYouGetItems = t("features.rotation.whatYouGet.items");
+const whatYouGetFeaturedItems = t("features.rotation.whatYouGet.featuredItems");
+const whatYouGetExtraItems = t("features.rotation.whatYouGet.extraItems");
 const faqItems = t("features.rotation.faq.items");
 
 const stepIcons = [Globe, Mail, Shield, Zap];
@@ -308,8 +309,7 @@ const pickIcon = <T,>(icons: T[], index: number, fallback: T): T =>
 
       <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
         {
-          whatYouGetItems
-            .slice(0, 4)
+          whatYouGetFeaturedItems
             .map((item: string, index: number) => {
               const Icon = pickIcon(whatYouGetIcons, index, Check);
               return (
@@ -326,8 +326,7 @@ const pickIcon = <T,>(icons: T[], index: number, fallback: T): T =>
 
       <div class="grid md:grid-cols-3 gap-4 max-w-3xl mx-auto">
         {
-          whatYouGetItems
-            .slice(4)
+          whatYouGetExtraItems
             .map((item: string) => (
               <div class="flex items-center gap-3 bg-white p-4 rounded-xl border border-gray-100">
                 <Check class="w-5 h-5 text-emerald-500 shrink-0" />

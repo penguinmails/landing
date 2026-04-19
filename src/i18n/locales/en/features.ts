@@ -642,6 +642,17 @@ export const features: FeaturesTranslations = {
     "No limits on campaigns",
     "Works quietly in the background",
   ],
+  "features.rotation.whatYouGet.featuredItems": [
+    "Higher deliverability",
+    "Lower spam risk",
+    "More inboxes warmed and ready",
+    "Stable sending every day",
+  ],
+  "features.rotation.whatYouGet.extraItems": [
+    "Better chance of replies",
+    "No limits on campaigns",
+    "Works quietly in the background",
+  ],
   "features.rotation.whatYouGet.footer":
     "It saves your domain. It keeps your emails running.",
   "features.rotation.faq.title": "Frequently Asked Questions (FAQs)",
