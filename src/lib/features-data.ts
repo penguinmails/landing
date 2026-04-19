@@ -61,15 +61,15 @@ export const features: Feature[] = [
   },
   {
     slug: "inbox-rotation",
-    titleKey: "features.inbox-rotation.title",
-    descriptionKey: "features.inbox-rotation.description",
+    titleKey: "features.rotation.title",
+    descriptionKey: "features.rotation.description",
     icon: RefreshCw,
     iconClass: "w-8 h-8 text-primary",
     component: InboxRotationFeature,
     cta: {
-      context: "features_inbox_rotation_bottom",
-      titleKey: "features.inbox-rotation.cta.title",
-      subtitleKey: "features.inbox-rotation.cta.subtitle",
+      context: "features_rotation_bottom",
+      titleKey: "features.rotation.cta.title",
+      subtitleKey: "features.rotation.cta.subtitle",
     },
   },
   {

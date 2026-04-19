@@ -8,8 +8,10 @@ export const features: FeaturesTranslations = {
   "features.unified-inbox.description":
     "Gestiona todas las respuestas en un espacio de trabajo limpio en todos tus remitentes.",
   "features.free-mailbox-creation.title": "Creación Gratuita de Buzones",
-  "features.free-mailbox-creation.description": "Escala de forma segura sin costes adicionales de infraestructura.",
-  "features.free-mailbox-creation.cta.title": "Crea Tu Primer Buzón en Menos de 2 Minutos",
+  "features.free-mailbox-creation.description":
+    "Escala de forma segura sin costes adicionales de infraestructura.",
+  "features.free-mailbox-creation.cta.title":
+    "Crea Tu Primer Buzón en Menos de 2 Minutos",
   "features.free-mailbox-creation.cta.subtitle":
     'Sin alojamiento. Sin SMTP. Sin cPanel. Solo conecta tu dominio y haz clic en "Crear Buzón." Tendrás un buzón de correo frío funcional, listo para calentar y enviar.',
   "features.warmup-automation.title": "Automatización de Calentamiento",
@@ -21,7 +23,8 @@ export const features: FeaturesTranslations = {
   "features.real-time-analytics.title": "Análisis en Tiempo Real",
   "features.real-time-analytics.description":
     "Mira exactamente cómo funcionan las campañas con métricas detalladas de entregabilidad.",
-  "features.real-time-analytics.cta.title": "Empieza a Rastrear el Rendimiento de Tu Campaña",
+  "features.real-time-analytics.cta.title":
+    "Empieza a Rastrear el Rendimiento de Tu Campaña",
   "features.real-time-analytics.cta.subtitle":
     "Obtén información en tiempo real sobre tu entregabilidad de correos. Monitorea aperturas, clics y respuestas en todas tus campañas.",
   "features.automated-sequences.title": "Secuencias Automatizadas",
@@ -505,55 +508,53 @@ export const features: FeaturesTranslations = {
     "Empieza a usar el Buzón Unificado y nunca pierdas un correo. Mantente organizado, ahorra tiempo y cierra más tratos.",
 
   // Inbox Rotation Feature
-  "features.inbox-rotation.title": "Rotación de Buzones",
-  "features.inbox-rotation.description":
+  "features.rotation.title": "Rotación de Buzones",
+  "features.rotation.description":
     "Distribuye tus correos fríos en múltiples buzones para un envío más seguro y mejor entregabilidad.",
-  "features.inbox-rotation.cta.title":
+  "features.rotation.cta.title":
     "¿Listo para rotar y enviar correos fríos de forma segura?",
-  "features.inbox-rotation.cta.subtitle":
+  "features.rotation.cta.subtitle":
     "PenguinMails lo hace todo por ti. Sin límites. Sin estrés. Crea buzones dentro de PenguinMails y lanza más rápido.",
-  "features.inbox-rotation.tabTitle": "Rotación de Buzones - PenguinMails",
-  "features.inbox-rotation.heading":
+  "features.rotation.tabTitle": "Rotación de Buzones - PenguinMails",
+  "features.rotation.heading":
     "Deja de Enviar Correos Fríos Desde un Solo Buzón",
-  "features.inbox-rotation.tagline":
+  "features.rotation.tagline":
     "Un solo buzón es arriesgado. Se marca más rápido, se agota más rápido y mata tu entregabilidad.",
-  "features.inbox-rotation.tagline2":
+  "features.rotation.tagline2":
     "Con la Rotación de Buzones, envías desde múltiples buzones. Todos creados dentro de PenguinMails gratis. No necesitas conectar tu Gmail u Outlook. Más alcance. Menos riesgo.",
-  "features.inbox-rotation.risk.title":
+  "features.rotation.risk.title":
     "Por Qué Enviar Desde un Solo Buzón es Arriesgado",
-  "features.inbox-rotation.risk.subtitle": "Un Buzón = Más Problemas",
-  "features.inbox-rotation.risk.description":
+  "features.rotation.risk.subtitle": "Un Buzón = Más Problemas",
+  "features.rotation.risk.description":
     "Enviar correos fríos desde un solo buzón parece bien al principio. Pero no pasa mucho tiempo antes de que perjudique tus resultados. Aquí está el porqué:",
-  "features.inbox-rotation.risk.items": [
+  "features.rotation.risk.items": [
     "Ese único buzón se marcará más rápido",
     "Tu dominio se calienta lentamente",
     "Las tasas de apertura bajan",
     "Alcanzas los límites antes",
     "No puedes escalar campañas",
   ],
-  "features.inbox-rotation.risk.explanation":
+  "features.rotation.risk.explanation":
     "Las grandes herramientas de correo vigilan el comportamiento del remitente. Si ven demasiados correos de un solo lugar, te ralentizan o envían tus mensajes al spam.",
-  "features.inbox-rotation.risk.solution":
+  "features.rotation.risk.solution":
     "Pero cuando rotas buzones, te ves real. Distribuyes la carga. Y te mantienes fuera de problemas.",
-  "features.inbox-rotation.benefits.title":
-    "Rotación de Buzones de PenguinMails",
-  "features.inbox-rotation.benefits.subtitle":
+  "features.rotation.benefits.title": "Rotación de Buzones de PenguinMails",
+  "features.rotation.benefits.subtitle":
     "Envía Desde Múltiples Buzones Sin Estrés",
-  "features.inbox-rotation.benefits.description":
+  "features.rotation.benefits.description":
     "Con PenguinMails, puedes crear buzones gratis. No necesitas comprar cuentas de Gmail u Outlook. Nuestra rotación de buzones distribuye tus correos fríos en todos los buzones. Esto mantiene el envío natural y seguro. Cada buzón envía solo una pequeña cantidad de correos al día. Te mantienes bajo el radar. Sin alertas. No necesitas configurar nada. Solo añade buzones dentro de PenguinMails. Nosotros nos encargamos de la rotación.",
-  "features.inbox-rotation.benefits.items": [
+  "features.rotation.benefits.items": [
     "Envío seguro",
     "Mejor entregabilidad",
     "Calentamiento integrado para cada buzón",
     "Funciona sin herramientas adicionales",
   ],
-  "features.inbox-rotation.steps.title":
-    "Cómo Funciona la Rotación de Buzones",
-  "features.inbox-rotation.steps.intro":
+  "features.rotation.steps.title": "Cómo Funciona la Rotación de Buzones",
+  "features.rotation.steps.intro":
     "Digamos que agregas 4 buzones. Creas una secuencia de correo frío.",
-  "features.inbox-rotation.steps.description":
+  "features.rotation.steps.description":
     "PenguinMails divide tus correos entre esos 4 buzones. Cada buzón envía una pequeña parte de la campaña cada día. Así es como PenguinMails mantiene tu dominio seguro usando rotación de buzones.",
-  "features.inbox-rotation.steps.items": [
+  "features.rotation.steps.items": [
     {
       title: "Conecta Tu Dominio y Crea Buzones",
       description:
@@ -575,20 +576,19 @@ export const features: FeaturesTranslations = {
         "La reputación de tu dominio se mantiene limpia. La entregabilidad mejora. Más correos llegan a la bandeja.",
     },
   ],
-  "features.inbox-rotation.steps.warmupNote":
+  "features.rotation.steps.warmupNote":
     "La frecuencia de calentamiento aumenta gradualmente, imitando el comportamiento humano natural, para que puedas comenzar el alcance frío con confianza.",
-  "features.inbox-rotation.steps.aiNote":
+  "features.rotation.steps.aiNote":
     "No necesitas gestionar nada manualmente. Nuestra IA maneja toda la secuencia de calentamiento detrás de escena.",
-  "features.inbox-rotation.comparison.title":
-    "PenguinMails vs Otras Herramientas",
-  "features.inbox-rotation.comparison.subtitle":
+  "features.rotation.comparison.title": "PenguinMails vs Otras Herramientas",
+  "features.rotation.comparison.subtitle":
     "La mayoría de las herramientas cobran extra o no rotan bien los buzones. PenguinMails lo maneja todo por ti: Simple, Seguro e Inteligente.",
-  "features.inbox-rotation.comparison.headers": [
+  "features.rotation.comparison.headers": [
     "Características",
     "PenguinMails",
     "Otras Herramientas",
   ],
-  "features.inbox-rotation.comparison.rows": [
+  "features.rotation.comparison.rows": [
     {
       feature: "Buzones",
       penguin: "Ilimitados (crea gratis)",
@@ -620,33 +620,31 @@ export const features: FeaturesTranslations = {
       others: "Alto (volumen desde 1 buzón)",
     },
   ],
-  "features.inbox-rotation.comparison.footer":
+  "features.rotation.comparison.footer":
     "🔥 Sin coste extra. Sin estrés de configuración. Solo mejor envío de correo frío.",
-  "features.inbox-rotation.balanced.title":
-    "Cómo se Ve un Envío Equilibrado",
-  "features.inbox-rotation.balanced.subtitle":
+  "features.rotation.balanced.title": "Cómo se Ve un Envío Equilibrado",
+  "features.rotation.balanced.subtitle":
     "Distribuye Correos. Menor Riesgo. Mejores Resultados.",
-  "features.inbox-rotation.balanced.description":
+  "features.rotation.balanced.description":
     "No quieres que un solo buzón haga todo el trabajo. Ahí es donde comienzan los problemas. Spam, límites y malas puntuaciones de remitente.",
-  "features.inbox-rotation.balanced.items": [
+  "features.rotation.balanced.items": [
     "3 a 5 buzones",
     "Cada buzón envía 20 a 40 correos al día",
     "Ningún buzón individual se marca",
     "Todos los buzones se mantienen calientes y seguros",
   ],
-  "features.inbox-rotation.balanced.benefit1":
+  "features.rotation.balanced.benefit1":
     "Es la forma inteligente de escalar el correo frío. Obtienes mejor alcance. Llegas a las bandejas.",
-  "features.inbox-rotation.balanced.benefit2":
-    "Evitas prohibiciones o límites.",
-  "features.inbox-rotation.balanced.footer":
+  "features.rotation.balanced.benefit2": "Evitas prohibiciones o límites.",
+  "features.rotation.balanced.footer":
     "Esto es lo que PenguinMails hace por ti.",
-  "features.inbox-rotation.whatYouGet.title":
+  "features.rotation.whatYouGet.title":
     "Lo Que Obtienes con la Rotación de Buzones",
-  "features.inbox-rotation.whatYouGet.subtitle":
+  "features.rotation.whatYouGet.subtitle":
     "Envía Desde Múltiples Buzones Sin Estrés",
-  "features.inbox-rotation.whatYouGet.description":
+  "features.rotation.whatYouGet.description":
     "La rotación de buzones mantiene tus correos fríos seguros y funcionando. Esto es lo que obtienes:",
-  "features.inbox-rotation.whatYouGet.items": [
+  "features.rotation.whatYouGet.items": [
     "Mayor entregabilidad",
     "Menor riesgo de spam",
     "Más buzones calentados y listos",
@@ -655,10 +653,10 @@ export const features: FeaturesTranslations = {
     "Sin límites en campañas",
     "Funciona silenciosamente en segundo plano",
   ],
-  "features.inbox-rotation.whatYouGet.footer":
+  "features.rotation.whatYouGet.footer":
     "Protege tu dominio. Mantiene tus correos funcionando.",
-  "features.inbox-rotation.faq.title": "Preguntas Frecuentes (FAQs)",
-  "features.inbox-rotation.faq.items": [
+  "features.rotation.faq.title": "Preguntas Frecuentes (FAQs)",
+  "features.rotation.faq.items": [
     {
       question: "¿Cómo ayuda la rotación de buzones a la entregabilidad?",
       answer:
@@ -670,8 +668,7 @@ export const features: FeaturesTranslations = {
         "Aún estamos finalizando esto. Por ahora, puedes crear buzones dentro de PenguinMails gratis y no necesitas conectar nada más.",
     },
     {
-      question:
-        "¿Cuántos buzones puedo crear dentro de PenguinMails?",
+      question: "¿Cuántos buzones puedo crear dentro de PenguinMails?",
       answer:
         "Puedes crear buzones ilimitados dentro de PenguinMails. Sin costes extra ni límites.",
     },
@@ -681,8 +678,7 @@ export const features: FeaturesTranslations = {
         "No necesitas comprar buzones. Solo compra tu dominio, y PenguinMails te permite crear buzones gratuitos en él.",
     },
     {
-      question:
-        "¿El sistema enviará correos duplicados desde cada buzón?",
+      question: "¿El sistema enviará correos duplicados desde cada buzón?",
       answer:
         "No. Cada correo se envía una vez, desde un buzón. PenguinMails rota la carga, no el mensaje.",
     },
@@ -697,14 +693,12 @@ export const features: FeaturesTranslations = {
         "Sí. Cuando configuras una campaña, solo selecciona un buzón. Si eliges varios, habrá rotación. Si eliges uno, no.",
     },
     {
-      question:
-        "¿Esto afectará el seguimiento de respuestas o los reportes?",
+      question: "¿Esto afectará el seguimiento de respuestas o los reportes?",
       answer:
         "No. Todas tus respuestas llegan a un solo lugar, dentro de tu panel de PenguinMails. Los reportes se mantienen limpios, sin importar cuántos buzones uses.",
     },
     {
-      question:
-        "¿En qué se diferencia de enviar con un solo buzón?",
+      question: "¿En qué se diferencia de enviar con un solo buzón?",
       answer:
         "Enviar desde un solo buzón pone tu dominio en riesgo. Si ese buzón se marca, todos tus correos sufren. Con la rotación de buzones, cada buzón envía menos correos, y tu dominio se mantiene seguro.",
     },

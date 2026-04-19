@@ -14,8 +14,8 @@ export type UtmSource =
   | "features_analytics_bottom"
   | "features_unified_inbox"
   | "features_unified_inbox_bottom"
-  | "features_inbox_rotation"
-  | "features_inbox_rotation_bottom";
+  | "features_rotation"
+  | "features_rotation_bottom";
 
 interface SignupUrlOptions {
   context: UtmSource;
