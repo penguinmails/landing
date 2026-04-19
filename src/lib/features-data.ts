@@ -5,8 +5,10 @@ import {
   Download,
   Cpu,
   ChartNoAxesColumnIncreasing,
+  RefreshCw,
 } from "@lucide/astro";
 import FreeMailboxCreationFeature from "@/components/pages/features/FreeMailboxCreationFeature.astro";
+import InboxRotationFeature from "@/components/pages/features/InboxRotationFeature.astro";
 import RealTimeAnalyticsFeature from "@/components/pages/features/RealTimeAnalyticsFeature.astro";
 import UnifiedInboxFeature from "@/components/pages/features/UnifiedInboxFeature.astro";
 import type { UtmSource } from "./cta";
@@ -55,6 +57,19 @@ export const features: Feature[] = [
       context: "features_free_mailbox_bottom",
       titleKey: "features.free-mailbox-creation.cta.title",
       subtitleKey: "features.free-mailbox-creation.cta.subtitle",
+    },
+  },
+  {
+    slug: "inbox-rotation",
+    titleKey: "features.rotation.title",
+    descriptionKey: "features.rotation.description",
+    icon: RefreshCw,
+    iconClass: "w-8 h-8 text-primary",
+    component: InboxRotationFeature,
+    cta: {
+      context: "features_rotation_bottom",
+      titleKey: "features.rotation.cta.title",
+      subtitleKey: "features.rotation.cta.subtitle",
     },
   },
   {

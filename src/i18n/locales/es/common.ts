@@ -19,6 +19,7 @@ export const common: CommonTranslations = {
   "nav.leads-export": "Exportación de Clientes Potenciales",
   "nav.real-time-analytics": "Análisis en Tiempo Real",
   "nav.automated-sequences": "Secuencias Automatizadas",
+  "nav.inbox-rotation": "Rotación de Buzones",
   "nav.anti-spam-policy": "Política Antispam",
   "nav.privacy": "Privacidad",
   "nav.refund-policy": "Política de Reembolso",

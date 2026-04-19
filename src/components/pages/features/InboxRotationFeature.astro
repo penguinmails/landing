@@ -1,0 +1,363 @@
+---
+import ArticleCard from "@/components/shared/ArticleCard.astro";
+import Button from "@/components/ui/Button.astro";
+import { buildSignupUrl } from "@/lib/cta";
+import {
+  RefreshCw,
+  TriangleAlert,
+  Globe,
+  Mail,
+  Zap,
+  Shield,
+  Rocket,
+  ChartColumn,
+  Check,
+  X,
+} from "@lucide/astro";
+
+const { t } = Astro.props;
+
+const riskItems = t("features.rotation.risk.items");
+const benefits = t("features.rotation.benefits.items");
+const steps = t("features.rotation.steps.items");
+const comparisonHeaders = t("features.rotation.comparison.headers");
+const comparisonRows = t("features.rotation.comparison.rows");
+const balancedItems = t("features.rotation.balanced.items");
+const whatYouGetFeaturedItems = t("features.rotation.whatYouGet.featuredItems");
+const whatYouGetExtraItems = t("features.rotation.whatYouGet.extraItems");
+const faqItems = t("features.rotation.faq.items");
+
+const stepIcons = [Globe, Mail, Shield, Zap];
+
+const whatYouGetIcons = [Rocket, Mail, ChartColumn, Shield];
+
+const pickIcon = <T,>(icons: T[], index: number, fallback: T): T =>
+  icons[index] || fallback;
+---
+
+<div class="space-y-24 py-12">
+  <!-- Hero Section -->
+  <section class="text-center">
+    <div class="mx-auto max-w-4xl px-4">
+      <div
+        class="inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-2 text-sm font-medium text-primary mb-6"
+      >
+        <RefreshCw class="w-4 h-4" />
+        {t("features.rotation.tabTitle")}
+      </div>
+
+      <h1
+        class="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-slate-900 mb-6"
+      >
+        {t("features.rotation.heading")}
+      </h1>
+
+      <p class="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto mb-4">
+        {t("features.rotation.tagline")}
+      </p>
+
+      <p class="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto mb-8">
+        {t("features.rotation.tagline2")}
+      </p>
+
+      <Button
+        variant="primary"
+        size="lg"
+        href={buildSignupUrl({ context: "features_rotation" })}
+      >
+        {t("cta.buttonTrial")}
+      </Button>
+    </div>
+  </section>
+
+  <!-- Why One Inbox is Risky -->
+  <section class="bg-slate-50 py-20 rounded-3xl">
+    <div class="mx-auto max-w-6xl px-4">
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <div>
+          <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
+            {t("features.rotation.risk.title")}
+          </h2>
+          <p class="text-xl font-semibold text-rose-600 mb-6">
+            {t("features.rotation.risk.subtitle")}
+          </p>
+          <p class="text-gray-600 mb-6">
+            {t("features.rotation.risk.description")}
+          </p>
+
+          <ul class="space-y-3 mb-6">
+            {
+              riskItems.map((item: string) => (
+                <li class="flex items-start gap-3">
+                  <X class="w-5 h-5 text-rose-500 mt-0.5 shrink-0" />
+                  <span class="text-gray-700">{item}</span>
+                </li>
+              ))
+            }
+          </ul>
+
+          <p class="text-gray-600 mb-4">
+            {t("features.rotation.risk.explanation")}
+          </p>
+
+          <p class="text-primary font-semibold">
+            {t("features.rotation.risk.solution")}
+          </p>
+        </div>
+
+        <div
+          class="bg-linear-to-br from-rose-50 to-amber-50 rounded-3xl p-8 flex items-center justify-center"
+        >
+          <TriangleAlert class="w-32 h-32 text-rose-400 opacity-60" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PenguinMails Inbox Rotation -->
+  <section class="py-12">
+    <div class="mx-auto max-w-6xl px-4">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
+          {t("features.rotation.benefits.title")}
+        </h2>
+        <p class="text-xl text-primary font-semibold mb-4">
+          {t("features.rotation.benefits.subtitle")}
+        </p>
+        <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+          {t("features.rotation.benefits.description")}
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+        {
+          benefits.map((item: string) => (
+            <div class="flex items-start gap-3 bg-white p-5 rounded-xl border border-gray-100 shadow-sm">
+              <Check class="w-5 h-5 text-emerald-500 mt-0.5 shrink-0" />
+              <span class="text-gray-700">{item}</span>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- How Inbox Rotation Works - Steps -->
+  <section class="py-12">
+    <div class="mx-auto max-w-6xl px-4">
+      <div class="text-center mb-6">
+        <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
+          {t("features.rotation.steps.title")}
+        </h2>
+        <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+          {t("features.rotation.steps.intro")}
+        </p>
+      </div>
+
+      <p class="text-center text-lg text-gray-600 max-w-3xl mx-auto mb-12">
+        {t("features.rotation.steps.description")}
+      </p>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        {
+          steps.map((step: { title: string; description: string }, index: number) => {
+            const Icon = pickIcon(stepIcons, index, Zap);
+            return (
+              <div class="relative bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
+                <div class="absolute -top-4 left-8">
+                  <span class="flex items-center justify-center w-10 h-10 rounded-full bg-primary text-white font-bold text-lg">
+                    {index + 1}
+                  </span>
+                </div>
+                <div class="pt-4">
+                  <Icon class="w-10 h-10 text-primary mb-4" />
+                  <h3 class="text-xl font-semibold text-slate-900 mb-3">
+                    {step.title}
+                  </h3>
+                  <p class="text-gray-600">{step.description}</p>
+                </div>
+              </div>
+            );
+          })
+        }
+      </div>
+
+      <div class="mt-12 bg-primary/5 rounded-2xl p-8 max-w-3xl mx-auto">
+        <p class="text-center text-gray-700">
+          {t("features.rotation.steps.warmupNote")}
+        </p>
+        <p class="text-center text-gray-600 mt-4">
+          {t("features.rotation.steps.aiNote")}
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Comparison Table -->
+  <section class="py-12">
+    <div class="mx-auto max-w-4xl px-4">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
+          {t("features.rotation.comparison.title")}
+        </h2>
+        <p class="text-lg text-gray-600">
+          {t("features.rotation.comparison.subtitle")}
+        </p>
+      </div>
+
+      <div
+        class="bg-white rounded-2xl shadow-xl overflow-hidden border border-gray-100"
+      >
+        <table class="w-full border-collapse">
+          <thead class="bg-slate-50">
+            <tr class="border-b border-gray-100">
+              {
+                comparisonHeaders.map((header: string, index: number) => (
+                  <th
+                    scope="col"
+                    class:list={[
+                      "p-6 font-bold text-lg",
+                      index === 0 && "text-left",
+                      index === 1 && "text-center",
+                      index === 2 && "text-right",
+                    ]}
+                  >
+                    {header}
+                  </th>
+                ))
+              }
+            </tr>
+          </thead>
+          <tbody>
+            {
+              comparisonRows.map(
+                (row: { feature: string; penguin: string; others: string }) => (
+                  <tr class="border-b border-gray-100 hover:bg-slate-50 transition-colors">
+                    <td class="p-6 font-semibold text-slate-900">{row.feature}</td>
+                    <td class="p-6 text-center text-primary font-bold">
+                      {row.penguin}
+                    </td>
+                    <td class="p-6 text-right text-gray-500">{row.others}</td>
+                  </tr>
+                ),
+              )
+            }
+          </tbody>
+        </table>
+      </div>
+
+      <p class="text-center text-lg font-semibold text-primary mt-8">
+        {t("features.rotation.comparison.footer")}
+      </p>
+    </div>
+  </section>
+
+  <!-- Balanced Sending -->
+  <section class="bg-slate-900 py-20 rounded-3xl text-white">
+    <div class="mx-auto max-w-6xl px-4">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">
+          {t("features.rotation.balanced.title")}
+        </h2>
+        <p class="text-xl font-semibold text-primary mb-4">
+          {t("features.rotation.balanced.subtitle")}
+        </p>
+        <p class="text-lg text-gray-300 max-w-3xl mx-auto">
+          {t("features.rotation.balanced.description")}
+        </p>
+      </div>
+
+      <div class="grid sm:grid-cols-2 md:grid-cols-4 gap-6 mb-12">
+        {
+          balancedItems.map((item: string) => (
+            <div class="bg-white/5 p-6 rounded-2xl backdrop-blur text-center">
+              <Check class="w-6 h-6 text-emerald-400 mx-auto mb-3" />
+              <p class="text-lg font-medium">{item}</p>
+            </div>
+          ))
+        }
+      </div>
+
+      <div class="text-center">
+        <p class="text-gray-300 mb-2">
+          {t("features.rotation.balanced.benefit1")}
+        </p>
+        <p class="text-gray-300 mb-2">
+          {t("features.rotation.balanced.benefit2")}
+        </p>
+        <p class="text-xl font-semibold text-primary mt-4">
+          {t("features.rotation.balanced.footer")}
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- What You Get -->
+  <section class="py-12">
+    <div class="mx-auto max-w-6xl px-4">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
+          {t("features.rotation.whatYouGet.title")}
+        </h2>
+        <p class="text-xl text-primary font-semibold mb-4">
+          {t("features.rotation.whatYouGet.subtitle")}
+        </p>
+        <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+          {t("features.rotation.whatYouGet.description")}
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+        {
+          whatYouGetFeaturedItems
+            .map((item: string, index: number) => {
+              const Icon = pickIcon(whatYouGetIcons, index, Check);
+              return (
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow text-center">
+                  <div class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4 mx-auto">
+                    <Icon class="w-6 h-6 text-primary" />
+                  </div>
+                  <p class="font-medium text-slate-900">{item}</p>
+                </div>
+              );
+            })
+        }
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-4 max-w-3xl mx-auto">
+        {
+          whatYouGetExtraItems
+            .map((item: string) => (
+              <div class="flex items-center gap-3 bg-white p-4 rounded-xl border border-gray-100">
+                <Check class="w-5 h-5 text-emerald-500 shrink-0" />
+                <span class="text-gray-700 text-sm">{item}</span>
+              </div>
+            ))
+        }
+      </div>
+
+      <p class="text-center text-gray-600 mt-8">
+        {t("features.rotation.whatYouGet.footer")}
+      </p>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="py-12">
+    <div class="mx-auto max-w-4xl px-4">
+      <h2
+        class="text-3xl md:text-4xl font-bold text-slate-900 mb-10 text-center"
+      >
+        {t("features.rotation.faq.title")}
+      </h2>
+
+      <div class="space-y-5">
+        {
+          faqItems.map((item: { question: string; answer: string }) => (
+            <ArticleCard title={item.question} description={item.answer} />
+          ))
+        }
+      </div>
+    </div>
+  </section>
+</div>
