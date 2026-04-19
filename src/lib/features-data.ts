@@ -8,6 +8,7 @@ import {
 } from "@lucide/astro";
 import FreeMailboxCreationFeature from "@/components/pages/features/FreeMailboxCreationFeature.astro";
 import RealTimeAnalyticsFeature from "@/components/pages/features/RealTimeAnalyticsFeature.astro";
+import UnifiedInboxFeature from "@/components/pages/features/UnifiedInboxFeature.astro";
 import type { UtmSource } from "./cta";
 import type { AstroComponentFactory } from "astro/runtime/server/index.js";
 
@@ -36,6 +37,12 @@ export const features: Feature[] = [
     descriptionKey: "features.unified-inbox.description",
     icon: MessageSquare,
     iconClass: "w-8 h-8 text-primary",
+    component: UnifiedInboxFeature,
+    cta: {
+      context: "features_unified_inbox_bottom",
+      titleKey: "features.unified-inbox.title",
+      subtitleKey: "features.inbox.cta.description",
+    },
   },
   {
     slug: "free-mailbox-creation",

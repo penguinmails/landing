@@ -1,0 +1,381 @@
+---
+import ArticleCard from "@/components/shared/ArticleCard.astro";
+import Button from "@/components/ui/Button.astro";
+import { buildSignupUrl } from "@/lib/cta";
+import {
+  MessageSquare,
+  Inbox,
+  Star,
+  Funnel,
+  StickyNote,
+  Zap,
+  Clock,
+  PanelsTopLeft,
+  Search,
+  Check,
+  X,
+  Users,
+  Briefcase,
+  Target,
+} from "@lucide/astro";
+
+const { t } = Astro.props;
+
+const features = t("features.inbox.features.items");
+const stages = t("features.inbox.stages.items");
+const usecases = t("features.inbox.usecases.items");
+const comparisonRows = t("features.inbox.comparison.rows");
+const faqItems = t("features.inbox.faq.items");
+
+const featureIcons = [
+  Inbox,
+  Star,
+  Funnel,
+  StickyNote,
+  Zap,
+  Clock,
+  PanelsTopLeft,
+  Search,
+];
+
+const usecaseIcons = [Users, Briefcase, Target, Users];
+---
+
+<div class="space-y-24 py-12">
+  <!-- Hero Section -->
+  <section class="text-center">
+    <div class="mx-auto max-w-4xl px-4">
+      <div
+        class="inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-2 text-sm font-medium text-primary mb-6"
+      >
+        <MessageSquare class="w-4 h-4" />
+        {t("features.inbox.tabTitle")}
+      </div>
+
+      <h1
+        class="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-slate-900 mb-6"
+      >
+        {t("features.inbox.heading")}
+      </h1>
+
+      <p class="text-2xl md:text-3xl font-semibold text-primary mb-4">
+        {t("features.inbox.subheading")}
+      </p>
+
+      <p class="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto mb-8">
+        {t("features.inbox.tagline")}
+      </p>
+
+      <Button
+        variant="primary"
+        size="lg"
+        href={buildSignupUrl({ context: "features_unified_inbox" })}
+      >
+        {t("cta.buttonTrial")}
+      </Button>
+    </div>
+  </section>
+
+  <!-- Core Value Proposition -->
+  <section class="py-12">
+    <div class="mx-auto max-w-6xl px-4">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
+          {t("features.inbox.core.valueProp")}
+        </h2>
+        <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+          {t("features.inbox.core.explanation")}
+        </p>
+        <p class="text-lg text-gray-600 max-w-3xl mx-auto mt-4">
+          {t("features.inbox.core.benefit")}
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Versus Comparison -->
+  <section class="bg-slate-50 py-20 rounded-3xl">
+    <div class="mx-auto max-w-6xl px-4">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
+          {t("features.inbox.versus.title")}
+        </h2>
+        <p class="text-xl text-gray-600">
+          {t("features.inbox.versus.subtitle")}
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-8">
+        <div class="bg-white p-8 rounded-2xl shadow-sm">
+          <h3 class="text-xl font-semibold text-rose-600 mb-6">
+            {t("features.inbox.versus.problemTitle")}
+          </h3>
+          <ul class="space-y-4">
+            {
+              t("features.inbox.versus.problems").map((problem: string) => (
+                <li class="flex items-start gap-3">
+                  <X class="w-5 h-5 text-rose-500 mt-0.5 shrink-0" />
+                  <span class="text-gray-700">{problem}</span>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+
+        <div
+          class="bg-white p-8 rounded-2xl shadow-sm border-2 border-primary/20"
+        >
+          <h3 class="text-xl font-semibold text-primary mb-6">
+            {t("features.inbox.versus.solutionTitle")}
+          </h3>
+          <p class="text-gray-700 mb-6">
+            {t("features.inbox.versus.solution")}
+          </p>
+          <ul class="space-y-4">
+            {
+              t("features.inbox.versus.benefits").map((benefit: string) => (
+                <li class="flex items-start gap-3">
+                  <Check class="w-5 h-5 text-emerald-500 mt-0.5 shrink-0" />
+                  <span class="text-gray-700">{benefit}</span>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Core Features -->
+  <section class="py-12">
+    <div class="mx-auto max-w-6xl px-4">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
+          {t("features.inbox.features.title")}
+        </h2>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {
+          features.map((feature: any, index: number) => {
+            const Icon = featureIcons[index] || MessageSquare;
+            return (
+              <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
+                <div class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
+                  <Icon class="w-6 h-6 text-primary" />
+                </div>
+                <h3 class="font-bold text-slate-900 mb-2">{feature.title}</h3>
+                <p class="text-sm text-gray-600 mb-4">{feature.description}</p>
+                {feature.cta && (
+                  <span class="text-xs font-semibold text-primary uppercase tracking-wider">
+                    {feature.cta}
+                  </span>
+                )}
+              </div>
+            );
+          })
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- 3 Stages View -->
+  <section class="py-12">
+    <div class="mx-auto max-w-6xl px-4">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
+          {t("features.inbox.stages.title")}
+        </h2>
+        <p class="text-xl text-gray-600">{t("features.inbox.stages.subtitle")}</p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        {
+          stages.map((stage: any) => (
+            <div class="relative bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
+              <div class="absolute -top-4 left-8">
+                <span class="flex items-center justify-center w-10 h-10 rounded-full bg-primary text-white font-bold text-lg">
+                  {stage.index}
+                </span>
+              </div>
+              <div class="pt-4">
+                <p class="text-sm font-bold text-primary mb-1 uppercase tracking-widest">
+                  {stage.subtitle}
+                </p>
+                <h3 class="text-xl font-bold text-slate-900 mb-4">
+                  {stage.title}
+                </h3>
+                <ul class="space-y-3">
+                  {stage.details.map((detail: string) => (
+                    <li class="flex items-start gap-2">
+                      <span class="text-primary mt-1">→</span>
+                      <span class="text-gray-600">{detail}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Performance Insights -->
+  <section class="bg-slate-900 py-20 rounded-3xl text-white">
+    <div class="mx-auto max-w-6xl px-4">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">
+          {t("features.inbox.insights.title")}
+        </h2>
+        <p class="text-lg text-gray-300 max-w-3xl mx-auto">
+          {t("features.inbox.insights.description")}
+        </p>
+      </div>
+
+      <div class="grid sm:grid-cols-2 md:grid-cols-4 gap-6 mb-12">
+        {
+          t("features.inbox.insights.items").map((item: string) => (
+            <div class="bg-white/5 p-6 rounded-2xl backdrop-blur text-center">
+              <p class="text-primary font-bold mb-2">•</p>
+              <p class="text-lg font-medium">{item}</p>
+            </div>
+          ))
+        }
+      </div>
+
+      <div class="text-center">
+        <p class="text-xl font-semibold text-primary">
+          {t("features.inbox.insights.footer")}
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Use Cases -->
+  <section class="py-12">
+    <div class="mx-auto max-w-6xl px-4">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
+          {t("features.inbox.usecases.title")}
+        </h2>
+        <p class="text-lg text-gray-600">{t("features.inbox.usecases.subtitle")}</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {
+          usecases.map((usecase: any, index: number) => {
+            const Icon = usecaseIcons[index] || Users;
+            return (
+              <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
+                <div class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
+                  <Icon class="w-6 h-6 text-primary" />
+                </div>
+                <h3 class="font-bold text-slate-900 mb-2">{usecase.title}</h3>
+                <p class="text-sm text-gray-600 mb-4">{usecase.description}</p>
+                <a
+                  href="#"
+                  class="text-primary font-semibold text-sm hover:underline"
+                >
+                  {usecase.cta}
+                </a>
+              </div>
+            );
+          })
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Comparison Table -->
+  <section class="py-12">
+    <div class="mx-auto max-w-4xl px-4">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
+          {t("features.inbox.comparison.title")}
+        </h2>
+      </div>
+
+      <div class="bg-white rounded-2xl shadow-xl overflow-hidden border border-gray-100">
+        <div
+          class="grid grid-cols-3 bg-slate-50 p-6 border-b border-gray-100 font-bold text-lg"
+        >
+          {
+            t("features.inbox.comparison.headers").map((header: string) => (
+              <div class="text-center last:text-right first:text-left">
+                {header}
+              </div>
+            ))
+          }
+        </div>
+
+        {
+          comparisonRows.map((row: any) => (
+            <div class="grid grid-cols-3 p-6 border-b border-gray-100 hover:bg-slate-50 transition-colors">
+              <div class="font-semibold text-slate-900">{row.feature}</div>
+              <div class="text-center text-primary font-bold">{row.penguin}</div>
+              <div class="text-center md:text-right text-gray-500">
+                {row.others}
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="py-12">
+    <div class="mx-auto max-w-4xl px-4">
+      <h2
+        class="text-3xl md:text-4xl font-bold text-slate-900 mb-10 text-center"
+      >
+        {t("features.inbox.faq.title")}
+      </h2>
+
+      <div class="space-y-5">
+        {
+          faqItems.map((item: { question: string; answer: string }) => (
+            <ArticleCard title={item.question} description={item.answer} />
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Bottom CTA -->
+  <section class="text-center py-12">
+    <div class="mx-auto max-w-4xl px-4">
+      <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
+        {t("features.inbox.cta.title")}
+      </h2>
+      <p class="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
+        {t("features.inbox.cta.description")}
+      </p>
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <Button
+          variant="primary"
+          size="lg"
+          href={buildSignupUrl({ context: "features_unified_inbox_bottom" })}
+        >
+          {t("features.unified-inbox.title")}
+        </Button>
+      </div>
+
+      <div class="mt-8 flex flex-wrap justify-center gap-6">
+        <div class="flex items-center gap-2 text-sm text-gray-600">
+          <Check class="w-4 h-4 text-emerald-500" />
+          <span>Stay organized</span>
+        </div>
+        <div class="flex items-center gap-2 text-sm text-gray-600">
+          <Check class="w-4 h-4 text-emerald-500" />
+          <span>Save time</span>
+        </div>
+        <div class="flex items-center gap-2 text-sm text-gray-600">
+          <Check class="w-4 h-4 text-emerald-500" />
+          <span>Close more deals</span>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

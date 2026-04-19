@@ -11,7 +11,9 @@ export type UtmSource =
   | "features_free_mailbox"
   | "features_free_mailbox_bottom"
   | "features_analytics"
-  | "features_analytics_bottom";
+  | "features_analytics_bottom"
+  | "features_unified_inbox"
+  | "features_unified_inbox_bottom";
 
 interface SignupUrlOptions {
   context: UtmSource;

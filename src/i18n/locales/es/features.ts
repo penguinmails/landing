@@ -275,4 +275,232 @@ export const features: FeaturesTranslations = {
     "Comienza a Rastrear el Rendimiento de Tus Campañas",
   "features.analytics.cta.description":
     "Obtén información en tiempo real sobre tus campañas de correo frío. Observa exactamente qué funciona y optimiza para mejores resultados.",
+
+  // Unified Inbox Feature
+  "features.inbox.tabTitle": "Buzón Unificado - PenguinMails",
+  "features.inbox.heading": "Una Bandeja de Entrada para Todas tus Campañas",
+  "features.inbox.subheading": "Una Bandeja de Entrada para Todas tus Campañas",
+  "features.inbox.tagline":
+    "Tus correos llegan a diferentes bandejas. Pero tus respuestas no tienen por qué ser un caos. PenguinMails reúne cada respuesta en un solo buzón. Habla con prospectos, no con pestañas.",
+  "features.inbox.core.valueProp": "Un Buzón Compartido Creado para Escalar",
+  "features.inbox.core.explanation":
+    "PenguinMails reúne todas tus respuestas en un lugar limpio. Un verdadero buzón unificado diseñado para equipos de correo frío, fundadores y agencias. Sin necesidad de cambiar de pestaña o rastrear correos manualmente.",
+  "features.inbox.core.benefit":
+    "Mira las respuestas de todos los buzones y campañas dentro de un único buzón compartido. Filtra por campaña, buzón o etiqueta. Asigna correos, responde más rápido y nunca vuelvas a perder un prospecto. Ya sea que manejes 3 buzones o 30, esta bandeja se mantiene limpia, rápida y hecha para uso en equipo.",
+  "features.inbox.versus.title": "Caos de Email sin un Buzón Unificado",
+  "features.inbox.versus.subtitle":
+    "Cuando las respuestas llegan de diferentes campañas y buzones, todo se vuelve desordenado.",
+  "features.inbox.versus.problemTitle": "El Caos",
+  "features.inbox.versus.problems": [
+    "Revisar múltiples bandejas lleva a perder respuestas.",
+    "Sin vista única. Sin espacio compartido. Solo caos.",
+    "Confusión en el equipo sobre quién respondió o qué etiqueta se usó.",
+    "Tiempo desperdiciado en tareas pequeñas mientras pierdes prospectos interesados.",
+  ],
+  "features.inbox.versus.solutionTitle": "El Buzón Compartido",
+  "features.inbox.versus.solution":
+    "PenguinMails reúne cada respuesta en una única bandeja de entrada. Puedes filtrar por campaña, buzón o etiqueta.",
+  "features.inbox.versus.benefits": [
+    "Mira todas las respuestas en un solo lugar en cada buzón y campaña.",
+    "Sin necesidad de iniciar sesión en diferentes cuentas.",
+    "Asigna correos, responde más rápido y no pierdas ningún prospecto.",
+    "Control total y claridad en el equipo, incluso a escala.",
+  ],
+  "features.inbox.features.title":
+    "Características Principales del Buzón Unificado",
+  "features.inbox.features.items": [
+    {
+      title: "Mira Todas las Respuestas en un Solo Lugar",
+      description:
+        "Todas las respuestas de cada buzón y campaña aparecen en un solo feed. Sin cambiar de cuenta ni de herramienta.",
+      cta: "Mira Cómo se Ve",
+    },
+    {
+      title: "Responde, Destaca, Ancla y Archiva",
+      description:
+        "Responde directamente en PenguinMails. También puedes destacar correos importantes, anclar respuestas clave o archivar al terminar.",
+      cta: "Mira Cómo se Ve",
+    },
+    {
+      title: "Filtros Inteligentes y Etiquetas",
+      description:
+        "Filtra respuestas por campaña, buzón, etiqueta o estado. Usa etiquetas como “Interesado”, “Seguimiento” o “Tal vez más tarde”.",
+      cta: "Mira Cómo se Ve",
+    },
+    {
+      title: "Notas Internas",
+      description:
+        "Añade notas privadas a cualquier conversación. Ideal para equipos que quieren rastrear el contexto o pasar la tarea a otros.",
+      cta: "Mira Cómo se Ve",
+    },
+    {
+      title: "Respuestas Rápidas y Plantillas",
+      description:
+        "Usa respuestas rápidas para responder velozmente. Guarda las tuyas o elige de nuestra biblioteca de plantillas.",
+      cta: "Mira Cómo se Ve",
+    },
+    {
+      title: "Seguimientos Programados",
+      description:
+        "¿Quieres responder más tarde? Simplemente programa la respuesta. Se enviará a la hora establecida sin que tengas que volver a ella.",
+      cta: "Mira Cómo se Ve",
+    },
+    {
+      title: "Vista de Conversación con Hilo Completo",
+      description:
+        "Mira el hilo de correo completo en un diseño limpio. Expande y ve todo en una sola vista o cambia a pantalla completa.",
+      cta: "Mira Cómo se Ve",
+    },
+    {
+      title: "Busca en Todo",
+      description:
+        "Usa la búsqueda inteligente para encontrar cualquier cosa por remitente, asunto, etiquetas, respuestas o campaña.",
+      cta: "Mira Cómo se Ve",
+    },
+  ],
+  "features.inbox.stages.title": "Así se Ve Nuestro Buzón Unificado",
+  "features.inbox.stages.subtitle": "Mira tus correos a tu manera.",
+  "features.inbox.stages.items": [
+    {
+      title: "Vista de Bandeja por Defecto",
+      subtitle: "Etapa 1",
+      index: "1",
+      details: [
+        "Panel Izquierdo: Conteo de no leídos, tiempo de respuesta, etiquetas como Interesado / No Interesado",
+        "Panel Derecho: Lista de conversaciones con remitente, asunto y marca de tiempo",
+      ],
+    },
+    {
+      title: "Vista de Hilo",
+      subtitle: "Etapa 2",
+      index: "2",
+      details: [
+        "Panel Izquierdo: Lista de conversaciones recientes para cambiar rápido",
+        "Panel Derecho: Hilo completo, cuadro de respuesta, notas internas y gestión de etiquetas",
+      ],
+    },
+    {
+      title: "Hilo en Pantalla Completa",
+      subtitle: "Etapa 3",
+      index: "3",
+      details: [
+        "Modo enfoque: El hilo completo se expande al 100% de la pantalla",
+        "El panel izquierdo desaparece para ayudarte a concentrarte en el prospecto",
+      ],
+    },
+  ],
+  "features.inbox.insights.title":
+    "Información de Rendimiento y Análisis Inteligente",
+  "features.inbox.insights.description":
+    "Mira cómo va tu bandeja con datos en tiempo real en la parte superior.",
+  "features.inbox.insights.items": [
+    "Número de respuestas no leídas",
+    "Rapidez de respuesta (Tiempo Promedio de Respuesta)",
+    "Cuántos prospectos están interesados",
+    "Quién necesita seguimiento",
+  ],
+  "features.inbox.insights.footer":
+    "No es solo un buzón compartido. Es una bandeja inteligente que te ayuda a rastrear y crecer.",
+  "features.inbox.usecases.title": "Casos de Uso en el Mundo Real",
+  "features.inbox.usecases.subtitle": "Cómo lo usan las personas a diario.",
+  "features.inbox.usecases.items": [
+    {
+      title: "Equipo de Startup",
+      description:
+        "3 miembros del equipo responden desde un espacio compartido. Cada uno ve quién respondió por última vez.",
+      cta: "Más información",
+    },
+    {
+      title: "Dueño de Agencia",
+      description:
+        "Rastrea respuestas en 15 buzones. Filtra por campaña y deja notas para el equipo.",
+      cta: "Más información",
+    },
+    {
+      title: "Freelancers",
+      description:
+        "Maneja 3 proyectos. Cada buzón es para un nicho diferente. Usa la vista de pantalla completa para enfocarse.",
+      cta: "Más información",
+    },
+    {
+      title: "Gestor de Outreach",
+      description:
+        "Maneja 25 buzones. Usa filtros para campañas de alto ticket y programa seguimientos.",
+      cta: "Más información",
+    },
+  ],
+  "features.inbox.comparison.title": "Cómo se Compara PenguinMails con Otros",
+  "features.inbox.comparison.headers": [
+    "Característica",
+    "PenguinMails",
+    "Otras Herramientas",
+  ],
+  "features.inbox.comparison.rows": [
+    {
+      feature: "Buzón Unificado para todos los Buzones",
+      penguin: "✅ Sí",
+      others: "✅ Sí",
+    },
+    {
+      feature: "Filtros Avanzados (Campaña, Buzón, Etiquetas)",
+      penguin: "✅ Filtros avanzados",
+      others: "❌ Básicos o sin filtros",
+    },
+    {
+      feature: "Notas Internas por Conversación",
+      penguin: "✅ Añade notas siempre",
+      others: "❌ Raro o no es posible",
+    },
+    {
+      feature: "Etiquetar Respuestas (Interesado, Follow-up, etc)",
+      penguin: "✅ Sí, con etiquetas personalizadas",
+      others: "❌ Generalmente sin etiquetas",
+    },
+    {
+      feature: "Sincronización en Tiempo Real",
+      penguin: "✅ Instantánea",
+      others: "❌ Retrasada",
+    },
+    {
+      feature: "Respuestas Rápidas y Plantillas",
+      penguin: "✅ Disponibles en el hilo",
+      others: "❌ Sin esta característica",
+    },
+    {
+      feature: "Vista de Hilo en 3 Etapas",
+      penguin: "✅ Lista, Dividida, Completa",
+      others: "❌ Vistas rígidas",
+    },
+  ],
+  "features.inbox.faq.title": "Preguntas Frecuentes (FAQs)",
+  "features.inbox.faq.items": [
+    {
+      question: "¿Cuál es la diferencia entre “Archivar” y “Eliminar”?",
+      answer:
+        "Archivar oculta el hilo pero lo mantiene guardado. Eliminar lo borra por completo.",
+    },
+    {
+      question: "¿Puedo marcar una respuesta como “Interesado”?",
+      answer:
+        "Sí. Puedes etiquetar cada hilo y personalizar estas etiquetas en los ajustes.",
+    },
+    {
+      question: "¿Puedo programar correos de seguimiento?",
+      answer:
+        "Sí. Después de responder, puedes programar un seguimiento usando tus secuencias o uno personalizado.",
+    },
+    {
+      question: "¿Puedo invitar a mi equipo y asignar roles?",
+      answer:
+        "Sí. Puedes dar acceso a tu equipo y gestionar roles por espacio de trabajo.",
+    },
+    {
+      question: "¿Necesito conectar Gmail u Outlook?",
+      answer:
+        "No. Puedes crear buzones directamente en PenguinMails sin configuraciones externas.",
+    },
+  ],
+  "features.inbox.cta.title": "¿Listo para manejar respuestas sin estrés?",
+  "features.inbox.cta.description":
+    "Empieza a usar el Buzón Unificado y nunca pierdas un correo. Mantente organizado, ahorra tiempo y cierra más tratos.",
 };

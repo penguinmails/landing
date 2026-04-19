@@ -269,6 +269,61 @@ export type FeaturesTranslations = {
   }>;
   "features.analytics.cta.title": string;
   "features.analytics.cta.description": string;
+
+  // Unified Inbox Feature
+  "features.inbox.tabTitle": string;
+  "features.inbox.heading": string;
+  "features.inbox.subheading": string;
+  "features.inbox.tagline": string;
+  "features.inbox.core.valueProp": string;
+  "features.inbox.core.explanation": string;
+  "features.inbox.core.benefit": string;
+  "features.inbox.versus.title": string;
+  "features.inbox.versus.subtitle": string;
+  "features.inbox.versus.problemTitle": string;
+  "features.inbox.versus.problems": string[];
+  "features.inbox.versus.solutionTitle": string;
+  "features.inbox.versus.solution": string;
+  "features.inbox.versus.benefits": string[];
+  "features.inbox.features.title": string;
+  "features.inbox.features.items": Array<{
+    title: string;
+    description: string;
+    cta?: string;
+  }>;
+  "features.inbox.stages.title": string;
+  "features.inbox.stages.subtitle": string;
+  "features.inbox.stages.items": Array<{
+    title: string;
+    subtitle: string;
+    details: string[];
+    index: string;
+  }>;
+  "features.inbox.insights.title": string;
+  "features.inbox.insights.description": string;
+  "features.inbox.insights.items": string[];
+  "features.inbox.insights.footer": string;
+  "features.inbox.usecases.title": string;
+  "features.inbox.usecases.subtitle": string;
+  "features.inbox.usecases.items": Array<{
+    title: string;
+    description: string;
+    cta: string;
+  }>;
+  "features.inbox.comparison.title": string;
+  "features.inbox.comparison.headers": string[];
+  "features.inbox.comparison.rows": Array<{
+    feature: string;
+    penguin: string;
+    others: string;
+  }>;
+  "features.inbox.faq.title": string;
+  "features.inbox.faq.items": Array<{
+    question: string;
+    answer: string;
+  }>;
+  "features.inbox.cta.title": string;
+  "features.inbox.cta.description": string;
 };
 
 export type UsecasesTranslations = {

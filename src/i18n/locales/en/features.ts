@@ -270,4 +270,221 @@ export const features: FeaturesTranslations = {
   "features.analytics.cta.title": "Start Tracking Your Campaign Performance",
   "features.analytics.cta.description":
     "Get real-time insights into your cold email campaigns. See exactly what's working and optimize for better results.",
+
+  // Unified Inbox Feature
+  "features.inbox.tabTitle": "Unified Inbox - PenguinMails",
+  "features.inbox.heading": "One Inbox for All Your Campaigns",
+  "features.inbox.subheading": "One Inbox for All Your Campaigns",
+  "features.inbox.tagline":
+    "Your emails land in different inboxes. But your replies don’t have to feel messy. PenguinMails brings every reply into a single inbox. Talk to leads, not tabs.",
+  "features.inbox.core.valueProp": "A Shared Inbox Built For Scale",
+  "features.inbox.core.explanation":
+    "PenguinMails brings all your replies into one clean place. A true unified inbox built for cold email teams, founders, and agencies. No need to switch tabs or track emails manually.",
+  "features.inbox.core.benefit":
+    "See replies from all mailboxes, all campaigns, inside a single shared inbox. You can filter replies by campaign, mailbox, or tag. Assign emails, reply faster, and never miss a lead again. Whether you're running 3 inboxes or 30 — this inbox stays clean, fast, and made for team use.",
+  "features.inbox.versus.title": "Email Chaos Without A Unified Inbox",
+  "features.inbox.versus.subtitle":
+    "When replies come in from different campaigns and mailboxes, it gets messy.",
+  "features.inbox.versus.problemTitle": "The Chaos",
+  "features.inbox.versus.problems": [
+    "Checking multiple inboxes leads to missed replies.",
+    "No single view. No shared space. Just chaos.",
+    "Team confusion over who replied or what tag was used.",
+    "Time wasted on small tasks while losing interested leads.",
+  ],
+  "features.inbox.versus.solutionTitle": "The Shared Inbox",
+  "features.inbox.versus.solution":
+    "PenguinMails brings every reply into a single inbox. You can filter by campaign, mailbox, or tag.",
+  "features.inbox.versus.benefits": [
+    "See all replies in one place across every mailbox and campaign.",
+    "No need to log into different accounts or go tool-to-tool.",
+    "Assign emails, reply faster, and never miss a lead again.",
+    "Full control and team clarity, even as you scale.",
+  ],
+  "features.inbox.features.title": "Core Features Of The Unified Inbox",
+  "features.inbox.features.items": [
+    {
+      title: "See All Replies in One Place",
+      description:
+        "All replies from every mailbox and every campaign show up in one feed. No need to log into different accounts or go tool-to-tool.",
+      cta: "See How It Looks",
+    },
+    {
+      title: "Reply, Star, Pin, and Archive",
+      description:
+        "Reply right inside PenguinMails. You can also Star important emails, Pin key replies, or Archive when done.",
+      cta: "See How It Looks",
+    },
+    {
+      title: "Smart Filters & Tags",
+      description:
+        "Filter replies by campaign, inbox, tag, or status. Use tags like “Interested”, “Follow-up”, or “Maybe Later”.",
+      cta: "See How It Looks",
+    },
+    {
+      title: "Internal Notes",
+      description:
+        "Add private notes to any conversation. Great for teams who want to track context or handoff to others.",
+      cta: "See How It Looks",
+    },
+    {
+      title: "Quick Replies & Templates",
+      description:
+        "Use quick replies to respond fast. Save your own or choose from our template library.",
+      cta: "See How It Looks",
+    },
+    {
+      title: "Scheduled Follow-Ups",
+      description:
+        "Want to reply later? Just schedule the reply. It’ll go out at the set time, no need to come back to it.",
+      cta: "See How It Looks",
+    },
+    {
+      title: "Conversation View with Full Thread",
+      description:
+        "See the full email thread in a clean layout. Expand and see everything in one view or toggle full-screen.",
+      cta: "See How It Looks",
+    },
+    {
+      title: "Search Everything",
+      description:
+        "Use smart search to find anything by sender, subject, tags, replies, inbox, or campaign.",
+      cta: "See How It Looks",
+    },
+  ],
+  "features.inbox.stages.title": "This Is How Our Unified Inbox Looks",
+  "features.inbox.stages.subtitle": "View emails your way.",
+  "features.inbox.stages.items": [
+    {
+      title: "Default Inbox View",
+      subtitle: "Stage 1",
+      index: "1",
+      details: [
+        "Left Pane: Unread count, reply time, tags like Interested / Not Interested",
+        "Right Pane: List of email conversations with sender, subject, and timestamp",
+      ],
+    },
+    {
+      title: "Thread View",
+      subtitle: "Stage 2",
+      index: "2",
+      details: [
+        "Left Pane: List of recent conversations to switch quickly",
+        "Right Pane: Full thread, reply box, internal notes, and tag management",
+      ],
+    },
+    {
+      title: "Full Screen Thread",
+      subtitle: "Stage 3",
+      index: "3",
+      details: [
+        "Focus mode: Full thread expands to 100% of the screen",
+        "Left pane disappears to help you focus on the lead",
+      ],
+    },
+  ],
+  "features.inbox.insights.title": "Performance Insights And Smart Analytics",
+  "features.inbox.insights.description":
+    "See how your inbox is doing with live data at the top.",
+  "features.inbox.insights.items": [
+    "Number of unread replies",
+    "How fast you're replying (Avg. Reply Time)",
+    "How many leads are interested",
+    "Who needs follow-up",
+  ],
+  "features.inbox.insights.footer":
+    "It’s not just a shared inbox. It’s a smart inbox that helps you track and grow.",
+  "features.inbox.usecases.title": "Real-World Use Cases",
+  "features.inbox.usecases.subtitle": "How people use it daily.",
+  "features.inbox.usecases.items": [
+    {
+      title: "Startup Team",
+      description:
+        "3 team members reply from one shared workspace. Each one sees who answered last.",
+      cta: "Learn more",
+    },
+    {
+      title: "Agency Owner",
+      description:
+        "Wants to track replies across 15 inboxes. Filters by campaign and leaves notes for the team.",
+      cta: "Learn more",
+    },
+    {
+      title: "Freelancers",
+      description:
+        "Runs 3 projects. Each inbox is for a different niche. Uses full screen view to stay focused.",
+      cta: "Learn more",
+    },
+    {
+      title: "Outbound Manager",
+      description:
+        "Manages 25 inboxes. Uses filters for high-ticket campaigns and schedules follow-ups.",
+      cta: "Learn more",
+    },
+  ],
+  "features.inbox.comparison.title":
+    "How PenguinMails Inbox Stacks Up Against Others",
+  "features.inbox.comparison.headers": ["Feature", "PenguinMails", "Other Tools"],
+  "features.inbox.comparison.rows": [
+    {
+      feature: "Unified Inbox for All Mailboxes",
+      penguin: "✅ Yes",
+      others: "✅ Yes",
+    },
+    {
+      feature: "Advanced Filters (Campaign, Mailbox, Tags)",
+      penguin: "✅ Advanced filters",
+      others: "❌ Basic or no filters",
+    },
+    {
+      feature: "Internal Notes Per Conversation",
+      penguin: "✅ Add notes anytime",
+      others: "❌ Rare or not possible",
+    },
+    {
+      feature: "Tag Replies (Interested, Follow-up, etc)",
+      penguin: "✅ Yes, with custom tags",
+      others: "❌ Usually no tagging system",
+    },
+    { feature: "Real-Time Sync for Replies", penguin: "✅ Instant", others: "❌ Delayed" },
+    {
+      feature: "Quick Replies & Saved Templates",
+      penguin: "✅ Available inside thread",
+      others: "❌ No such feature",
+    },
+    {
+      feature: "3-Stage Thread View",
+      penguin: "✅ List, Split, Full View",
+      others: "❌ Rigid or clunky views",
+    },
+  ],
+  "features.inbox.faq.title": "Frequently Asked Questions (FAQs)",
+  "features.inbox.faq.items": [
+    {
+      question: "What’s the difference between “Archive” and “Delete”?",
+      answer: "Archive hides the thread but keeps it saved. Delete removes it fully.",
+    },
+    {
+      question: "Can I mark a reply as “Interested” or “Not Interested”?",
+      answer:
+        "Yes. You can tag each thread. You can also edit or rename these tags from the inbox settings.",
+    },
+    {
+      question: "Can I schedule follow-up emails directly from a reply?",
+      answer:
+        "Yes. After replying, you can schedule a follow-up using your saved sequences or write a custom one.",
+    },
+    {
+      question: "Can I invite my team and assign roles?",
+      answer: "Yes. You can give your team access and manage roles per workspace.",
+    },
+    {
+      question: "Do I need to connect Gmail or Outlook to use this inbox?",
+      answer:
+        "No. You can create mailboxes directly inside PenguinMails. No third-party setup needed.",
+    },
+  ],
+  "features.inbox.cta.title": "Ready to handle replies with zero stress?",
+  "features.inbox.cta.description":
+    "Start using the Unified Inbox and never miss an email again. See replies from all your mailboxes, tag leads, and reply fast.",
 };
