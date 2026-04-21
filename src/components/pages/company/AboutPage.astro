@@ -1,0 +1,65 @@
+---
+const { t } = Astro.props;
+---
+
+<div class="py-16 md:py-24">
+  <div class="mx-auto max-w-4xl px-4">
+    <!-- Hero Header -->
+    <div class="mb-20 text-center">
+      <div class="mb-4 inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-1.5 text-sm font-semibold text-primary">
+        {t("about.hero.tagline")}
+      </div>
+      <h1 class="text-4xl font-bold tracking-tight text-slate-900 md:text-6xl">
+        {t("about.hero.title")}
+      </h1>
+      <p class="mt-6 text-xl text-slate-600 max-w-2xl mx-auto">
+        {t("about.hero.subtitle")}
+      </p>
+    </div>
+
+    <!-- Content -->
+    <div class="grid gap-16">
+      <!-- Mission Section -->
+      <section class="grid md:grid-cols-2 gap-8 items-center bg-slate-50 rounded-3xl p-8 md:p-12 border border-slate-100">
+        <div>
+          <h2 class="text-3xl font-bold text-slate-900 mb-6">{t("about.mission.title")}</h2>
+          <p class="text-lg text-slate-600 leading-relaxed">
+            {t("about.mission.body")}
+          </p>
+        </div>
+        <div class="relative aspect-video rounded-2xl overflow-hidden bg-primary/5 flex items-center justify-center">
+            <!-- Simple illustration placeholder style -->
+            <div class="text-primary/20 transform scale-150">
+                <svg width="200" height="200" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 2L1 21h22L12 2zm0 3.45l8.27 14.3H3.73L12 5.45z"/>
+                </svg>
+            </div>
+        </div>
+      </section>
+
+      <!-- Story Section -->
+      <section class="max-w-3xl mx-auto prose prose-slate prose-lg prose-headings:text-slate-900 prose-headings:font-bold prose-p:text-slate-600 prose-strong:text-slate-900">
+        <h2 class="text-3xl mb-6">{t("about.story.title")}</h2>
+        <p>
+          {t("about.story.body")}
+        </p>
+      </section>
+
+      <!-- Values Grid -->
+      <section>
+        <h2 class="text-3xl font-bold text-slate-900 mb-12 text-center">{t("about.values.title")}</h2>
+        <div class="grid sm:grid-cols-3 gap-8">
+          {t("about.values.items").map((value: { title: string; description: string }) => (
+            <div class="p-6 rounded-2xl border border-slate-200 hover:border-primary/30 hover:bg-slate-50 transition-all group">
+              <div class="w-12 h-12 rounded-xl bg-slate-100 flex items-center justify-center mb-6 group-hover:bg-primary/10 group-hover:text-primary transition-colors">
+                 <span class="font-bold text-xl">{value.title[0]}</span>
+              </div>
+              <h3 class="text-xl font-bold text-slate-900 mb-3">{value.title}</h3>
+              <p class="text-slate-600 leading-relaxed">{value.description}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+    </div>
+  </div>
+</div>

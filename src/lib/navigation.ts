@@ -29,7 +29,6 @@ export const legalLinks: NavItem[] = [
 ];
 
 export const companyLinks: NavItem[] = [
-  { labelKey: "nav.about", href: "/features#about" },
-  { labelKey: "nav.contact", href: "/features#contact" },
-  { labelKey: "nav.blog", href: "/features#blog" },
+  { labelKey: "nav.about", href: "/about" },
+  { labelKey: "nav.contact", href: "/contact" },
 ];
