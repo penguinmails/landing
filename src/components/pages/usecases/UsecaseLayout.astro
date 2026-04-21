@@ -1,0 +1,300 @@
+---
+import ArticleCard from "@/components/shared/ArticleCard.astro";
+import Button from "@/components/ui/Button.astro";
+import { buildSignupUrl } from "@/lib/cta";
+import type { UtmSource } from "@/lib/cta";
+import { usecasesLinks } from "@/lib/navigation";
+import { useTranslatedPath, useTranslations } from "@/i18n/utils";
+import type { TranslationKey } from "@/i18n/types";
+import {
+  MessageSquare,
+  Inbox,
+  Star,
+  Zap,
+  Clock,
+  PanelsTopLeft,
+  Search,
+  Check,
+  X,
+  Users,
+  Briefcase,
+  Target,
+  ArrowRight,
+} from "@lucide/astro";
+
+type UsecaseSlug = "agencies" | "freelancers" | "outbound-teams" | "startups";
+
+type Translator = ReturnType<typeof useTranslations>;
+
+interface Props {
+  usecaseSlug: UsecaseSlug;
+  t: Translator;
+  lang: string;
+}
+
+const usecaseContextMap: Record<UsecaseSlug, { hero: UtmSource; bottom: UtmSource }> = {
+  agencies: { hero: "usecase_agencies" as UtmSource, bottom: "usecase_agencies_bottom" as UtmSource },
+  freelancers: { hero: "usecase_freelancers" as UtmSource, bottom: "usecase_freelancers_bottom" as UtmSource },
+  "outbound-teams": { hero: "usecase_outbound-teams" as UtmSource, bottom: "usecase_outbound-teams_bottom" as UtmSource },
+  startups: { hero: "usecase_startups" as UtmSource, bottom: "usecase_startups_bottom" as UtmSource },
+};
+
+const { usecaseSlug, t, lang } = Astro.props as Props;
+const translatePath = useTranslatedPath(lang as "en" | "es");
+
+// Dynamically access i18n keys based on the slug
+const prefix = `usecases.${usecaseSlug}`;
+const titleKey = `${prefix}.title` as TranslationKey;
+
+const hero = {
+  heading: t(`${prefix}.hero.heading` as TranslationKey),
+  subheading: t(`${prefix}.hero.subheading` as TranslationKey),
+  tagline: t(`${prefix}.hero.tagline` as TranslationKey),
+};
+
+const valueProp = {
+  title: t(`${prefix}.valueProp.title` as TranslationKey),
+  explanation: t(`${prefix}.valueProp.explanation` as TranslationKey),
+  benefit: t(`${prefix}.valueProp.benefit` as TranslationKey),
+};
+
+const versus = {
+  title: t(`${prefix}.versus.title` as TranslationKey),
+  subtitle: t(`${prefix}.versus.subtitle` as TranslationKey),
+  problemTitle: t(`${prefix}.versus.problemTitle` as TranslationKey),
+  problems: t(`${prefix}.versus.problems` as TranslationKey) as string[],
+  solutionTitle: t(`${prefix}.versus.solutionTitle` as TranslationKey),
+  solution: t(`${prefix}.versus.solution` as TranslationKey),
+  benefits: t(`${prefix}.versus.benefits` as TranslationKey) as string[],
+};
+
+const features = {
+  title: t(`${prefix}.features.title` as TranslationKey),
+  items: t(`${prefix}.features.items` as TranslationKey) as Array<{ title: string; description: string; iconName?: string }>,
+};
+
+const faq = {
+  title: t(`${prefix}.faq.title` as TranslationKey),
+  items: t(`${prefix}.faq.items` as TranslationKey) as Array<{ question: string; answer: string }>,
+};
+
+const bottomCta = {
+  title: t(`${prefix}.cta.title` as TranslationKey),
+  description: t(`${prefix}.cta.description` as TranslationKey),
+};
+
+const iconMap: Record<string, typeof MessageSquare | typeof Inbox | typeof Star | typeof Zap | typeof Clock | typeof PanelsTopLeft | typeof Search | typeof Users | typeof Briefcase | typeof Target | typeof Check> = {
+  MessageSquare,
+  Inbox,
+  Star,
+  Zap,
+  Clock,
+  PanelsTopLeft,
+  Search,
+  Users,
+  Briefcase,
+  Target,
+  Check,
+};
+
+const otherUsecases = usecasesLinks.filter(link => !link.href.endsWith(`/${usecaseSlug}`));
+
+const heroContext = usecaseContextMap[usecaseSlug as UsecaseSlug].hero;
+const bottomContext = usecaseContextMap[usecaseSlug as UsecaseSlug].bottom;
+---
+
+<div class="space-y-24 py-12">
+  <!-- Hero Section -->
+  <section class="text-center pt-10">
+    <div class="mx-auto max-w-4xl px-4">
+      <div
+        class="inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-2 text-sm font-medium text-primary mb-6"
+      >
+        <Target class="w-4 h-4" />
+        {t(titleKey)}
+      </div>
+
+      <h1
+        class="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-slate-900 mb-6"
+      >
+        {hero.heading}
+      </h1>
+
+      <p class="text-2xl md:text-3xl font-semibold text-primary mb-4">
+        {hero.subheading}
+      </p>
+
+      <p class="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto mb-8">
+        {hero.tagline}
+      </p>
+
+      <Button
+        variant="primary"
+        size="lg"
+        href={buildSignupUrl({ context: heroContext })}
+      >
+        {t("cta.buttonTrial")}
+      </Button>
+    </div>
+  </section>
+
+  <!-- Core Value Proposition -->
+  <section class="py-12">
+    <div class="mx-auto max-w-6xl px-4 text-center">
+      <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-8">
+        {valueProp.title}
+      </h2>
+      <div class="max-w-3xl mx-auto space-y-6">
+        <p class="text-xl text-gray-700 leading-relaxed">
+          {valueProp.explanation}
+        </p>
+        <p class="text-xl font-medium text-primary">
+          {valueProp.benefit}
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Versus Comparison -->
+  <section class="bg-slate-50 py-20 rounded-3xl">
+    <div class="mx-auto max-w-6xl px-4">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
+          {versus.title}
+        </h2>
+        <p class="text-xl text-gray-600">
+          {versus.subtitle}
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-8">
+        <div class="bg-white p-8 rounded-2xl shadow-sm">
+          <h3 class="text-xl font-semibold text-rose-600 mb-6">
+            {versus.problemTitle}
+          </h3>
+          <ul class="space-y-4">
+            {
+              versus.problems.map((problem: string) => (
+                <li class="flex items-start gap-3">
+                  <X class="w-5 h-5 text-rose-500 mt-0.5 shrink-0" />
+                  <span class="text-gray-700">{problem}</span>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+
+        <div
+          class="bg-white p-8 rounded-2xl shadow-sm border-2 border-primary/20"
+        >
+          <h3 class="text-xl font-semibold text-primary mb-6">
+            {versus.solutionTitle}
+          </h3>
+          <p class="text-gray-700 mb-6">
+            {versus.solution}
+          </p>
+          <ul class="space-y-4">
+            {
+              versus.benefits.map((benefit: string) => (
+                <li class="flex items-start gap-3">
+                  <Check class="w-5 h-5 text-emerald-500 mt-0.5 shrink-0" />
+                  <span class="text-gray-700">{benefit}</span>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tailored Features -->
+  <section class="py-12">
+    <div class="mx-auto max-w-6xl px-4">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
+          {features.title}
+        </h2>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {
+          features.items.map((item: { title: string; description: string; iconName?: string }) => {
+            const Icon = iconMap[item.iconName || ""] || Zap;
+            return (
+              <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
+                <div class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
+                  <Icon class="w-6 h-6 text-primary" />
+                </div>
+                <h3 class="font-bold text-slate-900 mb-2">{item.title}</h3>
+                <p class="text-sm text-gray-600">{item.description}</p>
+              </div>
+            );
+          })
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="py-12">
+    <div class="mx-auto max-w-4xl px-4">
+      <h2
+        class="text-3xl md:text-4xl font-bold text-slate-900 mb-10 text-center"
+      >
+        {faq.title}
+      </h2>
+
+      <div class="space-y-5">
+        {
+          faq.items.map((item: { question: string; answer: string }) => (
+            <ArticleCard title={item.question} description={item.answer} />
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Bottom CTA -->
+  <section class="text-center py-12 bg-primary/5 rounded-3xl mx-4">
+    <div class="mx-auto max-w-4xl px-4">
+      <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
+        {bottomCta.title}
+      </h2>
+      <p class="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
+        {bottomCta.description}
+      </p>
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <Button
+          variant="primary"
+          size="lg"
+          href={buildSignupUrl({ context: bottomContext })}
+        >
+          {t("cta.buttonTrial")}
+        </Button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Navigation to Other Usecases -->
+  <section class="py-20 border-t border-gray-100">
+    <div class="mx-auto max-w-6xl px-4">
+      <h2 class="text-2xl font-bold text-slate-900 mb-8 text-center">
+        {t("usecases.otherUsecases")}
+      </h2>
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+        {otherUsecases.map(link => (
+          <a
+            href={translatePath(link.href)}
+            class="group p-6 rounded-2xl border border-gray-200 hover:border-primary hover:bg-primary/5 transition-all flex items-center justify-between"
+          >
+            <span class="font-bold text-slate-900 group-hover:text-primary transition-colors">
+              {t(link.labelKey)}
+            </span>
+            <ArrowRight class="w-5 h-5 text-gray-400 group-hover:text-primary transition-all group-hover:translate-x-1" />
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+</div>
