@@ -2,6 +2,7 @@
 import CTASection from "@/components/layouts/CTASection.astro";
 import Header from "@/components/layouts/Header.astro";
 import Footer from "@/components/layouts/Footer.astro";
+import CharlaWidget from "@/components/CharlaWidget.astro";
 import "@/styles/global.css";
 import { getLangFromUrl, useTranslations } from "@/i18n/utils";
 import type { UtmSource } from "@/lib/cta";
@@ -36,7 +37,6 @@ const {
   ctaOverride,
 } = Astro.props;
 
-
 const siteUrl = import.meta.env.SITE || Astro.url.origin;
 const pageUrl = canonical || new URL(Astro.url.pathname, siteUrl).href;
 
@@ -44,32 +44,31 @@ const pageUrl = canonical || new URL(Astro.url.pathname, siteUrl).href;
 const structuredData = JSON.stringify({
   "@context": "https://schema.org",
   "@type": "Organization",
-  "name": "Penguin Mails",
-  "url": siteUrl,
-  "logo": new URL("/img/pengo_32X32.png", siteUrl).href,
-  "description": description,
+  name: "Penguin Mails",
+  url: siteUrl,
+  logo: new URL("/img/pengo_32X32.png", siteUrl).href,
+  description: description,
 });
 ---
 
 <!doctype html>
 <html lang={lang}>
   <head>
-
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description} />
     <meta name="generator" content={Astro.generator} />
-    
+
     <!-- Canonical URL -->
     <link rel="canonical" href={pageUrl} />
-    
+
     <!-- Robots -->
     {noindex && <meta name="robots" content="noindex, nofollow" />}
     {!noindex && <meta name="robots" content="index, follow" />}
-    
+
     <!-- Theme Color -->
     <meta name="theme-color" content="#1e1b4b" />
-    
+
     <!-- Favicon & Icons -->
     <link rel="icon" href="/favicon.ico" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -78,7 +77,7 @@ const structuredData = JSON.stringify({
     <link rel="icon" href="/img/pengo_16X16.png" sizes="16x16" />
     <link rel="icon" href="/img/pengo_32X32.png" sizes="32x32" />
     <link rel="icon" href="/img/pengo_48X48.png" sizes="48x48" />
-    
+
     <!-- Open Graph -->
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
@@ -90,40 +89,29 @@ const structuredData = JSON.stringify({
     <meta property="og:site_name" content="Penguin Mails" />
     <meta property="og:locale" content={lang === "es" ? "es_ES" : "en_US"} />
 
-    
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={new URL(image, siteUrl).href} />
-    
+
     <!-- Structured Data -->
     <script type="application/ld+json" set:html={structuredData} is:inline />
-    
+
     <title>{title}</title>
   </head>
   <body class="min-h-screen">
     <Header />
     <slot />
     <CTASection
-      {...(ctaOverride && {
+      {...ctaOverride && {
         ctaContext: ctaOverride.context,
         title: ctaOverride.title,
         subtitle: ctaOverride.subtitle,
         ctaText: ctaOverride.ctaText,
-      })}
+      }}
     />
     <Footer />
-    <script is:inline>
-      (function() {
-        var w = document.createElement('charla-widget');
-        w.setAttribute('app', 'app.charla.com');
-        document.body.appendChild(w);
-        var s = document.createElement('script');
-        s.src = 'https://app.charla.com/widget/widget.js';
-        s.defer = true;
-        document.body.appendChild(s);
-      })();
-    </script>
+    <CharlaWidget />
   </body>
 </html>

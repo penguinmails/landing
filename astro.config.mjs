@@ -34,6 +34,11 @@ export default defineConfig({
         access: "public",
         default: "support@penguinmails.com",
       }),
+      PUBLIC_CHARLA_PROJECT_ID: envField.string({
+        context: "client",
+        access: "public",
+        default: "8ef52b8e-fe5c-46d8-85b6-6e5c47abb0ac",
+      }),
     },
   },
   i18n: {

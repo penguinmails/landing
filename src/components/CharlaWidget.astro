@@ -1,0 +1,20 @@
+---
+const charlaProjectId = import.meta.env.PUBLIC_CHARLA_PROJECT_ID;
+---
+
+<script is:inline define:vars={{ charlaProjectId }}>
+  window.addEventListener("load", function () {
+    if (
+      document.querySelector("charla-widget[p]") ||
+      document.querySelector("script[src='https://app.charla.com/widget/widget.js']")
+    ) {
+      return;
+    }
+    var widgetElement = document.createElement("charla-widget");
+    widgetElement.setAttribute("p", charlaProjectId);
+    document.body.appendChild(widgetElement);
+    var widgetCode = document.createElement("script");
+    widgetCode.src = "https://app.charla.com/widget/widget.js";
+    document.body.appendChild(widgetCode);
+  });
+</script>
