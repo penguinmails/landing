@@ -64,7 +64,7 @@ const bottomCta = {
   description: t(`${prefix}.cta.description`),
 };
 
-const iconMap: Record<string, typeof MessageSquare | typeof Inbox | typeof Star | typeof Zap | typeof Clock | typeof PanelsTopLeft | typeof Search | typeof Users | typeof Briefcase | typeof Target> = {
+const iconMap: Record<string, typeof MessageSquare | typeof Inbox | typeof Star | typeof Zap | typeof Clock | typeof PanelsTopLeft | typeof Search | typeof Users | typeof Briefcase | typeof Target | typeof Check> = {
   MessageSquare,
   Inbox,
   Star,
@@ -75,6 +75,7 @@ const iconMap: Record<string, typeof MessageSquare | typeof Inbox | typeof Star 
   Users,
   Briefcase,
   Target,
+  Check,
 };
 
 const otherUsecases = usecasesLinks.filter(link => !link.href.endsWith(`/${usecaseSlug}`));
@@ -199,7 +200,7 @@ const bottomContext: UtmSource = `usecase_${usecaseSlug}_bottom` as UtmSource;
 
       <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
         {
-          features.items.map((item: any) => {
+          features.items.map((item: { title: string; description: string; iconName?: string }) => {
             const Icon = iconMap[item.iconName || ""] || Zap;
             return (
               <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
