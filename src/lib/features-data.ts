@@ -5,13 +5,13 @@ import {
   Download,
   Cpu,
   ChartNoAxesColumnIncreasing,
-  RefreshCw,
 } from "@lucide/astro";
 import FreeMailboxCreationFeature from "@/components/pages/features/FreeMailboxCreationFeature.astro";
-import InboxRotationFeature from "@/components/pages/features/InboxRotationFeature.astro";
 import RealTimeAnalyticsFeature from "@/components/pages/features/RealTimeAnalyticsFeature.astro";
 import UnifiedInboxFeature from "@/components/pages/features/UnifiedInboxFeature.astro";
 import WarmupAutomationFeature from "@/components/pages/features/WarmupAutomationFeature.astro";
+import LeadsExportFeature from "@/components/pages/features/LeadsExportFeature.astro";
+import AutomatedSequencesFeature from "@/components/pages/features/AutomatedSequencesFeature.astro";
 import type { UtmSource } from "./cta";
 import type { AstroComponentFactory } from "astro/runtime/server/index.js";
 
@@ -61,19 +61,7 @@ export const features: Feature[] = [
       subtitleKey: "features.free-mailbox-creation.cta.subtitle",
     },
   },
-  {
-    slug: "inbox-rotation",
-    titleKey: "features.rotation.title",
-    descriptionKey: "features.rotation.description",
-    icon: RefreshCw,
-    iconClass: "w-8 h-8 text-primary",
-    component: InboxRotationFeature,
-    cta: {
-      context: "features_rotation_bottom",
-      titleKey: "features.rotation.cta.title",
-      subtitleKey: "features.rotation.cta.subtitle",
-    },
-  },
+
   {
     slug: "warm-ups",
     aliases: ["warmup-automation"],
@@ -94,6 +82,12 @@ export const features: Feature[] = [
     descriptionKey: "features.leads-export.description",
     icon: Download,
     iconClass: "w-8 h-8 text-primary",
+    component: LeadsExportFeature,
+    cta: {
+      context: "features_leads_export_bottom",
+      titleKey: "features.export.cta.title",
+      subtitleKey: "features.export.cta.description",
+    },
   },
   {
     slug: "real-time-analytics",
@@ -114,6 +108,12 @@ export const features: Feature[] = [
     descriptionKey: "features.automated-sequences.description",
     icon: Cpu,
     iconClass: "w-8 h-8 text-primary",
+    component: AutomatedSequencesFeature,
+    cta: {
+      context: "features_automated_sequences_bottom",
+      titleKey: "features.sequences.cta.title",
+      subtitleKey: "features.sequences.cta.description",
+    },
   },
 ];
 

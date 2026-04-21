@@ -656,211 +656,155 @@ export const features: FeaturesTranslations = {
   "features.inbox.cta.description":
     "Start using the Unified Inbox and never miss an email again. See replies from all your mailboxes, tag leads, and reply fast.",
 
-  // Inbox Rotation Feature
-  "features.rotation.title": "Inbox Rotation",
-  "features.rotation.description":
-    "Spread your cold emails across multiple inboxes for safer sending and better deliverability.",
-  "features.rotation.cta.title": "Ready to rotate and send cold emails safely?",
-  "features.rotation.cta.subtitle":
-    "PenguinMails does it all for you. No limits. No stress. Create mailboxes inside PenguinMails and launch faster.",
-  "features.rotation.tabTitle": "Inbox Rotation - PenguinMails",
-  "features.rotation.heading": "Stop Sending Cold Emails From Just One Inbox",
-  "features.rotation.tagline":
-    "One inbox is risky. It gets flagged faster, burns out faster, and kills your deliverability.",
-  "features.rotation.tagline2":
-    "With Inbox Rotation, you send from multiple inboxes. All created inside PenguinMails for free. No need to connect your Gmail or Outlook. More reach. Less risk.",
-  "features.rotation.risk.title": "Why Sending From One Inbox is Risky",
-  "features.rotation.risk.subtitle": "One Inbox = More Problems",
-  "features.rotation.risk.description":
-    "Sending cold emails from one inbox seems fine at first. But it doesn't take long before it hurts your results. Here's why:",
-  "features.rotation.risk.items": [
-    "That one inbox will get flagged faster",
-    "Your domain warms up slowly",
-    "Open rates drop",
-    "You hit limits sooner",
-    "You can't scale campaigns",
+
+  // Leads Export Feature
+  "features.export.tabTitle": "Leads Export - PenguinMails",
+  "features.export.heading": "Export Your Leads in One Click",
+  "features.export.subheading":
+    "Clean data. Verified emails. Ready for your campaigns.",
+  "features.export.tagline": "Stop wasting time on manual data entry.",
+  "features.export.highlights": [
+    "CSV & JSON Support",
+    "Verified Emails",
+    "One-Click Export",
+    "Clean Data",
   ],
-  "features.rotation.risk.explanation":
-    "Big email tools watch sender behavior. If they see too many emails coming from one place, they slow you down or send your messages to spam.",
-  "features.rotation.risk.solution":
-    "But when you rotate inboxes, you look real. You spread the load. And you stay out of trouble.",
-  "features.rotation.benefits.title": "PenguinMails Inbox Rotation",
-  "features.rotation.benefits.subtitle":
-    "Send From Multiple Inboxes Without Stress",
-  "features.rotation.benefits.description":
-    "With PenguinMails, you can create inboxes for free. No need to buy Gmail or Outlook accounts. Our inbox rotation spreads your cold emails across all inboxes. This keeps sending natural and safe. Each inbox sends just a small number of emails per day. You stay under the radar. No red flags. You don't need to set anything up. Just add inboxes inside PenguinMails. We handle the rotation for you.",
-  "features.rotation.benefits.items": [
-    "Safe sending",
-    "Better deliverability",
-    "Built-in warm-up for each inbox",
-    "Works without extra tools",
-  ],
-  "features.rotation.steps.title": "How Inbox Rotation Works",
-  "features.rotation.steps.intro":
-    "Let's say you add 4 inboxes. You create one cold email sequence.",
-  "features.rotation.steps.description":
-    "PenguinMails splits your emails across those 4 inboxes. Each inbox sends a small part of the campaign every day. Here's how PenguinMails keeps your domain safe using inbox rotation.",
-  "features.rotation.steps.items": [
+  "features.export.explainer.title": "Why Data Quality Matters",
+  "features.export.explainer.description":
+    "Bad data kills campaigns. If you're exporting leads that bounce, your domain reputation will suffer. PenguinMails ensures your exported leads are clean and ready to use.",
+  "features.export.explainer.description2":
+    "Whether you're moving leads to a CRM or another outreach tool, our export feature ensures you have everything you need in the right format.",
+  "features.export.steps.title": "How it Works",
+  "features.export.steps.intro":
+    "Getting your leads out of PenguinMails is easy and fast.",
+  "features.export.steps.items": [
     {
-      title: "Connect Your Domain & Create Mailboxes",
+      title: "Find Your Leads",
       description:
-        "Once you link your domain and create the mailboxes, PenguinMails starts the warm-up process without needing any external tools.",
+        "Use our advanced filters to find the perfect leads for your campaign based on their behavior or tags.",
     },
     {
-      title: "Set Up Your Cold Email Campaign",
-      description: "Create your email sequence and select multiple mailboxes.",
-    },
-    {
-      title: "Each Inbox Sends a Small Batch Daily",
+      title: "Verify & Clean",
       description:
-        "PenguinMails keeps volumes low and safe. No inbox goes over the limit.",
+        "We automatically check for duplicates and invalid formats before the export starts.",
     },
     {
-      title: "You Stay Safe & Out of Spam",
+      title: "Export to CSV",
       description:
-        "Your domain reputation stays clean. Deliverability improves. More emails land in the inbox.",
+        "Download your list in one click and import it into your favorite CRM or outreach tools.",
     },
   ],
-  "features.rotation.steps.warmupNote":
-    "The warm-up frequency increases gradually, mimicking natural human behavior, so you can start cold outreach with confidence.",
-  "features.rotation.steps.aiNote":
-    "You don't need to manage anything manually. Our AI handles the entire warm-up sequence behind the scenes.",
-  "features.rotation.comparison.title": "PenguinMails vs Other Tools",
-  "features.rotation.comparison.subtitle":
-    "Most tools charge extra or don't rotate inboxes well. PenguinMails handles it all for you: Simple, Safe, AND Smart.",
-  "features.rotation.comparison.headers": [
-    "Features",
-    "PenguinMails",
-    "Other Tools",
-  ],
-  "features.rotation.comparison.rows": [
+  "features.export.benefits.title": "Benefits of PenguinMails Export",
+  "features.export.benefits.items": [
     {
-      feature: "Mailboxes",
-      penguin: "Unlimited (create for free)",
-      others: "1–3 (paid)",
+      title: "Save Time",
+      description:
+        "No more copy-pasting lead info. Get your data out in seconds.",
     },
     {
-      feature: "Warm-Up",
-      penguin: "Free + built-in",
-      others: "Extra tool needed",
+      title: "Better Results",
+      description:
+        "Clean lists mean fewer bounces and better deliverability for your future campaigns.",
     },
     {
-      feature: "Inbox Rotation",
-      penguin: "Included",
-      others: "Limited or manual",
-    },
-    {
-      feature: "Setup",
-      penguin: "Just a few clicks",
-      others: "Complex",
-    },
-    {
-      feature: "Reporting",
-      penguin: "Clean combined view + Per mailbox",
-      others: "Combined view",
-    },
-    {
-      feature: "Risk",
-      penguin: "Low (spread out smartly)",
-      others: "High (volume from 1 inbox)",
+      title: "Flexible Formats",
+      description:
+        "Export exactly what you need with support for CSV and JSON formats.",
     },
   ],
-  "features.rotation.comparison.footer":
-    "🔥 No extra cost. No setup stress. Just better cold email sending.",
-  "features.rotation.balanced.title": "What Balanced Sending Looks Like",
-  "features.rotation.balanced.subtitle":
-    "Spread Emails. Lower Risk. Better Results.",
-  "features.rotation.balanced.description":
-    "You don't want one inbox doing all the work. That's where problems begin. Spam, limits, and bad sender scores.",
-  "features.rotation.balanced.items": [
-    "3 to 5 inboxes",
-    "Each inbox sends 20 to 40 emails a day",
-    "No single inbox gets flagged",
-    "All inboxes stay warm and safe",
-  ],
-  "features.rotation.balanced.benefit1":
-    "It's the smart way to scale cold email. You get better reach. You land in inboxes.",
-  "features.rotation.balanced.benefit2": "You avoid bans or limits.",
-  "features.rotation.balanced.footer":
-    "This is what PenguinMails does for you.",
-  "features.rotation.whatYouGet.title": "What You Get with Inbox Rotation",
-  "features.rotation.whatYouGet.subtitle":
-    "Send From Multiple Inboxes Without Stress",
-  "features.rotation.whatYouGet.description":
-    "Inbox rotation keeps your cold emails safe and working. Here's what you get:",
-  "features.rotation.whatYouGet.items": [
-    "Higher deliverability",
-    "Lower spam risk",
-    "More inboxes warmed and ready",
-    "Stable sending every day",
-    "Better chance of replies",
-    "No limits on campaigns",
-    "Works quietly in the background",
-  ],
-  "features.rotation.whatYouGet.featuredItems": [
-    "Higher deliverability",
-    "Lower spam risk",
-    "More inboxes warmed and ready",
-    "Stable sending every day",
-  ],
-  "features.rotation.whatYouGet.extraItems": [
-    "Better chance of replies",
-    "No limits on campaigns",
-    "Works quietly in the background",
-  ],
-  "features.rotation.whatYouGet.footer":
-    "It saves your domain. It keeps your emails running.",
-  "features.rotation.faq.title": "Frequently Asked Questions (FAQs)",
-  "features.rotation.faq.items": [
+  "features.export.faq.title": "Frequently Asked Questions (FAQs)",
+  "features.export.faq.items": [
     {
-      question: "How does inbox rotation help deliverability?",
-      answer:
-        "When you send cold emails from one inbox, it can get flagged quickly. Inbox rotation distributes your emails across multiple inboxes so no single account carries too much volume. This protects your domain reputation and helps more emails land in recipients' inboxes instead of spam folders.",
+      question: "What formats are supported?",
+      answer: "We currently support CSV and JSON exports.",
     },
     {
-      question: "Can I use my own Gmail or Outlook inboxes?",
+      question: "Are the emails verified during export?",
       answer:
-        "We're still finalizing this. For now, you can create mailboxes inside PenguinMails for free and you don't need to connect anything else.",
+        "Yes, we perform syntax verification and basic cleanup to ensure your list is high quality.",
     },
     {
-      question: "How many mailboxes can I create inside PenguinMails?",
+      question: "Is there a limit on how many leads I can export?",
       answer:
-        "You can create unlimited mailboxes inside PenguinMails. No extra cost or limits.",
-    },
-    {
-      question: "Do I need to buy extra inboxes or domains?",
-      answer:
-        "You don't need to buy inboxes. Just buy your domain, and PenguinMails lets you create free mailboxes on it.",
-    },
-    {
-      question: "Will the system send duplicate emails from each inbox?",
-      answer:
-        "No. Each email is sent once, from one inbox. PenguinMails rotates the load, not the message.",
-    },
-    {
-      question: "Is warm-up included with inbox rotation?",
-      answer:
-        "Yes. Each inbox goes through warm-up first. You don't need to run any extra tool or service.",
-    },
-    {
-      question: "Can I turn off inbox rotation if I want?",
-      answer:
-        "Yes. When you set up a campaign, just select one inbox. If you pick multiple, rotation will happen. If you pick one, it won't.",
-    },
-    {
-      question: "Will this affect reply tracking or reporting?",
-      answer:
-        "No. All your replies land in one place, inside your PenguinMails dashboard. Reports stay clean, no matter how many inboxes you use.",
-    },
-    {
-      question: "How is this different from sending with one inbox?",
-      answer:
-        "Sending from one inbox puts your domain at risk. If that inbox gets flagged, all your emails suffer. With inbox rotation, each inbox sends fewer emails, and your domain stays safe.",
-    },
-    {
-      question: "Does inbox rotation cost extra?",
-      answer:
-        "No. Inbox rotation is included in every plan. No extra fees or upsells.",
+        "No, you can export all your leads according to your plan's limits.",
     },
   ],
+  "features.export.cta.title": "Start Building Your List Today",
+  "features.export.cta.description":
+    "Join PenguinMails and get access to powerful lead export tools and much more.",
+
+  // Automated Sequences Feature
+  "features.sequences.tabTitle": "Automated Sequences - PenguinMails",
+  "features.sequences.heading": "Automate Your Outreach with Intelligence",
+  "features.sequences.subheading": "Personalized follow-ups that look human.",
+  "features.sequences.tagline": "Set it and forget it. We handle the rest.",
+  "features.sequences.highlights": [
+    "Smart Follow-ups",
+    "A/B Testing",
+    "Condition Logic",
+    "Spam Protection",
+  ],
+  "features.sequences.explainer.title": "Scaling Without Losing the Human Touch",
+  "features.sequences.explainer.description":
+    "Most automation looks like automation. PenguinMails sequences use smart delays, rotating variables, and natural sending patterns to keep things personal.",
+  "features.sequences.explainer.description2":
+    "Drive more replies with sequences that adapt to your leads' behavior. If they reply, the sequence stops. If they don't, we keep trying.",
+  "features.sequences.steps.title": "3 Steps to Automation",
+  "features.sequences.steps.intro":
+    "Launching a high-performing sequence takes just minutes.",
+  "features.sequences.steps.items": [
+    {
+      title: "Write Your Emails",
+      description:
+        "Create multiple steps with personalized variables and spintax support.",
+    },
+    {
+      title: "Set Your Logic",
+      description:
+        "Decide when to send, set delays between steps, and choose your sending schedule.",
+    },
+    {
+      title: "Go Live & Scale",
+      description:
+        "Monitor your open rates and replies in real-time as leads flow through your sequence.",
+    },
+  ],
+  "features.sequences.benefits.title": "Why Use Automated Sequences?",
+  "features.sequences.benefits.items": [
+    {
+      title: "Consistency",
+      description:
+        "Never forget a follow-up again. We ensure every lead gets the attention they deserve.",
+    },
+    {
+      title: "Higher ROI",
+      description:
+        "Most deals are closed in the 3rd or 4th follow-up. Automation ensures you get there every time.",
+    },
+    {
+      title: "Scalability",
+      description:
+        "Reach thousands of leads with personalized messages without any manual effort.",
+    },
+  ],
+  "features.sequences.faq.title": "Frequently Asked Questions (FAQs)",
+  "features.sequences.faq.items": [
+    {
+      question: "Can I A/B test my emails?",
+      answer: "Yes, you can test different subject lines and body content.",
+    },
+    {
+      question: "When does the sequence stop?",
+      answer:
+        "The sequence automatically stops for a lead as soon as they reply or book a meeting.",
+    },
+    {
+      question: "How many steps can I have?",
+      answer:
+        "You can have unlimited steps in your sequences to ensure maximum engagement.",
+    },
+  ],
+  "features.sequences.cta.title": "Ready to automate your growth?",
+  "features.sequences.cta.description":
+    "Launch your first automated sequence in PenguinMails today and start closing more deals.",
 };
