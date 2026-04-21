@@ -114,5 +114,16 @@ const structuredData = JSON.stringify({
       })}
     />
     <Footer />
+    <script is:inline>
+      (function() {
+        var w = document.createElement('charla-widget');
+        w.setAttribute('app', 'app.charla.com');
+        document.body.appendChild(w);
+        var s = document.createElement('script');
+        s.src = 'https://app.charla.com/widget/widget.js';
+        s.defer = true;
+        document.body.appendChild(s);
+      })();
+    </script>
   </body>
 </html>
