@@ -1,34 +1,44 @@
 ---
-import Layout from "@/layouts/Layout.astro";
-import { getLangFromUrl, useTranslations } from "@/i18n/utils";
-import { showDefaultLang, defaultLang } from "@/i18n/ui";
-import { getUsecaseBySlug } from "@/lib/usecases-data";
 import UsecaseLayout from "@/components/pages/usecases/UsecaseLayout.astro";
+import { defaultLang, showDefaultLang } from "@/i18n/ui";
+import { getLangFromUrl, useTranslations } from "@/i18n/utils";
+import Layout from "@/layouts/Layout.astro";
+import { getUsecaseBySlug } from "@/lib/usecases-data";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
 const { slug } = Astro.params;
 
-// Helper function to generate localized paths - used to avoid code duplication
-const createLocalizedPath = (basePath: string) => !showDefaultLang && lang === defaultLang ? basePath : `/${lang}${basePath}`;
-// Ensure TypeScript sees the function as used
-void createLocalizedPath;
-
 if (!slug) {
-  return Astro.redirect(createLocalizedPath("/usecases"), 302);
+  return Astro.redirect(
+    !showDefaultLang && lang === defaultLang
+      ? "/usecases"
+      : `/${lang}/usecases`,
+    302,
+  );
 }
 
 const usecase = getUsecaseBySlug(slug);
 
 if (!usecase) {
-  return Astro.rewrite(createLocalizedPath("/404"));
+  return Astro.rewrite(
+    !showDefaultLang && lang === defaultLang ? "/404" : `/${lang}/404`,
+  );
 }
 ---
 
-<Layout 
+<Layout
   title={`${t(usecase.titleKey)} | ${t("site.title")}`}
   description={t(usecase.descriptionKey) as string}
 >
-  <UsecaseLayout usecaseSlug={slug} t={t as (key: string) => any} lang={lang} />
+  <UsecaseLayout
+    usecaseSlug={slug as
+      | "agencies"
+      | "freelancers"
+      | "outbound-teams"
+      | "startups"}
+    t={t}
+    lang={lang}
+  />
 </Layout>

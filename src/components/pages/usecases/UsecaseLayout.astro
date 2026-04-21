@@ -4,7 +4,8 @@ import Button from "@/components/ui/Button.astro";
 import { buildSignupUrl } from "@/lib/cta";
 import type { UtmSource } from "@/lib/cta";
 import { usecasesLinks } from "@/lib/navigation";
-import { useTranslatedPath } from "@/i18n/utils";
+import { useTranslatedPath, useTranslations } from "@/i18n/utils";
+import type { TranslationKey } from "@/i18n/types";
 import {
   MessageSquare,
   Inbox,
@@ -23,9 +24,11 @@ import {
 
 type UsecaseSlug = "agencies" | "freelancers" | "outbound-teams" | "startups";
 
+type Translator = ReturnType<typeof useTranslations>;
+
 interface Props {
-  usecaseSlug: string;
-  t: (key: string) => any;
+  usecaseSlug: UsecaseSlug;
+  t: Translator;
   lang: string;
 }
 
@@ -41,42 +44,43 @@ const translatePath = useTranslatedPath(lang as "en" | "es");
 
 // Dynamically access i18n keys based on the slug
 const prefix = `usecases.${usecaseSlug}`;
+const titleKey = `${prefix}.title` as TranslationKey;
 
 const hero = {
-  heading: t(`${prefix}.hero.heading`),
-  subheading: t(`${prefix}.hero.subheading`),
-  tagline: t(`${prefix}.hero.tagline`),
+  heading: t(`${prefix}.hero.heading` as TranslationKey),
+  subheading: t(`${prefix}.hero.subheading` as TranslationKey),
+  tagline: t(`${prefix}.hero.tagline` as TranslationKey),
 };
 
 const valueProp = {
-  title: t(`${prefix}.valueProp.title`),
-  explanation: t(`${prefix}.valueProp.explanation`),
-  benefit: t(`${prefix}.valueProp.benefit`),
+  title: t(`${prefix}.valueProp.title` as TranslationKey),
+  explanation: t(`${prefix}.valueProp.explanation` as TranslationKey),
+  benefit: t(`${prefix}.valueProp.benefit` as TranslationKey),
 };
 
 const versus = {
-  title: t(`${prefix}.versus.title`),
-  subtitle: t(`${prefix}.versus.subtitle`),
-  problemTitle: t(`${prefix}.versus.problemTitle`),
-  problems: t(`${prefix}.versus.problems`),
-  solutionTitle: t(`${prefix}.versus.solutionTitle`),
-  solution: t(`${prefix}.versus.solution`),
-  benefits: t(`${prefix}.versus.benefits`),
+  title: t(`${prefix}.versus.title` as TranslationKey),
+  subtitle: t(`${prefix}.versus.subtitle` as TranslationKey),
+  problemTitle: t(`${prefix}.versus.problemTitle` as TranslationKey),
+  problems: t(`${prefix}.versus.problems` as TranslationKey) as string[],
+  solutionTitle: t(`${prefix}.versus.solutionTitle` as TranslationKey),
+  solution: t(`${prefix}.versus.solution` as TranslationKey),
+  benefits: t(`${prefix}.versus.benefits` as TranslationKey) as string[],
 };
 
 const features = {
-  title: t(`${prefix}.features.title`),
-  items: t(`${prefix}.features.items`),
+  title: t(`${prefix}.features.title` as TranslationKey),
+  items: t(`${prefix}.features.items` as TranslationKey) as Array<{ title: string; description: string; iconName?: string }>,
 };
 
 const faq = {
-  title: t(`${prefix}.faq.title`),
-  items: t(`${prefix}.faq.items`),
+  title: t(`${prefix}.faq.title` as TranslationKey),
+  items: t(`${prefix}.faq.items` as TranslationKey) as Array<{ question: string; answer: string }>,
 };
 
 const bottomCta = {
-  title: t(`${prefix}.cta.title`),
-  description: t(`${prefix}.cta.description`),
+  title: t(`${prefix}.cta.title` as TranslationKey),
+  description: t(`${prefix}.cta.description` as TranslationKey),
 };
 
 const iconMap: Record<string, typeof MessageSquare | typeof Inbox | typeof Star | typeof Zap | typeof Clock | typeof PanelsTopLeft | typeof Search | typeof Users | typeof Briefcase | typeof Target | typeof Check> = {
@@ -107,7 +111,7 @@ const bottomContext = usecaseContextMap[usecaseSlug as UsecaseSlug].bottom;
         class="inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-2 text-sm font-medium text-primary mb-6"
       >
         <Target class="w-4 h-4" />
-        {t(`${prefix}.title`)}
+        {t(titleKey)}
       </div>
 
       <h1
