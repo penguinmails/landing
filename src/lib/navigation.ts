@@ -15,22 +15,10 @@ export const usecasesLinks: NavItem[] = [
 export const featuresLinks: NavItem[] = [
   { labelKey: "nav.unified-inbox", href: "/features/unified-inbox" },
   { labelKey: "nav.free-mailbox-creation", href: "/features/free-mailbox-creation" },
-  { labelKey: "nav.inbox-rotation", href: "/features/inbox-rotation" },
-  { labelKey: "nav.warmup-automation", href: "/features/warmup-automation" },
-  {
-    labelKey: "nav.free-mailbox-creation",
-    href: "/features/free-mailbox-creation",
-  },
   { labelKey: "nav.warmup-automation", href: "/features/warm-ups" },
   { labelKey: "nav.leads-export", href: "/features/leads-export" },
-  {
-    labelKey: "nav.real-time-analytics",
-    href: "/features/real-time-analytics",
-  },
-  {
-    labelKey: "nav.automated-sequences",
-    href: "/features/automated-sequences",
-  },
+  { labelKey: "nav.real-time-analytics", href: "/features/real-time-analytics" },
+  { labelKey: "nav.automated-sequences", href: "/features/automated-sequences" },
 ];
 
 export const legalLinks: NavItem[] = [

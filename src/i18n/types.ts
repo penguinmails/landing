@@ -18,7 +18,7 @@ export type CommonTranslations = {
   "nav.leads-export": string;
   "nav.real-time-analytics": string;
   "nav.automated-sequences": string;
-  "nav.inbox-rotation": string;
+
   "nav.anti-spam-policy": string;
   "nav.privacy": string;
   "nav.refund-policy": string;
@@ -371,62 +371,62 @@ export type FeaturesTranslations = {
   "features.inbox.cta.title": string;
   "features.inbox.cta.description": string;
 
-  // Inbox Rotation Feature
-  "features.rotation.title": string;
-  "features.rotation.description": string;
-  "features.rotation.cta.title": string;
-  "features.rotation.cta.subtitle": string;
-  "features.rotation.tabTitle": string;
-  "features.rotation.heading": string;
-  "features.rotation.tagline": string;
-  "features.rotation.tagline2": string;
-  "features.rotation.risk.title": string;
-  "features.rotation.risk.subtitle": string;
-  "features.rotation.risk.description": string;
-  "features.rotation.risk.items": string[];
-  "features.rotation.risk.explanation": string;
-  "features.rotation.risk.solution": string;
-  "features.rotation.benefits.title": string;
-  "features.rotation.benefits.subtitle": string;
-  "features.rotation.benefits.description": string;
-  "features.rotation.benefits.items": string[];
-  "features.rotation.steps.title": string;
-  "features.rotation.steps.intro": string;
-  "features.rotation.steps.description": string;
-  "features.rotation.steps.items": Array<{
+  // Leads Export Feature
+  "features.export.tabTitle": string;
+  "features.export.heading": string;
+  "features.export.subheading": string;
+  "features.export.tagline": string;
+  "features.export.highlights": string[];
+  "features.export.explainer.title": string;
+  "features.export.explainer.description": string;
+  "features.export.explainer.description2": string;
+  "features.export.steps.title": string;
+  "features.export.steps.intro": string;
+  "features.export.steps.items": Array<{
     title: string;
     description: string;
   }>;
-  "features.rotation.steps.warmupNote": string;
-  "features.rotation.steps.aiNote": string;
-  "features.rotation.comparison.title": string;
-  "features.rotation.comparison.subtitle": string;
-  "features.rotation.comparison.headers": string[];
-  "features.rotation.comparison.rows": Array<{
-    feature: string;
-    penguin: string;
-    others: string;
+  "features.export.benefits.title": string;
+  "features.export.benefits.items": Array<{
+    title: string;
+    description: string;
   }>;
-  "features.rotation.comparison.footer": string;
-  "features.rotation.balanced.title": string;
-  "features.rotation.balanced.subtitle": string;
-  "features.rotation.balanced.description": string;
-  "features.rotation.balanced.items": string[];
-  "features.rotation.balanced.benefit1": string;
-  "features.rotation.balanced.benefit2": string;
-  "features.rotation.balanced.footer": string;
-  "features.rotation.whatYouGet.title": string;
-  "features.rotation.whatYouGet.subtitle": string;
-  "features.rotation.whatYouGet.description": string;
-  "features.rotation.whatYouGet.items": string[];
-  "features.rotation.whatYouGet.featuredItems": string[];
-  "features.rotation.whatYouGet.extraItems": string[];
-  "features.rotation.whatYouGet.footer": string;
-  "features.rotation.faq.title": string;
-  "features.rotation.faq.items": Array<{
+  "features.export.faq.title": string;
+  "features.export.faq.items": Array<{
     question: string;
     answer: string;
   }>;
+  "features.export.cta.title": string;
+  "features.export.cta.description": string;
+
+  // Automated Sequences Feature
+  "features.sequences.badge": string;
+  "features.sequences.tabTitle": string;
+  "features.sequences.heading": string;
+  "features.sequences.subheading": string;
+  "features.sequences.tagline": string;
+  "features.sequences.highlights": string[];
+  "features.sequences.explainer.title": string;
+  "features.sequences.explainer.description": string;
+  "features.sequences.explainer.description2": string;
+  "features.sequences.steps.title": string;
+  "features.sequences.steps.intro": string;
+  "features.sequences.steps.items": Array<{
+    title: string;
+    description: string;
+  }>;
+  "features.sequences.benefits.title": string;
+  "features.sequences.benefits.items": Array<{
+    title: string;
+    description: string;
+  }>;
+  "features.sequences.faq.title": string;
+  "features.sequences.faq.items": Array<{
+    question: string;
+    answer: string;
+  }>;
+  "features.sequences.cta.title": string;
+  "features.sequences.cta.description": string;
 };
 
 export type UsecasesTranslations = {

@@ -1,0 +1,235 @@
+---
+import Button from "@/components/ui/Button.astro";
+import { buildSignupUrl } from "@/lib/cta";
+import {
+  Check,
+  Zap,
+  Clock,
+  TrendingUp,
+  Mail,
+  RefreshCw,
+  Target,
+  Shield,
+} from "@lucide/astro";
+
+const { t } = Astro.props;
+
+interface FeatureStep {
+  title: string;
+  description: string;
+}
+interface FeatureBenefit {
+  title: string;
+  description: string;
+}
+interface FeatureFaqItem {
+  question: string;
+  answer: string;
+}
+
+const highlights = t("features.sequences.highlights");
+const steps = t("features.sequences.steps.items");
+const benefits = t("features.sequences.benefits.items");
+const faqItems = t("features.sequences.faq.items");
+
+const highlightIcons = [Clock, TrendingUp, Target, Shield];
+const stepIcons = [Mail, Zap, RefreshCw];
+const benefitIcons = [Check, Target, Zap];
+---
+
+<div class="space-y-24 py-12">
+  <section>
+    <div class="mx-auto max-w-6xl px-4">
+      <div class="rounded-[2rem] border border-primary/10 bg-linear-to-br from-primary/5 via-white to-sky-50 p-8 shadow-sm md:p-12">
+        <div class="mx-auto max-w-4xl text-center">
+          <div class="mb-6 inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-2 text-sm font-medium text-primary">
+            <Zap class="h-4 w-4" />
+            {t("features.sequences.badge")}
+          </div>
+
+          <h1 class="text-balance text-4xl font-bold tracking-tight text-slate-900 md:text-5xl lg:text-6xl">
+            {t("features.sequences.heading")}
+          </h1>
+
+          <p class="mt-4 text-2xl font-semibold text-primary md:text-3xl">
+            {t("features.sequences.subheading")}
+          </p>
+
+          <p class="mx-auto mt-6 max-w-3xl text-lg text-slate-600 md:text-xl">
+            {t("features.sequences.tagline")}
+          </p>
+
+          <div class="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
+            <Button
+              variant="primary"
+              size="lg"
+              href={buildSignupUrl({ context: "features_automated_sequences" })}
+            >
+              {t("cta.buttonTrial")}
+            </Button>
+          </div>
+        </div>
+
+        <div class="mt-10 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+          {
+            highlights.map((highlight: string, index: number) => {
+              const Icon = highlightIcons[index] || Check;
+
+              return (
+                <div class="rounded-3xl border border-white/70 bg-white/80 p-5 text-left shadow-sm backdrop-blur">
+                  <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/10">
+                    <Icon class="h-6 w-6 text-primary" />
+                  </div>
+                  <p class="mt-4 text-base font-semibold leading-relaxed text-slate-900">
+                    {highlight}
+                  </p>
+                </div>
+              );
+            })
+          }
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="mx-auto max-w-6xl px-4">
+      <div class="mx-auto max-w-3xl text-center">
+        <h2 class="text-3xl font-bold text-slate-900 md:text-4xl">
+          {t("features.sequences.explainer.title")}
+        </h2>
+        <p class="mt-5 text-lg leading-relaxed text-slate-600">
+          {t("features.sequences.explainer.description")}
+        </p>
+        <p class="mt-4 text-lg leading-relaxed text-slate-600">
+          {t("features.sequences.explainer.description2")}
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="rounded-[2rem] bg-slate-50 py-20">
+    <div class="mx-auto max-w-6xl px-4">
+      <div class="mx-auto max-w-3xl text-center">
+        <h2 class="text-3xl font-bold text-slate-900 md:text-4xl">
+          {t("features.sequences.steps.title")}
+        </h2>
+        <p class="mt-4 text-lg text-slate-600 md:text-xl">
+          {t("features.sequences.steps.intro")}
+        </p>
+      </div>
+
+      <div class="mt-12 grid gap-8 md:grid-cols-3">
+        {
+          steps.map((step: FeatureStep, index: number) => {
+            const Icon = stepIcons[index] || Check;
+
+            return (
+              <div class="relative rounded-3xl border border-slate-200 bg-white p-8 shadow-sm">
+                <div class="absolute -top-4 left-8 flex h-10 w-10 items-center justify-center rounded-full bg-primary text-lg font-bold text-white">
+                  {index + 1}
+                </div>
+                <div class="pt-5">
+                  <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/10">
+                    <Icon class="h-6 w-6 text-primary" />
+                  </div>
+                  <h3 class="mt-5 text-xl font-semibold text-slate-900">
+                    {step.title}
+                  </h3>
+                  <p class="mt-3 text-base leading-relaxed text-slate-600">
+                    {step.description}
+                  </p>
+                </div>
+              </div>
+            );
+          })
+        }
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="mx-auto max-w-6xl px-4">
+      <div class="mx-auto max-w-3xl text-center">
+        <h2 class="text-3xl font-bold text-slate-900 md:text-4xl">
+          {t("features.sequences.benefits.title")}
+        </h2>
+      </div>
+
+      <div class="mt-12 grid gap-6 md:grid-cols-3">
+        {
+          benefits.map(
+            (
+              benefit: FeatureBenefit,
+              index: number,
+            ) => {
+              const Icon = benefitIcons[index] || Check;
+
+              return (
+                <div class="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
+                  <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-slate-900 text-white">
+                    <Icon class="h-6 w-6" />
+                  </div>
+                  <h3 class="mt-5 text-xl font-semibold text-slate-900">
+                    {benefit.title}
+                  </h3>
+                  <p class="mt-3 text-base leading-relaxed text-slate-600">
+                    {benefit.description}
+                  </p>
+                </div>
+              );
+            },
+          )
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="rounded-[2rem] bg-slate-50 py-20">
+    <div class="mx-auto max-w-6xl px-4">
+      <div class="mx-auto max-w-3xl text-center">
+        <h2 class="text-3xl font-bold text-slate-900 md:text-4xl">
+          {t("features.sequences.faq.title")}
+        </h2>
+      </div>
+
+      <div class="mt-12 grid gap-6 md:grid-cols-2">
+        {
+          faqItems.map((item: FeatureFaqItem) => (
+            <div class="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
+              <h3 class="text-xl font-semibold text-slate-900">
+                {item.question}
+              </h3>
+              <p class="mt-3 text-base leading-relaxed text-slate-600">
+                {item.answer}
+              </p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="text-center">
+    <div class="mx-auto max-w-4xl px-4">
+      <div class="rounded-[2rem] border border-slate-200 bg-white px-6 py-10 shadow-sm md:px-10 md:py-12">
+        <h2 class="text-3xl font-bold text-slate-900 md:text-4xl">
+          {t("features.sequences.cta.title")}
+        </h2>
+        <p class="mx-auto mt-4 max-w-2xl text-lg text-slate-600">
+          {t("features.sequences.cta.description")}
+        </p>
+
+        <div class="mt-8">
+          <Button
+            variant="primary"
+            size="lg"
+            href={buildSignupUrl({ context: "features_automated_sequences_bottom" })}
+          >
+            {t("cta.buttonTrial")}
+          </Button>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

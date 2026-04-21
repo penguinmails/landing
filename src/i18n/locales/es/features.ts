@@ -663,216 +663,162 @@ export const features: FeaturesTranslations = {
   "features.inbox.cta.description":
     "Empieza a usar el Buzón Unificado y nunca pierdas un correo. Mantente organizado, ahorra tiempo y cierra más tratos.",
 
-  // Inbox Rotation Feature
-  "features.rotation.title": "Rotación de Buzones",
-  "features.rotation.description":
-    "Distribuye tus correos fríos en múltiples buzones para un envío más seguro y mejor entregabilidad.",
-  "features.rotation.cta.title":
-    "¿Listo para rotar y enviar correos fríos de forma segura?",
-  "features.rotation.cta.subtitle":
-    "PenguinMails lo hace todo por ti. Sin límites. Sin estrés. Crea buzones dentro de PenguinMails y lanza más rápido.",
-  "features.rotation.tabTitle": "Rotación de Buzones - PenguinMails",
-  "features.rotation.heading":
-    "Deja de Enviar Correos Fríos Desde un Solo Buzón",
-  "features.rotation.tagline":
-    "Un solo buzón es arriesgado. Se marca más rápido, se agota más rápido y mata tu entregabilidad.",
-  "features.rotation.tagline2":
-    "Con la Rotación de Buzones, envías desde múltiples buzones. Todos creados dentro de PenguinMails gratis. No necesitas conectar tu Gmail u Outlook. Más alcance. Menos riesgo.",
-  "features.rotation.risk.title":
-    "Por Qué Enviar Desde un Solo Buzón es Arriesgado",
-  "features.rotation.risk.subtitle": "Un Buzón = Más Problemas",
-  "features.rotation.risk.description":
-    "Enviar correos fríos desde un solo buzón parece bien al principio. Pero no pasa mucho tiempo antes de que perjudique tus resultados. Aquí está el porqué:",
-  "features.rotation.risk.items": [
-    "Ese único buzón se marcará más rápido",
-    "Tu dominio se calienta lentamente",
-    "Las tasas de apertura bajan",
-    "Alcanzas los límites antes",
-    "No puedes escalar campañas",
+  // Leads Export Feature
+  "features.export.tabTitle": "Exportación de Leads - PenguinMails",
+  "features.export.heading": "Exporta tus Leads en un Clic",
+  "features.export.subheading":
+    "Datos limpios. Emails verificados. Listos para tus campañas.",
+  "features.export.tagline":
+    "Deja de perder tiempo en la entrada manual de datos.",
+  "features.export.highlights": [
+    "Soporte CSV y JSON",
+    "Emails Verificados",
+    "Exportación en un Clic",
+    "Datos Limpios",
   ],
-  "features.rotation.risk.explanation":
-    "Las grandes herramientas de correo vigilan el comportamiento del remitente. Si ven demasiados correos de un solo lugar, te ralentizan o envían tus mensajes al spam.",
-  "features.rotation.risk.solution":
-    "Pero cuando rotas buzones, te ves real. Distribuyes la carga. Y te mantienes fuera de problemas.",
-  "features.rotation.benefits.title": "Rotación de Buzones de PenguinMails",
-  "features.rotation.benefits.subtitle":
-    "Envía Desde Múltiples Buzones Sin Estrés",
-  "features.rotation.benefits.description":
-    "Con PenguinMails, puedes crear buzones gratis. No necesitas comprar cuentas de Gmail u Outlook. Nuestra rotación de buzones distribuye tus correos fríos en todos los buzones. Esto mantiene el envío natural y seguro. Cada buzón envía solo una pequeña cantidad de correos al día. Te mantienes bajo el radar. Sin alertas. No necesitas configurar nada. Solo añade buzones dentro de PenguinMails. Nosotros nos encargamos de la rotación.",
-  "features.rotation.benefits.items": [
-    "Envío seguro",
-    "Mejor entregabilidad",
-    "Calentamiento integrado para cada buzón",
-    "Funciona sin herramientas adicionales",
-  ],
-  "features.rotation.steps.title": "Cómo Funciona la Rotación de Buzones",
-  "features.rotation.steps.intro":
-    "Digamos que agregas 4 buzones. Creas una secuencia de correo frío.",
-  "features.rotation.steps.description":
-    "PenguinMails divide tus correos entre esos 4 buzones. Cada buzón envía una pequeña parte de la campaña cada día. Así es como PenguinMails mantiene tu dominio seguro usando rotación de buzones.",
-  "features.rotation.steps.items": [
+  "features.export.explainer.title": "Por qué Importa la Calidad de los Datos",
+  "features.export.explainer.description":
+    "Los malos datos matan las campañas. Si exportas leads que rebotan, tu reputación de dominio sufrirá. PenguinMails asegura que tus leads exportados estén limpios y listos para usar.",
+  "features.export.explainer.description2":
+    "Ya sea que muevas leads a un CRM u otra herramienta de alcance, nuestra función de exportación asegura que tengas todo lo que necesitas en el formato correcto.",
+  "features.export.steps.title": "Cómo Funciona",
+  "features.export.steps.intro":
+    "Sacar tus leads de PenguinMails es fácil y rápido.",
+  "features.export.steps.items": [
     {
-      title: "Conecta Tu Dominio y Crea Buzones",
+      title: "Encuentra tus Leads",
       description:
-        "Una vez que vinculas tu dominio y creas los buzones, PenguinMails inicia el proceso de calentamiento sin necesitar herramientas externas.",
+        "Usa nuestros filtros avanzados para encontrar los leads perfectos para tu campaña basándote en su comportamiento o etiquetas.",
     },
     {
-      title: "Configura Tu Campaña de Correo Frío",
+      title: "Verifica y Limpia",
       description:
-        "Crea tu secuencia de correo y selecciona múltiples buzones.",
+        "Comprobamos automáticamente duplicados y formatos inválidos antes de que comience la exportación.",
     },
     {
-      title: "Cada Buzón Envía un Pequeño Lote Diario",
+      title: "Exporta a CSV",
       description:
-        "PenguinMails mantiene los volúmenes bajos y seguros. Ningún buzón supera el límite.",
+        "Descarga tu lista en un clic e impórtala en tu CRM o herramientas de alcance favoritas.",
     },
+  ],
+  "features.export.benefits.title":
+    "Beneficios de la Exportación de PenguinMails",
+  "features.export.benefits.items": [
     {
-      title: "Te Mantienes Seguro y Fuera del Spam",
+      title: "Ahorra Tiempo",
       description:
-        "La reputación de tu dominio se mantiene limpia. La entregabilidad mejora. Más correos llegan a la bandeja.",
+        "No más copiar y pegar información de leads. Obtén tus datos en segundos.",
+    },
+    {
+      title: "Mejores Resultados",
+      description:
+        "Las listas limpias significan menos rebotes y mejor entregabilidad para tus futuras campañas.",
+    },
+    {
+      title: "Formatos Flexibles",
+      description:
+        "Exporta exactamente lo que necesitas con soporte para formatos CSV y JSON.",
     },
   ],
-  "features.rotation.steps.warmupNote":
-    "La frecuencia de calentamiento aumenta gradualmente, imitando el comportamiento humano natural, para que puedas comenzar el alcance frío con confianza.",
-  "features.rotation.steps.aiNote":
-    "No necesitas gestionar nada manualmente. Nuestra IA maneja toda la secuencia de calentamiento detrás de escena.",
-  "features.rotation.comparison.title": "PenguinMails vs Otras Herramientas",
-  "features.rotation.comparison.subtitle":
-    "La mayoría de las herramientas cobran extra o no rotan bien los buzones. PenguinMails lo maneja todo por ti: Simple, Seguro e Inteligente.",
-  "features.rotation.comparison.headers": [
-    "Características",
-    "PenguinMails",
-    "Otras Herramientas",
-  ],
-  "features.rotation.comparison.rows": [
+  "features.export.faq.title": "Preguntas Frecuentes (FAQs)",
+  "features.export.faq.items": [
     {
-      feature: "Buzones",
-      penguin: "Ilimitados (crea gratis)",
-      others: "1–3 (de pago)",
+      question: "¿Qué formatos son compatibles?",
+      answer: "Actualmente admitimos exportaciones en CSV y JSON.",
     },
     {
-      feature: "Calentamiento",
-      penguin: "Gratis + integrado",
-      others: "Herramienta extra necesaria",
+      question:
+        "¿Se verifican los correos electrónicos durante la exportación?",
+      answer:
+        "Sí, realizamos una verificación de sintaxis y una limpieza básica para asegurar que tu lista sea de alta calidad.",
     },
     {
-      feature: "Rotación de Buzones",
-      penguin: "Incluida",
-      others: "Incluida",
-    },
-    {
-      feature: "Configuración",
-      penguin: "Solo unos clics",
-      others: "Compleja",
-    },
-    {
-      feature: "Reportes",
-      penguin: "Vista combinada limpia + Por buzón",
-      others: "Vista combinada",
-    },
-    {
-      feature: "Riesgo",
-      penguin: "Bajo (distribuido inteligentemente)",
-      others: "Alto (volumen desde 1 buzón)",
+      question: "¿Hay un límite en cuántos leads puedo exportar?",
+      answer:
+        "No, puedes exportar todos tus leads según los límites de tu plan.",
     },
   ],
-  "features.rotation.comparison.footer":
-    "🔥 Sin coste extra. Sin estrés de configuración. Solo mejor envío de correo frío.",
-  "features.rotation.balanced.title": "Cómo se Ve un Envío Equilibrado",
-  "features.rotation.balanced.subtitle":
-    "Distribuye Correos. Menor Riesgo. Mejores Resultados.",
-  "features.rotation.balanced.description":
-    "No quieres que un solo buzón haga todo el trabajo. Ahí es donde comienzan los problemas. Spam, límites y malas puntuaciones de remitente.",
-  "features.rotation.balanced.items": [
-    "3 a 5 buzones",
-    "Cada buzón envía 20 a 40 correos al día",
-    "Ningún buzón individual se marca",
-    "Todos los buzones se mantienen calientes y seguros",
+  "features.export.cta.title": "Empieza a Construir tu Lista Hoy",
+  "features.export.cta.description":
+    "Únete a PenguinMails y obtén acceso a potentes herramientas de exportación de leads y mucho más.",
+
+  // Automated Sequences Feature
+  "features.sequences.badge": "Secuencias Automatizadas",
+  "features.sequences.tabTitle": "Secuencias Automatizadas - PenguinMails",
+  "features.sequences.heading": "Automatiza tu Alcance con Inteligencia",
+  "features.sequences.subheading":
+    "Seguimientos personalizados que parecen humanos.",
+  "features.sequences.tagline":
+    "Configúralo y olvídalo. Nosotros nos encargamos del resto.",
+  "features.sequences.highlights": [
+    "Seguimientos Inteligentes",
+    "Pruebas A/B",
+    "Lógica de Condición",
+    "Protección contra Spam",
   ],
-  "features.rotation.balanced.benefit1":
-    "Es la forma inteligente de escalar el correo frío. Obtienes mejor alcance. Llegas a las bandejas.",
-  "features.rotation.balanced.benefit2": "Evitas prohibiciones o límites.",
-  "features.rotation.balanced.footer":
-    "Esto es lo que PenguinMails hace por ti.",
-  "features.rotation.whatYouGet.title":
-    "Lo Que Obtienes con la Rotación de Buzones",
-  "features.rotation.whatYouGet.subtitle":
-    "Envía Desde Múltiples Buzones Sin Estrés",
-  "features.rotation.whatYouGet.description":
-    "La rotación de buzones mantiene tus correos fríos seguros y funcionando. Esto es lo que obtienes:",
-  "features.rotation.whatYouGet.items": [
-    "Mayor entregabilidad",
-    "Menor riesgo de spam",
-    "Más buzones calentados y listos",
-    "Envío estable cada día",
-    "Mayor probabilidad de respuestas",
-    "Sin límites en campañas",
-    "Funciona silenciosamente en segundo plano",
-  ],
-  "features.rotation.whatYouGet.featuredItems": [
-    "Mayor entregabilidad",
-    "Menor riesgo de spam",
-    "Más buzones calentados y listos",
-    "Envío estable cada día",
-  ],
-  "features.rotation.whatYouGet.extraItems": [
-    "Mayor probabilidad de respuestas",
-    "Sin límites en campañas",
-    "Funciona silenciosamente en segundo plano",
-  ],
-  "features.rotation.whatYouGet.footer":
-    "Protege tu dominio. Mantiene tus correos funcionando.",
-  "features.rotation.faq.title": "Preguntas Frecuentes (FAQs)",
-  "features.rotation.faq.items": [
+  "features.sequences.explainer.title": "Escalando sin Perder el Toque Humano",
+  "features.sequences.explainer.description":
+    "La mayoría de la automatización parece automatización. Las secuencias de PenguinMails usan retrasos inteligentes, variables rotativas y patrones de envío naturales para mantener las cosas personales.",
+  "features.sequences.explainer.description2":
+    "Impulsa más respuestas con secuencias que se adaptan al comportamiento de tus leads. Si responden, la secuencia se detiene. Si no, seguimos intentándolo.",
+  "features.sequences.steps.title": "3 Pasos para la Automatización",
+  "features.sequences.steps.intro":
+    "Lanzar una secuencia de alto rendimiento solo toma unos minutos.",
+  "features.sequences.steps.items": [
     {
-      question: "¿Cómo ayuda la rotación de buzones a la entregabilidad?",
-      answer:
-        "Cuando envías correos fríos desde un solo buzón, puede marcarse rápido. La rotación de buzones distribuye tus correos en múltiples buzones, así ninguno se sobrecarga. Eso mantiene tu dominio seguro y ayuda a que más correos lleguen a la bandeja, no al spam.",
+      title: "Escribe tus Correos",
+      description:
+        "Crea múltiples pasos con variables personalizadas y soporte para spintax.",
     },
     {
-      question: "¿Puedo usar mis propios buzones de Gmail u Outlook?",
-      answer:
-        "Aún estamos finalizando esto. Por ahora, puedes crear buzones dentro de PenguinMails gratis y no necesitas conectar nada más.",
+      title: "Establece tu Lógica",
+      description:
+        "Decide cuándo enviar, establece retrasos entre pasos y elige tu horario de envío.",
     },
     {
-      question: "¿Cuántos buzones puedo crear dentro de PenguinMails?",
-      answer:
-        "Puedes crear buzones ilimitados dentro de PenguinMails. Sin costes extra ni límites.",
-    },
-    {
-      question: "¿Necesito comprar buzones o dominios adicionales?",
-      answer:
-        "No necesitas comprar buzones. Solo compra tu dominio, y PenguinMails te permite crear buzones gratuitos en él.",
-    },
-    {
-      question: "¿El sistema enviará correos duplicados desde cada buzón?",
-      answer:
-        "No. Cada correo se envía una vez, desde un buzón. PenguinMails rota la carga, no el mensaje.",
-    },
-    {
-      question: "¿El calentamiento está incluido con la rotación de buzones?",
-      answer:
-        "Sí. Cada buzón pasa por el calentamiento primero. No necesitas ejecutar ninguna herramienta o servicio extra.",
-    },
-    {
-      question: "¿Puedo desactivar la rotación de buzones si quiero?",
-      answer:
-        "Sí. Cuando configuras una campaña, solo selecciona un buzón. Si eliges varios, habrá rotación. Si eliges uno, no.",
-    },
-    {
-      question: "¿Esto afectará el seguimiento de respuestas o los reportes?",
-      answer:
-        "No. Todas tus respuestas llegan a un solo lugar, dentro de tu panel de PenguinMails. Los reportes se mantienen limpios, sin importar cuántos buzones uses.",
-    },
-    {
-      question: "¿En qué se diferencia de enviar con un solo buzón?",
-      answer:
-        "Enviar desde un solo buzón pone tu dominio en riesgo. Si ese buzón se marca, todos tus correos sufren. Con la rotación de buzones, cada buzón envía menos correos, y tu dominio se mantiene seguro.",
-    },
-    {
-      question: "¿La rotación de buzones tiene coste adicional?",
-      answer:
-        "No. La rotación de buzones está incluida en todos los planes. Sin tarifas extra ni ventas adicionales.",
+      title: "Lánzate y Escala",
+      description:
+        "Monitorea tus tasas de apertura y respuestas en tiempo real a medida que los leads fluyen por tu secuencia.",
     },
   ],
+  "features.sequences.benefits.title":
+    "¿Por qué usar Secuencias Automatizadas?",
+  "features.sequences.benefits.items": [
+    {
+      title: "Consistencia",
+      description:
+        "Nunca más olvides un seguimiento. Aseguramos que cada lead reciba la atención que merece.",
+    },
+    {
+      title: "Mayor ROI",
+      description:
+        "La mayoría de los tratos se cierran en el 3er o 4to seguimiento. La automatización asegura que llegues allí cada vez.",
+    },
+    {
+      title: "Escalabilidad",
+      description:
+        "Llega a miles de leads con mensajes personalizados sin ningún esfuerzo manual.",
+    },
+  ],
+  "features.sequences.faq.title": "Preguntas Frecuentes (FAQs)",
+  "features.sequences.faq.items": [
+    {
+      question: "¿Puedo hacer pruebas A/B de mis correos?",
+      answer:
+        "Sí, puedes probar diferentes líneas de asunto y contenido del cuerpo.",
+    },
+    {
+      question: "¿Cuándo se detiene la secuencia?",
+      answer:
+        "La secuencia se detiene automáticamente para un lead tan pronto como responda o reserve una reunión.",
+    },
+    {
+      question: "¿Cuántos pasos puedo tener?",
+      answer:
+        "Puedes tener pasos ilimitados en tus secuencias para asegurar el máximo compromiso.",
+    },
+  ],
+  "features.sequences.cta.title": "¿Listo para automatizar tu crecimiento?",
+  "features.sequences.cta.description":
+    "Lanza tu primera secuencia automatizada en PenguinMails hoy y empieza a cerrar más tratos.",
 };
