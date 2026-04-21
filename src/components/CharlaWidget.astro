@@ -1,0 +1,27 @@
+---
+const charlaProjectId = import.meta.env.PUBLIC_CHARLA_PROJECT_ID || "8ef52b8e-fe5c-46d8-85b6-6e5c47abb0ac";
+---
+
+<script is:inline define:vars={{ charlaProjectId }}>
+  window.addEventListener("load", function () {
+    if (!charlaProjectId || charlaProjectId === "undefined") {
+      console.warn("Charla widget skipped: missing project ID");
+      return;
+    }
+    const existingWidget = document.querySelector("charla-widget[p]");
+    if (!existingWidget) {
+      const widgetElement = document.createElement("charla-widget");
+      widgetElement.setAttribute("p", charlaProjectId);
+      document.body.appendChild(widgetElement);
+    }
+
+    const existingScript = document.querySelector(
+      "script[src='https://app.charla.com/widget/widget.js']"
+    );
+    if (!existingScript) {
+      const widgetCode = document.createElement("script");
+      widgetCode.src = "https://app.charla.com/widget/widget.js";
+      document.body.appendChild(widgetCode);
+    }
+  });
+</script>
