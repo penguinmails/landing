@@ -663,13 +663,13 @@ export const features: FeaturesTranslations = {
   "features.inbox.cta.description":
     "Empieza a usar el Buzón Unificado y nunca pierdas un correo. Mantente organizado, ahorra tiempo y cierra más tratos.",
 
-
   // Leads Export Feature
   "features.export.tabTitle": "Exportación de Leads - PenguinMails",
   "features.export.heading": "Exporta tus Leads en un Clic",
   "features.export.subheading":
     "Datos limpios. Emails verificados. Listos para tus campañas.",
-  "features.export.tagline": "Deja de perder tiempo en la entrada manual de datos.",
+  "features.export.tagline":
+    "Deja de perder tiempo en la entrada manual de datos.",
   "features.export.highlights": [
     "Soporte CSV y JSON",
     "Emails Verificados",
@@ -701,7 +701,8 @@ export const features: FeaturesTranslations = {
         "Descarga tu lista en un clic e impórtala en tu CRM o herramientas de alcance favoritas.",
     },
   ],
-  "features.export.benefits.title": "Beneficios de la Exportación de PenguinMails",
+  "features.export.benefits.title":
+    "Beneficios de la Exportación de PenguinMails",
   "features.export.benefits.items": [
     {
       title: "Ahorra Tiempo",
@@ -726,7 +727,8 @@ export const features: FeaturesTranslations = {
       answer: "Actualmente admitimos exportaciones en CSV y JSON.",
     },
     {
-      question: "¿Se verifican los correos electrónicos durante la exportación?",
+      question:
+        "¿Se verifican los correos electrónicos durante la exportación?",
       answer:
         "Sí, realizamos una verificación de sintaxis y una limpieza básica para asegurar que tu lista sea de alta calidad.",
     },
@@ -741,6 +743,7 @@ export const features: FeaturesTranslations = {
     "Únete a PenguinMails y obtén acceso a potentes herramientas de exportación de leads y mucho más.",
 
   // Automated Sequences Feature
+  "features.sequences.badge": "Secuencias Automatizadas",
   "features.sequences.tabTitle": "Secuencias Automatizadas - PenguinMails",
   "features.sequences.heading": "Automatiza tu Alcance con Inteligencia",
   "features.sequences.subheading":
@@ -778,7 +781,8 @@ export const features: FeaturesTranslations = {
         "Monitorea tus tasas de apertura y respuestas en tiempo real a medida que los leads fluyen por tu secuencia.",
     },
   ],
-  "features.sequences.benefits.title": "¿Por qué usar Secuencias Automatizadas?",
+  "features.sequences.benefits.title":
+    "¿Por qué usar Secuencias Automatizadas?",
   "features.sequences.benefits.items": [
     {
       title: "Consistencia",

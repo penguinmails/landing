@@ -656,7 +656,6 @@ export const features: FeaturesTranslations = {
   "features.inbox.cta.description":
     "Start using the Unified Inbox and never miss an email again. See replies from all your mailboxes, tag leads, and reply fast.",
 
-
   // Leads Export Feature
   "features.export.tabTitle": "Leads Export - PenguinMails",
   "features.export.heading": "Export Your Leads in One Click",
@@ -734,6 +733,7 @@ export const features: FeaturesTranslations = {
     "Join PenguinMails and get access to powerful lead export tools and much more.",
 
   // Automated Sequences Feature
+  "features.sequences.badge": "Automated Sequences",
   "features.sequences.tabTitle": "Automated Sequences - PenguinMails",
   "features.sequences.heading": "Automate Your Outreach with Intelligence",
   "features.sequences.subheading": "Personalized follow-ups that look human.",
@@ -744,7 +744,8 @@ export const features: FeaturesTranslations = {
     "Condition Logic",
     "Spam Protection",
   ],
-  "features.sequences.explainer.title": "Scaling Without Losing the Human Touch",
+  "features.sequences.explainer.title":
+    "Scaling Without Losing the Human Touch",
   "features.sequences.explainer.description":
     "Most automation looks like automation. PenguinMails sequences use smart delays, rotating variables, and natural sending patterns to keep things personal.",
   "features.sequences.explainer.description2":

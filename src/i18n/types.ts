@@ -400,6 +400,7 @@ export type FeaturesTranslations = {
   "features.export.cta.description": string;
 
   // Automated Sequences Feature
+  "features.sequences.badge": string;
   "features.sequences.tabTitle": string;
   "features.sequences.heading": string;
   "features.sequences.subheading": string;
