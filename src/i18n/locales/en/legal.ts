@@ -446,7 +446,8 @@ export const legal: LegalTranslations = {
   "legal.terms.termination.title": "Termination & Suspension",
   "legal.terms.termination.intro":
     "We hope to never part ways, but in some cases we may need to suspend or close an account. Reasons this might happen:",
-  "legal.terms.termination.body": "",
+  "legal.terms.termination.body":
+    "We may suspend or terminate accounts based on the severity and pattern of violations.",
   "legal.terms.termination.items": [
     "Repeated violations of our Terms or Anti-Spam Policy",
     "Illegal or harmful activity",

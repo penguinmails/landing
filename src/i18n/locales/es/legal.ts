@@ -453,7 +453,8 @@ export const legal: LegalTranslations = {
   "legal.terms.termination.title": "Cancelación y Suspensión",
   "legal.terms.termination.intro":
     "Esperamos no tener que separarnos nunca, pero en algunos casos podemos necesitar suspender o cerrar una cuenta. Motivos por los que esto podría suceder:",
-  "legal.terms.termination.body": "",
+  "legal.terms.termination.body":
+    "Podemos suspender o cerrar cuentas según la gravedad y el patrón de las infracciones.",
   "legal.terms.termination.items": [
     "Violaciones repetidas de nuestros Términos o Política Antispam",
     "Actividad ilegal o dañina",
