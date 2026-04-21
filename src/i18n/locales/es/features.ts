@@ -14,9 +14,9 @@ export const features: FeaturesTranslations = {
     "Crea Tu Primer Buzón en Menos de 2 Minutos",
   "features.free-mailbox-creation.cta.subtitle":
     'Sin alojamiento. Sin SMTP. Sin cPanel. Solo conecta tu dominio y haz clic en "Crear Buzón." Tendrás un buzón de correo frío funcional, listo para calentar y enviar.',
-  "features.warmup-automation.title": "Automatización de Calentamiento",
+  "features.warmup-automation.title": "Calentamiento de Correos",
   "features.warmup-automation.description":
-    "Construye confianza con los proveedores de correo electrónico antes de escalar tus campañas.",
+    "Calienta buzones nuevos automáticamente para que tus campañas en frío empiecen con mejor llegada a la bandeja de entrada.",
   "features.leads-export.title": "Exportación de Clientes Potenciales",
   "features.leads-export.description":
     "Descarga y gestiona tus prospectos sin esfuerzo, listos para alcance o análisis.",
@@ -30,6 +30,162 @@ export const features: FeaturesTranslations = {
   "features.automated-sequences.title": "Secuencias Automatizadas",
   "features.automated-sequences.description":
     "Haz un seguimiento de forma constante sin trabajo manual utilizando reglas inteligentes.",
+
+  // Warm-Up Feature
+  "features.warmup.tabTitle": "Calentamiento de Correos",
+  "features.warmup.heading":
+    "Calienta Tus Correos Antes de Enviar Campañas en Frío",
+  "features.warmup.subheading":
+    "Protege la reputación de tu dominio desde el primer día",
+  "features.warmup.tagline":
+    "PenguinMails incluye un motor de warm-up de correo integrado que mejora la entregabilidad en segundo plano, para que tus correos en frío lleguen a la bandeja de entrada y no al spam.",
+  "features.warmup.highlights": [
+    "Warm-ups 100% integrados sin coste extra",
+    "Funciona automáticamente en segundo plano",
+    "Patrones inteligentes que imitan respuestas humanas reales",
+    "Ayuda a dominios nuevos a ganar confianza con Gmail y Outlook",
+  ],
+  "features.warmup.explainer.title": "¿Qué Es el Calentamiento de Correos?",
+  "features.warmup.explainer.description":
+    "Si envías correos en frío desde un dominio o buzón nuevo sin calentarlo primero, los proveedores de correo tienen mucha más probabilidad de marcarte como riesgoso. Un volumen repentino desde un dominio frío parece poco natural, aunque tu copy sea bueno.",
+  "features.warmup.explainer.description2":
+    "El warm-up construye la reputación del remitente poco a poco creando pequeñas señales positivas de interacción con el tiempo. Esa actividad constante les dice a Gmail, Outlook y otros proveedores que tu buzón está activo, es confiable y es seguro de entregar.",
+  "features.warmup.explainer.calloutTitle":
+    "Así es como los buzones nuevos ganan confianza",
+  "features.warmup.explainer.calloutDescription":
+    "La entregabilidad depende de la reputación, no solo del copy. Las señales correctas de warm-up ayudan a que los proveedores vean tu dominio como legítimo antes de que aumentes el volumen.",
+  "features.warmup.explainer.signals": [
+    "Volúmenes pequeños de envío se ven más seguros que un arranque brusco",
+    "Aperturas, respuestas y acciones de lista segura refuerzan una interacción saludable",
+    "La actividad constante construye confianza antes de que empiecen las campañas reales",
+  ],
+  "features.warmup.steps.title": "Cómo Funciona el Warm-Up de PenguinMails",
+  "features.warmup.steps.intro":
+    "PenguinMails se encarga del warm-up automáticamente en tres pasos simples.",
+  "features.warmup.steps.items": [
+    {
+      title: "Conecta Tu Dominio y Crea Buzones",
+      description:
+        "Una vez que tu dominio está conectado y tus buzones existen, PenguinMails puede empezar a calentarlos sin herramientas externas ni procesos manuales.",
+    },
+    {
+      title: "Enviamos Conversaciones Realistas",
+      description:
+        "Cada día, la plataforma envía una cantidad controlada de correos con apariencia natural a bandejas confiables. Los patrones evitan comportamientos de spam e imitan conversaciones normales de negocio.",
+    },
+    {
+      title: "Las Acciones Positivas Construyen Reputación",
+      description:
+        "Los correos de warm-up se abren, se responden, se marcan como importantes y se rescatan del spam cuando hace falta. El volumen sube de forma gradual para que tu reputación crezca como esperan los proveedores.",
+    },
+  ],
+  "features.warmup.steps.conclusion":
+    "No necesitas gestionar la secuencia manualmente. PenguinMails mantiene el warm-up funcionando en segundo plano mientras tu dominio gana confianza.",
+  "features.warmup.why.title":
+    "Por Qué el Warm-Up Es Esencial para la Entregabilidad",
+  "features.warmup.why.subtitle":
+    "Saltarte el warm-up es una de las formas más rápidas de dañar el rendimiento del correo en frío.",
+  "features.warmup.why.items": [
+    {
+      title: "Sin Warm-Up Hay Baja Entregabilidad",
+      description:
+        "Los dominios nuevos o inactivos que saltan directo al alcance suelen acabar en spam, ser ignorados o quemar reputación antes de que la campaña tenga oportunidad de funcionar.",
+    },
+    {
+      title: "Los Filtros de Spam Ahora Son Más Inteligentes",
+      description:
+        "Los proveedores usan señales de comportamiento para detectar alcance sospechoso. Si un buzón no tiene historial de interacción saludable, los filtros se vuelven mucho más agresivos.",
+    },
+    {
+      title: "El Warm-Up Construye Confianza",
+      description:
+        "Los envíos constantes, aperturas, respuestas y acciones de carpeta segura les dicen a los proveedores que tu correo es legítimo, lo que mejora la llegada a la bandeja con el tiempo.",
+    },
+    {
+      title: "Unas Pocas Semanas Cambian Todo",
+      description:
+        "Incluso 14 a 21 días de warm-up bien hecho pueden marcar una gran diferencia en cuántos prospectos realmente ven tus mensajes.",
+    },
+  ],
+  "features.warmup.why.footerTitle":
+    "El warm-up no es opcional cuando la reputación importa",
+  "features.warmup.why.footerDescription":
+    "La mejor secuencia de correo en frío del mundo no sirve de nada si tus mensajes nunca llegan a la bandeja de entrada. El warm-up le da a tus campañas un punto de partida mucho más fuerte.",
+  "features.warmup.comparison.title":
+    "Cómo Se Compara PenguinMails con Otras Herramientas de Warm-Up",
+  "features.warmup.comparison.subtitle":
+    "La mayoría trata la entregabilidad como una función secundaria. Nosotros la incorporamos al producto desde el inicio.",
+  "features.warmup.comparison.headers": [
+    "Característica",
+    "PenguinMails",
+    "Otras herramientas",
+  ],
+  "features.warmup.comparison.rows": [
+    {
+      feature: "Motor de warm-up",
+      penguin: "Desarrollado internamente",
+      others: "A menudo externalizado o compartido",
+    },
+    {
+      feature: "Calidad de interacción",
+      penguin: "Respuestas, aperturas y lista segura",
+      others: "Actividad básica de envío y apertura",
+    },
+    {
+      feature: "Coste",
+      penguin: "Incluido en todos los planes",
+      others: "Normalmente es un extra de pago",
+    },
+    {
+      feature: "Configuración",
+      penguin: "Integrado en el flujo del buzón",
+      others: "A menudo manual o fragmentado",
+    },
+    {
+      feature: "Enfoque en entregabilidad",
+      penguin: "Función central del producto",
+      others: "Upsell secundario",
+    },
+  ],
+  "features.warmup.comparison.calloutTitle":
+    "El warm-up integrado elimina capas extra",
+  "features.warmup.comparison.calloutDescription":
+    "No necesitas una suscripción externa de warm-up ni otra capa de configuración. La misma plataforma que crea y gestiona buzones también puede prepararlos para el alcance.",
+  "features.warmup.myths.title":
+    "No Caigas en Estos Mitos del Warm-Up para Correo en Frío",
+  "features.warmup.myths.subtitle":
+    "Hay muchísimo mal consejo sobre warm-up. Estos mitos suelen ser los que más dañan la entregabilidad.",
+  "features.warmup.myths.items": [
+    {
+      title: "Un dominio antiguo no necesita warm-up",
+      description:
+        "Incluso los dominios consolidados necesitan warm-up cuando empiezas a enviar desde buzones nuevos o lanzas nueva actividad de correo en frío.",
+    },
+    {
+      title: "Enviar poco a poco es suficiente",
+      description:
+        "Bajar el volumen por sí solo no resuelve el problema. Los proveedores también miran señales positivas de interacción y comportamiento consistente.",
+    },
+    {
+      title: "El warm-up manual está bien",
+      description:
+        "El warm-up manual es difícil de sostener y rara vez genera suficiente actividad realista. El warm-up automatizado es mucho más fiable a escala.",
+    },
+    {
+      title: "Cualquier herramienta de warm-up sirve",
+      description:
+        "Muchas herramientas dependen de redes de buzones débiles o demasiado usadas. PenguinMails utiliza su propio flujo de warm-up para mantener el comportamiento controlado y enfocado en entregabilidad.",
+    },
+  ],
+  "features.warmup.bottomCta.title":
+    "Empieza a Calentar Tus Correos de la Forma Correcta",
+  "features.warmup.bottomCta.description":
+    "Conecta tu dominio, crea tus buzones y deja que PenguinMails construya confianza de remitente antes de lanzar tu primera campaña en frío.",
+  "features.warmup.bottomCta.highlights": [
+    "Incluido en todos los planes",
+    "Funciona automáticamente",
+    "Pensado para lanzamientos en frío más seguros",
+  ],
 
   // Mailbox Creation Feature
   "features.mailbox.tabTitle": "Creación Gratuita de Buzones - PenguinMails",

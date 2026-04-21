@@ -20,6 +20,10 @@ if (!feature) {
   return Astro.rewrite(translatePath("/404"));
 }
 
+if (slug !== feature.slug) {
+  return Astro.redirect(`${translatePath(`/features/${feature.slug}`)}${Astro.url.search}`, 301);
+}
+
 const FeatureComponent = feature.component;
 const Icon = feature.icon;
 
@@ -32,7 +36,11 @@ const ctaOverride = feature.cta
   : undefined;
 ---
 
-<Layout title={`${t(feature.titleKey)} | ${t("site.title")}`} ctaOverride={ctaOverride}>
+<Layout
+  title={`${t(feature.titleKey)} | ${t("site.title")}`}
+  description={t(feature.descriptionKey) as string}
+  ctaOverride={ctaOverride}
+>
   {FeatureComponent ? (
     <!-- Render full detailed feature component if available -->
     <FeatureComponent t={t} />

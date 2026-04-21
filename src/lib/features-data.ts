@@ -11,6 +11,7 @@ import FreeMailboxCreationFeature from "@/components/pages/features/FreeMailboxC
 import InboxRotationFeature from "@/components/pages/features/InboxRotationFeature.astro";
 import RealTimeAnalyticsFeature from "@/components/pages/features/RealTimeAnalyticsFeature.astro";
 import UnifiedInboxFeature from "@/components/pages/features/UnifiedInboxFeature.astro";
+import WarmupAutomationFeature from "@/components/pages/features/WarmupAutomationFeature.astro";
 import type { UtmSource } from "./cta";
 import type { AstroComponentFactory } from "astro/runtime/server/index.js";
 
@@ -24,6 +25,7 @@ export interface CtaInfo {
 
 export interface Feature {
   slug: string;
+  aliases?: string[];
   titleKey: TranslationKey;
   descriptionKey: TranslationKey;
   icon: typeof MessageSquare;
@@ -73,11 +75,18 @@ export const features: Feature[] = [
     },
   },
   {
-    slug: "warmup-automation",
+    slug: "warm-ups",
+    aliases: ["warmup-automation"],
     titleKey: "features.warmup-automation.title",
     descriptionKey: "features.warmup-automation.description",
     icon: Flame,
     iconClass: "w-8 h-8 text-primary",
+    component: WarmupAutomationFeature,
+    cta: {
+      context: "features_warmups_bottom",
+      titleKey: "features.warmup.bottomCta.title",
+      subtitleKey: "features.warmup.bottomCta.description",
+    },
   },
   {
     slug: "leads-export",
@@ -109,5 +118,7 @@ export const features: Feature[] = [
 ];
 
 export const getFeatureBySlug = (slug: string): Feature | undefined => {
-  return features.find((f) => f.slug === slug);
+  return features.find((feature) => {
+    return feature.slug === slug || feature.aliases?.includes(slug);
+  });
 };
