@@ -1,0 +1,122 @@
+---
+const { t } = Astro.props;
+---
+
+<div class="py-16 md:py-24">
+  <div class="mx-auto max-w-3xl px-4">
+    <!-- Hero Header -->
+    <div class="mb-16 text-center">
+      <div class="mb-4 inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-1.5 text-sm font-semibold text-primary">
+        {t("nav.anti-spam-policy")}
+      </div>
+      <h1 class="text-4xl font-bold tracking-tight text-slate-900 md:text-5xl">
+        {t("legal.antiSpam.title")}
+      </h1>
+      <p class="mt-4 text-lg text-slate-600">
+        {t("legal.antiSpam.description")}
+      </p>
+    </div>
+
+    <!-- Content -->
+    <div class="prose prose-slate prose-lg max-w-none prose-headings:text-slate-900 prose-headings:font-bold prose-p:text-slate-600 prose-li:text-slate-600 prose-strong:text-slate-900">
+      
+      <section class="mb-12">
+        <h2 class="text-2xl mb-4">{t("legal.antiSpam.intro.title")}</h2>
+        <p>{t("legal.antiSpam.intro.body1")}</p>
+        <p>{t("legal.antiSpam.intro.body2")}</p>
+        <p>{t("legal.antiSpam.intro.body3")}</p>
+      </section>
+
+      <section class="mb-12">
+        <h2 class="text-2xl mb-4">{t("legal.antiSpam.responsibility.title")}</h2>
+        <p>{t("legal.antiSpam.responsibility.intro")}</p>
+        <ul class="list-disc pl-6 space-y-2 mb-6">
+          {t("legal.antiSpam.responsibility.items").map((item: string) => (
+            <li>{item}</li>
+          ))}
+        </ul>
+        
+        <div class="rounded-2xl border border-slate-200 bg-slate-50 p-6 my-8">
+          <p class="font-semibold text-slate-900 mb-4">{t("legal.antiSpam.responsibility.optout.title")}</p>
+          <div class="rounded-xl bg-white border border-slate-200 p-4 font-mono text-sm text-slate-700 italic">
+            {t("legal.antiSpam.responsibility.optout.example")}
+          </div>
+        </div>
+        
+        <p>{t("legal.antiSpam.responsibility.footer")}</p>
+      </section>
+
+      <section class="mb-12">
+        <h2 class="text-2xl mb-4">{t("legal.antiSpam.prohibited.title")}</h2>
+        <p>{t("legal.antiSpam.prohibited.intro")}</p>
+        <ul class="list-disc pl-6 space-y-2 mb-6">
+          {t("legal.antiSpam.prohibited.items").map((item: string) => (
+            <li>{item}</li>
+          ))}
+        </ul>
+        <p>{t("legal.antiSpam.prohibited.footer")}</p>
+      </section>
+
+      <section class="mb-12">
+        <h2 class="text-2xl mb-4">{t("legal.antiSpam.compliance.title")}</h2>
+        <p>{t("legal.antiSpam.compliance.intro")}</p>
+        <ul class="list-disc pl-6 space-y-2 mb-6">
+          {t("legal.antiSpam.compliance.laws").map((item: string) => (
+            <li>{item}</li>
+          ))}
+        </ul>
+        <p>{t("legal.antiSpam.compliance.body")}</p>
+        
+        <div class="rounded-2xl border border-slate-200 bg-slate-50 p-6 my-8 text-center">
+          <p class="text-slate-600 mb-4 italic">{t("legal.antiSpam.compliance.example.intro")}</p>
+          <div class="text-lg font-medium text-slate-900">
+            {t("legal.antiSpam.compliance.example.text")}
+          </div>
+        </div>
+
+        <p>{t("legal.antiSpam.compliance.additional.intro")}</p>
+        <ul class="list-disc pl-6 space-y-2 mb-6">
+          {t("legal.antiSpam.compliance.additional.items").map((item: string) => (
+            <li>{item}</li>
+          ))}
+        </ul>
+        <p>{t("legal.antiSpam.compliance.footer")}</p>
+      </section>
+
+      <section class="mb-12">
+        <h2 class="text-2xl mb-4">{t("legal.antiSpam.monitoring.title")}</h2>
+        <p>{t("legal.antiSpam.monitoring.intro")}</p>
+        <p class="font-semibold text-slate-900 mb-4">{t("legal.antiSpam.monitoring.actions.intro")}</p>
+        <ul class="list-disc pl-6 space-y-2 mb-6">
+          {t("legal.antiSpam.monitoring.actions.items").map((item: string) => (
+            <li>{item}</li>
+          ))}
+        </ul>
+        <p>{t("legal.antiSpam.monitoring.footer")}</p>
+      </section>
+
+      <section class="mb-12">
+        <h2 class="text-2xl mb-4">{t("legal.antiSpam.enforcement.title")}</h2>
+        <p>{t("legal.antiSpam.enforcement.intro")}</p>
+        <ul class="list-disc pl-6 space-y-2 mb-6">
+          {t("legal.antiSpam.enforcement.items").map((item: string) => (
+            <li>{item}</li>
+          ))}
+        </ul>
+        <p>{t("legal.antiSpam.enforcement.footer")}</p>
+      </section>
+
+      <section class="mb-12">
+        <h2 class="text-2xl mb-4">{t("legal.antiSpam.changes.title")}</h2>
+        <p>{t("legal.antiSpam.changes.body1")}</p>
+        <p>{t("legal.antiSpam.changes.body2")}</p>
+      </section>
+
+      <hr class="my-12 border-slate-200" />
+      
+      <div class="text-sm text-slate-500 italic">
+        {t("legal.antiSpam.lastUpdated")}
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,132 @@
+---
+const { t } = Astro.props;
+---
+
+<div class="py-16 md:py-24">
+  <div class="mx-auto max-w-3xl px-4">
+    <!-- Hero Header -->
+    <div class="mb-16 text-center">
+      <div class="mb-4 inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-1.5 text-sm font-semibold text-primary">
+        {t("nav.refund-policy")}
+      </div>
+      <h1 class="text-4xl font-bold tracking-tight text-slate-900 md:text-5xl">
+        {t("legal.refund.title")}
+      </h1>
+      <p class="mt-4 text-lg text-slate-600">
+        {t("legal.refund.description")}
+      </p>
+    </div>
+
+    <!-- Content -->
+    <div class="prose prose-slate prose-lg max-w-none prose-headings:text-slate-900 prose-headings:font-bold prose-p:text-slate-600 prose-li:text-slate-600 prose-strong:text-slate-900">
+      
+      <section class="mb-12">
+        <h2 class="text-2xl mb-4">{t("legal.refund.intro.title")}</h2>
+        <p>{t("legal.refund.intro.body1")}</p>
+        <p>{t("legal.refund.intro.body2")}</p>
+        <p>{t("legal.refund.intro.body3")}</p>
+      </section>
+
+      <section class="mb-12">
+        <h2 class="text-2xl mb-4">{t("legal.refund.eligibility.title")}</h2>
+        <p>{t("legal.refund.eligibility.intro")}</p>
+        <ul class="list-disc pl-6 space-y-2 mb-6">
+          {t("legal.refund.eligibility.items").map((item: string) => (
+            <li>{item}</li>
+          ))}
+        </ul>
+        <p>{t("legal.refund.eligibility.footer")}</p>
+      </section>
+
+      <section class="mb-12">
+        <h2 class="text-2xl mb-4">{t("legal.refund.setupFee.title")}</h2>
+        <p>{t("legal.refund.setupFee.intro")}</p>
+        <ul class="list-disc pl-6 space-y-2 mb-6">
+          {t("legal.refund.setupFee.items").map((item: string) => (
+            <li>{item}</li>
+          ))}
+        </ul>
+        <p>{t("legal.refund.setupFee.body")}</p>
+
+        <div class="my-8 overflow-hidden rounded-2xl border border-slate-200 shadow-sm">
+          <table class="min-w-full divide-y divide-slate-200">
+            <thead class="bg-slate-50">
+              <tr>
+                <th scope="col" class="px-6 py-3 text-left text-sm font-bold text-slate-900">{t("legal.refund.setupFee.table.headerPlan")}</th>
+                <th scope="col" class="px-6 py-3 text-left text-sm font-bold text-slate-900">{t("legal.refund.setupFee.table.headerFee")}</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-200 bg-white">
+              {t("legal.refund.setupFee.table.rows").map((row: { plan: string; fee: string }) => (
+                <tr>
+                  <td class="whitespace-nowrap px-6 py-4 text-sm text-slate-600">{row.plan}</td>
+                  <td class="whitespace-nowrap px-6 py-4 text-sm font-medium text-primary">{row.fee}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+
+        <div class="rounded-2xl border border-primary/20 bg-primary/5 p-6 my-8">
+          <p class="font-bold text-primary mb-2">{t("legal.refund.setupFee.important.title")}</p>
+          <p class="mb-4">{t("legal.refund.setupFee.important.intro")}</p>
+          <ul class="list-disc pl-6 space-y-2 mb-4">
+            {t("legal.refund.setupFee.important.items").map((item: string) => (
+              <li>{item}</li>
+            ))}
+          </ul>
+          <p class="text-sm italic">{t("legal.refund.setupFee.important.footer")}</p>
+        </div>
+      </section>
+
+      <section class="mb-12">
+        <h2 class="text-2xl mb-4">{t("legal.refund.nonRefundable.title")}</h2>
+        <p>{t("legal.refund.nonRefundable.intro")}</p>
+        <ul class="list-disc pl-6 space-y-2 mb-6">
+          {t("legal.refund.nonRefundable.items").map((item: string) => (
+            <li>{item}</li>
+          ))}
+        </ul>
+      </section>
+
+      <section class="mb-12">
+        <h2 class="text-2xl mb-4">{t("legal.refund.request.title")}</h2>
+        <p>{t("legal.refund.request.intro")}</p>
+        <ul class="list-disc pl-6 space-y-2 mb-6">
+          {t("legal.refund.request.items").map((item: string) => (
+            <li>{item}</li>
+          ))}
+        </ul>
+        <p>{t("legal.refund.request.body")}</p>
+        <p>{t("legal.refund.request.footer")}</p>
+      </section>
+
+      <section class="mb-12">
+        <h2 class="text-2xl mb-4">{t("legal.refund.disputes.title")}</h2>
+        <p>{t("legal.refund.disputes.intro")}</p>
+        <div class="rounded-2xl border border-amber-200 bg-amber-50 p-6 my-8">
+          <p class="font-bold text-amber-900 mb-2">{t("legal.refund.disputes.note.title")}</p>
+          <ul class="list-disc pl-6 space-y-2">
+            {t("legal.refund.disputes.note.items").map((item: string) => (
+              <li>{item}</li>
+            ))}
+          </ul>
+        </div>
+        <p>{t("legal.refund.disputes.footer")}</p>
+      </section>
+
+      <section class="mb-12">
+        <h2 class="text-2xl mb-4">{t("legal.refund.changes.title")}</h2>
+        <p>{t("legal.refund.changes.body1")}</p>
+        <p>{t("legal.refund.changes.body2")}</p>
+        <p>{t("legal.refund.changes.footer")}</p>
+      </section>
+
+      <hr class="my-12 border-slate-200" />
+      
+      <div class="text-sm text-slate-500 italic">
+        {t("legal.refund.lastUpdated")}
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,21 @@
+---
+import PrivacyPolicyPage from "@/components/pages/legal/PrivacyPolicyPage.astro";
+import Layout from "@/layouts/Layout.astro";
+import { getLangFromUrl, useTranslations } from "@/i18n/utils";
+import { ui } from "@/i18n/ui";
+
+const { locale } = Astro.params;
+
+if (locale && !(locale in ui)) {
+  return Astro.redirect("/404");
+}
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<Layout title={`${t("legal.privacy.title")} | ${t("site.title")}`} description={t("legal.privacy.description")}>
+  <main class="bg-white">
+    <PrivacyPolicyPage t={t} />
+  </main>
+</Layout>

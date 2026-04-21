@@ -1,0 +1,165 @@
+---
+const { t } = Astro.props;
+---
+
+<div class="py-16 md:py-24">
+  <div class="mx-auto max-w-3xl px-4">
+    <!-- Hero Header -->
+    <div class="mb-16 text-center">
+      <div class="mb-4 inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-1.5 text-sm font-semibold text-primary">
+        {t("nav.terms")}
+      </div>
+      <h1 class="text-4xl font-bold tracking-tight text-slate-900 md:text-5xl">
+        {t("legal.terms.title")}
+      </h1>
+      <p class="mt-4 text-lg text-slate-600">
+        {t("legal.terms.description")}
+      </p>
+    </div>
+
+    <!-- Content -->
+    <div class="prose prose-slate prose-lg max-w-none prose-headings:text-slate-900 prose-headings:font-bold prose-p:text-slate-600 prose-li:text-slate-600 prose-strong:text-slate-900">
+      
+      <section class="mb-12">
+        <h2 class="text-2xl mb-4">{t("legal.terms.intro.title")}</h2>
+        <p>{t("legal.terms.intro.body1")}</p>
+        <p>{t("legal.terms.intro.body2")}</p>
+        <p>{t("legal.terms.intro.body3")}</p>
+      </section>
+
+      <section class="mb-12">
+        <h2 class="text-2xl mb-4">{t("legal.terms.who.title")}</h2>
+        <p>{t("legal.terms.who.intro")}</p>
+        <ul class="list-disc pl-6 space-y-2 mb-6">
+          {t("legal.terms.who.items").map((item: string) => (
+            <li>{item}</li>
+          ))}
+        </ul>
+        <p>{t("legal.terms.who.footer")}</p>
+      </section>
+
+      <section class="mb-12">
+        <h2 class="text-2xl mb-4">{t("legal.terms.security.title")}</h2>
+        <p>{t("legal.terms.security.intro")}</p>
+        <ul class="list-disc pl-6 space-y-2 mb-6">
+          {t("legal.terms.security.items").map((item: string) => (
+            <li>{item}</li>
+          ))}
+        </ul>
+        <p>{t("legal.terms.security.footer")}</p>
+      </section>
+
+      <section class="mb-12">
+        <h2 class="text-2xl mb-4">{t("legal.terms.use.title")}</h2>
+        <p>{t("legal.terms.use.intro")}</p>
+        
+        <div class="grid gap-8 md:grid-cols-2 mt-8 mb-6">
+          <div class="rounded-2xl border border-emerald-100 bg-emerald-50 p-6">
+            <h3 class="text-lg font-bold text-emerald-900 mt-0 mb-4">{t("legal.terms.use.allowed.title")}</h3>
+            <ul class="list-disc pl-5 space-y-2 text-emerald-800 text-sm prose-li:text-emerald-800">
+              {t("legal.terms.use.allowed.items").map((item: string) => (
+                <li>{item}</li>
+              ))}
+            </ul>
+          </div>
+          <div class="rounded-2xl border border-rose-100 bg-rose-50 p-6">
+            <h3 class="text-lg font-bold text-rose-900 mt-0 mb-4">{t("legal.terms.use.notAllowed.title")}</h3>
+            <ul class="list-disc pl-5 space-y-2 text-rose-800 text-sm prose-li:text-rose-800">
+              {t("legal.terms.use.notAllowed.items").map((item: string) => (
+                <li>{item}</li>
+              ))}
+            </ul>
+          </div>
+        </div>
+        
+        <p>{t("legal.terms.use.footer")}</p>
+      </section>
+
+      <section class="mb-12">
+        <h2 class="text-2xl mb-4">{t("legal.terms.billing.title")}</h2>
+        <p>{t("legal.terms.billing.intro")}</p>
+        <ul class="list-disc pl-6 space-y-2 mb-6">
+          {t("legal.terms.billing.items").map((item: string) => (
+            <li>{item}</li>
+          ))}
+        </ul>
+      </section>
+
+      <section class="mb-12">
+        <h2 class="text-2xl mb-4">{t("legal.terms.availability.title")}</h2>
+        <p>{t("legal.terms.availability.intro")}</p>
+        <p class="font-semibold text-slate-900 mt-6 mb-4">{t("legal.terms.availability.body")}</p>
+        <ul class="list-disc pl-6 space-y-2 mb-6">
+          {t("legal.terms.availability.items").map((item: string) => (
+            <li>{item}</li>
+          ))}
+        </ul>
+        <p>{t("legal.terms.availability.footer")}</p>
+      </section>
+
+      <section class="mb-12">
+        <h2 class="text-2xl mb-4">{t("legal.terms.termination.title")}</h2>
+        <p>{t("legal.terms.termination.intro")}</p>
+        <ul class="list-disc pl-6 space-y-2 mb-6">
+          {t("legal.terms.termination.items").map((item: string) => (
+            <li>{item}</li>
+          ))}
+        </ul>
+        <p>{t("legal.terms.termination.footer1")}</p>
+        <p>{t("legal.terms.termination.footer2")}</p>
+      </section>
+
+      <section class="mb-12">
+        <h2 class="text-2xl mb-4">{t("legal.terms.ip.title")}</h2>
+        <p>{t("legal.terms.ip.body")}</p>
+        <p class="font-semibold text-slate-900 mt-6 mb-4">{t("legal.terms.ip.ownership.title")}</p>
+        <ul class="list-disc pl-6 space-y-2 mb-6">
+          {t("legal.terms.ip.ownership.items").map((item: string) => (
+            <li>{item}</li>
+          ))}
+        </ul>
+        <p>{t("legal.terms.ip.footer")}</p>
+      </section>
+
+      <section class="mb-12">
+        <h2 class="text-2xl mb-4">{t("legal.terms.liability.title")}</h2>
+        <p>{t("legal.terms.liability.intro")}</p>
+        <p>{t("legal.terms.liability.body")}</p>
+        <p>{t("legal.terms.liability.footer")}</p>
+      </section>
+
+      <section class="mb-12">
+        <h2 class="text-2xl mb-4">{t("legal.terms.changes.title")}</h2>
+        <p>{t("legal.terms.changes.intro")}</p>
+        <ul class="list-disc pl-6 space-y-2 mb-6">
+          {t("legal.terms.changes.items").map((item: string) => (
+            <li>{item}</li>
+          ))}
+        </ul>
+        <p>{t("legal.terms.changes.footer")}</p>
+      </section>
+
+      <section class="mb-12">
+        <h2 class="text-2xl mb-4">{t("legal.terms.governing.title")}</h2>
+        <p>{t("legal.terms.governing.body1")}</p>
+        <p>{t("legal.terms.governing.body2")}</p>
+      </section>
+
+      <section class="mb-12">
+        <h2 class="text-2xl mb-4">{t("legal.terms.contact.title")}</h2>
+        <p>{t("legal.terms.contact.body")}</p>
+        <div class="mt-6 p-6 rounded-2xl border border-slate-200 bg-slate-50">
+          <p class="font-semibold text-slate-900">{t("legal.terms.contact.email")}</p>
+          <p class="text-slate-600">{t("legal.terms.contact.company")}</p>
+          <p class="text-slate-600 whitespace-pre-line">{t("legal.terms.contact.address")}</p>
+        </div>
+      </section>
+
+      <hr class="my-12 border-slate-200" />
+      
+      <div class="text-sm text-slate-500 italic">
+        {t("legal.terms.lastUpdated")}
+      </div>
+    </div>
+  </div>
+</div>
