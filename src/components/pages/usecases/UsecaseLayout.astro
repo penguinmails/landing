@@ -21,8 +21,23 @@ import {
   ArrowRight,
 } from "@lucide/astro";
 
-const { usecaseSlug, t, lang } = Astro.props;
-const translatePath = useTranslatedPath(lang);
+type UsecaseSlug = "agencies" | "freelancers" | "outbound-teams" | "startups";
+
+interface Props {
+  usecaseSlug: string;
+  t: (key: string) => any;
+  lang: string;
+}
+
+const usecaseContextMap: Record<UsecaseSlug, { hero: UtmSource; bottom: UtmSource }> = {
+  agencies: { hero: "usecase_agencies" as UtmSource, bottom: "usecase_agencies_bottom" as UtmSource },
+  freelancers: { hero: "usecase_freelancers" as UtmSource, bottom: "usecase_freelancers_bottom" as UtmSource },
+  "outbound-teams": { hero: "usecase_outbound-teams" as UtmSource, bottom: "usecase_outbound-teams_bottom" as UtmSource },
+  startups: { hero: "usecase_startups" as UtmSource, bottom: "usecase_startups_bottom" as UtmSource },
+};
+
+const { usecaseSlug, t, lang } = Astro.props as Props;
+const translatePath = useTranslatedPath(lang as "en" | "es");
 
 // Dynamically access i18n keys based on the slug
 const prefix = `usecases.${usecaseSlug}`;
@@ -80,8 +95,8 @@ const iconMap: Record<string, typeof MessageSquare | typeof Inbox | typeof Star 
 
 const otherUsecases = usecasesLinks.filter(link => !link.href.endsWith(`/${usecaseSlug}`));
 
-const heroContext: UtmSource = `usecase_${usecaseSlug}` as UtmSource;
-const bottomContext: UtmSource = `usecase_${usecaseSlug}_bottom` as UtmSource;
+const heroContext = usecaseContextMap[usecaseSlug as UsecaseSlug].hero;
+const bottomContext = usecaseContextMap[usecaseSlug as UsecaseSlug].bottom;
 ---
 
 <div class="space-y-24 py-12">
