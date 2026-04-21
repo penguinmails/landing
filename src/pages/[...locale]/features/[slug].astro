@@ -21,7 +21,7 @@ if (!feature) {
 }
 
 if (slug !== feature.slug) {
-  return Astro.redirect(translatePath(`/features/${feature.slug}`), 301);
+  return Astro.redirect(`${translatePath(`/features/${feature.slug}`)}${Astro.url.search}`, 301);
 }
 
 const FeatureComponent = feature.component;
