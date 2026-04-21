@@ -13,6 +13,19 @@ import {
 
 const { t } = Astro.props;
 
+interface FeatureStep {
+  title: string;
+  description: string;
+}
+interface FeatureBenefit {
+  title: string;
+  description: string;
+}
+interface FeatureFaqItem {
+  question: string;
+  answer: string;
+}
+
 const highlights = t("features.export.highlights");
 const steps = t("features.export.steps.items");
 const benefits = t("features.export.benefits.items");
@@ -107,7 +120,7 @@ const benefitIcons = [Zap, Check, Layers];
 
       <div class="mt-12 grid gap-8 md:grid-cols-3">
         {
-          steps.map((step: { title: string; description: string }, index: number) => {
+          steps.map((step: FeatureStep, index: number) => {
             const Icon = stepIcons[index] || Check;
 
             return (
@@ -146,7 +159,7 @@ const benefitIcons = [Zap, Check, Layers];
         {
           benefits.map(
             (
-              benefit: { title: string; description: string },
+              benefit: FeatureBenefit,
               index: number,
             ) => {
               const Icon = benefitIcons[index] || Check;
@@ -181,7 +194,7 @@ const benefitIcons = [Zap, Check, Layers];
 
       <div class="mt-12 grid gap-6 md:grid-cols-2">
         {
-          faqItems.map((item: { question: string; answer: string }) => (
+          faqItems.map((item: FeatureFaqItem) => (
             <div class="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
               <h3 class="text-xl font-semibold text-slate-900">
                 {item.question}
