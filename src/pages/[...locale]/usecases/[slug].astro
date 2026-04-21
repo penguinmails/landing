@@ -1,11 +1,12 @@
 ---
 import Layout from "@/layouts/Layout.astro";
-import { getLangFromUrl, useTranslations } from "@/i18n/utils";
+import { getLangFromUrl, useTranslations, useTranslatedPath } from "@/i18n/utils";
 import { getUsecaseBySlug } from "@/lib/usecases-data";
 import UsecaseLayout from "@/components/pages/usecases/UsecaseLayout.astro";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
+const translatePath = useTranslatedPath(lang);
 
 const { slug } = Astro.params;
 

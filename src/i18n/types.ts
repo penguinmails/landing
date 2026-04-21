@@ -647,8 +647,7 @@ export type UsecasesTranslations = {
   "usecases.title": string;
   "usecases.description": string;
   "usecases.otherUsecases": string;
-
-  // Agencies
+  "usecases.learnMore": string;
   "usecases.agencies.title": string;
   "usecases.agencies.description": string;
   "usecases.agencies.hero.heading": string;
@@ -665,13 +664,15 @@ export type UsecasesTranslations = {
   "usecases.agencies.versus.solution": string;
   "usecases.agencies.versus.benefits": string[];
   "usecases.agencies.features.title": string;
-  "usecases.agencies.features.items": Array<{ title: string; description: string; iconName?: string }>;
+  "usecases.agencies.features.items": Array<{
+    title: string;
+    description: string;
+    iconName?: string;
+  }>;
   "usecases.agencies.faq.title": string;
   "usecases.agencies.faq.items": Array<{ question: string; answer: string }>;
   "usecases.agencies.cta.title": string;
   "usecases.agencies.cta.description": string;
-
-  // Freelancers
   "usecases.freelancers.title": string;
   "usecases.freelancers.description": string;
   "usecases.freelancers.hero.heading": string;
@@ -688,13 +689,15 @@ export type UsecasesTranslations = {
   "usecases.freelancers.versus.solution": string;
   "usecases.freelancers.versus.benefits": string[];
   "usecases.freelancers.features.title": string;
-  "usecases.freelancers.features.items": Array<{ title: string; description: string; iconName?: string }>;
+  "usecases.freelancers.features.items": Array<{
+    title: string;
+    description: string;
+    iconName?: string;
+  }>;
   "usecases.freelancers.faq.title": string;
   "usecases.freelancers.faq.items": Array<{ question: string; answer: string }>;
   "usecases.freelancers.cta.title": string;
   "usecases.freelancers.cta.description": string;
-
-  // Outbound Teams
   "usecases.outbound-teams.title": string;
   "usecases.outbound-teams.description": string;
   "usecases.outbound-teams.hero.heading": string;
@@ -711,13 +714,18 @@ export type UsecasesTranslations = {
   "usecases.outbound-teams.versus.solution": string;
   "usecases.outbound-teams.versus.benefits": string[];
   "usecases.outbound-teams.features.title": string;
-  "usecases.outbound-teams.features.items": Array<{ title: string; description: string; iconName?: string }>;
+  "usecases.outbound-teams.features.items": Array<{
+    title: string;
+    description: string;
+    iconName?: string;
+  }>;
   "usecases.outbound-teams.faq.title": string;
-  "usecases.outbound-teams.faq.items": Array<{ question: string; answer: string }>;
+  "usecases.outbound-teams.faq.items": Array<{
+    question: string;
+    answer: string;
+  }>;
   "usecases.outbound-teams.cta.title": string;
   "usecases.outbound-teams.cta.description": string;
-
-  // Startups
   "usecases.startups.title": string;
   "usecases.startups.description": string;
   "usecases.startups.hero.heading": string;
@@ -734,7 +742,11 @@ export type UsecasesTranslations = {
   "usecases.startups.versus.solution": string;
   "usecases.startups.versus.benefits": string[];
   "usecases.startups.features.title": string;
-  "usecases.startups.features.items": Array<{ title: string; description: string; iconName?: string }>;
+  "usecases.startups.features.items": Array<{
+    title: string;
+    description: string;
+    iconName?: string;
+  }>;
   "usecases.startups.faq.title": string;
   "usecases.startups.faq.items": Array<{ question: string; answer: string }>;
   "usecases.startups.cta.title": string;

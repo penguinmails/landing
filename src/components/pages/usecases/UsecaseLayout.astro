@@ -2,6 +2,7 @@
 import ArticleCard from "@/components/shared/ArticleCard.astro";
 import Button from "@/components/ui/Button.astro";
 import { buildSignupUrl } from "@/lib/cta";
+import type { UtmSource } from "@/lib/cta";
 import { usecasesLinks } from "@/lib/navigation";
 import { useTranslatedPath } from "@/i18n/utils";
 import {
@@ -17,7 +18,7 @@ import {
   Users,
   Briefcase,
   Target,
-  ArrowRight
+  ArrowRight,
 } from "@lucide/astro";
 
 const { usecaseSlug, t, lang } = Astro.props;
@@ -63,7 +64,7 @@ const bottomCta = {
   description: t(`${prefix}.cta.description`),
 };
 
-const iconMap: Record<string, any> = {
+const iconMap: Record<string, typeof MessageSquare | typeof Inbox | typeof Star | typeof Zap | typeof Clock | typeof PanelsTopLeft | typeof Search | typeof Users | typeof Briefcase | typeof Target> = {
   MessageSquare,
   Inbox,
   Star,
@@ -76,7 +77,10 @@ const iconMap: Record<string, any> = {
   Target,
 };
 
-const otherUsecases = usecasesLinks.filter(link => !link.href.includes(usecaseSlug));
+const otherUsecases = usecasesLinks.filter(link => !link.href.endsWith(`/${usecaseSlug}`));
+
+const heroContext: UtmSource = `usecase_${usecaseSlug}` as UtmSource;
+const bottomContext: UtmSource = `usecase_${usecaseSlug}_bottom` as UtmSource;
 ---
 
 <div class="space-y-24 py-12">
@@ -107,7 +111,7 @@ const otherUsecases = usecasesLinks.filter(link => !link.href.includes(usecaseSl
       <Button
         variant="primary"
         size="lg"
-        href={buildSignupUrl({ context: `usecase_${usecaseSlug}` as any })}
+        href={buildSignupUrl({ context: heroContext })}
       >
         {t("cta.buttonTrial")}
       </Button>
@@ -244,7 +248,7 @@ const otherUsecases = usecasesLinks.filter(link => !link.href.includes(usecaseSl
         <Button
           variant="primary"
           size="lg"
-          href={buildSignupUrl({ context: `usecase_${usecaseSlug}_bottom` as any })}
+          href={buildSignupUrl({ context: bottomContext })}
         >
           {t("cta.buttonTrial")}
         </Button>
