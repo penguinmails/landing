@@ -22,10 +22,10 @@ export const featuresLinks: NavItem[] = [
 ];
 
 export const legalLinks: NavItem[] = [
-  { labelKey: "nav.anti-spam-policy", href: "/pricing#anti-spam-policy" },
-  { labelKey: "nav.privacy", href: "/pricing#privacy" },
-  { labelKey: "nav.refund-policy", href: "/pricing#refund-policy" },
-  { labelKey: "nav.terms", href: "/pricing#terms" },
+  { labelKey: "nav.anti-spam-policy", href: "/anti-spam-policy" },
+  { labelKey: "nav.privacy", href: "/privacy" },
+  { labelKey: "nav.refund-policy", href: "/refund-policy" },
+  { labelKey: "nav.terms", href: "/terms" },
 ];
 
 export const companyLinks: NavItem[] = [
