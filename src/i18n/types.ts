@@ -671,6 +671,8 @@ export type CompanyTranslations = {
   "contact.support.title": string;
   "contact.support.description": string;
   "contact.support.socialProof": string;
+  "contact.support.avatar.primaryInitial": string;
+  "contact.support.avatar.secondaryInitial": string;
 };
 
 export type UsecasesTranslations = {

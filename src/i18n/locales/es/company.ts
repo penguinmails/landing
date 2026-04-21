@@ -54,4 +54,6 @@ export const company: CompanyTranslations = {
     "Normalmente respondemos en 24 horas. Nuestro equipo de soporte está disponible de lunes a viernes para ayudarte con cualquier pregunta técnica o de facturación.",
   "contact.support.socialProof":
     "Únete a más de 100 agencias que envían con nosotros.",
+  "contact.support.avatar.primaryInitial": "P",
+  "contact.support.avatar.secondaryInitial": "M",
 };
