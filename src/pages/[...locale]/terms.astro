@@ -14,7 +14,7 @@ const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 ---
 
-<Layout title={`${t("legal.terms.title")} | PenguinMails`} description={t("legal.terms.description")}>
+<Layout title={`${t("legal.terms.title")} | ${t("site.title")}`} description={t("legal.terms.description")}>
   <main class="bg-white">
     <TermsOfServicePage t={t} />
   </main>

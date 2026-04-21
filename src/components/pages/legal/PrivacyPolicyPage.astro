@@ -125,7 +125,7 @@ const { t } = Astro.props;
         <h2 class="text-2xl mb-4">{t("legal.privacy.gdpr.basis.title")}</h2>
         <p>{t("legal.privacy.gdpr.basis.intro")}</p>
         <div class="space-y-6 mt-6">
-          {t("legal.privacy.gdpr.basis.items").map((item: any) => (
+          {t("legal.privacy.gdpr.basis.items").map((item: { title: string; body: string }) => (
             <div>
               <p class="font-bold text-slate-900 mb-1">{item.title}</p>
               <p>{item.body}</p>
@@ -138,7 +138,7 @@ const { t } = Astro.props;
         <h2 class="text-2xl mb-4">{t("legal.privacy.gdpr.rights.title")}</h2>
         <p>{t("legal.privacy.gdpr.rights.intro")}</p>
         <div class="space-y-6 mt-6">
-          {t("legal.privacy.gdpr.rights.items").map((item: any) => (
+          {t("legal.privacy.gdpr.rights.items").map((item: { title: string; body: string }) => (
             <div>
               <p class="font-bold text-slate-900 mb-1">{item.title}</p>
               <p>{item.body}</p>

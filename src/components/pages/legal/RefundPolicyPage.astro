@@ -57,7 +57,7 @@ const { t } = Astro.props;
               </tr>
             </thead>
             <tbody class="divide-y divide-slate-200 bg-white">
-              {t("legal.refund.setupFee.table.rows").map((row: any) => (
+              {t("legal.refund.setupFee.table.rows").map((row: { plan: string; fee: string }) => (
                 <tr>
                   <td class="whitespace-nowrap px-6 py-4 text-sm text-slate-600">{row.plan}</td>
                   <td class="whitespace-nowrap px-6 py-4 text-sm font-medium text-primary">{row.fee}</td>
