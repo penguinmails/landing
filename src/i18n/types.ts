@@ -668,6 +668,9 @@ export type CompanyTranslations = {
   "contact.info.address.value": string;
   "contact.info.company.label": string;
   "contact.info.company.value": string;
+  "contact.support.title": string;
+  "contact.support.description": string;
+  "contact.support.socialProof": string;
 };
 
 export type UsecasesTranslations = {
