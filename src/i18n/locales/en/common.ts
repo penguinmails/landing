@@ -39,7 +39,7 @@ export const common: CommonTranslations = {
   "footer.description":
     "PenguinMails is an affordable cold email automation tool made for startups and agencies.",
   "footer.sections.usecases": "Usecases",
-  "footer.sections.resources": "Resources",
+  "footer.sections.features": "Features",
   "footer.sections.company": "Company",
   "footer.sections.legal": "Legal",
   "footer.copyright": "— PenguinMails All rights reserved",

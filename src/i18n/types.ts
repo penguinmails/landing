@@ -37,7 +37,7 @@ export type CommonTranslations = {
   "nav.logo.alt": string;
   "footer.description": string;
   "footer.sections.usecases": string;
-  "footer.sections.resources": string;
+  "footer.sections.features": string;
   "footer.sections.company": string;
   "footer.sections.legal": string;
   "footer.copyright": string;

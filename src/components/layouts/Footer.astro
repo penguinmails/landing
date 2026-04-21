@@ -3,7 +3,7 @@ import FacebookIcon from "@/assets/icons/facebook.svg";
 import InstagramIcon from "@/assets/icons/instagram.svg";
 import Logo from "@/components/layouts/Logo.astro";
 import { Image } from "astro:assets";
-import { usecasesLinks, resourcesLinks, companyLinks, legalLinks } from "@/lib/navigation";
+import { usecasesLinks, featuresLinks, companyLinks, legalLinks } from "@/lib/navigation";
 import { getLangFromUrl, useTranslations } from "@/i18n/utils";
 
 const lang = getLangFromUrl(Astro.url);
@@ -44,10 +44,10 @@ const t = useTranslations(lang);
         class="grid grid-cols-1 md:grid-cols-4 justify-between md:w-full sm:grid-cols-3 lg:grid-rows-2 flex-1 lg:max-w-3xl gap-10"
       >
         <div>
-          <h3 class="font-bold text-zinc-900">{t("footer.sections.usecases")}</h3>
+          <h3 class="font-bold text-zinc-900">{t("footer.sections.company")}</h3>
           <ul class="mt-5 space-y-3">
             {
-              usecasesLinks.map((link) => (
+              companyLinks.map((link) => (
                 <li>
                   <a
                     class=" text-zinc-600 transition-colors hover:text-zinc-900 whitespace-nowrap"
@@ -62,10 +62,10 @@ const t = useTranslations(lang);
         </div>
 
         <div>
-          <h3 class="font-bold text-zinc-900">{t("footer.sections.resources")}</h3>
+          <h3 class="font-bold text-zinc-900">{t("footer.sections.features")}</h3>
           <ul class="mt-5 space-y-3">
             {
-              resourcesLinks.map((link) => (
+              featuresLinks.map((link) => (
                 <li>
                   <a
                     class=" text-zinc-600 transition-colors hover:text-zinc-900 whitespace-nowrap"
@@ -78,11 +78,12 @@ const t = useTranslations(lang);
             }
           </ul>
         </div>
+
         <div>
-          <h3 class="font-bold text-zinc-900">{t("footer.sections.company")}</h3>
+          <h3 class="font-bold text-zinc-900">{t("footer.sections.usecases")}</h3>
           <ul class="mt-5 space-y-3">
             {
-              companyLinks.map((link) => (
+              usecasesLinks.map((link) => (
                 <li>
                   <a
                     class=" text-zinc-600 transition-colors hover:text-zinc-900 whitespace-nowrap"
