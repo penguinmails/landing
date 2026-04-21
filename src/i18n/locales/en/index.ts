@@ -4,6 +4,7 @@ import { pricing } from "./pricing";
 import { features } from "./features";
 import { usecases } from "./usecases";
 import { legal } from "./legal";
+import { company } from "./company";
 
 export const en = {
   ...common,
@@ -12,4 +13,5 @@ export const en = {
   ...features,
   ...usecases,
   ...legal,
+  ...company,
 } as const;

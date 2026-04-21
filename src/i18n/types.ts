@@ -643,6 +643,38 @@ export type LegalTranslations = {
   "legal.terms.lastUpdated": string;
 };
 
+export type CompanyTranslations = {
+  "about.title": string;
+  "about.description": string;
+  "about.hero.tagline": string;
+  "about.hero.title": string;
+  "about.hero.subtitle": string;
+  "about.mission.title": string;
+  "about.mission.body": string;
+  "about.story.title": string;
+  "about.story.body": string;
+  "about.values.title": string;
+  "about.values.items": Array<{ title: string; description: string }>;
+
+  "contact.title": string;
+  "contact.description": string;
+  "contact.hero.tagline": string;
+  "contact.hero.title": string;
+  "contact.hero.subtitle": string;
+  "contact.info.title": string;
+  "contact.info.email.label": string;
+  "contact.info.email.value": string;
+  "contact.info.address.label": string;
+  "contact.info.address.value": string;
+  "contact.info.company.label": string;
+  "contact.info.company.value": string;
+  "contact.support.title": string;
+  "contact.support.description": string;
+  "contact.support.socialProof": string;
+  "contact.support.avatar.primaryInitial": string;
+  "contact.support.avatar.secondaryInitial": string;
+};
+
 export type UsecasesTranslations = {
   "usecases.title": string;
   "usecases.description": string;
