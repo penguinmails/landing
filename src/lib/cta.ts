@@ -19,7 +19,15 @@ export type UtmSource =
   | "features_leads_export"
   | "features_leads_export_bottom"
   | "features_automated_sequences"
-  | "features_automated_sequences_bottom";
+  | "features_automated_sequences_bottom"
+  | "usecase_agencies"
+  | "usecase_agencies_bottom"
+  | "usecase_freelancers"
+  | "usecase_freelancers_bottom"
+  | "usecase_outbound-teams"
+  | "usecase_outbound-teams_bottom"
+  | "usecase_startups"
+  | "usecase_startups_bottom";
 
 interface SignupUrlOptions {
   context: UtmSource;

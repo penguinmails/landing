@@ -1,17 +1,74 @@
 ---
 import Layout from "@/layouts/Layout.astro";
-import { getLangFromUrl, useTranslations } from "@/i18n/utils";
+import { getLangFromUrl, useTranslations, useTranslatedPath } from "@/i18n/utils";
 import { ui } from "@/i18n/ui";
+import { usecasesLinks } from "@/lib/navigation";
+import { ArrowRight, Target, Users, Briefcase, Zap } from "@lucide/astro";
 
 const { locale } = Astro.params;
 
-// Validate locale if present
 if (locale && !(locale in ui)) {
   return Astro.redirect("/404");
 }
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
+const translatePath = useTranslatedPath(lang);
+
+const usecaseIcons: Record<string, any> = {
+  "nav.agencies": Briefcase,
+  "nav.freelancers": Users,
+  "nav.outbound-teams": Zap,
+  "nav.startups": Target,
+};
+
+const usecaseDescriptions: Record<string, string> = {
+  "nav.agencies": t("usecases.agencies.description"),
+  "nav.freelancers": t("usecases.freelancers.description"),
+  "nav.outbound-teams": t("usecases.outbound-teams.description"),
+  "nav.startups": t("usecases.startups.description"),
+};
 ---
 
-<Layout title={t("usecases.title")} description={t("usecases.description")} />
+<Layout title={t("usecases.title")} description={t("usecases.description")}>
+  <div class="py-20">
+    <div class="container mx-auto px-4">
+      <!-- Hero Section -->
+      <div class="text-center max-w-3xl mx-auto mb-20">
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6">
+          {t("usecases.title")}
+        </h1>
+        <p class="text-xl text-gray-600">
+          {t("usecases.description")}
+        </p>
+      </div>
+
+      <!-- Usecases Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+        {usecasesLinks.map((link) => {
+          const Icon = usecaseIcons[link.labelKey] || Target;
+          return (
+            <a
+              href={translatePath(link.href)}
+              class="group bg-white p-8 rounded-3xl border border-gray-100 shadow-sm hover:shadow-xl hover:border-primary/20 transition-all duration-300 flex flex-col h-full"
+            >
+              <div class="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                <Icon class="w-7 h-7 text-primary" />
+              </div>
+              <h2 class="text-2xl font-bold text-slate-900 mb-4 group-hover:text-primary transition-colors">
+                {t(link.labelKey)}
+              </h2>
+              <p class="text-gray-600 mb-8 flex-grow leading-relaxed">
+                {usecaseDescriptions[link.labelKey]}
+              </p>
+              <div class="flex items-center text-primary font-bold">
+                <span class="mr-2">Learn more</span>
+                <ArrowRight class="w-5 h-5 group-hover:translate-x-2 transition-transform" />
+              </div>
+            </a>
+          );
+        })}
+      </div>
+    </div>
+  </div>
+</Layout>

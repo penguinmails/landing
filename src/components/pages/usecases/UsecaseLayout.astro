@@ -1,0 +1,276 @@
+---
+import ArticleCard from "@/components/shared/ArticleCard.astro";
+import Button from "@/components/ui/Button.astro";
+import { buildSignupUrl } from "@/lib/cta";
+import { usecasesLinks } from "@/lib/navigation";
+import { useTranslatedPath } from "@/i18n/utils";
+import {
+  MessageSquare,
+  Inbox,
+  Star,
+  Zap,
+  Clock,
+  PanelsTopLeft,
+  Search,
+  Check,
+  X,
+  Users,
+  Briefcase,
+  Target,
+  ArrowRight
+} from "@lucide/astro";
+
+const { usecaseSlug, t, lang } = Astro.props;
+const translatePath = useTranslatedPath(lang);
+
+// Dynamically access i18n keys based on the slug
+const prefix = `usecases.${usecaseSlug}`;
+
+const hero = {
+  heading: t(`${prefix}.hero.heading`),
+  subheading: t(`${prefix}.hero.subheading`),
+  tagline: t(`${prefix}.hero.tagline`),
+};
+
+const valueProp = {
+  title: t(`${prefix}.valueProp.title`),
+  explanation: t(`${prefix}.valueProp.explanation`),
+  benefit: t(`${prefix}.valueProp.benefit`),
+};
+
+const versus = {
+  title: t(`${prefix}.versus.title`),
+  subtitle: t(`${prefix}.versus.subtitle`),
+  problemTitle: t(`${prefix}.versus.problemTitle`),
+  problems: t(`${prefix}.versus.problems`),
+  solutionTitle: t(`${prefix}.versus.solutionTitle`),
+  solution: t(`${prefix}.versus.solution`),
+  benefits: t(`${prefix}.versus.benefits`),
+};
+
+const features = {
+  title: t(`${prefix}.features.title`),
+  items: t(`${prefix}.features.items`),
+};
+
+const faq = {
+  title: t(`${prefix}.faq.title`),
+  items: t(`${prefix}.faq.items`),
+};
+
+const bottomCta = {
+  title: t(`${prefix}.cta.title`),
+  description: t(`${prefix}.cta.description`),
+};
+
+const iconMap: Record<string, any> = {
+  MessageSquare,
+  Inbox,
+  Star,
+  Zap,
+  Clock,
+  PanelsTopLeft,
+  Search,
+  Users,
+  Briefcase,
+  Target,
+};
+
+const otherUsecases = usecasesLinks.filter(link => !link.href.includes(usecaseSlug));
+---
+
+<div class="space-y-24 py-12">
+  <!-- Hero Section -->
+  <section class="text-center pt-10">
+    <div class="mx-auto max-w-4xl px-4">
+      <div
+        class="inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-2 text-sm font-medium text-primary mb-6"
+      >
+        <Target class="w-4 h-4" />
+        {t(`${prefix}.title`)}
+      </div>
+
+      <h1
+        class="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-slate-900 mb-6"
+      >
+        {hero.heading}
+      </h1>
+
+      <p class="text-2xl md:text-3xl font-semibold text-primary mb-4">
+        {hero.subheading}
+      </p>
+
+      <p class="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto mb-8">
+        {hero.tagline}
+      </p>
+
+      <Button
+        variant="primary"
+        size="lg"
+        href={buildSignupUrl({ context: `usecase_${usecaseSlug}` as any })}
+      >
+        {t("cta.buttonTrial")}
+      </Button>
+    </div>
+  </section>
+
+  <!-- Core Value Proposition -->
+  <section class="py-12">
+    <div class="mx-auto max-w-6xl px-4 text-center">
+      <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-8">
+        {valueProp.title}
+      </h2>
+      <div class="max-w-3xl mx-auto space-y-6">
+        <p class="text-xl text-gray-700 leading-relaxed">
+          {valueProp.explanation}
+        </p>
+        <p class="text-xl font-medium text-primary">
+          {valueProp.benefit}
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Versus Comparison -->
+  <section class="bg-slate-50 py-20 rounded-3xl">
+    <div class="mx-auto max-w-6xl px-4">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
+          {versus.title}
+        </h2>
+        <p class="text-xl text-gray-600">
+          {versus.subtitle}
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-8">
+        <div class="bg-white p-8 rounded-2xl shadow-sm">
+          <h3 class="text-xl font-semibold text-rose-600 mb-6">
+            {versus.problemTitle}
+          </h3>
+          <ul class="space-y-4">
+            {
+              versus.problems.map((problem: string) => (
+                <li class="flex items-start gap-3">
+                  <X class="w-5 h-5 text-rose-500 mt-0.5 shrink-0" />
+                  <span class="text-gray-700">{problem}</span>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+
+        <div
+          class="bg-white p-8 rounded-2xl shadow-sm border-2 border-primary/20"
+        >
+          <h3 class="text-xl font-semibold text-primary mb-6">
+            {versus.solutionTitle}
+          </h3>
+          <p class="text-gray-700 mb-6">
+            {versus.solution}
+          </p>
+          <ul class="space-y-4">
+            {
+              versus.benefits.map((benefit: string) => (
+                <li class="flex items-start gap-3">
+                  <Check class="w-5 h-5 text-emerald-500 mt-0.5 shrink-0" />
+                  <span class="text-gray-700">{benefit}</span>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tailored Features -->
+  <section class="py-12">
+    <div class="mx-auto max-w-6xl px-4">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
+          {features.title}
+        </h2>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {
+          features.items.map((item: any) => {
+            const Icon = iconMap[item.iconName || ""] || Zap;
+            return (
+              <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
+                <div class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
+                  <Icon class="w-6 h-6 text-primary" />
+                </div>
+                <h3 class="font-bold text-slate-900 mb-2">{item.title}</h3>
+                <p class="text-sm text-gray-600">{item.description}</p>
+              </div>
+            );
+          })
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="py-12">
+    <div class="mx-auto max-w-4xl px-4">
+      <h2
+        class="text-3xl md:text-4xl font-bold text-slate-900 mb-10 text-center"
+      >
+        {faq.title}
+      </h2>
+
+      <div class="space-y-5">
+        {
+          faq.items.map((item: { question: string; answer: string }) => (
+            <ArticleCard title={item.question} description={item.answer} />
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Bottom CTA -->
+  <section class="text-center py-12 bg-primary/5 rounded-3xl mx-4">
+    <div class="mx-auto max-w-4xl px-4">
+      <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
+        {bottomCta.title}
+      </h2>
+      <p class="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
+        {bottomCta.description}
+      </p>
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <Button
+          variant="primary"
+          size="lg"
+          href={buildSignupUrl({ context: `usecase_${usecaseSlug}_bottom` as any })}
+        >
+          {t("cta.buttonTrial")}
+        </Button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Navigation to Other Usecases -->
+  <section class="py-20 border-t border-gray-100">
+    <div class="mx-auto max-w-6xl px-4">
+      <h2 class="text-2xl font-bold text-slate-900 mb-8 text-center">
+        {t("usecases.otherUsecases")}
+      </h2>
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+        {otherUsecases.map(link => (
+          <a
+            href={translatePath(link.href)}
+            class="group p-6 rounded-2xl border border-gray-200 hover:border-primary hover:bg-primary/5 transition-all flex items-center justify-between"
+          >
+            <span class="font-bold text-slate-900 group-hover:text-primary transition-colors">
+              {t(link.labelKey)}
+            </span>
+            <ArrowRight class="w-5 h-5 text-gray-400 group-hover:text-primary transition-all group-hover:translate-x-1" />
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+</div>
