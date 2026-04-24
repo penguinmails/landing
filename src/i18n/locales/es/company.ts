@@ -39,10 +39,10 @@ export const company: CompanyTranslations = {
     },
     {
       src: "https://penguinmails.com/wp-content/uploads/2025/09/safe_IP_icon.png",
-      alt: "Icono de proteccion de IP estatica",
+      alt: "Icono de protección de IP estática",
     },
   ],
-  "about.team.title": "Las Personas (y el Pinguino) Detras de PenguinMails",
+  "about.team.title": "Las Personas (y el Pingüino) Detrás de PenguinMails",
   "about.team.members": [
     {
       name: "Mustafa",
@@ -127,7 +127,7 @@ export const company: CompanyTranslations = {
     "Apenas estamos empezando. Nuestro objetivo de largo plazo es convertirnos en la plataforma de cold email de referencia para startups y agencias.",
   "about.future.title": "El Futuro de PenguinMails",
   "about.future.intro":
-    "PenguinMails aun es joven, pero nuestra visión es grande. Imaginamos un futuro donde:",
+    "PenguinMails aún es joven, pero nuestra visión es grande. Imaginamos un futuro donde:",
   "about.future.items": [
     "Un founder nos diga con orgullo que PenguinMails le ayudó a conseguir sus primeros 100 clientes.",
     "Celebremos 1,000 usuarios con galletas en forma de pingüino, no con un comunicado de prensa.",
