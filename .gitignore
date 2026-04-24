@@ -25,6 +25,7 @@ pnpm-debug.log*
 .idea/
 .kilo/
 .kiro/
+.codex
 
 tsconfig.tsbuildinfo
 .vercel

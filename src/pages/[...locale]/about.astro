@@ -12,9 +12,19 @@ if (locale && !(locale in ui)) {
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
+const ctaOverride = {
+  context: "about_page_bottom" as const,
+  title: t("about.inlineCta.title"),
+  subtitle: t("about.inlineCta.subtitle"),
+  ctaText: t("about.inlineCta.button"),
+};
 ---
 
-<Layout title={`${t("about.title")} | ${t("site.title")}`} description={t("about.description")}>
+<Layout
+  title={`${t("about.title")} | ${t("site.title")}`}
+  description={t("about.description")}
+  ctaOverride={ctaOverride}
+>
   <main class="bg-white">
     <AboutPage t={t} />
   </main>

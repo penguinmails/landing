@@ -1,64 +1,187 @@
 ---
-import { Target } from "@lucide/astro";
-const { t } = Astro.props;
+import type { useTranslations } from "@/i18n/utils";
+import { buildSignupUrl } from "@/lib/cta";
+
+type Translator = ReturnType<typeof useTranslations>;
+
+const { t } = Astro.props as { t: Translator };
+
+const deliverabilityBody = t("about.deliverability.body");
+const deliverabilityHighlights = t("about.deliverability.highlights");
+const deliverabilityIcons = t("about.deliverability.icons");
+const teamMembers = t("about.team.members");
+const timelineItems = t("about.timeline.items");
+const futureItems = t("about.future.items");
+const futureImageUrl = t("about.future.imageUrl");
+const futureImageAlt = t("about.future.imageAlt");
 ---
 
 <div class="py-16 md:py-24">
-  <div class="mx-auto max-w-4xl px-4">
-    <!-- Hero Header -->
-    <div class="mb-20 text-center">
-      <div class="mb-4 inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-1.5 text-sm font-semibold text-primary">
-        {t("about.hero.tagline")}
-      </div>
-      <h1 class="text-4xl font-bold tracking-tight text-slate-900 md:text-6xl">
-        {t("about.hero.title")}
-      </h1>
-      <p class="mt-6 text-xl text-slate-600 max-w-2xl mx-auto">
-        {t("about.hero.subtitle")}
-      </p>
-    </div>
-
-    <!-- Content -->
-    <div class="grid gap-16">
-      <!-- Mission Section -->
-      <section class="grid md:grid-cols-2 gap-8 items-center bg-slate-50 rounded-3xl p-8 md:p-12 border border-slate-100">
-        <div>
-          <h2 class="text-3xl font-bold text-slate-900 mb-6">{t("about.mission.title")}</h2>
-          <p class="text-lg text-slate-600 leading-relaxed">
-            {t("about.mission.body")}
-          </p>
+  <div class="mx-auto max-w-6xl px-4">
+    <div class="space-y-20">
+      <section class="text-center">
+        <div class="mb-5 inline-flex rounded-full bg-primary/10 px-4 py-1.5 text-sm font-semibold text-primary">
+          {t("about.hero.tagline")}
         </div>
-        <div class="relative aspect-video rounded-2xl overflow-hidden bg-primary/5 flex items-center justify-center">
-            <!-- Simple illustration placeholder style -->
-            <div class="text-primary/20 transform scale-150">
-                <Target aria-hidden="true" focusable="false" />
-            </div>
-        </div>
-      </section>
-
-      <!-- Story Section -->
-      <section class="max-w-3xl mx-auto prose prose-slate prose-lg prose-headings:text-slate-900 prose-headings:font-bold prose-p:text-slate-600 prose-strong:text-slate-900">
-        <h2 class="text-3xl mb-6">{t("about.story.title")}</h2>
-        <p>
-          {t("about.story.body")}
+        <h1 class="mx-auto max-w-4xl text-balance text-4xl font-bold tracking-tight text-slate-900 md:text-6xl">
+          {t("about.hero.title")}
+        </h1>
+        <p class="mx-auto mt-6 max-w-2xl text-xl text-slate-600">
+          {t("about.hero.subtitle")}
+        </p>
+        <p class="mx-auto mt-4 max-w-2xl text-base font-medium text-slate-700">
+          {t("about.hero.note")}
         </p>
       </section>
 
-      <!-- Values Grid -->
-      <section>
-        <h2 class="text-3xl font-bold text-slate-900 mb-12 text-center">{t("about.values.title")}</h2>
-        <div class="grid sm:grid-cols-3 gap-8">
-          {t("about.values.items").map((value: { title: string; description: string }) => (
-            <div class="p-6 rounded-2xl border border-slate-200 hover:border-primary/30 hover:bg-slate-50 transition-all group">
-              <div class="w-12 h-12 rounded-xl bg-slate-100 flex items-center justify-center mb-6 group-hover:bg-primary/10 group-hover:text-primary transition-colors">
-                 <span class="font-bold text-xl">{value.title[0]}</span>
-              </div>
-              <h3 class="text-xl font-bold text-slate-900 mb-3">{value.title}</h3>
-              <p class="text-slate-600 leading-relaxed">{value.description}</p>
+      <section class="grid gap-10 rounded-3xl border border-slate-200 bg-slate-50 p-8 md:p-12 lg:grid-cols-[1.35fr_1fr]">
+        <div>
+          <h2 class="text-3xl font-bold text-slate-900">{t("about.deliverability.title")}</h2>
+          <p class="mt-5 text-lg font-medium text-slate-700">{t("about.deliverability.intro")}</p>
+          <div class="mt-5 space-y-4 text-slate-600">
+            {deliverabilityBody.map((paragraph) => (
+              <p>{paragraph}</p>
+            ))}
+          </div>
+          <ul class="mt-6 space-y-3">
+            {deliverabilityHighlights.map((highlight) => (
+              <li class="flex items-start gap-3">
+                <span class="mt-2 h-2 w-2 rounded-full bg-primary"></span>
+                <span class="text-slate-700">{highlight}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div class="grid grid-cols-2 gap-4">
+          {deliverabilityIcons.map((icon) => (
+            <div class="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
+              <img
+                src={icon.src}
+                alt={icon.alt}
+                class="h-24 w-full object-contain"
+                loading="lazy"
+                decoding="async"
+                width="150"
+                height="96"
+              />
             </div>
           ))}
         </div>
       </section>
+
+      <section>
+        <h2 class="text-center text-3xl font-bold text-slate-900 md:text-4xl">
+          {t("about.team.title")}
+        </h2>
+        <div class="mt-10 grid gap-8 md:grid-cols-2 xl:grid-cols-3">
+          {teamMembers.map(
+            (member) => (
+              <article class="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm">
+                 <img
+                  src={member.imageUrl}
+                  alt={member.imageAlt}
+                  class="h-72 w-full object-cover"
+                  loading="lazy"
+                  decoding="async"
+                  width="336"
+                  height="504"
+                />
+                <div class="p-6">
+                  <h3 class="text-2xl font-bold text-slate-900">{member.name}</h3>
+                  <p class="mt-1 text-sm font-semibold uppercase tracking-wide text-primary">
+                    {member.role}
+                  </p>
+                  <p class="mt-4 text-slate-700">{member.intro}</p>
+                  <div class="mt-4 space-y-3 text-slate-600">
+                    {member.story.map((paragraph) => (
+                      <p>{paragraph}</p>
+                    ))}
+                  </div>
+                  <p class="mt-5 rounded-2xl bg-primary/5 px-4 py-3 text-sm font-medium text-primary">
+                    {member.funFact}
+                  </p>
+
+                  {member.links.length > 0 && (
+                    <div class="mt-5 flex flex-wrap gap-3">
+                      {member.links.map((link) => (
+                        <a
+                          href={link.href}
+                          target="_blank"
+                          rel="noreferrer noopener"
+                          class="rounded-full border border-slate-300 px-4 py-2 text-sm font-semibold text-slate-700 transition-colors hover:border-primary hover:text-primary"
+                        >
+                          {link.label}
+                        </a>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              </article>
+            ),
+          )}
+        </div>
+      </section>
+
+      <section class="rounded-3xl border border-slate-200 bg-white p-8 md:p-12">
+        <h2 class="text-center text-3xl font-bold text-slate-900 md:text-4xl">
+          {t("about.timeline.title")}
+        </h2>
+        <div class="mt-10 grid gap-6 md:grid-cols-2">
+          {timelineItems.map((item) => (
+            <article class="rounded-2xl border border-slate-200 bg-slate-50 p-6">
+              <p class="text-sm font-semibold uppercase tracking-wide text-primary">{item.date}</p>
+              <h3 class="mt-2 text-2xl font-bold text-slate-900">{item.title}</h3>
+              <p class="mt-3 text-slate-600">{item.description}</p>
+            </article>
+          ))}
+        </div>
+        <p class="mt-8 text-center text-lg font-medium text-slate-700">{t("about.timeline.outro")}</p>
+      </section>
+
+      <section class="grid items-center gap-10 rounded-3xl border border-slate-200 bg-slate-50 p-8 md:p-12 lg:grid-cols-[1.2fr_1fr]">
+        <div>
+          <h2 class="text-3xl font-bold text-slate-900 md:text-4xl">{t("about.future.title")}</h2>
+          <p class="mt-4 text-slate-700">{t("about.future.intro")}</p>
+          <ul class="mt-6 space-y-4">
+            {futureItems.map((item) => (
+              <li class="flex items-start gap-3">
+                <span class="mt-1 text-lg text-primary">+</span>
+                <span class="text-slate-700">{item}</span>
+              </li>
+            ))}
+          </ul>
+          <p class="mt-6 text-slate-700">{t("about.future.outro")}</p>
+        </div>
+        <img
+          src={futureImageUrl}
+          alt={futureImageAlt}
+          class="w-full rounded-3xl border border-slate-200 bg-white p-4 object-contain"
+          loading="lazy"
+          decoding="async"
+          width="500"
+          height="350"
+        />
+       </section>
+
+      <section class="rounded-3xl border border-slate-200 bg-slate-50 p-8 md:p-12">
+        <div class="mx-auto max-w-4xl text-center">
+          <h2 class="text-3xl font-bold text-slate-900 md:text-4xl">
+            {t("about.inlineCta.title")}
+          </h2>
+          <p class="mt-4 text-lg text-slate-600">
+            {t("about.inlineCta.subtitle")}
+          </p>
+          <div class="mt-8">
+            <a
+              href={buildSignupUrl({ context: "about_page_bottom", plan: "growth" })}
+              class="inline-flex items-center justify-center rounded-full bg-primary px-8 py-4 text-lg font-semibold text-white transition-colors hover:bg-primary/90"
+            >
+              {t("about.inlineCta.button")}
+            </a>
+          </div>
+        </div>
+      </section>
+
     </div>
   </div>
 </div>

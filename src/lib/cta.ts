@@ -27,7 +27,8 @@ export type UtmSource =
   | "usecase_outbound-teams"
   | "usecase_outbound-teams_bottom"
   | "usecase_startups"
-  | "usecase_startups_bottom";
+  | "usecase_startups_bottom"
+  | "about_page_bottom";
 
 interface SignupUrlOptions {
   context: UtmSource;

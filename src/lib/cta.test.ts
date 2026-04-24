@@ -17,6 +17,12 @@ describe("buildSignupUrl", () => {
     expect(url.searchParams.has("billing")).toBe(false);
   });
 
+  it("supports the About page bottom CTA context", () => {
+    const result = buildSignupUrl({ context: "about_page_bottom" });
+    const url = new URL(result);
+    expect(url.searchParams.get("utm_source")).toBe("about_page_bottom");
+  });
+
   // Feature: vitest-setup, Property 5: buildSignupUrl always returns a valid absolute URL with required UTM params
   it("Property 5: buildSignupUrl always returns a valid absolute URL with required UTM params", () => {
     fc.assert(
@@ -25,7 +31,10 @@ describe("buildSignupUrl", () => {
           "landing_page",
           "pricing_page",
           "cta_bottom",
-        ) as fc.Arbitrary<"landing_page" | "pricing_page" | "cta_bottom">,
+          "about_page_bottom",
+        ) as fc.Arbitrary<
+          "landing_page" | "pricing_page" | "cta_bottom" | "about_page_bottom"
+        >,
         (context) => {
           const result = buildSignupUrl({ context });
           const url = new URL(result); // throws if not a valid absolute URL
@@ -45,7 +54,10 @@ describe("buildSignupUrl", () => {
           "landing_page",
           "pricing_page",
           "cta_bottom",
-        ) as fc.Arbitrary<"landing_page" | "pricing_page" | "cta_bottom">,
+          "about_page_bottom",
+        ) as fc.Arbitrary<
+          "landing_page" | "pricing_page" | "cta_bottom" | "about_page_bottom"
+        >,
         fc.option(
           fc.constantFrom("starter", "growth", "scale", "pro") as fc.Arbitrary<
             "starter" | "growth" | "scale" | "pro"
