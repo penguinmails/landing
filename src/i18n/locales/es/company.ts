@@ -46,13 +46,13 @@ export const company: CompanyTranslations = {
   "about.team.members": [
     {
       name: "Mustafa",
-      role: "Co-Founder & CEO",
+      role: "Cofundador y CEO",
       intro:
-        "Tengo 17 años, vivo en Pakistan y llevo algunos años construyendo negocios en internet.",
+        "Tengo 17 años, vivo en Pakistán y llevo algunos años construyendo negocios en internet.",
       story: [
         "Empecé a aprender SEO en 2021 y creé mi primer blog en 2022. Fracasó, pero me enseñó mucho más de lo que esperaba.",
         "En 2023 empecé a trabajar como freelancer en SEO y link building. En 2024 fundé ContentLinkify, una agencia SEO SaaS.",
-        "En abril de 2025 pausé la agencia para enfocarme en una nueva idea. PenguinMails nació como una herramienta para mi propio outreach y ahora se está convirtiendo en un startup SaaS completo.",
+        "En abril de 2025 pausé la agencia para enfocarme en una nueva idea. PenguinMails nació como una herramienta para mi propio outreach y ahora se está convirtiendo en una startup SaaS completa.",
       ],
       funFact:
         "Dato curioso: Cuando no estoy en la laptop, casi siempre estoy imaginando nuevos proyectos.",
@@ -72,7 +72,7 @@ export const company: CompanyTranslations = {
     },
     {
       name: "Anthony",
-      role: "Co-Founder & CTO",
+      role: "Cofundador y CTO",
       intro:
         "Soy Anthony, tengo 37 años. Vivo en Colombia y nací en El Salvador.",
       story: [
@@ -94,7 +94,7 @@ export const company: CompanyTranslations = {
     },
     {
       name: "Pengo",
-      role: "CMO (Chief Mascot Officer)",
+      role: "CMO (Jefe de Mascotas)",
       intro:
         "Pengo no escribe código ni campañas, pero ayuda a mantener cuerdo al equipo.",
       story: [
