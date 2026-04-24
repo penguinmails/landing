@@ -1,5 +1,6 @@
 ---
-import { useTranslations } from "@/i18n/utils";
+import type { useTranslations } from "@/i18n/utils";
+import { buildSignupUrl } from "@/lib/cta";
 
 type Translator = ReturnType<typeof useTranslations>;
 
@@ -60,6 +61,8 @@ const futureImageAlt = t("about.future.imageAlt");
                 class="h-24 w-full object-contain"
                 loading="lazy"
                 decoding="async"
+                width="150"
+                height="96"
               />
             </div>
           ))}
@@ -74,12 +77,14 @@ const futureImageAlt = t("about.future.imageAlt");
           {teamMembers.map(
             (member) => (
               <article class="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm">
-                <img
+                 <img
                   src={member.imageUrl}
                   alt={member.imageAlt}
                   class="h-72 w-full object-cover"
                   loading="lazy"
                   decoding="async"
+                  width="336"
+                  height="504"
                 />
                 <div class="p-6">
                   <h3 class="text-2xl font-bold text-slate-900">{member.name}</h3>
@@ -153,7 +158,28 @@ const futureImageAlt = t("about.future.imageAlt");
           class="w-full rounded-3xl border border-slate-200 bg-white p-4 object-contain"
           loading="lazy"
           decoding="async"
+          width="500"
+          height="350"
         />
+       </section>
+
+      <section class="rounded-3xl border border-slate-200 bg-slate-50 p-8 md:p-12">
+        <div class="mx-auto max-w-4xl text-center">
+          <h2 class="text-3xl font-bold text-slate-900 md:text-4xl">
+            {t("about.inlineCta.title")}
+          </h2>
+          <p class="mt-4 text-lg text-slate-600">
+            {t("about.inlineCta.subtitle")}
+          </p>
+          <div class="mt-8">
+            <a
+              href={buildSignupUrl({ context: "about_page_bottom", plan: "growth" })}
+              class="inline-flex items-center justify-center rounded-full bg-primary px-8 py-4 text-lg font-semibold text-white transition-colors hover:bg-primary/90"
+            >
+              {t("about.inlineCta.button")}
+            </a>
+          </div>
+        </div>
       </section>
 
     </div>
