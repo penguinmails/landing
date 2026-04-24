@@ -649,12 +649,39 @@ export type CompanyTranslations = {
   "about.hero.tagline": string;
   "about.hero.title": string;
   "about.hero.subtitle": string;
-  "about.mission.title": string;
-  "about.mission.body": string;
-  "about.story.title": string;
-  "about.story.body": string;
-  "about.values.title": string;
-  "about.values.items": Array<{ title: string; description: string }>;
+  "about.hero.note": string;
+  "about.deliverability.title": string;
+  "about.deliverability.intro": string;
+  "about.deliverability.body": string[];
+  "about.deliverability.highlights": string[];
+  "about.deliverability.icons": Array<{ src: string; alt: string }>;
+  "about.team.title": string;
+  "about.team.members": Array<{
+    name: string;
+    role: string;
+    intro: string;
+    story: string[];
+    funFact: string;
+    imageUrl: string;
+    imageAlt: string;
+    links: Array<{ label: string; href: string }>;
+  }>;
+  "about.timeline.title": string;
+  "about.timeline.items": Array<{
+    date: string;
+    title: string;
+    description: string;
+  }>;
+  "about.timeline.outro": string;
+  "about.future.title": string;
+  "about.future.intro": string;
+  "about.future.items": string[];
+  "about.future.outro": string;
+  "about.future.imageUrl": string;
+  "about.future.imageAlt": string;
+  "about.inlineCta.title": string;
+  "about.inlineCta.subtitle": string;
+  "about.inlineCta.button": string;
 
   "contact.title": string;
   "contact.description": string;
